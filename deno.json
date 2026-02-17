@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "dev": {
+      "command": "deno x --unstable-bare-node-builtins @tinacms/cli dev",
+      "description": "Start dev server"
+    }
+  }
+}
