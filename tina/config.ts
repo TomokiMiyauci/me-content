@@ -26,4 +26,5 @@ export default defineConfig({
     outputFolder: "./", // within the public folder
   },
   schema: { collections },
+  client: { skip: true },
 });
