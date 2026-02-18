@@ -1,10 +1,9 @@
+// deno-lint-ignore-file no-process-global
 import { defineConfig } from "tinacms";
 import collections from "./collection.ts";
 
-const clientId = Deno.env.get("TINA_CLIENT_ID");
-const token = Deno.env.get("TINA_TOKEN");
-
-console.log(clientId);
+const clientId = process.env["TINA_CLIENT_ID"];
+const token = process.env["TINA_TOKEN"];
 
 export default defineConfig({
   branch: "main",
