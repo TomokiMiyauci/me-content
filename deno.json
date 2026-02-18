@@ -3,6 +3,10 @@
     "dev": {
       "command": "deno x --unstable-bare-node-builtins @tinacms/cli dev",
       "description": "Start dev server"
+    },
+    "build": {
+      "command": "deno x --unstable-bare-node-builtins @tinacms/cli build",
+      "description": "Build artifact"
     }
   }
 }
