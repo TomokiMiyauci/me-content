@@ -17,7 +17,7 @@ jobs:
 
       - run: deno install
 
-      - run: Build
+      - run: deno task build
         env:
           TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
