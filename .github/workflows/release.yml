@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          cache: true
+
+      - run: deno install
+
+      - run: Build
+        env:
+          TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
