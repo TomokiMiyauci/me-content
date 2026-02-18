@@ -4,6 +4,8 @@ import collections from "./collection.ts";
 const clientId = Deno.env.get("TINA_CLIENT_ID");
 const token = Deno.env.get("TINA_TOKEN");
 
+console.log(clientId);
+
 export default defineConfig({
   branch: "main",
   clientId,
