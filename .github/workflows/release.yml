@@ -28,5 +28,6 @@ jobs:
           --token=${{ secrets.DENO_TOKEN }} \
           --org=${{ vars.ORG }} \
           --app=${{ vars.APP }} \
-          --prod
+          --prod \
+          --no-wait \
           dist
