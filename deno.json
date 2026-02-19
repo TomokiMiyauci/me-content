@@ -8,5 +8,8 @@
       "command": "deno x --unstable-bare-node-builtins @tinacms/cli build",
       "description": "Build artifact"
     }
-  }
+  },
+  "exclude": [
+    "!dist"
+  ]
 }
