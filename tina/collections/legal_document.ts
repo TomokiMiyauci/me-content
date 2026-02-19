@@ -21,6 +21,15 @@ export default {
       type: "datetime",
       name: "effective_at",
     },
+    {
+      type: "string",
+      name: "language",
+      options: [
+        { value: "en", label: "en" },
+        { value: "ja", label: "ja" },
+      ],
+      required: true,
+    },
   ],
   format: "json",
 } satisfies Collection;
