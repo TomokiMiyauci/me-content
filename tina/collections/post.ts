@@ -14,6 +14,11 @@ export default {
     },
     {
       type: "string",
+      name: "slug",
+      required: true,
+    },
+    {
+      type: "string",
       name: "description",
     },
     {
@@ -29,6 +34,7 @@ export default {
     {
       type: "datetime",
       name: "published_at",
+      required: true,
     },
     {
       type: "datetime",
@@ -74,6 +80,14 @@ export default {
           name: "category",
           collections: ["category"],
         },
+      ],
+    },
+    {
+      name: "language",
+      type: "string",
+      options: [
+        { value: "en", label: "En" },
+        { value: "ja", label: "Ja" },
       ],
     },
   ],
