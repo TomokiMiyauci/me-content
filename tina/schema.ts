@@ -1,4 +1,4 @@
-import type { Collection } from "tinacms";
+import type { Collection, Schema } from "tinacms";
 import post from "./collections/post.ts";
 import author from "./collections/author.ts";
 import tag from "./collections/tag.ts";
@@ -7,7 +7,7 @@ import blog from "./collections/blog.ts";
 import home from "./collections/home.ts";
 import category from "./collections/category.ts";
 
-export default [
+const collections = [
   post,
   author,
   tag,
@@ -16,3 +16,7 @@ export default [
   home,
   category,
 ] satisfies Collection[];
+
+export default {
+  collections,
+} satisfies Schema;
