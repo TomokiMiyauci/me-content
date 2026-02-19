@@ -24,8 +24,9 @@ jobs:
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
       - name: Deploy
-        run: deno deploy dist \
+        run: deno deploy \
           --token=${{ secrets.DENO_TOKEN }} \
           --org=${{ vars.ORG }} \
           --app=${{ vars.APP }} \
           --prod
+          dist
