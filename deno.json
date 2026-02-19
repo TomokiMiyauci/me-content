@@ -5,11 +5,8 @@
       "description": "Start dev server"
     },
     "build": {
-      "command": "deno x --unstable-bare-node-builtins @tinacms/cli build",
+      "command": "deno x --unstable-bare-node-builtins @tinacms/cli build && rm dist/.gitignore",
       "description": "Build artifact"
     }
-  },
-  "exclude": [
-    "!dist"
-  ]
+  }
 }
