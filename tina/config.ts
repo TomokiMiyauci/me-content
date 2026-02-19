@@ -22,7 +22,7 @@ export default defineConfig({
     },
   },
   build: {
-    publicFolder: "public", // The public asset folder for your framework
+    publicFolder: "dist", // The public asset folder for your framework
     outputFolder: "./", // within the public folder
   },
   schema,
