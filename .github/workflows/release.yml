@@ -30,4 +30,3 @@ jobs:
             --app=${{ vars.APP }} \
             --token=${{ secrets.DENO_TOKEN }} \
             --prod \
-            --no-wait \
