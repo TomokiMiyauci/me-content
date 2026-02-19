@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-process-global
 import { defineConfig } from "tinacms";
-import collections from "./collection.ts";
+import schema from "./schema.ts";
 
 const clientId = process.env["TINA_CLIENT_ID"];
 const token = process.env["TINA_TOKEN"];
@@ -25,6 +25,6 @@ export default defineConfig({
     publicFolder: "public", // The public asset folder for your framework
     outputFolder: "./", // within the public folder
   },
-  schema: { collections },
+  schema,
   client: { skip: true },
 });
