@@ -12,7 +12,7 @@ export default {
     },
     {
       type: "object",
-      name: "image",
+      name: "cover_image",
       fields: [
         { name: "source", type: "image" },
         { name: "description", type: "string" },
