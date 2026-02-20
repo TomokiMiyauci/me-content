@@ -4,6 +4,7 @@ description: Introduces how to tweet from a program using the Twitter API. Descr
 published_at: 2021-07-26
 slug: tweet-typescript
 language: en
+cover_image: /posts/tweet-typescript/hero.png
 ---
 
 ## Introduction

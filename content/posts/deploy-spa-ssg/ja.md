@@ -4,6 +4,7 @@ description: SPAやSSGの仕組みをデプロイという観点から説明し�
 slug: deploy-spa-ssg
 published_at: 2021-02-28
 language: ja
+cover_image: /posts/deploy-spa-ssg/hero.png
 ---
 
 ## はじめに

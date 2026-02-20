@@ -4,6 +4,7 @@ description: Learn how to speed up your tests with Jest. Introducing esbuild or 
 published_at: 2021-03-27
 slug: speeding-up-jest
 language: en
+cover_image: /posts/speeding-up-jest/hero.png
 ---
 
 ## Introduction

@@ -4,6 +4,7 @@ description: JestでTable Driven Testsをする方法を紹介します。Jest�
 published_at: 2021-03-28
 slug: jest-table-driven-tests
 language: ja
+cover_image: /posts/jest-table-driven-tests/hero.png
 ---
 
 ## はじめに

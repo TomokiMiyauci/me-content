@@ -3,6 +3,7 @@ title: Online testing with Cloud Functions for Firebase
 description: Introduce how to test online mode with Cloud Functions for Firebase. As an example, I will test storing the user information in the database when they sign up, and I will test it across Firebase resources.
 published_at: 2021-08-21
 slug: cloud-functions-online-test
+cover_image: /posts/cloud-functions-online-test/hero.png
 language: en
 ---
 

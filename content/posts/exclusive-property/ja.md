@@ -4,6 +4,7 @@ description: TypeScriptで排他的なプロパティを定義する方法を紹
 published_at: 2021-07-12
 slug: exclusive-property
 language: ja
+cover_image: /posts/exclusive-property/hero.png
 ---
 
 ## はじめに

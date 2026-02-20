@@ -4,6 +4,7 @@ description: Shows how to define exclusive properties in TypeScript. It explains
 published_at: 2021-07-12
 slug: exclusive-property
 language: en
+cover_image: /posts/exclusive-property/hero.png
 ---
 
 ## Introduction

@@ -4,6 +4,7 @@ description: Gatsby で configファイルの完全 TypeScript化について解
 published_at: 2021-07-19
 slug: gatsby-typescript
 language: ja
+cover_image: /posts/gatsby-typescript/hero.png
 ---
 
 ## はじめに

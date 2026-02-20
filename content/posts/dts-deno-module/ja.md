@@ -4,6 +4,7 @@ description: dnt は Deno ベースのコードから Node.js 用のコードを
 published_at: 2021-12-02
 slug: dts-deno-module
 language: ja
+cover_image: /posts/dts-deno-module/hero.png
 ---
 
 ## はじめに

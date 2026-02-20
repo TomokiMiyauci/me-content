@@ -4,6 +4,7 @@ description: VitePress の基本的な使い方から、ドキュメントには
 published_at: 2021-02-14
 slug: start-vitepress
 language: ja
+cover_image: /posts/start-vitepress/hero.png
 ---
 
 ## はじめに

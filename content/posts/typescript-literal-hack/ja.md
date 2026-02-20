@@ -4,6 +4,7 @@ description: TypeScriptで 'string' | string を定義する方法を紹介し�
 published_at: 2021-11-10
 slug: typescript-literal-hack
 language: ja
+cover_image: /posts/typescript-literal-hack/hero.png
 ---
 
 ## はじめに

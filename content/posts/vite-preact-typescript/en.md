@@ -4,6 +4,7 @@ description: Building a Typescript Preact environment using the No bundle tool V
 published_at: 2021-03-03
 slug: vite-preact-typescript
 language: en
+cover_image: /posts/vite-preact-typescript/hero.png
 ---
 
 ## Introduction

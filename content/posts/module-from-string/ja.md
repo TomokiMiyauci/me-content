@@ -4,6 +4,7 @@ description: 文字列からランタイムで利用できる Module を取り�
 published_at: 2022-03-31
 slug: module-from-string
 language: ja
+cover_image: /posts/module-from-string/hero.png
 ---
 
 ## はじめに

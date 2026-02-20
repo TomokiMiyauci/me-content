@@ -4,6 +4,7 @@ description: No bundleツールのViteを使って、TypescriptでのVue3環境�
 published_at: 2021-03-11
 slug: vite-vue3-typescript
 language: ja
+cover_image: /posts/vite-vue3-typescript/hero.png
 ---
 
 ## はじめに

@@ -4,6 +4,7 @@ description: プログラムからツイッターのAPIを使ってツイート�
 published_at: 2021-07-26
 slug: tweet-typescript
 language: ja
+cover_image: /posts/tweet-typescript/hero.png
 ---
 
 ## はじめに

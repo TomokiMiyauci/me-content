@@ -4,6 +4,7 @@ description: Show how to more accurately infer the return type of an arrow funct
 published_at: 2021-02-21
 slug: typescript-conditional-types
 language: en
+cover_image: /posts/typescript-conditional-types/hero.png
 ---
 
 ## Introduction

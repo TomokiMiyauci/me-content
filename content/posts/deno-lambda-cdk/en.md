@@ -4,6 +4,7 @@ description: This tutorial shows how to run AWS Lambda with Deno runtime. It use
 published_at: 2022-01-11
 slug: deno-lambda-cdk
 language: en
+cover_image: /posts/deno-lambda-cdk/hero.png
 ---
 
 ## Introduction

@@ -4,6 +4,7 @@ description: Show how to introduce the CSS framework Tailwind CSS in your Vite p
 published_at: 2021-03-05
 slug: vite-vue3-tailwindcss
 language: en
+cover_image: /posts/vite-vue3-tailwindcss/hero.png
 ---
 
 ## Introduction

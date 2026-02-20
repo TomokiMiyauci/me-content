@@ -4,6 +4,7 @@ description: Introduce how to type-safely get the first element of a list struct
 published_at: 2021-07-03
 slug: typesafe-array-element
 language: en
+cover_image: /posts/typesafe-array-element/hero.png
 ---
 
 ## Getting Started

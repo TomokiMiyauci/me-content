@@ -4,6 +4,7 @@ description: Show you how to extract a Module from a string that can be used at 
 published_at: 2022-03-31
 slug: module-from-string
 language: en
+cover_image: /posts/module-from-string/hero.png
 ---
 
 ## Introduction
