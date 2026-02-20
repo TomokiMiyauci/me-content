@@ -1,0 +1,257 @@
+---
+title: Bitlyで動的に短縮 URLを作成してツイートする
+description: Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
+hero: hero.png
+thumbnail: thumbnail.png
+date: 2021-08-07
+slug: bitly-short-url
+language: ja
+---
+
+## はじめに
+
+Bitly とは公式では次のように説明されています。
+
+> Bitly is a link management platform that lets you harness the power of your
+> links by shortening, sharing, managing and analyzing links to your content.
+
+日本語訳:
+
+> Bitly
+> は、コンテンツへのリンクを短縮、共有、管理、分析することで、リンクの力を活用することができるリンク管理プラットフォームです。
+
+Bitly を使うことで、短縮 URL
+の作成だけでなく、リアルタイムにクリックデータをトラッキングしたり、短縮 URL
+に独自ドメインを割り当てたりできます。 また、API
+が公開されているため、動的に短縮 URL を生成できます。
+
+短縮 URL の最も有力な使い所は、ツイートだと思います。280
+文字の文字数制限があるため、URL はなるべく短くしたいものです。
+
+今回は、Bitly を使って動的に短縮 URL
+を作成し、動的にツイートする方法を紹介します。
+
+## Bitly について
+
+Bitly はクレジットカードの登録が不要なフリープランがあります。
+フリープランでは、月に 1000 個まで短縮 URL を生成できます。
+
+例えばこのサイトの URL を短縮すると、
+
+https://miyauchi.dev/ -> https://bit.ly/3jzAv7l
+
+という URL が生成されました。
+
+フリープランでは `bit.ly` というドメインを変更できません。
+しかし、フリープランでもパスの部分はカスタマイズすることが可能です。
+
+例えば、上の短縮 URL の `3jzAv7l`
+というパスは、すでに取得されていない好きなパスに変更できます。
+このパスのカスタマイズは、フリープランでは月に 50 個まで生成できます。
+
+他のプランごとの違いについては
+[Upgrade your links](https://bitly.com/pages/pricing)を確認ください。
+
+## Bitly で短縮 URL を動的に生成する
+
+短縮 URL の動的生成には、アクセストークンが必要です。
+アクセストークンはログインしていれば生成できるので、
+[Authentication](https://dev.bitly.com/docs/getting-started/authentication/)
+やダッシュボードから生成してください。
+
+短縮 URL のエンドポイントは次のとおりです。
+
+https://api-ssl.bitly.com/v4/shorten
+
+リクエストヘッダーにアクセストークンを付与して、body に短縮したい URL
+を指定します。
+
+`curl` での例を参考にテストしてみてもいいでしょう。
+
+```bash
+curl \
+-H 'Authorization: Bearer {TOKEN}' \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{
+  "long_url": "https://miyauchi.dev/"
+}' \
+https://api-ssl.bitly.com/v4/shorten
+```
+
+また、レスポンスは次のようになります。
+
+```json
+{
+  "created_at": "2021-08-07T06:45:15+0000",
+  "id": "<id>",
+  "link": "https://bit.ly/3jzAv7l",
+  "custom_bitlinks": [],
+  "long_url": "https://miyauchi.dev/",
+  "archived": false,
+  "tags": [],
+  "deeplinks": [],
+  "references": {
+    "group": "https://api-ssl.bitly.com/v4/groups/<group>"
+  }
+}
+```
+
+JSON の `link` が短縮 URL です。また、`long_url` は元の URL を表します。 短縮
+URL は元の URL と一対一です。つまり、同一 URL をリクエストしても、同じ短縮 URL
+がレスポンスされます。 よって、同一 URL に対する短縮 URL 生成リクエストは、月
+1000 のクレジットを消費しません。
+
+`fetch` などでエンドポイントを直接呼び出してもいいですが、 Bitly
+にはクライアントライブラリがあるので、それを使いましょう。
+
+### Bitly クライアント
+
+Bitly クライアントライブラリを使うことで、 TypeScript で型安全に運用できます。
+
+<CodeGroups>
+  <CodeGroup label="Yarn" active>
+
+```bash
+yarn add bitly
+```
+
+</CodeGroup>
+
+<CodeGroup label="NPM">
+
+```bash
+npm i bitly
+```
+
+</CodeGroup>
+</CodeGroups>
+
+<Alert type="warning">Top level await 構文を使っています</Alert>
+
+```ts
+import { BitlyClient, isBitlyErrResponse } from "bitly";
+const bitly = new BitlyClient("<access-token>");
+
+try {
+  const bitlyLink = await bitly.shorten("https://miyauchi.dev/");
+} catch (error) {
+  if (isBitlyErrResponse(error)) {
+    // bitly error
+  } else if (error.isAxiosError) {
+    // axios error
+  }
+}
+```
+
+`shorten` メソッドが、上で見たエンドポイントへのリクエストに相当します。 Bitly
+クライアントは http リクエストに `axios` を使っているようです。
+よって、エラー時は `isBitlyErrResponse` 関数を用いることで、Bitly
+からのエラーなのか、 ネットワークエラーなのか識別できます。
+
+また、Promise の `resolve` は `BitlyLink` という型になっています。
+
+```ts
+interface BitlyLink {
+  created_at: string;
+  id: string;
+  link: string;
+  custom_bitlinks: string[];
+  long_url: string;
+  archived: boolean;
+  tags: string[];
+  deeplinks: DeepLink[];
+  references: References;
+  title?: string;
+  created_by?: string;
+}
+```
+
+`BitlyLink` 型には、/v4/shorten のレスポンスにはない `title` と `created_by` が
+Optional として定義されています。
+
+`title` は URL 先の HTML の `title` タグです。 また、`created_by` は
+アカウント名が設定されます。
+
+`shorten` メソッドは　/v4/shorten
+へのリクエストと同等なので、上の２つのキーは取得できません。
+これらも含めて取得するには `info` メソッドなどを使います。
+
+```ts
+await bitly.info("https://bit.ly/3jzAv7l"); // BitlyLink
+```
+
+`info` メソッドの引数は、Bitly によって作られた短縮 URL や id を指定します。
+同じように、`clicks` メソッドや、 `referrers` メソッドを使うことで、短縮 URL
+のメトリクスを取得できます。
+
+## ツイートする
+
+せっかく動的に短縮 URL を生成したので、動的にツイートをしましょう。
+
+ツイートについては以前書いた
+[TypeScript で型安全にツイートする](/posts/tweet-typescript/)
+を参照してください。
+
+<CodeGroups>
+  <CodeGroup label="Yarn" active>
+
+```bash
+yarn add -D twitter-api-v2
+```
+
+</CodeGroup>
+
+<CodeGroup label="NPM">
+
+```bash
+npm i -D twitter-api-v2
+```
+
+</CodeGroup>
+</CodeGroups>
+
+```ts
+import { BitlyClient } from "bitly";
+import Twitter from "twitter-api-v2";
+
+const bitly = new BitlyClient("<access-token>");
+const client = new Twitter({
+  appKey,
+  appSecret,
+  accessToken,
+  accessSecret,
+});
+
+const bitlyLink = await bitly.shorten("https://miyauchi.dev/");
+const tweetContent = bitlyLink; // rendering tweet content
+await client.v1.tweet(tweetContent);
+```
+
+上の例では、短縮 URL をそのままツイートしています。
+
+普通ツイートには URL 以外にも情報を記載すると思います。
+
+このブログでは、次のように記事の公開時に自動ツイートするようにしています。
+
+<blockquote align="center" class="twitter-tweet">
+  <p lang="ja" dir="ltr">
+    🤖 新しい記事を投稿しました🚀
+    <a href="https://t.co/ThUPfgUld9">https://t.co/ThUPfgUld9</a>
+    <br />
+    <br />
+    Bitlyで動的に短縮 URLを作成してツイートする
+    <br />
+    Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
+  </p>
+  &mdash; Tomoki Miyauci (@tomoki_miyauci) <a href="https://twitter.com/tomoki_miyauci/status/1424007666687303687?ref_src=twsrc%5Etfw">
+    August 7, 2021
+  </a>
+</blockquote>
+
+テンプレートエンジンを使ってツイートコンテンツをレンダリングするのがおすすめですが、
+280 文字の文字数制限には注意する必要があります。
+
+動的ツイートは文字数管理を自分でしなければなりません。
+
+またの機会に、ツイートの文字数管理について書きたいと思います。
