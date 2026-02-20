@@ -1,4 +1,5 @@
 import type { Collection } from "tinacms";
+import language from "./fields/language.ts";
 
 export default {
   name: "category",
@@ -19,15 +20,7 @@ export default {
       type: "string",
       name: "description",
     },
-    {
-      type: "string",
-      name: "language",
-      options: [
-        { value: "en", label: "en" },
-        { value: "ja", label: "ja" },
-      ],
-      required: true,
-    },
+    language,
   ],
   format: "json",
 } satisfies Collection;

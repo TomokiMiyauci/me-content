@@ -1,4 +1,5 @@
 import type { Collection } from "tinacms";
+import language from "./fields/language.ts";
 
 export default {
   label: "Blog Posts",
@@ -81,13 +82,6 @@ export default {
         },
       ],
     },
-    {
-      name: "language",
-      type: "string",
-      options: [
-        { value: "en", label: "En" },
-        { value: "ja", label: "Ja" },
-      ],
-    },
+    language,
   ],
 } satisfies Collection;
