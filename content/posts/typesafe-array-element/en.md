@@ -405,13 +405,13 @@ function expressions. (Not function declaration) According to
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions),
 it has the following features.
 
-> - Does not have its own bindings to `this` or `super`, and should not be used
->   as methods.
-> - Does not have `arguments`, or `new.target` keywords.
-> - Not suitable for `call`, `apply` and `bind` methods, which generally rely on
->   establishing a scope.
-> - Can not be used as constructors.
-> - Can not use `yield`, within its body.
+- Does not have its own bindings to `this` or `super`, and should not be used as
+  methods.
+- Does not have `arguments`, or `new.target` keywords.
+- Not suitable for `call`, `apply` and `bind` methods, which generally rely on
+  establishing a scope.
+- Can not be used as constructors.
+- Can not use `yield`, within its body.
 
 Function declaration is the most common notation.
 

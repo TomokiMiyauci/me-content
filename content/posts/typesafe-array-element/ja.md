@@ -363,13 +363,13 @@ function head(val: string | unknown[]) {
 [MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 によると次の特徴があるようです。
 
-> - `this` や `super`
->   への結びつけを持たないので、メソッドとして使用することはできません。
-> - `arguments` や `new.target` キーワードがありません。
-> - `call`, `apply`, `bind`
->   のような、一般にスコープの設定のためのメソッドには適していません。
-> - コンストラクターとして使用することはできません。
-> - 本体内で `yield` を使用することはできません。
+- `this` や `super`
+  への結びつけを持たないので、メソッドとして使用することはできません。
+- `arguments` や `new.target` キーワードがありません。
+- `call`, `apply`, `bind`
+  のような、一般にスコープの設定のためのメソッドには適していません。
+- コンストラクターとして使用することはできません。
+- 本体内で `yield` を使用することはできません。
 
 関数宣言は最も一般的な記法です。
 
