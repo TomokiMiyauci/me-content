@@ -1,5 +1,4 @@
 import type { Collection } from "tinacms";
-import picture from "./picture.ts";
 
 export default {
   name: "home",
@@ -17,8 +16,12 @@ export default {
     },
     {
       type: "object",
-      name: "cover_image",
-      templates: [picture],
+      name: "image",
+      fields: [
+        { name: "source", type: "image" },
+        { name: "description", type: "string" },
+        { type: "string", name: "title" },
+      ],
     },
     {
       type: "string",

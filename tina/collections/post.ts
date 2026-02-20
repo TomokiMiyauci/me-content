@@ -1,5 +1,4 @@
 import type { Collection } from "tinacms";
-import picture from "./picture.ts";
 
 export default {
   label: "Blog Posts",
@@ -24,9 +23,12 @@ export default {
     },
     {
       type: "object",
-      templates: [picture],
-
-      name: "cover_image",
+      name: "image",
+      fields: [
+        { name: "source", type: "image" },
+        { name: "description", type: "string" },
+        { type: "string", name: "title" },
+      ],
     },
     {
       type: "datetime",
