@@ -132,10 +132,10 @@ const options: Options = {
 からひとつのメンバーに絞り込むことができます。
 
 Discriminated Union には、必ず共通のプロパティが必要になります。
-またそのプロパティは<u>一意に特定できる型</u>[^1]である必要があります。
+またそのプロパティは<u>一意に特定できる型</u>である必要があります。
 
-[^1]: これはしばしば `singleton types`と呼ばれます。
-    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types)
+<!-- [^1]: これはしばしば `singleton types`と呼ばれます。
+    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types) -->
 
 #### 一意に特定できる型とは
 
@@ -265,9 +265,9 @@ const options: Options = {
 データ型が異なるため、一見うまくいきそうですがだめです。
 判定要素がデータ型のみの場合、Discriminated Union により判別はできません。
 
-これに `PropertyKey`[^2] 以外の型が加わると、正しく判別できるようになります。
+これに `PropertyKey` 以外の型が加わると、正しく判別できるようになります。
 
-[^2]: `string` | `number` | `symbol`
+<!-- [^2]: `string` | `number` | `symbol` -->
 
 ```ts
 type Options =
@@ -348,10 +348,10 @@ type Options =
 ```
 
 それぞれを一意に絞り込むため、互いにないプロパティを補完します。
-`PropertyKey`以外の型として `undefined`[^3]型を指定します。
-また、そのプロパティは Optional にします。
+`PropertyKey`以外の型として `undefined`型を指定します。 また、そのプロパティは
+Optional にします。
 
-[^3]: `never` 型でも結果は同じです。
+<!-- [^3]: `never` 型でも結果は同じです。 -->
 
 以下のようになります。
 
@@ -375,9 +375,9 @@ type Options =
 どちらにも対応できるように、お互いにないプロパティをすべて補完しているわけです。
 
 これによって、`theme` と `color`
-が同時に指定できないインターフェイスになりました[^4]。
+が同時に指定できないインターフェイスになりました。
 
-[^4]: `undefined` のみ受け付けます。
+<!-- [^4]: `undefined` のみ受け付けます。 -->
 
 さらに 片方にしかない型を加えても正しく動作します。
 

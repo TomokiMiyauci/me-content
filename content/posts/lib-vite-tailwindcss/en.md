@@ -234,9 +234,9 @@ CSS custom properties such as `--tw-bg-opacity` should have no side effect, as
 their scope is closed.
 
 Unfortunately, as a Bandler plugin, it should not be possible to use hash values
-for prefixes. [^1]
+for prefixes.
 
-[^1]: maybe `windicss` can do it
+<!-- [^1]: maybe `windicss` can do it -->
 
 So be aware that even with a prefix, there is a chance of duplicate class names.
 
@@ -246,10 +246,10 @@ You can use the following CSS Modules without worrying about that.
 
 Vite supports CSS Modules by default.
 
-The `*.module.css` file is recognized as a CSS Modules. [^2]
+The `*.module.css` file is recognized as a CSS Modules.
 
-[^2]: Also supports `.scss` and `.less`. See the
-    [CSS preprocessor](https://vitejs.dev/guide/features.html#css-pre-processors).
+<!-- [^2]: Also supports `.scss` and `.less`. See the
+    [CSS preprocessor](https://vitejs.dev/guide/features.html#css-pre-processors). -->
 
 Create a file called `swipe.module.css` and add your styles.
 

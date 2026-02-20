@@ -56,19 +56,19 @@ backend.
 
 The timing of anonymous authentication may vary depending on the configuration,
 but it is basically passive. In most cases, it does not have to be at page load
-time, and can be done after user interaction [^1].
+time, and can be done after user interaction.
 
-[^1]: Events that fire after user interaction, such as click events and scroll
-    events.
+<!-- [^1]: Events that fire after user interaction, such as click events and scroll
+    events. -->
 
 In addition, the authentication process itself does not need to involve the UI.
 In this case, instead of doing the authentication process in the main thread,
 the process can be moved to the background thread.
 
 By doing the processing in the background thread, the processing can be done
-without disturbing the UI. It also basically improves the CWV [^2].
+without disturbing the UI. It also basically improves the CWV.
 
-[^2]: Core Web Vitals
+<!-- [^2]: Core Web Vitals -->
 
 ## Using Firebase Authentication with Service worker
 
@@ -263,10 +263,10 @@ npm i -D esbuild
 </CodeGroup>
 </CodeGroups>
 
-Since `esbuild` provides commands that work in the CLI, we will use them [^3].
+Since `esbuild` provides commands that work in the CLI, we will use them.
 
-[^3]: It also provides a JavaScript API, so we recommend using that if the build
-    process gets too complicated.
+<!-- [^3]: It also provides a JavaScript API, so we recommend using that if the build
+    process gets too complicated. -->
 
 <CodeGroups>
   <CodeGroup label="Yarn" active>

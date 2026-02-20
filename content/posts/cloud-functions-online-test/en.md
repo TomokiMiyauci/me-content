@@ -203,10 +203,10 @@ worker.addEventListener("onmessage", () => {
 Messages from workers can be retrieved from the `onmessage` event.
 
 Yes, it gets complicated. The Web Worker is basically used to run heavy
-processing in a background thread. The above process is not particularly heavy
-[^1], and may introduce unnecessary complexity.
+processing in a background thread. The above process is not particularly heavy,
+and may introduce unnecessary complexity.
 
-[^1]: It does have the effect of reducing the main bundle size.
+<!-- [^1]: It does have the effect of reducing the main bundle size. -->
 
 As mentioned above, there are many ways to do this, but fortunately Cloud
 Functions can subscribe to user signups. Therefore, we will adopt the first
@@ -270,9 +270,9 @@ argument. Note that `timestamp` is in RFC 3339 date/time format, so you can save
 it as a timestamp in Cloud Firestore by converting it to a `Date` object.
 
 Actually, using `timestamp` in context is quite important for testing. You can
-also use `new Date()` or `serverTimestamp()`[^2] for timestamp.
+also use `new Date()` or `serverTimestamp()` for timestamp.
 
-[^2]: firestore.FieldValue.serverTimestamp
+<!-- [^2]: firestore.FieldValue.serverTimestamp -->
 
 However, when testing data containing timestamps, it is recommended that the
 value be provided externally to ensure strict testing. If it is a context, it
@@ -392,9 +392,9 @@ user.uid = 'fixed-user-id'
 ```
 
 You can create mock user data with `exampleUserRecord`. This is just an object,
-so you can change the `uid` and so on as you like [^3].
+so you can change the `uid` and so on as you like.
 
-[^3]: By default, it will be a random ID.
+<!-- [^3]: By default, it will be a random ID. -->
 
 You can pass this to a wrapped function to actually execute the function.
 

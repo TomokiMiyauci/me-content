@@ -53,10 +53,10 @@ data:[<mediatype>][;base64],<data>
 が文字であればそのまま記述できます。 それ以外の場合は、`data` を Base64
 にエンコードした上で、`;base64` を指定する必要があります。
 
-省略時は `text/plain;charset=US-ASCII` になるようです。[^1]
+省略時は `text/plain;charset=US-ASCII` になるようです。
 
-[^1]: [データ URL 構文](https://developer.mozilla.org/ja/docs/Web/HTTP/Basics_of_HTTP/Data_URIs#syntax)
-    参照
+<!-- [^1]: [データ URL 構文](https://developer.mozilla.org/ja/docs/Web/HTTP/Basics_of_HTTP/Data_URIs#syntax)
+    参照 -->
 
 ### text/javascript MIME タイプ
 
@@ -85,10 +85,10 @@ MIME タイプを `application/javascript` にする場合は、Base64
 
 Web API には古くから [btoa](https://developer.mozilla.org/ja/docs/Web/API/btoa)
 が存在します。ただし、これは純粋な関数ではありません。 UTF-16 における 2
-バイト以上を占める文字が含まれていると、例外が発生します。[^2]
+バイト以上を占める文字が含まれていると、例外が発生します。
 
-[^2]: [Unicode 文字列](https://developer.mozilla.org/ja/docs/Glossary/Base64)
-    参照
+<!-- [^2]: [Unicode 文字列](https://developer.mozilla.org/ja/docs/Glossary/Base64)
+    参照 -->
 
 これのエスケープ方法ですが、よく紹介されているのは次の方法です。
 
@@ -97,11 +97,11 @@ btoa(unescape(encodeURIComponent("日本語")));
 ```
 
 ただし、`unescape` 関数は ECMAScript
-の仕様から外れたため、使用が非推奨となっています。[^3]
+の仕様から外れたため、使用が非推奨となっています。
 
-[^3]: legacy features として、新たに使用すべきでないと明記されています。詳しくは
+<!-- [^3]: legacy features として、新たに使用すべきでないと明記されています。詳しくは
     [Annex B](https://262.ecma-international.org/9.0/#sec-additional-ecmascript-features-for-web-browsers)
-    を参照
+    を参照 -->
 
 そもそも純粋な関数でないため、可能であれば他の関数を利用するべきです。 deno
 の標準モジュールには、[encoding/base64](https://deno.land/std/encoding#base64)

@@ -32,11 +32,10 @@ Gatsby を TypeScript 化するという名目のもと、コンポーネント�
 特徴としては、`gatsby-config` と `gatsby-node` は `CommonJS`
 を前提としています。 一方、 `gatsby-browser` と `gatsby-ssr`
 は、`ES Modules`と`CommonJS` の両方を利用できます。 また、
-エクスポートの方法も、 API が複数ある場合は Named Exports
-にする必要があります[^1]。
+エクスポートの方法も、 API が複数ある場合は Named Exports にする必要があります。
 
-[^1]: ここでは TypeScript 化した際の、ES6
-    でのエクスポートの方法について言及しています。
+<!-- [^1]: ここでは TypeScript 化した際の、ES6
+    でのエクスポートの方法について言及しています。 -->
 
 さらに、`gatsby-ssr` は少し特殊な挙動をします。 `gatsby-ssr`
 が実行されるには、[Gatsby SSR APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/)が名前付きエクスポートされている必要があります。

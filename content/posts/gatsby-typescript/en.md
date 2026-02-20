@@ -29,9 +29,9 @@ Only `ES Modules` and `CommonJS` are mentioned.
 
 As for features, `gatsby-config` and `gatsby-node` assume `CommonJS`. On the
 other hand, `gatsby-browser` and `gatsby-ssr` can use both `ES Modules` and
-`CommonJS`. Also, If there are multiple APIs, they need to be Named Exports[^1].
+`CommonJS`. Also, If there are multiple APIs, they need to be Named Exports.
 
-[^1]: This section mentions how to export in ES6 with TypeScript.
+<!-- [^1]: This section mentions how to export in ES6 with TypeScript. -->
 
 In addition, `gatsby-ssr` behaves a bit differently. In order for `gatsby-ssr`
 to run, the

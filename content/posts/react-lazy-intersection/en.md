@@ -79,9 +79,9 @@ For `heavy.js`, let's say it's a very large executable. As soon as the `html` is
 loaded, `heavy.js` will be executed.
 
 At this time, Even if you add `async` or `defer` attributes to the script tag,
-[TBT](https://web.dev/i18n/tbt/)[^1] will increase.
+[TBT](https://web.dev/i18n/tbt/) will increase.
 
-[^1]: Total Blocking Time
+<!-- [^1]: Total Blocking Time -->
 
 ### User Interaction and Lazy Strategies
 
@@ -122,10 +122,10 @@ after the resource has finished loading. We don't know the full extent of
 Ligthouse's measurement coverage, but lazy loading allows us to **get out of the
 measurement**.
 
-Alternatively, you can delay until a user interaction [^2] occurs.
+Alternatively, you can delay until a user interaction occurs.
 
-[^2]: Events that are triggered by user actions, such as scrolling or clicking
-    events.
+<!-- [^2]: Events that are triggered by user actions, such as scrolling or clicking
+    events. -->
 
 ### Get out of the measurement?
 
@@ -159,10 +159,10 @@ button. Also, the DOM outside the viewport will appear after user interaction
 such as scrolling. This is where the Intersection Observer comes in to provide a
 more accurate picture of where the viewport intersects.
 
-Also, for lazy loading in React, the `React.lazy` function can be used [^3].
+Also, for lazy loading in React, the `React.lazy` function can be used.
 
-[^3]: This is not available on the server side, so you will need to use a third
-    party lazy function.
+<!-- [^3]: This is not available on the server side, so you will need to use a third
+    party lazy function. -->
 
 ## React.lazy usage
 
@@ -203,10 +203,10 @@ performance.
 Please refer to it.
 
 By the way, it doesn't make much sense to just wrap all components in
-`React.lazy`. On the contrary, it may cause [CLS](https://web.dev/cls/)[^4],
-which may degrade the UX.
+`React.lazy`. On the contrary, it may cause [CLS](https://web.dev/cls/), which
+may degrade the UX.
 
-[^4]: Cumulative Layout Shift
+<!-- [^4]: Cumulative Layout Shift -->
 
 ## Intersection Observer component
 

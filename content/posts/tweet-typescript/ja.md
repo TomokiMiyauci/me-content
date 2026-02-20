@@ -37,15 +37,15 @@ curl -XPOST
 ```
 
 プログラムからツイートするためには、 oauth_signature を計算する必要があります。
-oauth_signature は、signature base string[^1] と signing key[^2] を `HMAC-SHA1`
-でハッシュ化する必要があります[^3]。
+oauth_signature は、signature base string と signing key を `HMAC-SHA1`
+でハッシュ化する必要があります。
 
-[^1]: HTTP メソッド、base URL、および 7 つのパラメーター文字列
+<!-- [^1]: HTTP メソッド、base URL、および 7 つのパラメーター文字列
 
 [^2]: `Consumer secret`と `OAuth token secret`をパーセントエンコードして、 `&`
     で結合
 
-[^3]: 詳しくは[公式ドキュメント](https://developer.twitter.com/ja/docs/basics/authentication/guides/creating-a-signature)を参照
+[^3]: 詳しくは[公式ドキュメント](https://developer.twitter.com/ja/docs/basics/authentication/guides/creating-a-signature)を参照 -->
 
 この作業はあまり本質的ではないので、コードベースのサイズがシビアでない限りは、再開発を避け素直にライブラリを使うべきでしょう。
 

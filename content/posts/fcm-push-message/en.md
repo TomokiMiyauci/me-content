@@ -225,10 +225,10 @@ const app = self.firebase.initializeApp(/* config */)
 On the other hand, it may complicate version control. Since it cannot be handled
 by the package manager, double management is likely to occur. Especially in the
 case of the Firebase SDK, it is safer to match the package versions of the
-`Window` and `Worker` scopes[^1].
+`Window` and `Worker` scopes.
 
-[^1]: When I used the compat version for the service worker and the functional
-    version for the main thread together, it did not work properly.
+<!-- [^1]: When I used the compat version for the service worker and the functional
+    version for the main thread together, it did not work properly. -->
 
 If you write the main part in TypeScript, you can't avoid transpiling, so
 bundling can be done incidentally. Personally, I recommend the module bundling
@@ -529,9 +529,9 @@ deleteToken(messaging);
 
 You can cancel the notification with `deleteToken`.
 
-No error will occur without the token[^2].
+No error will occur without the token.
 
-[^2]: For example, calling `deleteToken` multiple times.
+<!-- [^2]: For example, calling `deleteToken` multiple times. -->
 
 ### Whether the user is subscribed to push notifications or not
 

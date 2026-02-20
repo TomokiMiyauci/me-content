@@ -161,9 +161,11 @@ If it does not match the pattern, it will be used as an array, and the element
 type and `undefined` will be inferred as Union type. The reason why the return
 type of the implementation is set to `any` is that the type inference of the
 return value of the implementation and the return type of the function no longer
-match due to `Conditional Types`.[^1]
+match due to `Conditional Types`.
 
-[^1]: The return value of the function is now more detailed.
+<!-- [^1] -->
+
+<!-- [^1]: The return value of the function is now more detailed. -->
 
 There are several ways to work around this, but for now we'll assume `any`.
 
@@ -197,15 +199,17 @@ I hope this has made the function quite easy to use.
 
 The `head` function only targets tuples and arrays, but we want to target
 strings as well. Packages that implement the `head` function, such as
-[rambda#head](https://ramdajs.com/docs/#head), also target strings[^2].
+[rambda#head](https://ramdajs.com/docs/#head), also target strings.
 
-[^2]: Though with weaker type inference
+<!-- [^2]: Though with weaker type inference -->
 
-The `Haskell` `head` function also takes `[Char]` as an argument.[^3]
+The `Haskell` `head` function also takes `[Char]` as an argument.
 
-[^3]: The `head` function of `Haskell` has some differences, such as throwing an
+<!-- [^3] -->
+
+<!-- [^3]: The `head` function of `Haskell` has some differences, such as throwing an
     exception if an empty array is passed, so we are not aiming to follow it
-    strictly.
+    strictly. -->
 
 Now, before processing the string, we check the expected value. The processing
 of strings in the `head` function should have the following specifications.
@@ -247,10 +251,12 @@ The type `never` was inferred if it was an empty string or a `string`, otherwise
 the beginning of the string was inferred.
 
 Now, `${infer L}${string}`, which is a `Template Literal Types`, turns out to
-represent a match against a string of one or more characters.[^4]
+represent a match against a string of one or more characters.
 
+<!-- [^4] -->
+<!--
 [^4]: JavaScript and TypeScript do not explicitly distinguish between characters
-    and strings.
+    and strings. -->
 
 By the way, if you refer to the backward part of the string data structure, the
 following result is obtained.
@@ -407,9 +413,11 @@ it has the following features.
 > - Can not be used as constructors.
 > - Can not use `yield`, within its body.
 
-Function declaration is the most common notation.[^5]
+Function declaration is the most common notation.
 
-[^5]: even Deno's Standard Library is mostly in this notation
+<!-- [^5] -->
+
+<!-- [^5]: even Deno's Standard Library is mostly in this notation -->
 
 On the other hand, arrow functions have the above restrictions, but in other
 situations, functions can be defined concisely.

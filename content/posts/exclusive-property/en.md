@@ -137,10 +137,10 @@ So how should we determine the object literal type of Union types? The pattern
 allows you to narrow down the union types to a single member.
 
 A Discriminated Union must have a common property. The property must be a
-<u>uniquely identifiable type</u>[^1].
+<u>uniquely identifiable type</u>.
 
-[^1]: This is often referred to as `singleton types`.
-    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types)
+<!-- [^1]: This is often referred to as `singleton types`.
+    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types) -->
 
 #### What is a uniquely identifiable type?
 
@@ -273,9 +273,9 @@ const options: Options = {
 It seems to work, but it doesn't, because the data types are different. If the
 element is only a data type, it cannot be discriminated by Discriminated Union.
 
-If you add a type other than `PropertyKey`[^2], it will work correctly.
+If you add a type other than `PropertyKey`, it will work correctly.
 
-[^2]: `string` | `number` | `symbol`
+<!-- [^2]: `string` | `number` | `symbol` -->
 
 ```ts
 type Options =
@@ -356,10 +356,10 @@ type Options =
 ```
 
 Complement properties that are not present in each other to make each one
-unique. Specify the type `undefined`[^3] as a type other than `PropertyKey`.
-Also, its properties should be Optional.
+unique. Specify the type `undefined` as a type other than `PropertyKey`. Also,
+its properties should be Optional.
 
-[^3]: The result is the same for the `never` type.
+<!-- [^3]: The result is the same for the `never` type. -->
 
 The result is as follows:
 
@@ -383,9 +383,9 @@ optional.
 On the other hand, if you specify `color`, the logic will be the same.
 
 This makes the interface such that `theme` and `color` cannot be specified at
-the same time [^4].
+the same time.
 
-[^4]: Only `undefined` is accepted.
+<!-- [^4]: Only `undefined` is accepted. -->
 
 In addition, adding a type that is only available in one of them will work
 correctly.

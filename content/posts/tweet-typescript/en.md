@@ -38,17 +38,17 @@ curl -XPOST
 ```
 
 In order to tweet from a program, you need to calculate the oauth_signature. The
-oauth_signature needs to be a signature base string[^1] and a signing key[^2]
-hashed with `HMAC-SHA1`[^3].
+oauth_signature needs to be a signature base string and a signing key hashed
+with `HMAC-SHA1`.
 
-[^1]: HTTP method, base URL, and seven parameter strings.
+<!-- [^1]: HTTP method, base URL, and seven parameter strings.
 
 [^2]: `Consumer secret` and `OAuth token secret`, percent-encoded and
     concatenated with `&`.
 
 [^3]: See the
     [official documentation](https://developer.twitter.com/ja/docs/basics/authentication/guides/creating-a-signature)
-    for details.
+    for details. -->
 
 This work is not very essential, so unless the size of your codebase is severe,
 you should avoid redevelopment and use the library straightforwardly.
