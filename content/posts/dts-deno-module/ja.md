@@ -1,9 +1,7 @@
 ---
 title: dntでDeno-firstなデュアルモジュールを作る
 description: dnt は Deno ベースのコードから Node.js 用のコードを生成するビルドツールです。dnt の使い方と、Deno および Node.js のモジュールを開発するデュアルモジュール開発について紹介します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-12-02
+published_at: 2021-12-02
 slug: dts-deno-module
 language: ja
 ---

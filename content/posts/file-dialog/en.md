@@ -1,9 +1,7 @@
 ---
 title: I want to call the file dialog from anywhere
 description: Explains how to call a file dialog from a program and receive a FileList
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-02-05
+published_at: 2021-02-05
 slug: file-dialog
 language: en
 ---

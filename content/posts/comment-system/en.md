@@ -1,9 +1,7 @@
 ---
 title: The tech blog commenting system with utterances
 description: Introduce a project called utterances that I recommend for a commenting system for technical blogs.Also introduce utterances-component, a project that can handle utterances as a component.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-09
+published_at: 2021-07-09
 slug: comment-system
 language: en
 ---

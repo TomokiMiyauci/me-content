@@ -1,9 +1,7 @@
 ---
 title: AWS LambdaのカスタムランタイムでDenoを動かす
 description: AWS Lambda を Deno ランタイムで動かす方法を紹介します。デプロイには AWS CDK を用い、マルチランタイムなプロジェクト構成で解説しています。また、コールドスタートを抑制するため、JavaScript へバンドルする方法を紹介しています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2022-01-11
+published_at: 2022-01-11
 slug: deno-lambda-cdk
 language: ja
 ---

@@ -1,9 +1,7 @@
 ---
 title: Gatsby で config ファイルを TypeScript化する
 description: Gatsby で configファイルの完全 TypeScript化について解説します。Config ファイルのそれぞれの実行環境やモジュールシステムの違いについて触れ、gatsby-ssrの特殊性についても解説しています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-19
+published_at: 2021-07-19
 slug: gatsby-typescript
 language: ja
 ---

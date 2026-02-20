@@ -1,9 +1,7 @@
 ---
 title: Create a document with VitePress
 description: Introduce the basic usage of VitePress,multilingual support, homepage layout, meta tag injection, custom CSS, custom component and so on.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-02-14
+published_at: 2021-02-14
 slug: start-vitepress
 language: en
 ---

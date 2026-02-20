@@ -1,9 +1,7 @@
 ---
 title: Tweeting with TypeScript
 description: Introduces how to tweet from a program using the Twitter API. Describes how to use twitter-api-v2 as a TypeScript-first Twitter client for tweeting and error handling.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-26
+published_at: 2021-07-26
 slug: tweet-typescript
 language: en
 ---

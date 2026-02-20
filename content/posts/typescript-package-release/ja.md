@@ -1,9 +1,7 @@
 ---
 title: 最小構成でTypescriptパッケージを公開する
 description: TypescriptプロジェクトをパッケージとしてNPMレジストリへ公開する方法を説明します。パッケージマネジャーにNPM、Yarnを使っている場合を想定しています。
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-02-24
+published_at: 2021-02-24
 slug: typescript-package-release
 language: ja
 ---

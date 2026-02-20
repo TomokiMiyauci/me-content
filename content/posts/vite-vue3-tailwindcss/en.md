@@ -1,9 +1,7 @@
 ---
 title: Introduce Tailwind CSS to Vite and Vue3
 description: Show how to introduce the CSS framework Tailwind CSS in your Vite project. In addition, explain how to set up Stylelint rules and VSCode for Tailwind CSS.
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-03-05
+published_at: 2021-03-05
 slug: vite-vue3-tailwindcss
 language: en
 ---

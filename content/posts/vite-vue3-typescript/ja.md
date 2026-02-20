@@ -1,9 +1,7 @@
 ---
 title: ViteでVue3のTypescript環境を構築する
 description: No bundleツールのViteを使って、TypescriptでのVue3環境を構築します。ESLintやPrettierの設定もあわせて行い、DXの高い環境を構築します。
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-03-11
+published_at: 2021-03-11
 slug: vite-vue3-typescript
 language: ja
 ---

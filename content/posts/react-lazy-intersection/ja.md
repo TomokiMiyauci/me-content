@@ -1,9 +1,7 @@
 ---
 title: Intersection Observer と React.lazy でパフォーマンス改善
 description: React で Intersection Observer を使ったパフォーマンス改善方法を紹介します。React.lazy 関数と併用することで、コンポーネントのレンダリングをオンデマンドで行います。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-09-12
+published_at: 2021-09-12
 slug: react-lazy-intersection
 language: ja
 ---

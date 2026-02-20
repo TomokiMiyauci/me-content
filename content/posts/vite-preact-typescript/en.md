@@ -1,9 +1,7 @@
 ---
 title: Building a Typescript Environment for Preact with Vite
 description: Building a Typescript Preact environment using the No bundle tool Vite, along with ESLint and Prettier configuration.
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-03-03
+published_at: 2021-03-03
 slug: vite-preact-typescript
 language: en
 ---

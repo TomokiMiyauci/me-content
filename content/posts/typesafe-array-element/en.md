@@ -1,9 +1,7 @@
 ---
 title: Getting array elements type-safely with TypeScript
 description: Introduce how to type-safely get the first element of a list structure in TypeScript. It also explains items such as Conditional Types, infer signatures, pattern matching of data structures, and overload.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-03
+published_at: 2021-07-03
 slug: typesafe-array-element
 language: en
 ---

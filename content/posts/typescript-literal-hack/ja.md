@@ -1,9 +1,7 @@
 ---
 title: TypeScriptで特定の文字列または全ての文字列を定義する
 description: TypeScriptで 'string' | string を定義する方法を紹介します。通常はstring型にアップキャストされてしまいますが、ハッキーな方法でこれを解決します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-11-10
+published_at: 2021-11-10
 slug: typescript-literal-hack
 language: ja
 ---

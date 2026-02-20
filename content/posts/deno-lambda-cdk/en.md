@@ -1,9 +1,7 @@
 ---
 title: AWS Lambda with Deno by AWS CDK
 description: This tutorial shows how to run AWS Lambda with Deno runtime. It uses AWS CDK for deployment and a multi-runtime project structure. It also shows how to bundle it with JavaScript to reduce cold starts.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2022-01-11
+published_at: 2022-01-11
 slug: deno-lambda-cdk
 language: en
 ---

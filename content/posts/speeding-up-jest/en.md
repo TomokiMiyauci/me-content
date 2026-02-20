@@ -1,9 +1,7 @@
 ---
 title: Speed ​​up TypeScript with Jest
 description: Learn how to speed up your tests with Jest. Introducing esbuild or swc as transformers, it speeds up testing by speeding up transpiling, which tends to be slow with TypeScript.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-03-27
+published_at: 2021-03-27
 slug: speeding-up-jest
 language: en
 ---

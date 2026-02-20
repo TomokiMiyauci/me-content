@@ -1,9 +1,7 @@
 ---
 title: TypeScriptで型安全にツイートする
 description: プログラムからツイッターのAPIを使ってツイートする方法を紹介します。TypeScript-firstな Twitter クライアントとして twitter-api-v2 を用いて実際にツイートを行い、エラー処理についても解説しています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-26
+published_at: 2021-07-26
 slug: tweet-typescript
 language: ja
 ---

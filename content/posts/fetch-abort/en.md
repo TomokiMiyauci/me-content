@@ -1,9 +1,7 @@
 ---
 title: Aborting fetch request with AbortController
 description: Introduces how to abort an HTTP request using fetch. It also covers practical cases such as what to do after aborting, how to abort multiple HTTP requests at once, and explains the correct error handling.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-06-10
+published_at: 2021-06-10
 slug: fetch-abort
 language: en
 ---

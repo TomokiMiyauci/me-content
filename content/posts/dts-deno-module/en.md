@@ -1,9 +1,7 @@
 ---
 title: Create a Deno-first dual module with dnt
 description: dnt is a build tool that generates code for Node.js from Deno-based code. This article includes dnt usage and dual-module development for Deno and Node.js.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-12-02
+published_at: 2021-12-02
 slug: dts-deno-module
 language: en
 ---

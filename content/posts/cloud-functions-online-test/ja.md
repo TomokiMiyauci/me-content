@@ -1,9 +1,7 @@
 ---
 title: Cloud Functions for Firebase でオンラインテストする
 description: Cloud Functions for Firebaseでオンラインモードのテスト方法を紹介します。例としてサインアップされた時に、そのユーザー情報をデータベースに保存するテストを挙げ、Firebase のリソースをまたいだテストを行います。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-08-21
+published_at: 2021-08-21
 slug: cloud-functions-online-test
 language: ja
 ---

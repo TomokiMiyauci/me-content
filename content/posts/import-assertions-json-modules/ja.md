@@ -1,9 +1,7 @@
 ---
 title: import assertionsとJSON modulesまとめ
 description: import assertions について Deno での使用法を中心としてまとめています。Deno 1.17 からサポートされたこの構文を使用し、JSON modules を安全に扱えるようになりました。Chrome でいち早く実装された CSS Module Scripts についても解説します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2022-01-21
+published_at: 2022-01-21
 slug: import-assertions-json-modules
 language: ja
 ---

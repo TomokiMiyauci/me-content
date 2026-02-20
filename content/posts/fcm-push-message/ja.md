@@ -1,9 +1,7 @@
 ---
 title: Firebase Cloud Messaging でウェブプッシュ通知する
 description: Firebase Cloud Messaging(FCM) でウェブプッシュ通知の送受信をします。プッシュサービスを含むプッシュ通知を取り巻く全体像を広く浅く解説します。通知メッセージのクリック処理や、ユーザートークンの削除についても触れています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-09-07
+published_at: 2021-09-07
 slug: fcm-push-message
 language: ja
 ---

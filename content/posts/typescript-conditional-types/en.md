@@ -1,9 +1,7 @@
 ---
 title: Determine the function return type in Typescript's Conditional Types
 description: Show how to more accurately infer the return type of an arrow function in Typescript. Explains Generics, Conditional Types and Union Distribution.
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-02-21
+published_at: 2021-02-21
 slug: typescript-conditional-types
 language: en
 ---

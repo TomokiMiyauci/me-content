@@ -1,9 +1,7 @@
 ---
 title: TypeScriptで排他的なプロパティを定義する
 description: TypeScriptで排他的なプロパティを定義する方法を紹介します。排他的なプロパティが必要な背景や、それを支えるDiscriminated Unionについて説明しています。また、reactで排他的なpropsを使って、UIフレームワークがどう型安全になるのかを示します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-12
+published_at: 2021-07-12
 slug: exclusive-property
 language: ja
 ---

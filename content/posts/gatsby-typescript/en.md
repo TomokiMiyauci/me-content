@@ -1,9 +1,7 @@
 ---
 title: Gatsby config with TypeScript
 description: Explains how to make a config file with TypeScript in Gatsby. It mentions the different execution environments and module systems for each Config file, and explains the peculiarities of gatsby-ssr.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-19
+published_at: 2021-07-19
 slug: gatsby-typescript
 language: en
 ---

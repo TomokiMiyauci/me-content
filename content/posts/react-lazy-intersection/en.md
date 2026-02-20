@@ -1,9 +1,7 @@
 ---
 title: Improving performance with Intersection Observer and React.lazy
 description: Introduce how to use Intersection Observer in React to improve performance. It can be used in conjunction with the React.lazy function to render components on demand.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-09-12
+published_at: 2021-09-12
 slug: react-lazy-intersection
 language: en
 ---

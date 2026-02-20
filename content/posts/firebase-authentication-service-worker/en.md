@@ -1,9 +1,7 @@
 ---
 title: Authentication with Firebase Authentication in Service Worker
 description: Introduce how to use Firebase Authentication in Service Worker. It will also explain messaging with Service Worker and show how to share user IDs with Service Worker.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-08-29
+published_at: 2021-08-29
 slug: firebase-authentication-service-worker
 language: en
 ---

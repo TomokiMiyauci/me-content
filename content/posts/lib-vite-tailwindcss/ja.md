@@ -1,9 +1,7 @@
 ---
 title: viteとtailwindcssでフロントエンドライブラリを開発する
 description: vite と tailwindcss を使ってライブラリ開発を行う方法を紹介します。型定義ファイルの生成やCSS Modules の組み込みなど、ライブラリ開発に必要なビルド環境を構築します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-10-20
+published_at: 2021-10-20
 slug: lib-vite-tailwindcss
 language: ja
 ---

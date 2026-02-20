@@ -1,9 +1,7 @@
 ---
 title: ViteとVue3にTailwind CSSを導入する
 description: ViteプロジェクトでCSSフレームワークのTailwind CSSを導入する方法を紹介します。ついでに、Tailwind CSS用のStylelintのルールやVSCodeの設定をします。
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-03-05
+published_at: 2021-03-05
 slug: vite-vue3-tailwindcss
 language: ja
 ---

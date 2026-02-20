@@ -1,9 +1,7 @@
 ---
 title: Defining exclusive properties with TypeScript
 description: Shows how to define exclusive properties in TypeScript. It explains the background behind the need for exclusive properties and the Discriminated Union that supports them. It also shows how UI frameworks can become type-safe by using exclusive props in react.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-12
+published_at: 2021-07-12
 slug: exclusive-property
 language: en
 ---

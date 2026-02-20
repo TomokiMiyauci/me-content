@@ -1,9 +1,7 @@
 ---
 title: Using Vite for Bandler in Storybook
 description: It shows you how to develop Storybook with Vite. Explains in detail the points where you can get stuck in a preact project. It also shows how to make the Storybook configuration file type-safe.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-15
+published_at: 2021-07-15
 slug: storybook-vite
 language: en
 ---

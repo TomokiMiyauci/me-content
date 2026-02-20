@@ -1,9 +1,7 @@
 ---
 title: Define a specific string or all strings in TypeScript
 description: This section shows how to define 'string' | string in TypeScript. Normally this would be upcast to type string, but we'll solve this in a hacky way.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-11-10
+published_at: 2021-11-10
 slug: typescript-literal-hack
 language: en
 ---

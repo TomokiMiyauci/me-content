@@ -1,9 +1,7 @@
 ---
 title: どこからでもファイルダイアログを呼び出したい
 description: プログラムからファイルダイアログを呼び出し、FileListを受け取る方法を解説する
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-02-05
+published_at: 2021-02-05
 slug: file-dialog
 language: ja
 ---

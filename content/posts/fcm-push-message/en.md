@@ -1,9 +1,7 @@
 ---
 title: Web Push Notification with Firebase Cloud Messaging
 description: Send and receive web push notifications with Firebase Cloud Messaging (FCM). This is a broad and shallow overview of the whole picture surrounding push notifications, including push services. Click processing of notification messages and deleting user tokens will also be explained.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-09-07
+published_at: 2021-09-07
 slug: fcm-push-message
 language: en
 ---

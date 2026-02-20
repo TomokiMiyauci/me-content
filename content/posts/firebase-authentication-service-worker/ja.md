@@ -1,9 +1,7 @@
 ---
 title: Service Workerで Firebase Authenticationの匿名認証する
 description: Firebase Authentication を Service Worker で使う方法を紹介します。また、Service Worker とのメッセージングについて解説し、Service Worker とユーザーIDを共有する方法を紹介します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-08-29
+published_at: 2021-08-29
 slug: firebase-authentication-service-worker
 language: ja
 ---

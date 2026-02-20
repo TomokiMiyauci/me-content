@@ -1,9 +1,7 @@
 ---
 title: 文字列を JavaScript モジュールとしてインポートする
 description: 文字列からランタイムで利用できる Module を取り出す方法を紹介します。Editor と共に利用することで、ブラウザ上で新たな体験を提供できるかもしれません。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2022-03-31
+published_at: 2022-03-31
 slug: module-from-string
 language: ja
 ---

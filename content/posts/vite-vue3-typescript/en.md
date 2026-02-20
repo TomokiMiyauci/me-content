@@ -1,9 +1,7 @@
 ---
 title: Building a Vue3 Typescript Environment with Vite
 description: Building a Typescript Vue3 environment using the No bundle tool Vite, along with ESLint and Prettier configuration to create a high DX environment.
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-03-11
+published_at: 2021-03-11
 slug: vite-vue3-typescript
 language: en
 ---

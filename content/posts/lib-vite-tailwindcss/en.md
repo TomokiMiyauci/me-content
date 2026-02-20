@@ -1,9 +1,7 @@
 ---
 title: Frontend library development with vite and tailwindcss
 description: Shows how to develop a library using vite and tailwindcss. We'll show you how to generate typedefs, set path aliases, and configure tailwindcss as a library.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-10-20
+published_at: 2021-10-20
 slug: lib-vite-tailwindcss
 language: en
 ---

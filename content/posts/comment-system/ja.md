@@ -1,9 +1,7 @@
 ---
 title: 技術ブログのコメントシステムはutterancesがいい感じ
 description: 技術ブログのコメントシステムにおすすめなutterancesというプロジェクトを紹介します。またutterancesを コンポーネントとして扱える utterances-componentというプロジェクトの紹介もします。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-09
+published_at: 2021-07-09
 slug: comment-system
 language: ja
 ---

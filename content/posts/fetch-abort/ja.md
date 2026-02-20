@@ -1,9 +1,7 @@
 ---
 title: fetchによるHTTPリクエストをAbortControllerで中断する
 description: fetchを使ったHTTPリクエストを中断する方法を紹介します。中断後の処理や、複数のHTTPリクエストの一括中断の方法など、実践的なケースにも触れ、正しいエラーハンドリングについて説明します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-06-10
+published_at: 2021-06-10
 slug: fetch-abort
 language: ja
 ---

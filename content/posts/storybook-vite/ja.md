@@ -1,9 +1,7 @@
 ---
 title: StorybookでバンドラーにViteを使う
 description: StorybookをViteで開発する方法を紹介します。preactプロジェクトではハマりどころがあるため、その点を丁寧に解説しています。また、Storybookの設定ファイルを型安全にする方法も紹介しています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-15
+published_at: 2021-07-15
 slug: storybook-vite
 language: ja
 ---

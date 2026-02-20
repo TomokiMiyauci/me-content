@@ -1,9 +1,7 @@
 ---
 title: Firebase のモジュラーSDKでバンドルサイズ比較
 description: 新しい Firebase モジュールによって、どのくらいバンドルサイズが削減できるか解説します。Firebase モジュールの中でも、特に利用頻度の高い Cloud Firestore と Authentication のバンドルサイズを中心に解説しています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-08-02
+published_at: 2021-08-02
 slug: firebase-bundle-size
 language: ja
 ---

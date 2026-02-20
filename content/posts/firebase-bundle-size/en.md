@@ -1,9 +1,7 @@
 ---
 title: Bundle Size Comparison in Firebase Modular SDK
 description: Explain how the new Firebase module can reduce the bundle size. It focuses on Cloud Firestore and Authentication bundle sizes, which are two of the most frequently used Firebase modules.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-08-02
+published_at: 2021-08-02
 slug: firebase-bundle-size
 language: en
 ---

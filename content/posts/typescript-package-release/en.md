@@ -1,9 +1,7 @@
 ---
 title: Publish Typescript Packages with minimal configuration
 description: Describes how to publish the Typescript project as a package to the NPM registry. It assumes you are using NPM and Yarn as a package manager.
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-02-24
+published_at: 2021-02-24
 slug: typescript-package-release
 language: en
 ---

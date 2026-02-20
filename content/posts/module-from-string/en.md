@@ -1,9 +1,7 @@
 ---
 title: Import strings as JavaScript Modules
 description: Show you how to extract a Module from a string that can be used at runtime. Use with the Editor, it may provide a new experience in the browser.
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2022-03-31
+published_at: 2022-03-31
 slug: module-from-string
 language: en
 ---

@@ -1,9 +1,7 @@
 ---
 title: ViteでPreactのTypescript環境を構築する
 description: No bundleツールのViteを使って、TypescriptベースのPreactの環境を構築します。ESLintやPrettierの設定もあわせて行います。
-thumbnail: thumbnail.png
-hero: hero.png
-date: 2021-03-03
+published_at: 2021-03-03
 slug: vite-preact-typescript
 language: ja
 ---

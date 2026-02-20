@@ -1,9 +1,7 @@
 ---
 title: JestでTable Driven Testsをする
 description: JestでTable Driven Testsをする方法を紹介します。Jestでは配列形式と、タグ付きテンプレートリテラル形式でテストを書けるので、2つの記述法を解説します。また、TypeScriptで書いた場合の型推論と、アサーションの方法についても紹介します。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-03-28
+published_at: 2021-03-28
 slug: jest-table-driven-tests
 language: ja
 ---

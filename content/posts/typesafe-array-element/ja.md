@@ -1,9 +1,7 @@
 ---
 title: TypeScriptで型安全に配列の要素を取得する
 description: TypeScriptで型安全にリスト構造の先頭要素を取得する方法を紹介します。また、Conditional Typesやinferシグネチャ、データ構造のパターンマッチング、オーバーロードといったTypeScriptの型システムの力を引き出すこれらの要素についても解説しています。
-hero: hero.png
-thumbnail: thumbnail.png
-date: 2021-07-03
+published_at: 2021-07-03
 slug: typesafe-array-element
 language: ja
 ---
