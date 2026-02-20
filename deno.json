@@ -7,6 +7,14 @@
     "build": {
       "command": "deno x --unstable-bare-node-builtins @tinacms/cli build --skip-indexing --skip-cloud-checks --skip-search-index && rm dist/.gitignore",
       "description": "Build artifact"
+    },
+    "lint:content": {
+      "command": "deno x --unstable-bare-node-builtins @tinacms/cli audit",
+      "description": "Audit content"
+    },
+    "lint": {
+      "command": "deno task \"lint:*\"",
+      "description": "Static check"
     }
   }
 }

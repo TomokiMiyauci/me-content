@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lintt:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          cache: true
+
+      - run: deno install
+
+      - name: Audit
+        run: deno task lint
