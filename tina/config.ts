@@ -4,9 +4,10 @@ import schema from "./schema.ts";
 
 const clientId = process.env["TINA_CLIENT_ID"];
 const token = process.env["TINA_TOKEN"];
+const branch = process.env["TINA_BRANCH"];
 
 export default defineConfig({
-  branch: "main",
+  branch,
   clientId,
   token,
   media: {
