@@ -164,10 +164,6 @@ type of the implementation is set to `any` is that the type inference of the
 return value of the implementation and the return type of the function no longer
 match due to `Conditional Types`.
 
-<!-- [^1] -->
-
-<!-- [^1]: The return value of the function is now more detailed. -->
-
 There are several ways to work around this, but for now we'll assume `any`.
 
 The return type is getting messy, so I split the implementation and the type
@@ -202,11 +198,7 @@ The `head` function only targets tuples and arrays, but we want to target
 strings as well. Packages that implement the `head` function, such as
 [rambda#head](https://ramdajs.com/docs/#head), also target strings.
 
-<!-- [^2]: Though with weaker type inference -->
-
 The `Haskell` `head` function also takes `[Char]` as an argument.
-
-<!-- [^3] -->
 
 <!-- [^3]: The `head` function of `Haskell` has some differences, such as throwing an
     exception if an empty array is passed, so we are not aiming to follow it
@@ -254,7 +246,6 @@ the beginning of the string was inferred.
 Now, `${infer L}${string}`, which is a `Template Literal Types`, turns out to
 represent a match against a string of one or more characters.
 
-<!-- [^4] -->
 <!--
 [^4]: JavaScript and TypeScript do not explicitly distinguish between characters
     and strings. -->
@@ -415,10 +406,6 @@ it has the following features.
 - Can not use `yield`, within its body.
 
 Function declaration is the most common notation.
-
-<!-- [^5] -->
-
-<!-- [^5]: even Deno's Standard Library is mostly in this notation -->
 
 On the other hand, arrow functions have the above restrictions, but in other
 situations, functions can be defined concisely.

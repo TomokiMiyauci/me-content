@@ -82,8 +82,6 @@ loaded, `heavy.js` will be executed.
 At this time, Even if you add `async` or `defer` attributes to the script tag,
 [TBT](https://web.dev/i18n/tbt/) will increase.
 
-<!-- [^1]: Total Blocking Time -->
-
 ### User Interaction and Lazy Strategies
 
 `heavy.js` is making my TBT score worse. What can we do to improve this? If
@@ -206,8 +204,6 @@ Please refer to it.
 By the way, it doesn't make much sense to just wrap all components in
 `React.lazy`. On the contrary, it may cause [CLS](https://web.dev/cls/), which
 may degrade the UX.
-
-<!-- [^4]: Cumulative Layout Shift -->
 
 ## Intersection Observer component
 

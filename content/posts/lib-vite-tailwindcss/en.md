@@ -205,8 +205,6 @@ their scope is closed.
 Unfortunately, as a Bandler plugin, it should not be possible to use hash values
 for prefixes.
 
-<!-- [^1]: maybe `windicss` can do it -->
-
 So be aware that even with a prefix, there is a chance of duplicate class names.
 
 You can use the following CSS Modules without worrying about that.

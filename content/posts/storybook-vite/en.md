@@ -24,8 +24,6 @@ If you have few components, you may not see much benefit in speed. Compared to
 `Webpack`, the speed to get the browser to display is dramatically improved, but
 It will take some time to load in your browser.
 
-<!-- [^1]: Storybook's bundle size is quite large. -->
-
 On the other hand, the increase in time when more components are added will be
 contained. Also, I think you will notice a clear difference in speed when
 rebuilding with HMR.

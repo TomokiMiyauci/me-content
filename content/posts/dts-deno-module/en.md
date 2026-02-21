@@ -297,8 +297,6 @@ It's fantastic.
 You can also map dependencies. The previous module `isx` is hosted at
 deno.land/x, but we'll change it to `isxx`, which is hosted at NPM.
 
-<!-- [^1]: Both are my own, namespaced differently. -->
-
 Change the build script.
 
 ```ts:build_npm.ts{6-11}
@@ -481,8 +479,6 @@ version in `package.json`.
 
 In the previous example, you can replace the version string with
 `Deno.args[0]? .replace(/^v/, "")` to convert the version string.
-
-<!-- [^2]: You can of course convert it on GitHub Actions, though. -->
 
 We then parse the semver to derive the NPM release tag. Normally, you'd just add
 the `latest` tag, but if it's a pre-release, you'll need to add a tag for it.

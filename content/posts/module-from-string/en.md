@@ -54,8 +54,6 @@ as is. Otherwise, `;base64` must be specified after encoding `data` in Base64.
 
 When omitted, `text/plain;charset=US-ASCII` is used.
 
-<!-- [^1]: [Data URL Syntax](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs#syntax) -->
-
 ### text/javascript MIME type
 
 Added 4/1/2022
@@ -84,8 +82,6 @@ The Web API has long had
 [btoa](https://developer.mozilla.org/docs/Web/API/btoa). However, it is not a
 pure function. An exception is raised if a character that occupies more than 2
 bytes in UTF-16 is included.
-
-<!-- [^2]: [Unicode character string](https://developer.mozilla.org/docs/Glossary/Base64) -->
 
 The following is a commonly introduced method of escaping this.
 

@@ -69,8 +69,6 @@ the process can be moved to the background thread.
 By doing the processing in the background thread, the processing can be done
 without disturbing the UI. It also basically improves the CWV.
 
-<!-- [^2]: Core Web Vitals -->
-
 ## Using Firebase Authentication with Service worker
 
 The purpose of this project is to improve performance. We will improve the

@@ -276,8 +276,6 @@ element is only a data type, it cannot be discriminated by Discriminated Union.
 
 If you add a type other than `PropertyKey`, it will work correctly.
 
-<!-- [^2]: `string` | `number` | `symbol` -->
-
 ```ts
 type Options =
   | {
@@ -360,8 +358,6 @@ Complement properties that are not present in each other to make each one
 unique. Specify the type `undefined` as a type other than `PropertyKey`. Also,
 its properties should be Optional.
 
-<!-- [^3]: The result is the same for the `never` type. -->
-
 The result is as follows:
 
 ```ts
@@ -385,8 +381,6 @@ On the other hand, if you specify `color`, the logic will be the same.
 
 This makes the interface such that `theme` and `color` cannot be specified at
 the same time.
-
-<!-- [^4]: Only `undefined` is accepted. -->
 
 In addition, adding a type that is only available in one of them will work
 correctly.

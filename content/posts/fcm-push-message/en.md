@@ -505,8 +505,6 @@ You can cancel the notification with `deleteToken`.
 
 No error will occur without the token.
 
-<!-- [^2]: For example, calling `deleteToken` multiple times. -->
-
 ### Whether the user is subscribed to push notifications or not
 
 You may want to use the Firebase SDK to find out if a user is subscribed to push

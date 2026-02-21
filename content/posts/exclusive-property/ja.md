@@ -268,8 +268,6 @@ const options: Options = {
 
 これに `PropertyKey` 以外の型が加わると、正しく判別できるようになります。
 
-<!-- [^2]: `string` | `number` | `symbol` -->
-
 ```ts
 type Options =
   | {
@@ -352,8 +350,6 @@ type Options =
 `PropertyKey`以外の型として `undefined`型を指定します。 また、そのプロパティは
 Optional にします。
 
-<!-- [^3]: `never` 型でも結果は同じです。 -->
-
 以下のようになります。
 
 ```ts
@@ -377,8 +373,6 @@ type Options =
 
 これによって、`theme` と `color`
 が同時に指定できないインターフェイスになりました。
-
-<!-- [^4]: `undefined` のみ受け付けます。 -->
 
 さらに 片方にしかない型を加えても正しく動作します。
 

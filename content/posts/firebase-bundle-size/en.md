@@ -27,8 +27,6 @@ been changed from class-based to function-based.
 It appears that using the V9 modular SDK may result in 80% less than a
 comparable app built using the V8 SDK.
 
-<!-- [^1]: [Introducing the new Firebase JS SDK](https://firebase.googleblog.com/2021/07/introducing-the-new-firebase-js-sdk.html) -->
-
 In the V8 SDK, the method chain style execution from classes is impressive.
 Classes can't benefit from the tree-shaking of the bundler, so all methods are
 bundled, even unused ones. This causes an explosion in bundle size, for example,
@@ -267,8 +265,6 @@ initializeAuth(app);
 It is now very small. If you import the `signInAnonymously` function here, for
 example, and enable sign-in as an anonymous user, the total bundle size becomes
 `41.07kb`.
-
-<!-- [^2]: Increased by about 1kb with `signInAnonymously`. -->
 
 Compared to the V8 SDK, the bundle size is indeed reduced by about 80%.
 
