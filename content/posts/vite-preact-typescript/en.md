@@ -100,10 +100,9 @@ Next, fix the entry point, `main.tsx`. Now that it's in Typescript, a type error
 has been detected. The `document.getElementById` returns `HTMLElement` or
 `null`, give it a null check.
 
-<Alert type="warning">
-  You can use the `Non-null assertion operator` if the `app` is always exists in
-  `index.html`.
-</Alert>
+> [!WARNING]
+> You can use the `Non-null assertion operator` if the `app` is always exists in
+> `index.html`.
 
 ```tsx:main.tsx
 const el = document.getElementById('app')
@@ -349,7 +348,8 @@ to the same root.
 
 Change the `vite.config.ts` and `tsconfig.json` to set the alias.
 
-<Alert type="warning">Keys must start with `/`.</Alert>
+> [!WARNING]
+> Keys must start with `/`.
 
 ```ts:vite.config.ts
 import { join } from 'path'

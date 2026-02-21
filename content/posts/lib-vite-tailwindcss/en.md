@@ -167,10 +167,9 @@ unintended style.
 
 In order to deal with this, the `tailwind.config.js` can be modified.
 
-<Alert type="warning">
-  If you are using tailwindcss 2 series, the field name is `purge`, not
-  `content`.
-</Alert>
+> [!WARNING]
+> If you are using tailwindcss 2 series, the field name is `purge`, not
+> `content`.
 
 ```js:tailwind.config.js{8-11}
 module.exports = {

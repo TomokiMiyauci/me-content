@@ -166,10 +166,9 @@ Preflight で生成されるデフォルトのスタイルは
 
 これらに対応するために、`tailwind.config.js` を変更します。
 
-<Alert type="warning">
-  tailwindcss 2系を利用している場合、フィールド名は `content` ではなく `purge`
-  です。
-</Alert>
+> [!WARNING]
+> tailwindcss 2系を利用している場合、フィールド名は `content` ではなく `purge`
+> です。
 
 ```js:tailwind.config.js{8-11}
 module.exports = {

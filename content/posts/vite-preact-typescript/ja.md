@@ -99,10 +99,10 @@ import { Fragment, h } from "preact";
 `document.getElementById`は戻り値が`HTMLElement`または`null`なため、null
 チェックを入れてあげます。
 
-<Alert type="warning">
-  `index.html`の id に app が必ず存在するなら、`Non-null assertion
+> [!WARNING]
+> `index.html`の id に app
+> が必ず存在するなら、`Non-null assertion
   operator`も使えます。
-</Alert>
 
 ```tsx:main.tsx
 const el = document.getElementById('app')
@@ -339,7 +339,8 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 
 `vite.config.ts`と`tsconfig.json`変更して alias を設定しましょう。
 
-<Alert type="warning">Key は`/`から始まらなければなりません。</Alert>
+> [!WARNING]
+> Key は`/`から始まらなければなりません。
 
 ```ts:vite.config.ts
 import { join } from 'path'

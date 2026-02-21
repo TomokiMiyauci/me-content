@@ -48,9 +48,8 @@ module.exports = {
 
 最後にスタイルファイルをエントリーポイントでインポートします。
 
-<Alert type="warning">
-  例ではパスエイリアスでパスを指定しています。各自適切なパスを設定してください。
-</Alert>
+> [!WARNING]
+> 例ではパスエイリアスでパスを指定しています。各自適切なパスを設定してください。
 
 ```ts:src/main.ts
 import { createApp } from 'vue'

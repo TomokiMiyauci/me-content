@@ -48,10 +48,9 @@ Use `@swc/jest` as the transformer.
 
 Let's see how much the performance has improved due to the speedup.
 
-<Alert type="warning">
-  Since the performance differs depending on the execution environment, I will
-  compare the results relative to each other.
-</Alert>
+> [!WARNING]
+> Since the performance differs depending on the execution environment, I will
+> compare the results relative to each other.
 
 ### CommonJS + Javascript
 

@@ -49,10 +49,9 @@ module.exports = {
 
 Finally, import the style file at the entry point.
 
-<Alert type="warning">
-  For example, the path is specified in the path alias. Set the appropriate
-  path.
-</Alert>
+> [!WARNING]
+> For example, the path is specified in the path alias. Set the appropriate
+> path.
 
 ```ts:src/main.ts
 import { createApp } from 'vue'

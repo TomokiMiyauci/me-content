@@ -105,7 +105,8 @@ You can use the Bitly client library to operate type-safely with TypeScript.
 npm i bitly
 ```
 
-<Alert type="warning">Using top level await syntax</Alert>
+> [!WARNING]
+> Using top level await syntax
 
 ```ts
 import { BitlyClient, isBitlyErrResponse } from "bitly";

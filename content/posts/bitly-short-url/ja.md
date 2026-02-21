@@ -112,7 +112,8 @@ Bitly クライアントライブラリを使うことで、 TypeScript で型�
 npm i bitly
 ```
 
-<Alert type="warning">Top level await 構文を使っています</Alert>
+> [!WARNING]
+> Top level await 構文を使っています
 
 ```ts
 import { BitlyClient, isBitlyErrResponse } from "bitly";

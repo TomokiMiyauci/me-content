@@ -360,7 +360,8 @@ export const sendMessage = functions.firestore
 フォアグラウンドの場合にメッセージを受け取る方法もあります。`onMessage`
 関数を使い、バックグラウンドのようにペイロードを受け取れます。
 
-<Alert type="warning">Window スコープで行います。</Alert>
+> [!WARNING]
+> Window スコープで行います。
 
 ```ts
 import { getMessaging, onMessage } from "firebase/messaging";

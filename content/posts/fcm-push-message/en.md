@@ -362,7 +362,8 @@ notifications are not displayed when the page is in focus.
 There is a way to receive messages in the foreground case. You can use the
 `onMessage` function to receive the payload as in the background.
 
-<Alert type="warning">This is done in the Window scope. </Alert>
+> [!WARNING]
+> This is done in the Window scope.
 
 ```ts
 import { getMessaging, onMessage } from "firebase/messaging";
