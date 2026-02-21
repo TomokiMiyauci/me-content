@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/typescript-conditional-types/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/typescript-conditional-types/ja.md",
+      "key": "ja"
+    }
+  ]
+}

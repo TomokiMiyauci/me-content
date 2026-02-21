@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/gatsby-typescript/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/gatsby-typescript/ja.md",
+      "key": "ja"
+    }
+  ]
+}

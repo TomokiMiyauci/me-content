@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/speeding-up-jest/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/speeding-up-jest/ja.md",
+      "key": "ja"
+    }
+  ]
+}

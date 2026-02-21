@@ -173,7 +173,7 @@ const Dialog: FC<{ open: boolean }> = ({ open }) => (
 export default Dialog;
 ```
 
-```tsx{4,8}
+```tsx
 import { lazy, useState } from 'react'
 import type { FC } from 'react'
 
