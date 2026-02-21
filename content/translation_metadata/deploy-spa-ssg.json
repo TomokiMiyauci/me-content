@@ -1,10 +1,6 @@
 {
   "translations": [
     {
-      "value": "content/posts/deploy-spa-ssg/en.md",
-      "key": "en"
-    },
-    {
       "value": "content/posts/deploy-spa-ssg/ja.md",
       "key": "ja"
     }
