@@ -192,23 +192,9 @@ Authentication Tokens から
 
 まず、 `twitter-api-v2` をインストールします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D twitter-api-v2
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D twitter-api-v2
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 コンストラクタに 4
 つの値を与えます。インターフェイスのキーの名称が若干異なります。

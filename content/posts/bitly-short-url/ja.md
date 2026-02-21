@@ -108,23 +108,9 @@ URL は元の URL と一対一です。つまり、同一 URL をリクエスト
 
 Bitly クライアントライブラリを使うことで、 TypeScript で型安全に運用できます。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add bitly
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i bitly
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 <Alert type="warning">Top level await 構文を使っています</Alert>
 
@@ -192,23 +178,9 @@ await bitly.info("https://bit.ly/3jzAv7l"); // BitlyLink
 [TypeScript で型安全にツイートする](/posts/tweet-typescript/)
 を参照してください。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D twitter-api-v2
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D twitter-api-v2
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```ts
 import { BitlyClient } from "bitly";

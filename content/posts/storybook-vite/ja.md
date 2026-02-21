@@ -54,27 +54,11 @@ iframe 内のビルドを `Webpack` から `vite` に切り替えることで次
 
 まずはプロジェクトの雛形を作成します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create @vitejs/app <project-name> --template preact-ts
-cd <project-name>
-yarn add -D @mdx-js/preact
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init @vitejs/app <project-name> -- --template preact-ts
 cd <project-name>
 npm i -D @mdx-js/preact
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 のちに必要になる `storybook-builder-vite` の `peerDependency`
 もインストールしています。
@@ -266,23 +250,9 @@ Storybook の `StorybookConfig` 型を拡張する必要があります。 `inte
 
 この記事の作成時はまだ、 `beta` です。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D utilitypes@beta
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D utilitypes@beta
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 あとはこの型を型注釈で指定します。ファイル全体は次のようになります。
 
@@ -326,23 +296,9 @@ export default config
 `esbuild-register`は `ts-node` の `esbuild`
 版です。型のチェックはありません。早いです。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D esbuild-register
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D esbuild-register
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `main.js` は次のようになります。
 

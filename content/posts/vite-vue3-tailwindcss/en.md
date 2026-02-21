@@ -26,25 +26,10 @@ In the following, I will assume that there is a Vite project.
 First, install Tailwind CSS module and generate a configuration file. As you
 want to use `scss` and `sass`, install modules for them as well.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tailwindcss sass
-yarn tailwindcss init
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -d tailwindcss sass
 npx tailwind init
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Next, prepare a style file to inject the tailwind directive.
 

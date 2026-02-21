@@ -57,27 +57,11 @@ environment.
 
 First, create a project skeleton.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create @vitejs/app <project-name> --template preact-ts
-cd <project-name>
-yarn add -D @mdx-js/preact
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init @vitejs/app <project-name> -- --template preact-ts
 cd <project-name>
 npm i -D @mdx-js/preact
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 We also installed `peerDependency` for `storybook-builder-vite`, which will be
 needed later.
@@ -275,23 +259,9 @@ with `any` of the specified properties.
 
 It is still `beta` at the time of this writing.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D utilitypes@beta
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D utilitypes@beta
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Now we can specify this type in the type annotation. The entire file will look
 like this:
@@ -336,23 +306,9 @@ To do this, we will use the package
 `esbuild-register` is the `esbuild` version of `ts-node`. There is no type
 checking. It is fast.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D esbuild-register
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D esbuild-register
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `main.js` will look like this:
 

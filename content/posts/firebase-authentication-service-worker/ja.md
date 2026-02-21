@@ -103,23 +103,9 @@ CDN から `importScripts` を用いて読み込む場合は適宜読み替え�
 
 まず、既にある場合は不要ですが、Firebase SDK をインストールします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add firebase@9
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i firebase@9
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 今後、`sw.ts`
 という一つのファイルで説明しますが、実際は適宜ファイル分割をしてください。
@@ -241,46 +227,18 @@ Web workers
 
 まず、 `esbuild` をインストールします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D esbuild
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D esbuild
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `esbuild` は CLI で動作するコマンドを提供しているため、それを利用します。
 
 <!-- [^3]: JavaScript API
     も提供しているため、ビルドプロセスが複雑になった場合はそちらの利用を推奨します。 -->
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `outdir` に メインビルドの出力先のルートディレクトリを指定します。
 

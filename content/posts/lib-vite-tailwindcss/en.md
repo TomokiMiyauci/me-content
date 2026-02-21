@@ -35,27 +35,11 @@ to look at other frameworks supported by vite.
 
 The first step is to generate a project skeleton.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create vite --template react-ts
-cd project_name
-yarn add -D @types/node
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init vite@latest --template react-ts
 cd project_name
 npm i -D @types/node
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 We'll also create the following component as a suitable example component.
 
@@ -138,25 +122,10 @@ export default defineConfig({
 
 The next step is to install tailwindcss.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tailwindcss@next postcss@latest autoprefixer@latest
-yarn tailwindcss init
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D tailwindcss@next postcss@latest autoprefixer@latest
 npm run tailwindcss init
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Tailwindcss needs `postcss` and should be set.
 
@@ -291,43 +260,15 @@ To solve this, you need to create a type definition file. To solve this, we need
 to create a type declaration file, which can be generated automatically by the
 CLI.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D typed-css-modules
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D typed-css-modules
 ```
 
-</CodeGroup>
-</CodeGroups>
-
 The `tcm` command will be available.
-
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn tcm src
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
 
 ```bash
 npm run tcm src
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 You can run it in the format `tcm <input directory>`. This will generate a CSS
 Modules type definition file.
@@ -354,23 +295,9 @@ vite needs to be installed to handle the preprocessor. Also, the
 library called [typed-scss-modules](https://github.com/skovy/typed-scss-modules)
 that can be used.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D sass typed-scss-modules
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D sass typed-scss-modules
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Let's change the stylesheet to `.scss`.
 
@@ -383,23 +310,9 @@ export default Index
 
 The CLI interface is pretty same.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn tsm src
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run tsm src
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Now you can use Sass.
 
@@ -535,23 +448,9 @@ We recommend using `tsc` and `tsc-alias` to output type definition files.
 
 Path aliases are resolved by using `tsc-alias`.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tsc-alias
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D tsc-alias
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Change `tsconfig.json` to look like this:
 
@@ -586,25 +485,10 @@ Change `tsconfig.json` to look like this:
 
 Don't forget to set the `declarationMap` as well.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn tsc --emitDeclarationOnly
-yarn tsc-alias
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run tsc --emitDeclarationOnly
 npm run tsc-alias
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Output only type definition files with `tsc`. Then overwrite the path alias with
 `tsc-alias`.
@@ -627,23 +511,9 @@ the order of each command, they can be run in parallel.
 
 Use [npm-run-all](https://github.com/mysticatea/npm-run-all).
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D npm-run-all
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D npm-run-all
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 The shorthand CLI `npm-run-all` and `run-p` will be available. An example of a
 parallel run command might look like this:

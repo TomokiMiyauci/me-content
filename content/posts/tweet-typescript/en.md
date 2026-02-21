@@ -198,23 +198,9 @@ Now that you have the four values, the rest is easy.
 
 First, you need to install `twitter-api-v2`.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D twitter-api-v2
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D twitter-api-v2
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 The constructor is given four values. The names of the keys in the interface are
 slightly different.

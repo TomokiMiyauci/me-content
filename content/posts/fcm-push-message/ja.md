@@ -98,23 +98,9 @@ Firebase Console や Firebase Admin SDK から、Web
 
 まず、Firebase SDK をインストールします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add firebase@9
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i firebase@9
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ### バックグラウンドイベントリスナー
 
@@ -316,23 +302,9 @@ Firebase Console
 
 Cloud Functions for Firebase を例に挙げます。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add firebase-admin firebase-functions
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i firebase-admin firebase-functions
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```ts{26}
 import functions from 'firebase-functions'

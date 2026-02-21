@@ -163,8 +163,7 @@ UI コンポーネントライブラリは `React` や `Vue`、`Svelte`
 やっていることは大したことはないですが、コンポーネントとして扱えるので
 `utterances` の導入は簡単ではないでしょうか。
 
-<CodeGroups>
-  <CodeGroup label="React" active>
+react:
 
 ```tsx
 import { Utterances } from "utterances-react-component";
@@ -175,9 +174,7 @@ import { Utterances } from "utterances-react-component";
 />;
 ```
 
-</CodeGroup>
-
-<CodeGroup label="Vue">
+vue:
 
 ```html
 <template>
@@ -193,9 +190,7 @@ import { Utterances } from "utterances-react-component";
 </script>
 ```
 
-</CodeGroup>
-
-<CodeGroup label="Svelte">
+svelte:
 
 ```html
 <script lang="ts">
@@ -208,9 +203,6 @@ import { Utterances } from "utterances-react-component";
   issueTerm="pathname"
 />
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 このプロジェクトは `monorepo` で作ったので、 もしこの他にサポートしてほしい UI
 コンポーネントライブラリがあれば、機能リクエストをお願いします。

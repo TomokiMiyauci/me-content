@@ -173,8 +173,7 @@ It currently supports `React/Preact`, `Vue3`, and `Svelte`. What it does is not
 much, but it can be handled as a component, so it should be easy to implement
 `utterances`.
 
-<CodeGroups>
-  <CodeGroup label="React" active>
+react:
 
 ```tsx
 import { Utterances } from "utterances-react-component";
@@ -185,9 +184,7 @@ import { Utterances } from "utterances-react-component";
 />;
 ```
 
-</CodeGroup>
-
-<CodeGroup label="Vue">
+vue:
 
 ```html
 <template>
@@ -203,9 +200,7 @@ import { Utterances } from "utterances-react-component";
 </script>
 ```
 
-</CodeGroup>
-
-<CodeGroup label="Svelte">
+svelte:
 
 ```html
 <script lang="ts">
@@ -218,9 +213,6 @@ import { Utterances } from "utterances-react-component";
   issueTerm="pathname"
 />
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Since this project was built with `monorepo`. If there are other UI component
 libraries that you would like to see supported, please submit a feature request.
