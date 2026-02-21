@@ -284,31 +284,24 @@ if ("serviceWorker" in window.navigator) {
 
 まず、現状を整理すると次のようになります。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
 
-file "Sub thread: sw.js" {
-  node "firebase/auth"
-  () self
-}
+  subgraph sw_js ["📄 Sub thread: sw.js"]
+      node_auth["node: firebase/auth"]
+      self(("○ self"))
+  end
 
-cloud "GCP" {
-  Authentication(auth, "Authentication", "User store")
-  Firestore(db, "Database", "/users/{uid}")
-}
+  subgraph GCP ["☁️ GCP"]
+      auth["🔐 Authentication<br/>(User store)"]
+      db[("🔥 Firestore<br/>(/users/{uid})")]
+  end
 
-actor "User" as user
-node "firebase/firestore"
-
-user ..> self: fetch hijack
-self ..> auth: sign in or sign up
-auth ..> self: user info
-self ..> db: fetch
-@enduml
+  user -.->|fetch hijack| self
+  self -.->|sign in or sign up| auth
+  auth -.->|user info| self
+  self -.->|fetch| db
 ```
 
 ユーザーがメインスレッドから `fetch` したタイミングでは、まだ `uid`
@@ -365,23 +358,6 @@ sw.addEventListener(
 
 active な Service Worker に対して、 `postMessage` でメッセージを送信します。
 Service Worker からのメッセージは、 `message` イベントで取得できます。
-
-```plantuml
-@startuml
-left to right direction
-
-file "Sub thread: sw.js" {
-  () self
-}
-
-
-() window
-
-window ..> self: postMessage
-self ..> window: postMessage (uid)
-
-@enduml
-```
 
 これで `uid` を取得できました。このやり取りは非同期なため、Cloud Firestore
 へリクエストする際は、 `uid` が取得できるまで待機するか、

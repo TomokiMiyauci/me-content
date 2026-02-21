@@ -81,13 +81,12 @@ Cloud Functions を使用するには、かなり前から従量課金の `Braze
 
 また、保存するデータは次のデータとします。
 
-```plantuml
-@startuml
-entity user {
-   * **uid**
-   * createdAt
-}
-@enduml
+```mermaid
+erDiagram
+  user {
+    string uid
+    string createdAt
+  }
 ```
 
 シンプルに uid と作成時のタイムスタンプを保持することとします。
@@ -98,27 +97,23 @@ entity user {
 Functions でサブスクライブし、Cloud Firestore へデータを格納するという、
 Firebase リソースをフル活用した構成で行うと次のようになります。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  
+  subgraph auth ["Firebase Authentication"]
+      auth_store["🔐 User store"]
+  end
 
-actor "User" as user
-Authentication(auth, "Authentication", "User store")
+  subgraph Server
+      db[("🗄️ Firestore<br/>Document Database")]
+      func[["⚡ Functions<br/>onCreate (Node14)"]]
+  end
 
-package "Server" {
-  Firestore(db, "Database", "Document Database")
-  Functions(func, "onCreate", "Node14")
-}
-
-
-user ..> auth: sign up
-func --> auth: subscribe
-auth ..> func: publish
-func ..> db: create
-@enduml
+  user -. sign up .-> auth_store
+  func --> auth_store
+  auth_store -. publish .-> func
+  func -. create .-> db
 ```
 
 それぞれのサービスが単一責任を持つため、シンプルでパフォーマンスが高く堅牢な構成になります。
@@ -127,21 +122,15 @@ func ..> db: create
 
 なお、ユーザーのサインアップからデータベースまでは繋がっているので、次のような構成ももちろん可能です。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  auth["🔐 Authentication<br/>(User store)"]
+  db[("🔥 Database<br/>(Document Database)")]
 
-actor "User" as user
-Firestore(db, "Database", "Document Database")
-Authentication(auth, "Authentication", "User store")
-
-user ..> auth: sign up
-auth ..> user: user info
-user ..> db: create
-@enduml
+  user -.->|sign up| auth
+  auth -.->|user info| user
+  user -.->|create| db
 ```
 
 サインアップ後、ユーザー情報をフロントエンドから書き込むという方法です。 Cloud
@@ -158,29 +147,23 @@ Firebase Authentication は、認証情報を `IndexedDB` に保持する事も�
 そのため、 Web Worker でサインアップおよび DB
 への書き込みを行うことで、メインスレッドを専有せずに一連の処理を実行できます。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  form["[form]"]
 
-cloud "Sub thread" {
-  () self
-  Firestore(db, "Database", "Document Database")
-  Authentication(auth, "Authentication", "User store")
-}
+  subgraph sub_thread ["☁️ Sub thread"]
+      self(("○ self"))
+      db[("🔥 Database<br/>(Document Database)")]
+      auth["🔐 Authentication<br/>(User store)"]
+  end
 
-actor "User" as user
-[form]
-
-user --> form: input
-form ..> self: postMessage
-self ..> db: create
-self ..> auth: sign up
-auth ..> self: user info
-self ..> user: onmessage
-@enduml
+  user -->|input| form
+  form -.->|postMessage| self
+  self -.->|create| db
+  self -.->|sign up| auth
+  auth -.->|user info| self
+  self -.->|onmessage| user
 ```
 
 ユーザーがフォームへ入力したあと、`postMessage`

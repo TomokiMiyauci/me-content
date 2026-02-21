@@ -290,31 +290,24 @@ worker.
 
 First, the current situation can be summarized as follows:
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
 
-file "Sub thread: sw.js" {
-  node "firebase/auth"
-  () self
-}
+  subgraph sw_js ["📄 Sub thread: sw.js"]
+      node_auth["node: firebase/auth"]
+      self(("○ self"))
+  end
 
-cloud "GCP" {
-  Authentication(auth, "Authentication", "User store")
-  Firestore(db, "Database", "/users/{uid}")
-}
+  subgraph GCP ["☁️ GCP"]
+      auth["🔐 Authentication<br/>(User store)"]
+      db[("🔥 Firestore<br/>(/users/{uid})")]
+  end
 
-actor "User" as user
-node "firebase/firestore"
-
-user ..> self: fetch hijack
-self ..> auth: sign in or sign up
-auth ..> self: user info
-self ..> db: fetch
-@enduml
+  user -.->|fetch hijack| self
+  self -.->|sign in or sign up| auth
+  auth -.->|user info| self
+  self -.->|fetch| db
 ```
 
 At the time the user `fetch` from the main thread, the `uid` is not yet known.
@@ -369,23 +362,6 @@ sw.addEventListener(
 
 Sends a message to an active Service Worker with `postMessage`. The message from
 the service worker can be retrieved with the `message` event.
-
-```plantuml
-@startuml
-left to right direction
-
-file "Sub thread: sw.js" {
-  () self
-}
-
-
-() window
-
-window ..> self: postMessage
-self ..> window: postMessage (uid)
-
-@enduml
-```
 
 Now you can get the `uid`. Since this exchange is asynchronous, you need to
 either wait until you get the `uid` when making a request to Cloud Firestore.

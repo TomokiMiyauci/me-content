@@ -27,26 +27,23 @@ First, let's take a quick look at how JavaScript is executed. For example,
 Google Chrome's JavaScript Engine is [V8](https://v8.dev/docs#about-v8), but you
 can run it as follows:
 
-```plantuml
-@startuml
-:Source code;
-:AST;
-:Bytecode;
-:Graph;
-:Assembly;
-@enduml
+```mermaid
+graph TD
+  Source_code["Source code"] --> AST
+  AST --> Bytecode
+  Bytecode --> Graph
+  Graph --> Assembly
 ```
 
 Simplifying from getting the source code, it looks like this:
 
-```plantuml
-@startuml
-:Fetch;
-partition Evaluate {
-:Source code;
-:...;
-}
-@enduml
+```mermaid
+graph TD
+  Fetch["Fetch"] --> Source_code
+  
+  subgraph Evaluate
+    Source_code["Source code"] --> dots["..."]
+  end
 ```
 
 Obviously, you need to realize that fetching the script is the beginning of

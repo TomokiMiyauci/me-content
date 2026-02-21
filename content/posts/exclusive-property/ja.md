@@ -20,19 +20,19 @@ type WhatIsThis = "what" | "is" | "this" | string;
 
 例えば文字列リテラル型はプリミティブ型 `string` の派生です。
 
-```plantuml
-@startuml
-node string
-node hello as "'hello'"
-node world as "'world'"
-node number
-node 0
-node 1
-string --> hello
-string --> world
-number --> 0
-number --> 1
-@enduml
+```mermaid
+graph TD
+  n_string["string"]
+  n_hello["'hello'"]
+  n_world["'world'"]
+  n_number["number"]
+  n_0["0"]
+  n_1["1"]
+
+  n_string --> n_hello
+  n_string --> n_world
+  n_number --> n_0
+  n_number --> n_1
 ```
 
 [Union types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)で

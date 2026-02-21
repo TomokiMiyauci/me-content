@@ -86,15 +86,13 @@ TypeScript so that they can be run in a type-safe manner.
 
 Gatsby config will be loaded in the following order.
 
-```plantuml
-@startuml
-start
-:gatsby-config;
-:gatsby-node;
-:gatsby-ssr;
-:gatsby-browser;
-stop
-@enduml
+```mermaid
+graph TD
+  Start([ ]) --> gatsby-config
+  gatsby-config --> gatsby-node
+  gatsby-node --> gatsby-ssr
+  gatsby-ssr --> gatsby-browser
+  gatsby-browser --> Stop([ ])
 ```
 
 The `gatsby-config` will be loaded first in the configuration file.

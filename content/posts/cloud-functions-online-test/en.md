@@ -82,13 +82,12 @@ the user information to the database when they sign up.
 
 Also, the data to be saved is the following data.
 
-```plantuml
-@startuml
-entity user {
-   * **uid**
-   * createdAt
-}
-@enduml
+```mermaid
+erDiagram
+  user {
+    string uid
+    string createdAt
+  }
 ```
 
 We'll save the uid and the timestamp of the creation.
@@ -99,27 +98,23 @@ If we use Firebase Authentication for user management, subscribe to user signups
 with Cloud Functions, and store the data in Cloud Firestore, we will have the
 following configuration
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  
+  subgraph auth ["Firebase Authentication"]
+      auth_store["🔐 User store"]
+  end
 
-actor "User" as user
-Authentication(auth, "Authentication", "User store")
+  subgraph Server
+      db[("🗄️ Firestore<br/>Document Database")]
+      func[["⚡ Functions<br/>onCreate (Node14)"]]
+  end
 
-package "Server" {
-  Firestore(db, "Database", "Document Database")
-  Functions(func, "onCreate", "Node14")
-}
-
-
-user ..> auth: sign up
-func --> auth: subscribe
-auth ..> func: publish
-func ..> db: create
-@enduml
+  user -. sign up .-> auth_store
+  func --> auth_store
+  auth_store -. publish .-> func
+  func -. create .-> db
 ```
 
 Since each service has a single responsibility, the configuration is simple,
@@ -130,21 +125,15 @@ performant, and robust.
 Since the process from user sign-up to database is a series of steps, the
 following configuration is of course possible.
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  auth["🔐 Authentication<br/>(User store)"]
+  db[("🔥 Database<br/>(Document Database)")]
 
-actor "User" as user
-Firestore(db, "Database", "Document Database")
-Authentication(auth, "Authentication", "User store")
-
-user ..> auth: sign up
-auth ..> user: user info
-user ..> db: create
-@enduml
+  user -.->|sign up| auth
+  auth -.->|user info| user
+  user -.->|create| db
 ```
 
 This is the way to write user information from the frontend after signup. This
@@ -164,29 +153,23 @@ information in an `IndexedDB`.
 Therefore, by using the Web Worker to sign up and write to the DB, a series of
 operations can be performed without occupying the main thread.
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  form["[form]"]
 
-cloud "Sub thread" {
-  () self
-  Firestore(db, "Database", "Document Database")
-  Authentication(auth, "Authentication", "User store")
-}
+  subgraph sub_thread ["☁️ Sub thread"]
+      self(("○ self"))
+      db[("🔥 Database<br/>(Document Database)")]
+      auth["🔐 Authentication<br/>(User store)"]
+  end
 
-actor "User" as user
-[form]
-
-user --> form: input
-form ..> self: postMessage
-self ..> db: create
-self ..> auth: sign up
-auth ..> self: user info
-self ..> user: onmessage
-@enduml
+  user -->|input| form
+  form -.->|postMessage| self
+  self -.->|create| db
+  self -.->|sign up| auth
+  auth -.->|user info| self
+  self -.->|onmessage| user
 ```
 
 After the user fills out the form, we use `postMessage` to pass the information

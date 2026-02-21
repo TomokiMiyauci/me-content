@@ -27,26 +27,23 @@ cover_image: /posts/react-lazy-intersection/hero.png
 Chrome の JavaScript Engine は [V8](https://v8.dev/docs#about-v8)
 ですが、次のように実行します。
 
-```plantuml
-@startuml
-:Source code;
-:AST;
-:Bytecode;
-:Graph;
-:Assembly;
-@enduml
+```mermaid
+graph TD
+  Source_code["Source code"] --> AST
+  AST --> Bytecode
+  Bytecode --> Graph
+  Graph --> Assembly
 ```
 
 ソースコードの取得から単純化すると次のようになります。
 
-```plantuml
-@startuml
-:Fetch;
-partition Evaluate {
-:Source code;
-:...;
-}
-@enduml
+```mermaid
+graph TD
+  Fetch["Fetch"] --> Source_code
+  
+  subgraph Evaluate
+    Source_code["Source code"] --> dots["..."]
+  end
 ```
 
 当たり前ですが、スクリプトを fetch

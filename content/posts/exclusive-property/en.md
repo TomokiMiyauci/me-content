@@ -22,19 +22,19 @@ is a derived type of the data type to which the literal belongs.
 For example, the string literal type is a derivative of the primitive type
 `string`.
 
-```plantuml
-@startuml
-node string
-node hello as "'hello'"
-node world as "'world'"
-node number
-node 0
-node 1
-string --> hello
-string --> world
-number --> 0
-number --> 1
-@enduml
+```mermaid
+graph TD
+  n_string["string"]
+  n_hello["'hello'"]
+  n_world["'world'"]
+  n_number["number"]
+  n_0["0"]
+  n_1["1"]
+
+  n_string --> n_hello
+  n_string --> n_world
+  n_number --> n_0
+  n_number --> n_1
 ```
 
 If a primitive type and its derived literal types are specified in

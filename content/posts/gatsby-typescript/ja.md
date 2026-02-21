@@ -90,15 +90,13 @@ export default { onRenderBody };
 
 Gatsby config は次の順に読み込まれます。
 
-```plantuml
-@startuml
-start
-:gatsby-config;
-:gatsby-node;
-:gatsby-ssr;
-:gatsby-browser;
-stop
-@enduml
+```mermaid
+graph TD
+  Start([ ]) --> gatsby-config
+  gatsby-config --> gatsby-node
+  gatsby-node --> gatsby-ssr
+  gatsby-ssr --> gatsby-browser
+  gatsby-browser --> Stop([ ])
 ```
 
 `gatsby-config` が設定ファイルの中で一番最初に読み込まれます。
