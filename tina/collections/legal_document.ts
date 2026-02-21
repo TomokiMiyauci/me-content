@@ -24,5 +24,5 @@ export default {
     },
     language,
   ],
-  format: "json",
+  format: "md",
 } satisfies Collection;
