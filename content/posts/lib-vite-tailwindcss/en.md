@@ -45,16 +45,20 @@ We'll also create the following component as a suitable example component.
 
 Create an entry point, or component, under `src`.
 
-```ts:src/index.ts
-export * as SwipeBar from '@/components/swipebar'
+src/index.ts
+
+```ts
+export * as SwipeBar from "@/components/swipebar";
 ```
 
-```tsx:src/components/swipebar.tsx
-const Swipebar = (): JSX.Element => {
-  return <div className="w-24 h-1 inline-blick bg-gray-200 rounded-full" />
-}
+src/components/swipebar.tsx
 
-export default Swipebar
+```tsx
+const Swipebar = (): JSX.Element => {
+  return <div className="w-24 h-1 inline-blick bg-gray-200 rounded-full" />;
+};
+
+export default Swipebar;
 ```
 
 The file structure looks like this:
@@ -89,7 +93,9 @@ alias.
 The `tsconfig.json` adds the following settings. This will allow VSCode to use
 IntelliSense for the import path.
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     ...,
@@ -103,19 +109,21 @@ IntelliSense for the import path.
 
 Also, `vite.config.ts` should look like this:
 
-```ts:vite.config.ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
-})
+});
 ```
 
 ## Configure tailwindcss for your library
@@ -129,21 +137,25 @@ npm run tailwindcss init
 
 Tailwindcss needs `postcss` and should be set.
 
-```js:postcss.config.js
+postcss.config.js
+
+```js
 module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-  }
-}
+  },
+};
 ```
 
 Also, import `tailwindcss` in your entry file.
 
-```ts:src/index.ts
-import 'tailwindcss/tailwind.css'
+src/index.ts
 
-export * as SwipeBar from '@/components/swipebar'
+```ts
+import "tailwindcss/tailwind.css";
+
+export * as SwipeBar from "@/components/swipebar";
 ```
 
 The example uses `3.0.0-alpha.1`, which is still an alpha release at the time of
@@ -171,10 +183,12 @@ In order to deal with this, the `tailwind.config.js` can be modified.
 > If you are using tailwindcss 2 series, the field name is `purge`, not
 > `content`.
 
-```js:tailwind.config.js{8-11}
+tailwind.config.js
+
+```js
 module.exports = {
   jit: true,
-  content: ['src/**/*.{ts,tsx}'],
+  content: ["src/**/*.{ts,tsx}"],
   theme: {
     extend: {},
   },
@@ -182,21 +196,30 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-  prefix: 'mylib-'
-}
+  prefix: "mylib-",
+};
 ```
 
 The tailwind class name now needs a prefix.
 
 For example, this would look like:
 
-```tsx:src/components/swipebar.tsx
-<div className="mylib-w-24 mylib-bg-gray-200" />
+src/components/swipebar.tsx
+
+```tsx
+<div className="mylib-w-24 mylib-bg-gray-200" />;
 ```
 
-```css:dist/style.css
-.mylib-w-24{width:6rem}
-.mylib-bg-gray-200{--tw-bg-opacity: 1;background-color:rgb(229 231 235 / var(--tw-bg-opacity))}
+dist/style.css
+
+```css
+.mylib-w-24 {
+  width: 6rem;
+}
+.mylib-bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
 ```
 
 CSS custom properties such as `--tw-bg-opacity` should have no side effect, as
@@ -220,25 +243,32 @@ The `*.module.css` file is recognized as a CSS Modules.
 
 Create a file called `swipe.module.css` and add your styles.
 
-```css:src/components/swipe.module.css
+src/components/swipe.module.css
+
+```css
 .swipebar {
-  @apply mylib-w-24 mylib-h-1 mylib-inline-block mylib-bg-gray-200 mylib-rounded-full;
+  @apply mylib-w-24 mylib-h-1 mylib-inline-block mylib-bg-gray-200
+    mylib-rounded-full;
 }
 ```
 
 To use this style, do the following Path aliases can also be used for CSS
 imports.
 
-```tsx:src/components/swipe.tsx
-import { swipebar } from '@/components/swipe.module.css'
-const Index = (): JSX.Element => <div className={swipebar} />
+src/components/swipe.tsx
 
-export default Index
+```tsx
+import { swipebar } from "@/components/swipe.module.css";
+const Index = (): JSX.Element => <div className={swipebar} />;
+
+export default Index;
 ```
 
 The output from the build will look something like this:
 
-```css:style.css
+style.css
+
+```css
 ._swipebar_5xd3q_1{display:inline-block;...}
 ```
 
@@ -270,7 +300,9 @@ npm run tcm src
 You can run it in the format `tcm <input directory>`. This will generate a CSS
 Modules type definition file.
 
-```ts:swipe.module.css.d.ts
+swipe.module.css.d.ts
+
+```ts
 declare const styles: {
   readonly "swipebar": string;
 };
@@ -298,11 +330,13 @@ npm i -D sass typed-scss-modules
 
 Let's change the stylesheet to `.scss`.
 
-```tsx:swipe.tsx{1}
-import { swipebar } from '@/swipe.module.scss'
-const Index = (): JSX.Element => <div className={swipebar} />
+swipe.tsx
 
-export default Index
+```tsx
+import { swipebar } from "@/swipe.module.scss";
+const Index = (): JSX.Element => <div className={swipebar} />;
+
+export default Index;
 ```
 
 The CLI interface is pretty same.
@@ -322,7 +356,9 @@ Finally, let's check the build settings for libraries.
 
 First, we need to clean up the external modules in `package.json`
 
-```json:package.json
+package.json
+
+```json
 {
   "peerDependencies": {
     "react": "^16.8.0"
@@ -342,37 +378,42 @@ need it for development or build.
 
 Next, change `vite.config.ts` to look like this:
 
-```ts:vite.config.ts{9,20}
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import { peerDependencies, dependencies } from './package.json'
-import plugin from '@vitejs/plugin-react'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
+import { resolve } from "path";
+import { dependencies, peerDependencies } from "./package.json";
+import plugin from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [
     plugin({
-      'jsxRuntime': 'classic'
-    })
+      "jsxRuntime": "classic",
+    }),
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src', 'index.ts'),
-      formats: ['es', 'cjs'],
+      entry: resolve(__dirname, "src", "index.ts"),
+      formats: ["es", "cjs"],
       fileName: (ext) => `index.${ext}.js`,
       // for UMD name: 'GlobalName'
     },
     rollupOptions: {
-      external: [...Object.keys(peerDependencies), ...Object.keys(dependencies)]
+      external: [
+        ...Object.keys(peerDependencies),
+        ...Object.keys(dependencies),
+      ],
     },
-    target: 'esnext',
-    sourcemap: true
-  }
-})
+    target: "esnext",
+    sourcemap: true,
+  },
+});
 ```
 
 You can configure builds for libraries in the `lib` field of the `build`. Also,
@@ -451,7 +492,9 @@ npm i -D tsc-alias
 
 Change `tsconfig.json` to look like this:
 
-```json:tsconfig.json{17-19}
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "target": "ESNext",
@@ -515,12 +558,14 @@ npm i -D npm-run-all
 The shorthand CLI `npm-run-all` and `run-p` will be available. An example of a
 parallel run command might look like this:
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "build": "run-p build:*",
     "build:scripts": "vite build",
-    "build:types": "tsc --emitDeclarationOnly && tsc-alias",
+    "build:types": "tsc --emitDeclarationOnly && tsc-alias"
   }
 }
 ```
@@ -535,7 +580,9 @@ commands, `&&` is sometimes more concise, as above.
 
 Finally, we need to set the entry point for `package.json`.
 
-```json:package.json
+package.json
+
+```json
 {
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -545,7 +592,7 @@ Finally, we need to set the entry point for `package.json`.
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
     },
-     "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css"
   },
   "sideEffects": false,
 

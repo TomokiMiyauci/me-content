@@ -34,7 +34,9 @@ I will show you about the method first.
 yarn add -D jest @swc/jest
 ```
 
-```json:jest.config.json
+jest.config.json
+
+```json
 {
   "transform": {
     "^.+\\.(t|j)sx?$": "@swc/jest"
@@ -61,25 +63,31 @@ if I made a mistake :pray:)
 I'm not interested in the contents of the function, so prepare a suitable
 function and test it.
 
-```js:index.js
-exports.add = (a, b) => a + b
+index.js
+
+```js
+exports.add = (a, b) => a + b;
 ```
 
-```js:test/index.spec.js
-const { add } = require('../src')
+test/index.spec.js
 
-describe('add', () => {
-    it('should return 2 when it gives 1,1', () => {
-        const result = add(1,1)
-        expect(result).toBe(2)
-    })
-})
+```js
+const { add } = require("../src");
+
+describe("add", () => {
+  it("should return 2 when it gives 1,1", () => {
+    const result = add(1, 1);
+    expect(result).toBe(2);
+  });
+});
 ```
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   testEnvironment: "node",
-  roots: ["<rootDir>/test/"]
+  roots: ["<rootDir>/test/"],
 };
 ```
 
@@ -104,24 +112,30 @@ I will consider this as a standard.
 A pattern that describes TypeScript in ES module format. This is the pattern
 most of the time you use TypeScript.
 
-```ts:index.ts
-export const add = (a: number, b: number): number => a + b
+index.ts
+
+```ts
+export const add = (a: number, b: number): number => a + b;
 ```
 
-```ts:test/index.spec.ts
-import { add } from '../src/'
+test/index.spec.ts
 
-describe('add', () => {
-    it('should return 2 when it gives 1,1', () => {
-        const result = add(1,1)
-        expect(result).toBe(2)
-    })
-})
+```ts
+import { add } from "../src/";
+
+describe("add", () => {
+  it("should return 2 when it gives 1,1", () => {
+    const result = add(1, 1);
+    expect(result).toBe(2);
+  });
+});
 ```
 
 #### Use ts-jest for transformers
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   ...,
   transform: {
@@ -150,7 +164,9 @@ discarding type annotations.
 yarn add -D esbuild-jest esbuild
 ```
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   ...,
   transform: {
@@ -179,7 +195,9 @@ rust. It seems that [Deno](https://github.com/denoland/deno) is also used for
 yarn add -D @swc/jest
 ```
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   ...,
   transform: {

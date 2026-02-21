@@ -235,26 +235,26 @@ export { onCreateUser };
 また、その第１引数には、`UserRecord` 、第２引数には `EventContext`
 というデータが渡されます。 それぞれ次のような型です。
 
-```ts{2,13}
+```ts
 interface UserRecord {
-  uid: string
-  email?: string
-  emailVerified: boolean
-  displayName?: string
-  phoneNumber?: string
-  photoURL?: string
-  disabled: boolean
+  uid: string;
+  email?: string;
+  emailVerified: boolean;
+  displayName?: string;
+  phoneNumber?: string;
+  photoURL?: string;
+  disabled: boolean;
   // 省略
 }
 
 interface EventContext {
-  timestamp: string // RFC 3339
-  eventId: string
-  eventType: string
+  timestamp: string; // RFC 3339
+  eventId: string;
+  eventType: string;
   params: {
-    [option: string]: any
-  }
-  resource: Resource
+    [option: string]: any;
+  };
+  resource: Resource;
   // 省略
 }
 ```
@@ -297,7 +297,9 @@ npm i -D firebase-functions-test firebase-functions firebase-admin jest typescri
 
 jest の設定ファイルは次のようになります。
 
-```json:jest.config.json{9}
+jest.config.json
+
+```json
 {
   "clearMocks": true,
   "moduleFileExtensions": ["js", "ts"],
@@ -313,23 +315,27 @@ jest の設定ファイルは次のようになります。
 `setupFiles` で各テストファイルが実行する前に実行する処理を行えます。
 ここで、`firebase-admin`の `initializeApp` を行います。
 
-```ts:test/setup.ts
-import { initializeApp } from 'firebase-admin'
-initializeApp()
+test/setup.ts
+
+```ts
+import { initializeApp } from "firebase-admin";
+initializeApp();
 ```
 
 さて、続いて`firebase-functions-test`の初期化を行います。
 テストファイルを作成し、そこで初期化を行います。
 
-```ts:onCreate_test.ts
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 ```
 
 `projectId` は Firebase のプロジェクト ID で、必須です。 今回は Cloud Firestore
@@ -359,14 +365,16 @@ const test = _test(
 
 まずは、テスト対象の関数をラップし、モックユーザーデータを作成します。
 
-```ts:onCreate_test.ts
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
 
 // 初期化した `firebase-functions-test` 関数を使う
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-user.uid = 'fixed-user-id'
+user.uid = "fixed-user-id";
 ```
 
 `exampleUserRecord` でモックユーザーデータを作成できます。
@@ -374,12 +382,14 @@ user.uid = 'fixed-user-id'
 
 これをラップした関数に渡すことで、実際に関数を実行します。
 
-```ts:onCreate_test.ts
-const timestamp = new Date('2021/1/1 00:01:02')
+onCreate_test.ts
+
+```ts
+const timestamp = new Date("2021/1/1 00:01:02");
 
 onCreateUser(user, {
-  timestamp: timestamp.toISOString()
-})
+  timestamp: timestamp.toISOString(),
+});
 ```
 
 さて、これで実際に Cloud Firestore
@@ -393,42 +403,44 @@ onCreateUser(user, {
 ここまできたので、あとは実際のデータを取得しアサートします。
 少し長いですがテストの全体を載せます。
 
-```ts:onCreate_test.ts{18,24-29,33}
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
-import { firestore } from 'firebase-admin'
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
+import { firestore } from "firebase-admin";
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-describe('onCreateUser', () => {
-  it('save user info to firestore /document/users/{uid}', async () => {
-    const timestamp = new Date('2021/1/1 00:01:02')
+describe("onCreateUser", () => {
+  it("save user info to firestore /document/users/{uid}", async () => {
+    const timestamp = new Date("2021/1/1 00:01:02");
     await onCreateUser(user, {
-      timestamp: timestamp.toISOString()
-    })
+      timestamp: timestamp.toISOString(),
+    });
 
-    const snapshot = await firestore().collection('users').doc(user.uid).get()
+    const snapshot = await firestore().collection("users").doc(user.uid).get();
 
-    expect(snapshot.exists).toBeTruthy()
-    expect(snapshot.id).toBe(user.uid)
+    expect(snapshot.exists).toBeTruthy();
+    expect(snapshot.id).toBe(user.uid);
     expect(snapshot.data()).toEqual({
       uid: user.uid,
-      createdAt: firestore.Timestamp.fromDate(timestamp)
-    })
-  })
+      createdAt: firestore.Timestamp.fromDate(timestamp),
+    });
+  });
 
   afterAll(async () => {
-    await firestore().collection('users').doc(user.uid).delete()
-  })
-})
+    await firestore().collection("users").doc(user.uid).delete();
+  });
+});
 ```
 
 ポイントとしては、ラップ関数は非同期なため、

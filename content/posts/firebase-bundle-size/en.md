@@ -80,18 +80,20 @@ npm i firebase@beta
 
 To remove comments and licenses in `vite`, change `vite.config.ts` as follows
 
-```ts:vite.config.ts
-import { defineConfig } from 'vite'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
     terserOptions: {
       format: {
-        comments: false
-      }
-    }
-  }
-})
+        comments: false,
+      },
+    },
+  },
+});
 ```
 
 If you want to deploy it, you will need to output the license information to
@@ -125,10 +127,12 @@ imports.
 The `initializeApp` function must be executed prior to the initialization of all
 `Firebase` resources.
 
-```ts:main.ts
-import { initializeApp } from　'firebase/app'
+main.ts
 
-initializeApp(firebaseOptions)
+```ts
+import { initializeApp } from "firebase/app";
+
+initializeApp(firebaseOptions);
 ```
 
 When only the `initializeApp` function is bundled, the size is `15.99 kb`. In
@@ -177,11 +181,13 @@ First, let's look at the size when everything is bundled without any
 tree-shaking effect. There are four patterns for Cloud Firestore modules,
 including the use of submodules.
 
-```ts:main.ts
-import 'firebase/firestore' // V8
-import 'firebase/firestore/memory' // V8(memory)
-import * as firestore from 'firebase/firestore' // V9
-import * as firestore from 'firebase/firestore/lite' // V9(lite)
+main.ts
+
+```ts
+import "firebase/firestore"; // V8
+import "firebase/firestore/memory"; // V8(memory)
+import * as firestore from "firebase/firestore"; // V9
+import * as firestore from "firebase/firestore/lite"; // V9(lite)
 ```
 
 | Module                    | Version | Size      |
@@ -205,11 +211,13 @@ shaking.
 In the V9 Modular SDK, the state where `initializeFirestore` is performed is
 considered to be the lower limit of the bundle size.
 
-```ts:main.ts
-import { initializeFirestore } from 'firebase/firestore'
+main.ts
+
+```ts
+import { initializeFirestore } from "firebase/firestore";
 // import { initializeFirestore } from 'firebase/firestore/lite' V9(lite)
 
-const firestore = initializeFirestore(app, {})
+const firestore = initializeFirestore(app, {});
 ```
 
 | Module                  | Version | Lower limit | Upper limit |

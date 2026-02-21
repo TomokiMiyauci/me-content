@@ -56,7 +56,9 @@ echo '# Hello VitePress' > docs/index.md
 `package.json`には次のスクリプトを追加すると便利です。
 `docs`をドキュメントルートにしたので、スクリプトもそれに合わせます。
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -115,7 +117,9 @@ VitePress
 
 ![plain home](plain-home.png) これは `.md`で設定できます。
 
-```md:index.md
+index.md
+
+```md
 ---
 home: true
 ---
@@ -123,7 +127,9 @@ home: true
 
 他にも、以下の項目を設定可能です。
 
-```md:index.md
+index.md
+
+```md
 ---
 home: true
 
@@ -134,12 +140,12 @@ tagline: Hero subtitle
 actionText: Get Started
 actionLink: /guide/
 features:
-- title: Simplicity First
-  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-- title: Vue-Powered
-  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-- title: Performant
-  details: VitePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+  - title: Simplicity First
+    details: Minimal setup with markdown-centered project structure helps you focus on writing.
+  - title: Vue-Powered
+    details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+  - title: Performant
+    details: VitePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
 footer: MIT Licensed | Copyright © 2019-present Evan You
 ---
 ```
@@ -182,7 +188,9 @@ footer: MIT Licensed | Copyright © 2019-present Evan You
 
 また、この自動挿入はフロントマッターに設定することで制御できます。
 
-```md:index.md
+index.md
+
+```md
 ---
 title: Hello
 ---
@@ -252,7 +260,9 @@ interface UserConfig<ThemeConfig = any> {
 で型補完しながらというのはできませんが、 次のように JSDoc
 で型補完をするといいでしょう。
 
-```js:config.js
+config.js
+
+```js
 /**
  * @type {import('vitepress').UserConfig}
  */
@@ -285,10 +295,12 @@ module.exports = {
 例えば`https://foo.github.io/bar/`という URL にデプロイする場合、`/bar/`
 を設定します。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
-  base: '/bar/',
-}
+  base: "/bar/",
+};
 ```
 
 ### description
@@ -309,12 +321,14 @@ module.exports = {
 ページごとに設定するのではなくプロジェクト全体に設定したいときに便利です。 2
 重配列で若干わかりにくいので、例示しておきます。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   head: [
-    ['meta', { property: 'og:description', content: 'description' }],
-  ]
-}
+    ["meta", { property: "og:description", content: "description" }],
+  ],
+};
 ```
 
 ページにも設定されている場合は、ページが優先されます。
@@ -329,16 +343,18 @@ module.exports = {
 GitHub のレポジトリやブランチを設定することで、GitHub
 の編集リンクを自動生成できます。ページ上部のナビゲーションにもリンクが追加されます。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
-      editLinks: true,
-      editLinkText: 'GitHubでこのページを編集',
-      repo: 'TomokiMiyauci/file-select-dialog',
-      docsDir: 'docs',
-      docsBranch: 'main',
-  }
-}
+    editLinks: true,
+    editLinkText: "GitHubでこのページを編集",
+    repo: "TomokiMiyauci/file-select-dialog",
+    docsDir: "docs",
+    docsBranch: "main",
+  },
+};
 ```
 
 ![edit on GitHub](edit-on-github.png)
@@ -350,12 +366,14 @@ module.exports = {
 
 `lastUpdated`プロパティで記事の最終更新日を自動生成できます。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
-    lastUpdated: '最終更新'
-  }
-}
+    lastUpdated: "最終更新",
+  },
+};
 ```
 
 ![last updated](lastupdate.png)
@@ -372,24 +390,26 @@ module.exports = {
 
 `nav`プロパティで上部にナビゲーションを設定できます。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
     nav: [
-      { text: 'ガイド', link: '/ja/' },
+      { text: "ガイド", link: "/ja/" },
       {
-        text: 'API ',
-        link: '/ja/api',
-        activeMatch: '^/ja/api'
+        text: "API ",
+        link: "/ja/api",
+        activeMatch: "^/ja/api",
       },
       {
-        text: 'リリースノート',
+        text: "リリースノート",
         link:
-          'https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md'
-      }
+          "https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md",
+      },
     ],
-  }
-}
+  },
+};
 ```
 
 ![navigation](navigation.png)
@@ -410,21 +430,23 @@ module.exports = {
 
 言語の切替えについては、組み込みのメニューコンポーネントがあります。その設定について見てみましょう。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
     locales: {
-      '/': {
-          label: 'English',
-          selectText: 'Languages',
+      "/": {
+        label: "English",
+        selectText: "Languages",
       },
-      '/ja/': {
-          label: '日本語',
-          selectText: '言語',
+      "/ja/": {
+        label: "日本語",
+        selectText: "言語",
       },
-    }
-  }
-}
+    },
+  },
+};
 ```
 
 ![locale](locale.png) これによって言語の切換えができます。便利ですね:sparkles:。
@@ -432,38 +454,42 @@ module.exports = {
 また、`locales`プロパティで、上で説明した`themeConfig`のプロパティを設定できます。例えば、`editLinkText`を言語によって変える場合は以下のようにします。
 `locales`に指定した key が URL パスにマッピングされます。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
     locales: {
-      '/': {
-        editLinkText: 'edit on GitHub'
+      "/": {
+        editLinkText: "edit on GitHub",
       },
-      '/ja/': {
-        editLinkText: 'GitHubでこのページを編集',
+      "/ja/": {
+        editLinkText: "GitHubでこのページを編集",
       },
     },
 
-    editLinks: true
-  }
-}
+    editLinks: true,
+  },
+};
 ```
 
 さらに`locales`にない場合は`themeConfig`のプロパティにフォールバックします。`editLinks`は言語間で共通なので、上の例のように設定できます。
 
 `themeConfig`だけではなく、`head`タグも多言語化可能です。例えば、`description`プロパティを多言語対応するには次のようにします。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   locales: {
-      '/': {
-          description: 'locale En',
-      },
-      '/ja/': {
-          description: 'locale Ja',
-      }
-  }
-}
+    "/": {
+      description: "locale En",
+    },
+    "/ja/": {
+      description: "locale Ja",
+    },
+  },
+};
 ```
 
 まとめると`config.js`は次のようになります。長くなってしまいましたが、例として活用してください。
@@ -471,67 +497,69 @@ module.exports = {
 ポイントは`locales`プロパティは`head`タグを変更する部分と、`themeConfig`プロパティの両方に設定できるということです。
 OGP タグなどは省略してるものもあるので、適宜追加してください。
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
-  title: 'My Project',
+  title: "My Project",
   head: [
-    ['meta', { property: 'og:title', content: 'My Project' }],
+    ["meta", { property: "og:title", content: "My Project" }],
   ],
   locales: {
-      '/': {
-          description: 'locale En',
-      },
-      '/ja/': {
-          description: 'locale Ja',
-      }
+    "/": {
+      description: "locale En",
+    },
+    "/ja/": {
+      description: "locale Ja",
+    },
   },
   themeConfig: {
     editLinks: true,
-    editLinkText: 'GitHubでこのページを編集',
-    repo: 'TomokiMiyauci/file-select-dialog',
-    docsDir: 'docs',
-    docsBranch: 'main',
-    logo: '/logo2.png',
+    editLinkText: "GitHubでこのページを編集",
+    repo: "TomokiMiyauci/file-select-dialog",
+    docsDir: "docs",
+    docsBranch: "main",
+    logo: "/logo2.png",
     locales: {
-      '/': {
-          label: 'English',
-          selectText: 'Languages',
-          editLinkText: 'edit on GitHub',
-          lastUpdated: 'Last Updated',
-          nav: [
-            { text: 'guide', link: '/guide/' },
-            {
-              text: 'API',
-              link: '/api/',
-            },
-            {
-              text: 'Release note',
-              link:
-                'https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md'
-            }
+      "/": {
+        label: "English",
+        selectText: "Languages",
+        editLinkText: "edit on GitHub",
+        lastUpdated: "Last Updated",
+        nav: [
+          { text: "guide", link: "/guide/" },
+          {
+            text: "API",
+            link: "/api/",
+          },
+          {
+            text: "Release note",
+            link:
+              "https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md",
+          },
         ],
       },
-      '/ja/': {
-          label: '日本語',
-          selectText: '言語',
-          editLinkText: 'GitHubでこのページを編集',
-          lastUpdated: '最終更新',
-          nav: [
-            { text: 'ガイド', link: '/ja/guide/' },
-            {
-              text: 'API ',
-              link: '/ja/api/',
-            },
-            {
-              text: 'リリースノート',
-              link:
-                'https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md'
-            }
+      "/ja/": {
+        label: "日本語",
+        selectText: "言語",
+        editLinkText: "GitHubでこのページを編集",
+        lastUpdated: "最終更新",
+        nav: [
+          { text: "ガイド", link: "/ja/guide/" },
+          {
+            text: "API ",
+            link: "/ja/api/",
+          },
+          {
+            text: "リリースノート",
+            link:
+              "https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md",
+          },
         ],
       },
-    }
-  }
-}
+    },
+  },
+};
 ```
 
 ## カスタムコンポーネント
@@ -550,18 +578,20 @@ docs
         └──Playground.vue
 ```
 
-```html:Playground.vue
+Playground.vue
+
+```html
 <template>
-    <button @click="onClick">Increase</button>
+  <button @click="onClick">Increase</button>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+  import { ref } from "vue";
 
-const count = ref<number>(0)
-const onClick = ():void => {
-    count.value++
-}
+  const count = ref<number>(0);
+  const onClick = (): void => {
+    count.value++;
+  };
 </script>
 ```
 
@@ -578,17 +608,19 @@ docs
         └── index.js
 ```
 
-```js:index.js
-import Theme from 'vitepress/theme'
-import Playground from '../components/Playground.vue'
+index.js
+
+```js
+import Theme from "vitepress/theme";
+import Playground from "../components/Playground.vue";
 
 export default {
   ...Theme,
 
   enhanceApp({ app }) {
-    app.component('playground', Playground)
-  }
-}
+    app.component("playground", Playground);
+  },
+};
 ```
 
 `index.js`の`enhanceApp`というプロパティに Vue
@@ -597,7 +629,9 @@ export default {
 
 あとはマークダウンファイルに直接コンポーネントを配置します。
 
-```md:index.md
+index.md
+
+```md
 ## Introduction
 
 <playground />
@@ -639,7 +673,9 @@ Variables を見てみます。
 変更には CSS
 ファイルに上書きしたいプロパティを定義して、`theme/index.js`でインポートします。
 
-```css:theme/custom.css
+theme/custom.css
+
+```css
 :root {
   --c-brand: #8664ff;
   --c-brand-light: #8974ff;
@@ -651,10 +687,12 @@ Variables を見てみます。
 }
 ```
 
-```js:theme/index.js
-import './custom.css'
+theme/index.js
 
-export default {}
+```js
+import "./custom.css";
+
+export default {};
 ```
 
 このように色やロゴの大きさを変更できました。 ![theme color](theme-color.png)

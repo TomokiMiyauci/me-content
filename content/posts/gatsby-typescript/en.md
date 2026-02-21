@@ -39,22 +39,24 @@ must have a Named Exports.
 
 If there is no Named Exports, it will not be executed.
 
-```js:gatsby-ssr.js
-console.log('not exec')
+gatsby-ssr.js
+
+```js
+console.log("not exec");
 ```
 
 Example to be executed:
 
-```js:gatsby-ssr.js
-console.log('exec')
+gatsby-ssr.js
+
+```js
+console.log("exec");
 
 const onRenderBody = () => {
-  console.log('onRenderBody')
-}
+  console.log("onRenderBody");
+};
 
-export {
-  onRenderBody
-}
+export { onRenderBody };
 ```
 
 ```bash
@@ -64,12 +66,14 @@ onRenderBody
 
 Also, the Default Exports does not mean that you have exported.
 
-```js:gatsby-ssr.js
-const onRenderBody = () => {
-  console.log('not exec')
-}
+gatsby-ssr.js
 
-export default { onRenderBody }
+```js
+const onRenderBody = () => {
+  console.log("not exec");
+};
+
+export default { onRenderBody };
 ```
 
 Additionally, in common with all configs, extensions such as `.ts` and `.tsx`
@@ -122,7 +126,9 @@ you want. In this case, I created it under the root directory.
 From now on, we will configure `gatsby-config.ts` with types. It will look like
 this:
 
-```ts:gatsby-config.ts
+gatsby-config.ts
+
+```ts
 import type { GatsbyConfig } from 'gatsby'
 import { resolve } from 'path'
 
@@ -165,14 +171,16 @@ TypeScript can be transpiled at runtime with `esbuild-register`.
 
 Change `gatsby-config.js` as follows:
 
-```js:gatsby-config.js
-const { register } = require('esbuild-register/dist/node')
+gatsby-config.js
+
+```js
+const { register } = require("esbuild-register/dist/node");
 
 register({
-  target: 'node16'
-})
+  target: "node16",
+});
 
-module.exports = require('./gatsby-config.ts')
+module.exports = require("./gatsby-config.ts");
 ```
 
 We are doing two things here.
@@ -195,50 +203,56 @@ add type annotations.
 
 `gatsby-node`:
 
-```ts:gatsby-node.ts
-import type { GatsbyNode } from 'gatsby'
-import { resolve } from 'path'
-const createPages: GatsbyNode['createPages'] = async ({
+gatsby-node.ts
+
+```ts
+import type { GatsbyNode } from "gatsby";
+import { resolve } from "path";
+const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
-  reporter
+  reporter,
 }) => {
   // ...
-}
+};
 
-export { createPages }
+export { createPages };
 ```
 
 Of course, `tsx` can also be available.
 
 `gatsby-ssr`:
 
-```tsx:gatsby-ssr.tsx
-import React from 'react'
-import type { GatsbySSR } from 'gatsby'
+gatsby-ssr.tsx
 
-const wrapPageElement: GatsbySSR['wrapPageElement'] = ({
+```tsx
+import React from "react";
+import type { GatsbySSR } from "gatsby";
+
+const wrapPageElement: GatsbySSR["wrapPageElement"] = ({
   element,
 }) => {
-  return <div className='wrap'>{element}</div>
-}
+  return <div className="wrap">{element}</div>;
+};
 
-export { wrapPageElement }
+export { wrapPageElement };
 ```
 
 `gatsby-browser`:
 
-```tsx:gatsby-browser.tsx
-import React from 'react'
-import type { GatsbyBrowser } from 'gatsby'
+gatsby-browser.tsx
 
-const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
+```tsx
+import React from "react";
+import type { GatsbyBrowser } from "gatsby";
+
+const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
   element,
 }) => {
-  return <div className='wrap'>{element}</div>
-}
+  return <div className="wrap">{element}</div>;
+};
 
-export { wrapPageElement }
+export { wrapPageElement };
 ```
 
 Note that you basically have to do a Named Exports. Gatsby provides the basic

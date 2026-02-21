@@ -68,15 +68,23 @@ script タグの src を`/src/main.ts`に変更します。~~
 
 ~~これを解消するには、vue 用の型宣言ファイルを用意します。~~
 
-```ts:src/shims-vue.d.ts
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-  const component: DefineComponent<Record<string,unknown>, Record<string,unknown>, unknown>
-  export default component
+src/shims-vue.d.ts
+
+```ts
+declare module "*.vue" {
+  import type { DefineComponent } from "vue";
+  const component: DefineComponent<
+    Record<string, unknown>,
+    Record<string, unknown>,
+    unknown
+  >;
+  export default component;
 }
 ```
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "target": "es5",
@@ -105,7 +113,7 @@ declare module '*.vue' {
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
+    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules"
@@ -123,13 +131,15 @@ declare module '*.vue' {
 npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "root": true,
   "env": {
-      "browser": true,
-      "es2021": true,
-      "node": true
+    "browser": true,
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "plugin:vue/vue3-recommended",
@@ -137,10 +147,9 @@ npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-esli
     "@vue/typescript/recommended"
   ],
   "parserOptions": {
-      "ecmaVersion": 2021
+    "ecmaVersion": 2021
   },
-  "plugins": [
-  ],
+  "plugins": [],
   "rules": {
   }
 }
@@ -148,17 +157,25 @@ npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-esli
 
 これではエラーになってしまうので、型定義を修正します。
 
-```ts:src/shims-vue.d.ts
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-  const component: DefineComponent<Record<string,unknown>, Record<string,unknown>, unknown>
-  export default component
+src/shims-vue.d.ts
+
+```ts
+declare module "*.vue" {
+  import type { DefineComponent } from "vue";
+  const component: DefineComponent<
+    Record<string, unknown>,
+    Record<string, unknown>,
+    unknown
+  >;
+  export default component;
 }
 ```
 
 `package.json`の`script`にリント用のコマンドを用意するとのちのち楽です。
 
-```json:package.json
+package.json
+
+```json
 "scripts": {
   "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
 }
@@ -178,7 +195,9 @@ VSCode
 ESLint
 の拡張が必要なので、なければ[ここを参考に](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)インストールしてください。
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -198,7 +217,9 @@ npm i -D husky lint-staged
 
 `package.json`に次を追加します。
 
-```json:package.json
+package.json
+
+```json
 {
   "husky": {
     "hooks": {
@@ -226,7 +247,9 @@ Prettier にプロジェクト全体のフォーマットを任せましょう�
 npm i -D prettier eslint-plugin-prettier @vue/eslint-config-prettier
 ```
 
-```json:.prettierrc
+.prettierrc
+
+```json
 {
   "singleQuote": true,
   "semi": false,
@@ -237,7 +260,9 @@ npm i -D prettier eslint-plugin-prettier @vue/eslint-config-prettier
 ESLint と Prettier
 を併用する場合、ルールのバッティングがあるため、`.eslintrc`を修正します。
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "extends": [
     "plugin:vue/vue3-recommended",
@@ -258,9 +283,11 @@ npm run prettier -w -u .
 
 コミット前に自動フォーマットを適用させたいので、`lint-staged`にその設定を加えます。
 
-```json:package.json
+package.json
+
+```json
 {
- "lint-staged": {
+  "lint-staged": {
     "*.{ts,vue}": "eslint --fix",
     "*": "prettier -w -u" // prettierは一番最後にします
   }
@@ -270,7 +297,9 @@ npm run prettier -w -u .
 VSCode ユーザーは次の設定によって、自動的にフォーマットできます。
 また、例によって拡張が必要なので、なければ[こちらを参考に](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)インストールしてください。
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -285,7 +314,9 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
 
-```json:.stylelintrc
+.stylelintrc
+
+```json
 {
   "extends": ["stylelint-config-recommended", "stylelint-config-standard"]
 }
@@ -293,7 +324,9 @@ npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 
 `package.json`を編集して、コマンドと lint-staged を設定します。
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "lint:style": "stylelint src/**/*.{css,scss,vue}"
@@ -316,24 +349,28 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 モジュールの import はデフォルトでは相対パスを指定しますが、alias
 を設定して常に同じルートを参照したいです。
 
-```ts:vite.config.ts
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { resolve } from "path";
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
-  plugins: [vue()]
-})
+  plugins: [vue()],
+});
 ```
 
 また、 `tsconfig.json` も設定します。
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     //...
@@ -347,9 +384,11 @@ export default defineConfig({
 
 これで alias の設定ができました。こんな感じで使います。
 
-```html:App.vue
+App.vue
+
+```html
 <script lang="ts">
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 ```
 
@@ -360,20 +399,24 @@ export default defineConfig({
 の時点では、 `tsconfig.json`の `skipLibCheck` が `true`
 になっていないと動作しません。
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     //...
     "skipLibCheck": true
-  },
+  }
 }
 ```
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     //...
-    "lint:markup": "vue-tsc --noEmit",
+    "lint:markup": "vue-tsc --noEmit"
   }
 }
 ```

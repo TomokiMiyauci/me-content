@@ -83,7 +83,9 @@ console.log(jsonData);
 
 次の JSON ファイルをリモートサーバーやローカルで利用する例を考えてみます。
 
-```json:deno.json
+deno.json
+
+```json
 {
   "fmt": {
     "files": {}
@@ -91,7 +93,7 @@ console.log(jsonData);
   "lint": {
     "files": {
       "exclude": [
-        ".git",
+        ".git"
       ]
     }
   }
@@ -100,7 +102,9 @@ console.log(jsonData);
 
 次のようになります。
 
-```ts:import_assertions.ts
+import_assertions.ts
+
+```ts
 import denoJson from "https://deno.land/std/deno.json" assert { type: "json" };
 import localDenoJson from "./deno.json" assert { type: "json" };
 
@@ -119,8 +123,12 @@ deno run import_assertions.ts
 
 動的インポートでも、同じようにフィールド名の引数を指定できます。
 
-```ts:dynamic_import_assertions.ts
-const denoJson = await import("https://deno.land/std/deno.json", { assert: { type: "json" } }).then((module) => module.default);
+dynamic_import_assertions.ts
+
+```ts
+const denoJson = await import("https://deno.land/std/deno.json", {
+  assert: { type: "json" },
+}).then((module) => module.default);
 ```
 
 動的インポートではフラグを与えアクセス許可をする必要があります。
@@ -157,15 +165,19 @@ import { lint } from "./deno.json" assert { type: "json" };
 Node.js では、モジュール方式によって、JSON モジュールの解決方法が異なりました。
 CommonJS では、`require` 関数により、JSON モジュール解決が出来ます。
 
-```ts:index.js
-const jsonData = require('./path/to/filename.json')
+index.js
+
+```ts
+const jsonData = require("./path/to/filename.json");
 ```
 
 一方、ES modules では、17.1 から import assertions が実装されました。
 なお、実行には `--experimental-json-modules` フラグが必要です。
 
-```js:index.mjs
-import jsonData from './path/to/filename.json' assert { type: 'json' };
+index.mjs
+
+```js
+import jsonData from "./path/to/filename.json" assert { type: "json" };
 ```
 
 ```bash
@@ -176,7 +188,9 @@ node --experimental-json-modules index.mjs
 [createRequire](https://nodejs.org/api/module.html#modulecreaterequirefilename)
 を利用することで、JSON モジュールの解決が可能です。
 
-```js:index.mjs
+index.mjs
+
+```js
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const packageJson = require("./path/to/filename.json");
@@ -211,7 +225,9 @@ JavaScript モジュールから CSS Modules
 
 例えば `vite` では次のようになります。
 
-```css:example.module.css
+example.module.css
+
+```css
 .red {
   color: red;
 }

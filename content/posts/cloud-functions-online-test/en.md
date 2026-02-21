@@ -240,26 +240,26 @@ export { onCreateUser };
 `onCreate` is called when a user signs up. Its first argument is a `UserRecord`
 and its second argument is an `EventContext`. Each is of the following type:
 
-```ts{2,13}
+```ts
 interface UserRecord {
-  uid: string
-  email?: string
-  emailVerified: boolean
-  displayName?: string
-  phoneNumber?: string
-  photoURL?: string
-  disabled: boolean
+  uid: string;
+  email?: string;
+  emailVerified: boolean;
+  displayName?: string;
+  phoneNumber?: string;
+  photoURL?: string;
+  disabled: boolean;
   // omitted
 }
 
 interface EventContext {
-  timestamp: string // RFC 3339
-  eventId: string
-  eventType: string
+  timestamp: string; // RFC 3339
+  eventId: string;
+  eventType: string;
   params: {
-    [option: string]: any
-  }
-  resource: Resource
+    [option: string]: any;
+  };
+  resource: Resource;
   // omitted
 }
 ```
@@ -301,7 +301,9 @@ npm i -D firebase-functions-test firebase-functions firebase-admin jest typescri
 
 The configuration file for jest looks like this:
 
-```json:jest.config.json{9}
+jest.config.json
+
+```json
 {
   "clearMocks": true,
   "moduleFileExtensions": ["js", "ts"],
@@ -317,23 +319,27 @@ The configuration file for jest looks like this:
 In `setupFiles`, you can specify the process to be executed before each test
 file is executed. Here is the `firebase-admin` `initializeApp`.
 
-```ts:test/setup.ts
-import { initializeApp } from 'firebase-admin'
-initializeApp()
+test/setup.ts
+
+```ts
+import { initializeApp } from "firebase-admin";
+initializeApp();
 ```
 
 Now, the next step is to initialize the `firebase-functions-test`. We will
 create a test file and initialize it there.
 
-```ts:onCreate_test.ts
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 ```
 
 The `projectId` is the Firebase project ID, and is required. In this case, it is
@@ -364,14 +370,16 @@ Using `firebase-functions-test`, you can do the following operations.
 
 First, wrap the function to be tested and create the mock user data.
 
-```ts:onCreate_test.ts
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
 
 // Use the initialized `firebase-functions-test` function
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-user.uid = 'fixed-user-id'
+user.uid = "fixed-user-id";
 ```
 
 You can create mock user data with `exampleUserRecord`. This is just an object,
@@ -379,12 +387,14 @@ so you can change the `uid` and so on as you like.
 
 You can pass this to a wrapped function to actually execute the function.
 
-```ts:onCreate_test.ts
-const timestamp = new Date('2021/1/1 00:01:02')
+onCreate_test.ts
+
+```ts
+const timestamp = new Date("2021/1/1 00:01:02");
 
 onCreateUser(user, {
-  timestamp: timestamp.toISOString()
-})
+  timestamp: timestamp.toISOString(),
+});
 ```
 
 Now, the data is actually written to Cloud Firestore. At this stage, it is a
@@ -399,42 +409,44 @@ handle the date and time data in our tests as we wish.
 Now that we've done that, we just need to get the actual data and assert it.
 Here's the whole test, which is a bit long.
 
-```ts:onCreate_test.ts{18,24-29,33}
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
-import { firestore } from 'firebase-admin'
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
+import { firestore } from "firebase-admin";
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-describe('onCreateUser', () => {
-  it('save user info to firestore /document/users/{uid}', async () => {
-    const timestamp = new Date('2021/1/1 00:01:02')
+describe("onCreateUser", () => {
+  it("save user info to firestore /document/users/{uid}", async () => {
+    const timestamp = new Date("2021/1/1 00:01:02");
     await onCreateUser(user, {
-      timestamp: timestamp.toISOString()
-    })
+      timestamp: timestamp.toISOString(),
+    });
 
-    const snapshot = await firestore().collection('users').doc(user.uid).get()
+    const snapshot = await firestore().collection("users").doc(user.uid).get();
 
-    expect(snapshot.exists).toBeTruthy()
-    expect(snapshot.id).toBe(user.uid)
+    expect(snapshot.exists).toBeTruthy();
+    expect(snapshot.id).toBe(user.uid);
     expect(snapshot.data()).toEqual({
       uid: user.uid,
-      createdAt: firestore.Timestamp.fromDate(timestamp)
-    })
-  })
+      createdAt: firestore.Timestamp.fromDate(timestamp),
+    });
+  });
 
   afterAll(async () => {
-    await firestore().collection('users').doc(user.uid).delete()
-  })
-})
+    await firestore().collection("users").doc(user.uid).delete();
+  });
+});
 ```
 
 The point is that the wrap function is asynchronous, so it waits for the `await`

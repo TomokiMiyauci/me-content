@@ -80,10 +80,12 @@ For example, `lodash` can be used as follows. By the way, lodash is provided by
 [module for Deno](https://deno.land/x/lodash), so you'd better use it, but just
 for refer.
 
-```ts:cli.ts
-import { first } from 'https://cdn.skypack.dev/lodash'
+cli.ts
 
-first([1, 2, 3]) // 1
+```ts
+import { first } from "https://cdn.skypack.dev/lodash";
+
+first([1, 2, 3]); // 1
 ```
 
 `deno run cli.ts`
@@ -138,19 +140,23 @@ I'll use a very small project as an example.
 It doesn't matter, but the `isx` in the example is a collection of "is?" that
 I'm owning.
 
-```ts:example.ts
-import { isFunction } from "https://deno.land/x/isx/mod.ts"
+example.ts
+
+```ts
+import { isFunction } from "https://deno.land/x/isx/mod.ts";
 
 export function call(value: unknown) {
-  if(isFunction(value))  {
-    return value()
+  if (isFunction(value)) {
+    return value();
   }
-  return value
+  return value;
 }
 ```
 
-```ts:mod.ts
-export * from "./example.ts"
+mod.ts
+
+```ts
+export * from "./example.ts";
 ```
 
 In this example we are doing two things:
@@ -160,7 +166,9 @@ In this example we are doing two things:
 
 To build this for Node.js, we have the following script:
 
-```ts:build_npm.ts
+build_npm.ts
+
+```ts
 import { build } from "https://deno.land/x/dnt@0.7.4/mod.ts";
 
 await build({
@@ -206,7 +214,9 @@ npm
 By default, it outputs the ES Modules, CommonJS and type definition files, as
 well as type checking and testing. Also, the `package.json` looks like this:
 
-```json:npm/package.json
+npm/package.json
+
+```json
 {
   "module": "./esm/main.js",
   "main": "./umd/main.js",
@@ -269,13 +279,15 @@ npm
 The dependencies have been placed under `deps`. Also, dependency references are
 rewritten to match the file structure.
 
-```js:example.js
+example.js
+
+```js
 import { isFunction } from "./deps/deno_land_x_isx_v1_0_0-beta_17/mod.js";
 export function safeCall(value) {
-    if (isFunction(value)) {
-        return value();
-    }
-    return value;
+  if (isFunction(value)) {
+    return value();
+  }
+  return value;
 }
 ```
 
@@ -299,7 +311,9 @@ deno.land/x, but we'll change it to `isxx`, which is hosted at NPM.
 
 Change the build script.
 
-```ts:build_npm.ts{6-11}
+build_npm.ts
+
+```ts
 import { build } from "https://deno.land/x/dnt@0.7.4/mod.ts";
 
 await build({
@@ -318,7 +332,9 @@ await build({
 Map the `mappings` field to the name of the NPM module. The build should now
 look something like this:
 
-```json:package.json
+package.json
+
+```json
 {
   ...
   "dependencies": {
@@ -345,12 +361,14 @@ dnt provides a solution for them as well.
 
 For example, consider a program that uses `fetch`.
 
-```ts:example.ts
-async function fetchHello() {
-  const req = await fetch("https://miyauchi.dev/")
-  const html = await req.text()
+example.ts
 
-  return html
+```ts
+async function fetchHello() {
+  const req = await fetch("https://miyauchi.dev/");
+  const html = await req.text();
+
+  return html;
 }
 ```
 
@@ -361,16 +379,20 @@ by default.
 
 Building this code will result in something like this:
 
-```js:exmaple.js{1,3}
+exmaple.js
+
+```js
 import * as denoShim from "deno.ns";
 export async function fetchHello() {
-    const req = await denoShim.fetch("https://miyauchi.dev/");
-    const html = await req.text();
-    return html;
+  const req = await denoShim.fetch("https://miyauchi.dev/");
+  const html = await req.text();
+  return html;
 }
 ```
 
-```json:package.json
+package.json
+
+```json
 {
   ...
   "dependencies": {
@@ -384,13 +406,15 @@ The `deno.ns` module makes it possible to run Node.js as well.
 You can also disable the injection of deno shim by placing a
 `// deno-shim-ignore` comment above the code.
 
-```ts:example.ts{2}
+example.ts
+
+```ts
 async function fetchHello() {
   // deno-shim-ignore
-  const req = await fetch("https://miyauchi.dev/")
-  const html = await req.text()
+  const req = await fetch("https://miyauchi.dev/");
+  const html = await req.text();
 
-  return html
+  return html;
 }
 ```
 

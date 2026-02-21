@@ -422,13 +422,13 @@ make the property what not defined optional `undefined`.
 
 It looks like this:
 
-```ts{5}
+```ts
 type Exclusive<
   T extends Record<PropertyKey, unknown>,
-  U extends Record<PropertyKey, unknown>
+  U extends Record<PropertyKey, unknown>,
 > =
   | (T & { [k in Exclude<keyof U, keyof T>]?: never })
-  | (U & { [k in Exclude<keyof T, keyof U>]?: never })
+  | (U & { [k in Exclude<keyof T, keyof U>]?: never });
 ```
 
 First, we define `T` and `U` in generics. This generic should be

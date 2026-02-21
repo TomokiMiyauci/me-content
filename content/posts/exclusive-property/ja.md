@@ -412,13 +412,13 @@ Utility types
 
 次のようになります。
 
-```ts{5}
+```ts
 type Exclusive<
   T extends Record<PropertyKey, unknown>,
-  U extends Record<PropertyKey, unknown>
+  U extends Record<PropertyKey, unknown>,
 > =
   | (T & { [k in Exclude<keyof U, keyof T>]?: never })
-  | (U & { [k in Exclude<keyof T, keyof U>]?: never })
+  | (U & { [k in Exclude<keyof T, keyof U>]?: never });
 ```
 
 まず、ジェネリクスで`T` と `U` を定義します。

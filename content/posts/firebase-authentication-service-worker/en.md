@@ -116,12 +116,14 @@ I will use a single file, `sw.ts`, but you can split the file as needed.
 
 Next, we will initialize `firebase/auth`.
 
-```ts:sw.ts
-import { initializeApp } from 'firebase/app'
-import { initializeAuth } from 'firebase/auth'
+sw.ts
 
-const app = initializeApp(/* firebaseOptions */)
-const auth = initializeAuth(app)
+```ts
+import { initializeApp } from "firebase/app";
+import { initializeAuth } from "firebase/auth";
+
+const app = initializeApp(); /* firebaseOptions */
+const auth = initializeAuth(app);
 ```
 
 One of the main features of Service Worker is that it proxies http requests. By
@@ -130,28 +132,30 @@ attaching to the `fetch` event, you can hijack http requests.
 This can be used to add credentials to the header when requesting a specific
 resource. To add anonymous credentials, you can do the following:
 
-```ts:sw.ts
-const whitelist = ['https://firestore.googleapis.com']
+sw.ts
 
-self.addEventListener('fetch', async (ev) => {
+```ts
+const whitelist = ["https://firestore.googleapis.com"];
+
+self.addEventListener("fetch", async (ev) => {
   const requestProcessor = async (): Promise<Response> => {
-    const url = new URL(ev.request.url)
+    const url = new URL(ev.request.url);
 
     if (whitelist.includes(url.origin)) {
-      const user = await getUser(auth)
+      const user = await getUser(auth);
 
       if (user) {
-        const idToken = await getIdToken(user)
-        const request = makeAuthRequest(ev.request, idToken)
-        return fetch(request)
+        const idToken = await getIdToken(user);
+        const request = makeAuthRequest(ev.request, idToken);
+        return fetch(request);
       }
     }
 
-    return fetch(ev.request)
-  }
+    return fetch(ev.request);
+  };
 
-  ev.respondWith(requestProcessor())
-})
+  ev.respondWith(requestProcessor());
+});
 ```
 
 Here, we are granting an authentication token to a specific origin.
@@ -159,7 +163,9 @@ Here, we are granting an authentication token to a specific origin.
 It is useful to create a helper function to sign in and create a request object
 with the token.
 
-```ts:sw.ts{12,21}
+sw.ts
+
+```ts
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth'
 import type { User, Auth } from 'firebase/auth'
 } from 'firebase/auth'
@@ -206,10 +212,12 @@ Since authentication is a feature we want to use immediately after registering
 the Service Worker, we will use the `Clients.claim()` method to activate it
 immediately after registration.
 
-```ts:sw.ts
-self.addEventListener('activate', (ev) => {
-  ev.waitUntil(self.clients.claim())
-})
+sw.ts
+
+```ts
+self.addEventListener("activate", (ev) => {
+  ev.waitUntil(self.clients.claim());
+});
 ```
 
 All you need to do is register the Service Worker from the frontend.
@@ -318,11 +326,13 @@ Let's try to exchange `uid` at another timing other than `fetch`.
 The Service Worker waits for messages from clients by registering a `message`
 event.
 
-```ts:sw.ts
-self.addEventListener('message', async ({ source }) => {
-  const user = await getUser(auth)
-  source.postMessage(user.uid)
-})
+sw.ts
+
+```ts
+self.addEventListener("message", async ({ source }) => {
+  const user = await getUser(auth);
+  source.postMessage(user.uid);
+});
 ```
 
 Use `postMessage` to send a message to the client. Here, we are sending `uid`.

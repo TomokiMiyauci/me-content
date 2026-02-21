@@ -71,7 +71,9 @@ yarn add -D typescript @types/node
 yarn tsc --init
 ```
 
-```ts:tsconfig.json
+tsconfig.json
+
+```ts
 {
   "compilerOptions": {
     "target": "ESNext",
@@ -106,7 +108,9 @@ Node.js で動くパッケージを想定しているので、`module`は`Common
 package.json
 の`script`にビルド用のコマンドと、パブリッシュ前に毎回ビルドを行うコマンドを設定しましょう。
 
-```json:package.json
+package.json
+
+```json
 {
   "name": "test-typescript-release",
   "version": "0.0.0",
@@ -141,12 +145,16 @@ dist/index.js を指定したので`index.ts`があれば問題ありません�
 適当にファイルから関数をインポートして Re-export
 しておきます。ここはご自身で好きなプログラムを用意しても構いません。
 
-```ts:src/index.ts
-export { hello } from './core'
+src/index.ts
+
+```ts
+export { hello } from "./core";
 ```
 
-```ts:src/core.ts
-export const hello = () => console.info('hello world')
+src/core.ts
+
+```ts
+export const hello = () => console.info("hello world");
 ```
 
 これをコンパイルすると次のようなディレクトリ構造になります。

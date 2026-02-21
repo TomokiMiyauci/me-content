@@ -59,7 +59,9 @@ in the editor.
 Place the `tsconfig.json` in your project root. This will tell the editor to
 recognize the project as a Typescript project.
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "target": "esnext",
@@ -104,25 +106,29 @@ has been detected. The `document.getElementById` returns `HTMLElement` or
 > You can use the `Non-null assertion operator` if the `app` is always exists in
 > `index.html`.
 
-```tsx:main.tsx
-const el = document.getElementById('app')
+main.tsx
+
+```tsx
+const el = document.getElementById("app");
 if (el) {
-  render(<App />, el)
+  render(<App />, el);
 }
 ```
 
 Then make some changes to `vite.config.js`.
 
-```ts:vite.config.js
+vite.config.js
+
+```ts
 const config = {
   jsx: {
-    factory: 'h',
-    fragment: 'Fragment'
+    factory: "h",
+    fragment: "Fragment",
   },
-  plugins: [preactRefresh()]
-}
+  plugins: [preactRefresh()],
+};
 
-export default config
+export default config;
 ```
 
 I was able to make Typescript with minimal configuration. You don't have to do
@@ -133,20 +139,22 @@ the ES Module format to make the whole project more consistent.
 
 The `vite.config.ts` should look like this
 
-```ts:vite.config.ts
-import preactRefresh from '@prefresh/vite'
-import type { UserConfig } from 'vite'
+vite.config.ts
+
+```ts
+import preactRefresh from "@prefresh/vite";
+import type { UserConfig } from "vite";
 
 const config: UserConfig = {
   jsx: {
-    factory: 'h',
-    fragment: 'Fragment',
+    factory: "h",
+    fragment: "Fragment",
   },
 
   plugins: [preactRefresh()],
-}
+};
 
-export default config
+export default config;
 ```
 
 That's the end of Typescript.
@@ -159,7 +167,9 @@ Development without a linter is tough, so be sure to install it.
 npm i -D eslint eslint-config-preact @typescript-eslint/parser typescript
 ```
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "env": {
     "browser": true,
@@ -187,7 +197,9 @@ for later.
 It will be easier later on if you have a command for linting in the
 `package.json` script of the `package.json`.
 
-```json:package.json
+package.json
+
+```json
 "scripts": {
   "lint:script": "eslint --ext .ts,tsx --ignore-path .gitignore ."
 }
@@ -206,7 +218,9 @@ formatting work. An extension to ESLint is required, so if you don't have it,
 please install it
 [here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -227,7 +241,9 @@ npm i -D husky lint-staged
 
 Add the following to `package.json`.
 
-```json:package.json
+package.json
+
+```json
 {
   "husky": {
     "hooks": {
@@ -254,7 +270,9 @@ automatically remove semicolons in Typescript code, as they are less visible.
 npm i -D prettier eslint-config-prettier
 ```
 
-```json:.prettierrc
+.prettierrc
+
+```json
 {
   "trailingComma": "es5",
   "semi": false,
@@ -265,7 +283,9 @@ npm i -D prettier eslint-config-prettier
 When ESLint and Prettier are used together, I need to fix the `.eslintrc` to
 avoid duplicate rules.
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "extends": [
     "eslint:all",
@@ -286,9 +306,11 @@ npm run prettier -w -u .
 We want to apply automatic formatting before committing, so we add the setting
 to `lint-staged`.
 
-```json:package.json
+package.json
+
+```json
 {
- "lint-staged": {
+  "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
     "*": "prettier -w -u" // Prettier is the last one to go
   }
@@ -299,7 +321,9 @@ VSCode users can format it automatically with the following settings. Also, an
 extension is required, so if it is not available, please install it
 [here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -314,7 +338,9 @@ Let's make the style file a target for linting as well.
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
 
-```json:.stylelintrc
+.stylelintrc
+
+```json
 {
   "extends": ["stylelint-config-recommended", "stylelint-config-standard"]
 }
@@ -322,7 +348,9 @@ npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 
 Edit the `package.jsoon` and set the commands and lint-staged.
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "lint:style": "stylelint src/**/*.{css,scss}"
@@ -351,18 +379,22 @@ Change the `vite.config.ts` and `tsconfig.json` to set the alias.
 > [!WARNING]
 > Keys must start with `/`.
 
-```ts:vite.config.ts
-import { join } from 'path'
-import type { UserConfig } from 'vite'
+vite.config.ts
+
+```ts
+import { join } from "path";
+import type { UserConfig } from "vite";
 
 const config: UserConfig = {
   alias: {
-    '/@/': join(__dirname, 'src'),
-  }
-}
+    "/@/": join(__dirname, "src"),
+  },
+};
 ```
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -376,8 +408,10 @@ const config: UserConfig = {
 
 Now you can set up alias. We'll use it like this.
 
-```tsx:main.tsx
-import { App } from '/@/app'
+main.tsx
+
+```tsx
+import { App } from "/@/app";
 ```
 
 It's a little strange that it has to start from `/`, but it seems to combine

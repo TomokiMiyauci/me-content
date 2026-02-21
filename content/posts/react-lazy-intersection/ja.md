@@ -62,7 +62,9 @@ JavaScript の実行はそのソースコードを fetch することから始�
 
 例えば次の例を考えます。
 
-```html:index.html
+index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <body>
@@ -71,8 +73,10 @@ JavaScript の実行はそのソースコードを fetch することから始�
 </html>
 ```
 
-```js:heavy.js
-console.log('Long words ...')
+heavy.js
+
+```js
+console.log("Long words ...");
 ```
 
 `heavy.js` では、とても大きな実行ファイルであるとします。 `html`
@@ -90,27 +94,29 @@ console.log('Long words ...')
 
 最も単純な方法は、`setTimeout` を使うことです。
 
-```html:index.html
+index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <body>
     <script type="module">
       window.addEventListener(
-        'load',
+        "load",
         () => {
           setTimeout(() => {
-            const script = document.createElement('script')
-            script.src = '/heavy.js'
-            script.async = true
+            const script = document.createElement("script");
+            script.src = "/heavy.js";
+            script.async = true;
 
-            const body = document.querySelector('body')
-            body.appendChild(script)
-          }, 3000)
+            const body = document.querySelector("body");
+            body.appendChild(script);
+          }, 3000);
         },
         {
-          once: true
-        }
-      )
+          once: true,
+        },
+      );
     </script>
   </body>
 </html>
@@ -159,11 +165,15 @@ fetch が開始します。 Ligthouse
 多くの方が知っていると思うので、簡単に `React.lazy` 使い方を見てみます。
 基本的にはファイル分割して、コンポーネントをラップするだけです。
 
-```tsx:Dialog.tsx
-import type { FC } from 'react'
-const Dialog: FC<{ open: boolean }> = ({ open }) => <dialog {...{ open }}>...</dialog>
+Dialog.tsx
 
-export default Dialog
+```tsx
+import type { FC } from "react";
+const Dialog: FC<{ open: boolean }> = ({ open }) => (
+  <dialog {...{ open }}>...</dialog>
+);
+
+export default Dialog;
 ```
 
 ```tsx{4,8}
@@ -203,66 +213,69 @@ const Index: FC = () => {
 同じようにして、ビューポートに入るまでコンポーネントのレンダリングを遅延します。
 インターセクションオブザーバーを使ったコンポーネントは次のようになります。
 
-```tsx:Intersection.tsx{32,45}
-import { useRef, useState, useEffect, createElement } from 'react'
+Intersection.tsx
+
+```tsx
+import { createElement, useEffect, useRef, useState } from "react";
 import type {
-  FC,
-  ReactNode,
-  ReactHTML,
   DetailedHTMLProps,
-  HTMLAttributes
-} from 'react'
+  FC,
+  HTMLAttributes,
+  ReactHTML,
+  ReactNode,
+} from "react";
 
 const Intersection: FC<
-  {
-    children: ReactNode
-    as?: keyof ReactHTML
-    keepRender?: boolean
-  } & IntersectionObserverInit &
-    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  & {
+    children: ReactNode;
+    as?: keyof ReactHTML;
+    keepRender?: boolean;
+  }
+  & IntersectionObserverInit
+  & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 > = ({
   children,
-  as = 'div',
+  as = "div",
   keepRender = true,
   root,
   rootMargin,
   threshold,
   ...props
 }) => {
-  const [isShow, setShow] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const [isShow, setShow] = useState(false);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry], obs) => {
         if (entry.isIntersecting) {
-          setShow(true)
+          setShow(true);
           if (keepRender && ref.current) {
-            obs.unobserve(ref.current)
+            obs.unobserve(ref.current);
           }
         } else {
-          setShow(false)
+          setShow(false);
         }
       },
-      { root, rootMargin, threshold }
-    )
+      { root, rootMargin, threshold },
+    );
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
-    return () => observer.disconnect()
-  }, [keepRender, root, rootMargin, threshold])
+    return () => observer.disconnect();
+  }, [keepRender, root, rootMargin, threshold]);
 
   return (
     <>
       {createElement(as, { ref, ...props })}
       {isShow && children}
     </>
-  )
-}
+  );
+};
 
-export default Intersection
+export default Intersection;
 ```
 
 やっていることは非常に単純です。`children`

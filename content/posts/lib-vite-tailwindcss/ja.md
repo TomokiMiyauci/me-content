@@ -45,16 +45,20 @@ npm i -D @types/node
 
 `src` 以下にエントリポイントや、コンポーネントを作成します。
 
-```ts:src/index.ts
-export * as SwipeBar from '@/components/swipebar'
+src/index.ts
+
+```ts
+export * as SwipeBar from "@/components/swipebar";
 ```
 
-```tsx:src/components/swipebar.tsx
-const Swipebar = (): JSX.Element => {
-  return <div className="w-24 h-1 inline-blick bg-gray-200 rounded-full" />
-}
+src/components/swipebar.tsx
 
-export default Swipebar
+```tsx
+const Swipebar = (): JSX.Element => {
+  return <div className="w-24 h-1 inline-blick bg-gray-200 rounded-full" />;
+};
+
+export default Swipebar;
 ```
 
 ファイル構造は次のようになります。
@@ -87,7 +91,9 @@ export default Swipebar
 `tsconfig.json` は次の設定を追加します。これにより、VSCode
 ではインポートパスにインテリセンスが効くようになります。
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     ...,
@@ -101,19 +107,21 @@ export default Swipebar
 
 また、`vite.config.ts` も次のようにします。
 
-```ts:vite.config.ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
-})
+});
 ```
 
 ## tailwindcss のライブラリ用の設定
@@ -127,21 +135,25 @@ npm run tailwindcss init
 
 tailwindcss には `postcss` が必要なので設定します。
 
-```js:postcss.config.js
+postcss.config.js
+
+```js
 module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-  }
-}
+  },
+};
 ```
 
 また、エントリーファイルで `tailwindcss` をインポートします。
 
-```ts:src/index.ts
-import 'tailwindcss/tailwind.css'
+src/index.ts
 
-export * as SwipeBar from '@/components/swipebar'
+```ts
+import "tailwindcss/tailwind.css";
+
+export * as SwipeBar from "@/components/swipebar";
 ```
 
 例ではこの記事の作成時点ではまだアルファリリースの `3.0.0-alpha.1`
@@ -170,10 +182,12 @@ Preflight で生成されるデフォルトのスタイルは
 > tailwindcss 2系を利用している場合、フィールド名は `content` ではなく `purge`
 > です。
 
-```js:tailwind.config.js{8-11}
+tailwind.config.js
+
+```js
 module.exports = {
   jit: true,
-  content: ['src/**/*.{ts,tsx}'],
+  content: ["src/**/*.{ts,tsx}"],
   theme: {
     extend: {},
   },
@@ -181,21 +195,30 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-  prefix: 'mylib-'
-}
+  prefix: "mylib-",
+};
 ```
 
 これで tailwind のクラス名にはプレフィックスが必要になりました。
 
 例えば次のようになります。
 
-```tsx:src/components/swipebar.tsx
-<div className="mylib-w-24 mylib-bg-gray-200" />
+src/components/swipebar.tsx
+
+```tsx
+<div className="mylib-w-24 mylib-bg-gray-200" />;
 ```
 
-```css:dist/style.css
-.mylib-w-24{width:6rem}
-.mylib-bg-gray-200{--tw-bg-opacity: 1;background-color:rgb(229 231 235 / var(--tw-bg-opacity))}
+dist/style.css
+
+```css
+.mylib-w-24 {
+  width: 6rem;
+}
+.mylib-bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
 ```
 
 幸い、VSCode の
@@ -222,25 +245,32 @@ vite はデフォルトで CSS Modules に対応しています。
 
 `swipe.module.css` というファイルを作成し、スタイルを追加します。
 
-```css:src/components/swipe.module.css
+src/components/swipe.module.css
+
+```css
 .swipebar {
-  @apply mylib-w-24 mylib-h-1 mylib-inline-block mylib-bg-gray-200 mylib-rounded-full;
+  @apply mylib-w-24 mylib-h-1 mylib-inline-block mylib-bg-gray-200
+    mylib-rounded-full;
 }
 ```
 
 このスタイルの利用は次のようにします。パスエイリアスは CSS
 のインポートに対しても利用できます。
 
-```tsx:src/components/swipe.tsx
-import { swipebar } from '@/components/swipe.module.css'
-const Index = (): JSX.Element => <div className={swipebar} />
+src/components/swipe.tsx
 
-export default Index
+```tsx
+import { swipebar } from "@/components/swipe.module.css";
+const Index = (): JSX.Element => <div className={swipebar} />;
+
+export default Index;
 ```
 
 ビルドすると次のような出力になります。
 
-```css:style.css
+style.css
+
+```css
 ._swipebar_5xd3q_1{display:inline-block;...}
 ```
 
@@ -273,7 +303,9 @@ npm run tcm src
 `tcm <input directory>` 形式で実行できます。すると、CSS Modules
 の型定義ファイルが生成されます。
 
-```ts:swipe.module.css.d.ts
+swipe.module.css.d.ts
+
+```ts
 declare const styles: {
   readonly "swipebar": string;
 };
@@ -301,11 +333,13 @@ npm i -D sass typed-scss-modules
 
 先程のスタイルシートをそのまま `.scss` に変えてみます。
 
-```tsx:swipe.tsx{1}
-import { swipebar } from '@/swipe.module.scss'
-const Index = (): JSX.Element => <div className={swipebar} />
+swipe.tsx
 
-export default Index
+```tsx
+import { swipebar } from "@/swipe.module.scss";
+const Index = (): JSX.Element => <div className={swipebar} />;
+
+export default Index;
 ```
 
 型定義の出力はほとんど同じインターフェイスです。
@@ -326,7 +360,9 @@ vite 自体は `.less`
 
 まず、`package.json` の外部モジュールを整理します。
 
-```json:package.json
+package.json
+
+```json
 {
   "peerDependencies": {
     "react": "^16.8.0"
@@ -349,37 +385,42 @@ vite 自体は `.less`
 
 続いて、`vite.config.ts` を次のように変更します。
 
-```ts:vite.config.ts{9,20}
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import { peerDependencies, dependencies } from './package.json'
-import plugin from '@vitejs/plugin-react'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
+import { resolve } from "path";
+import { dependencies, peerDependencies } from "./package.json";
+import plugin from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [
     plugin({
-      'jsxRuntime': 'classic'
-    })
+      "jsxRuntime": "classic",
+    }),
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src', 'index.ts'),
-      formats: ['es', 'cjs'],
+      entry: resolve(__dirname, "src", "index.ts"),
+      formats: ["es", "cjs"],
       fileName: (ext) => `index.${ext}.js`,
       // for UMD name: 'GlobalName'
     },
     rollupOptions: {
-      external: [...Object.keys(peerDependencies), ...Object.keys(dependencies)]
+      external: [
+        ...Object.keys(peerDependencies),
+        ...Object.keys(dependencies),
+      ],
     },
-    target: 'esnext',
-    sourcemap: true
-  }
-})
+    target: "esnext",
+    sourcemap: true,
+  },
+});
 ```
 
 `build` の `lib` フィールドでライブラリ用のビルドを設定できます。 また、react
@@ -462,7 +503,9 @@ npm i -D tsc-alias
 
 `tsconfig.json` を次のように変更します。
 
-```json:tsconfig.json{17-19}
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "target": "ESNext",
@@ -526,12 +569,14 @@ npm i -D npm-run-all
 `npm-run-all` と `run-p` というショートハンドの CLI が利用可能になります。
 並列実行のコマンドの例は次のようになります。
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "build": "run-p build:*",
     "build:scripts": "vite build",
-    "build:types": "tsc --emitDeclarationOnly && tsc-alias",
+    "build:types": "tsc --emitDeclarationOnly && tsc-alias"
   }
 }
 ```
@@ -545,7 +590,9 @@ vite によるビルドと、型定義の出力は独立しているので並列
 
 最後に `package.json` にエントリポイントなどを設定します。
 
-```json:package.json
+package.json
+
+```json
 {
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -555,7 +602,7 @@ vite によるビルドと、型定義の出力は独立しているので並列
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
     },
-     "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css"
   },
   "sideEffects": false,
 

@@ -108,12 +108,14 @@ npm i firebase@9
 
 続いて、`firebase/auth` を初期化します。
 
-```ts:sw.ts
-import { initializeApp } from 'firebase/app'
-import { initializeAuth } from 'firebase/auth'
+sw.ts
 
-const app = initializeApp(/* firebaseOptions */)
-const auth = initializeAuth(app)
+```ts
+import { initializeApp } from "firebase/app";
+import { initializeAuth } from "firebase/auth";
+
+const app = initializeApp(); /* firebaseOptions */
+const auth = initializeAuth(app);
 ```
 
 Service Worker は大きな特徴として http
@@ -124,35 +126,39 @@ Service Worker は大きな特徴として http
 認証情報をヘッダーへ付与することができます。
 匿名の認証情報を付与する場合は、次のようになります。
 
-```ts:sw.ts
-const whitelist = ['https://firestore.googleapis.com']
+sw.ts
 
-self.addEventListener('fetch', async (ev) => {
+```ts
+const whitelist = ["https://firestore.googleapis.com"];
+
+self.addEventListener("fetch", async (ev) => {
   const requestProcessor = async (): Promise<Response> => {
-    const url = new URL(ev.request.url)
+    const url = new URL(ev.request.url);
 
     if (whitelist.includes(url.origin)) {
-      const user = await getUser(auth)
+      const user = await getUser(auth);
 
       if (user) {
-        const idToken = await getIdToken(user)
-        const request = makeAuthRequest(ev.request, idToken)
-        return fetch(request)
+        const idToken = await getIdToken(user);
+        const request = makeAuthRequest(ev.request, idToken);
+        return fetch(request);
       }
     }
 
-    return fetch(ev.request)
-  }
+    return fetch(ev.request);
+  };
 
-  ev.respondWith(requestProcessor())
-})
+  ev.respondWith(requestProcessor());
+});
 ```
 
 ここでは、特定のオリジンに対して、認証トークンを付与しています。
 
 サインインと、トークンを付与したリクエストオブジェトを作成するヘルパー関数を作ると便利です。
 
-```ts:sw.ts{12,21}
+sw.ts
+
+```ts
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth'
 import type { User, Auth } from 'firebase/auth'
 } from 'firebase/auth'
@@ -199,10 +205,12 @@ Service Worker がすぐにアクティベートされるように設定しま�
 認証は Service Worker 登録後すぐに使いたい機能なため、`Clients.claim()`
 メソッドを使い、登録後すぐにアクティベートします。
 
-```ts:sw.ts
-self.addEventListener('activate', (ev) => {
-  ev.waitUntil(self.clients.claim())
-})
+sw.ts
+
+```ts
+self.addEventListener("activate", (ev) => {
+  ev.waitUntil(self.clients.claim());
+});
 ```
 
 あとはフロントエンドから、Service Worker を登録するだけです。
@@ -314,11 +322,13 @@ Service Worker とメインスレッドとは、 `postMessage`
 Service Worker では、`message`
 イベントを登録することで、クライアントからのメッセージを待ち受けます。
 
-```ts:sw.ts
-self.addEventListener('message', async ({ source }) => {
-  const user = await getUser(auth)
-  source.postMessage(user.uid)
-})
+sw.ts
+
+```ts
+self.addEventListener("message", async ({ source }) => {
+  const user = await getUser(auth);
+  source.postMessage(user.uid);
+});
 ```
 
 `postMessage` を使い、クライアントにメッセージを送信します。ここでは  `uid`

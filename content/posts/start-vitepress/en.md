@@ -53,7 +53,9 @@ echo '# Hello VitePress'> docs/index.md
 It is convenient to add the following script to `package.json`. Since you made
 `docs` the document root, you'll match the script with it.
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "docs: dev": "vitepress dev docs",
@@ -113,7 +115,9 @@ The home layout is as follows.
 
 ![plain home](plain-home.png) This can be set with `.md`.
 
-```md:index.md
+index.md
+
+```md
 ---
 home: true
 ---
@@ -121,7 +125,9 @@ home: true
 
 In addition, the following items can be set.
 
-```md:index.md
+index.md
+
+```md
 ---
 home: true
 
@@ -132,12 +138,12 @@ tagline: Hero subtitle
 actionText: Get Started
 actionLink: /guide/
 features:
-- title: Simplicity First
-  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-- title: Vue-Powered
-  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-- title: Performant
-  details: VitePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+  - title: Simplicity First
+    details: Minimal setup with markdown-centered project structure helps you focus on writing.
+  - title: Vue-Powered
+    details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+  - title: Performant
+    details: VitePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
 footer: MIT Licensed | Copyright © 2019-present Evan You
 ---
 ```
@@ -182,7 +188,9 @@ the title.
 In addition, this automatic insertion can be controlled by setting it in the
 front matter.
 
-```md:index.md
+index.md
+
+```md
 ---
 title: Hello
 ---
@@ -252,7 +260,9 @@ Also, this config file is only recognized by `.js`. Unfortunately, it is not
 possible to do type completion with Typescript, You can use JSDoc for type
 completion as follows.
 
-```js:config.js
+config.js
+
+```js
 /**
  * @type {import('vitepress').UserConfig}
  */
@@ -286,10 +296,12 @@ The `base` property should be set when deploying the site under a subpath, such
 as a GitHub page. For example, if you want to deploy to the URL
 `https://foo.github.io/bar/`, set`/bar/`.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
-  base: '/bar/',
-}
+  base: "/bar/",
+};
 ```
 
 ### description
@@ -313,12 +325,14 @@ want to set it for the entire project instead of setting it for each page. It is
 a double array and it is a little difficult to understand, so I will give an
 example.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   head: [
-    ['meta', { property: 'og:description', content: 'description' }],
-  ]
-}
+    ["meta", { property: "og:description", content: "description" }],
+  ],
+};
 ```
 
 If it is also set on the page, the page has priority.
@@ -334,16 +348,18 @@ You can automatically generate GitHub edit links by setting up a GitHub
 repository or branch. A link is also added to the navigation at the top of the
 page.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
-      editLinks: true,
-      editLinkText: 'GitHubでこのページを編集',
-      repo: 'TomokiMiyauci/file-select-dialog',
-      docsDir: 'docs',
-      docsBranch: 'main',
-  }
-}
+    editLinks: true,
+    editLinkText: "GitHubでこのページを編集",
+    repo: "TomokiMiyauci/file-select-dialog",
+    docsDir: "docs",
+    docsBranch: "main",
+  },
+};
 ```
 
 ![edit on GitHub](edit-on-github.png)
@@ -356,12 +372,14 @@ document root set at the beginning and there is no problem.
 You can automatically generate the last updated date of an article with the
 `lastUpdated` property.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
-    lastUpdated: '最終更新'
-  }
-}
+    lastUpdated: "最終更新",
+  },
+};
 ```
 
 ![last updated](lastupdate.png)
@@ -377,24 +395,26 @@ it will be fixed by the custom CSS described below.
 
 You can set the navigation at the top with the `nav` property.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
     nav: [
-      { text: 'ガイド', link: '/ja/' },
+      { text: "ガイド", link: "/ja/" },
       {
-        text: 'API ',
-        link: '/ja/api',
-        activeMatch: '^/ja/api'
+        text: "API ",
+        link: "/ja/api",
+        activeMatch: "^/ja/api",
       },
       {
-        text: 'リリースノート',
+        text: "リリースノート",
         link:
-          'https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md'
-      }
+          "https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md",
+      },
     ],
-  }
-}
+  },
+};
 ```
 
 ![navigation](navigation.png)
@@ -415,21 +435,23 @@ switch languages.
 There is a built-in menu component for language switching. Let's take a look at
 that setting.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
     locales: {
-      '/': {
-          label: 'English',
-          selectText: 'Languages',
+      "/": {
+        label: "English",
+        selectText: "Languages",
       },
-      '/ja/': {
-          label: '日本語',
-          selectText: '言語',
+      "/ja/": {
+        label: "日本語",
+        selectText: "言語",
       },
-    }
-  }
-}
+    },
+  },
+};
 ```
 
 ![locale](locale.png) This allows you to switch languages. It's
@@ -439,21 +461,23 @@ You can also set the `themeConfig` property described above with the `locales`
 property. For example, to change `editLinkText` depending on the language, do as
 follows. The key specified in `locales` is mapped to the URL path.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   themeConfig: {
     locales: {
-      '/': {
-        editLinkText: 'edit on GitHub'
+      "/": {
+        editLinkText: "edit on GitHub",
       },
-      '/ja/': {
-        editLinkText: 'GitHubでこのページを編集',
+      "/ja/": {
+        editLinkText: "GitHubでこのページを編集",
       },
     },
 
-    editLinks: true
-  }
-}
+    editLinks: true,
+  },
+};
 ```
 
 In addition, if it is not in `locales`, it will fall back to the property of
@@ -463,17 +487,19 @@ the example above.
 Not only `themeConfig` but also `head` tags can be multilingualized. For
 example, to make the `description` property multilingual:
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
   locales: {
-      '/': {
-          description: 'locale En',
-      },
-      '/ja/': {
-          description: 'locale Ja',
-      }
-  }
-}
+    "/": {
+      description: "locale En",
+    },
+    "/ja/": {
+      description: "locale Ja",
+    },
+  },
+};
 ```
 
 In summary, `config.js` looks like as below.
@@ -482,67 +508,69 @@ The point is that the `locales` property can be set in both the part that
 modifies the `head` tag and the `themeConfig` property. Some OGP tags etc. are
 omitted, so please add them as appropriate.
 
-```js:config.js
+config.js
+
+```js
 module.exports = {
-  title: 'My Project',
+  title: "My Project",
   head: [
-    ['meta', { property: 'og:title', content: 'My Project' }],
+    ["meta", { property: "og:title", content: "My Project" }],
   ],
   locales: {
-      '/': {
-          description: 'locale En',
-      },
-      '/ja/': {
-          description: 'locale Ja',
-      }
+    "/": {
+      description: "locale En",
+    },
+    "/ja/": {
+      description: "locale Ja",
+    },
   },
   themeConfig: {
     editLinks: true,
-    editLinkText: 'GitHubでこのページを編集',
-    repo: 'TomokiMiyauci/file-select-dialog',
-    docsDir: 'docs',
-    docsBranch: 'main',
-    logo: '/logo2.png',
+    editLinkText: "GitHubでこのページを編集",
+    repo: "TomokiMiyauci/file-select-dialog",
+    docsDir: "docs",
+    docsBranch: "main",
+    logo: "/logo2.png",
     locales: {
-      '/': {
-          label: 'English',
-          selectText: 'Languages',
-          editLinkText: 'edit on GitHub',
-          lastUpdated: 'Last Updated',
-          nav: [
-            { text: 'guide', link: '/guide/' },
-            {
-              text: 'API',
-              link: '/api/',
-            },
-            {
-              text: 'Release note',
-              link:
-                'https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md'
-            }
+      "/": {
+        label: "English",
+        selectText: "Languages",
+        editLinkText: "edit on GitHub",
+        lastUpdated: "Last Updated",
+        nav: [
+          { text: "guide", link: "/guide/" },
+          {
+            text: "API",
+            link: "/api/",
+          },
+          {
+            text: "Release note",
+            link:
+              "https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md",
+          },
         ],
       },
-      '/ja/': {
-          label: '日本語',
-          selectText: '言語',
-          editLinkText: 'GitHubでこのページを編集',
-          lastUpdated: '最終更新',
-          nav: [
-            { text: 'ガイド', link: '/ja/guide/' },
-            {
-              text: 'API ',
-              link: '/ja/api/',
-            },
-            {
-              text: 'リリースノート',
-              link:
-                'https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md'
-            }
+      "/ja/": {
+        label: "日本語",
+        selectText: "言語",
+        editLinkText: "GitHubでこのページを編集",
+        lastUpdated: "最終更新",
+        nav: [
+          { text: "ガイド", link: "/ja/guide/" },
+          {
+            text: "API ",
+            link: "/ja/api/",
+          },
+          {
+            text: "リリースノート",
+            link:
+              "https://github.com/TomokiMiyauci/file-select-dialog/blob/main/CHANGELOG.md",
+          },
         ],
       },
-    }
-  }
-}
+    },
+  },
+};
 ```
 
 ## Custom components
@@ -561,18 +589,20 @@ docs
         └──Playground.vue
 ```
 
-```html:Playground.vue
+Playground.vue
+
+```html
 <template>
-    <button @click="onClick">Increase</button>
+  <button @click="onClick">Increase</button>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+  import { ref } from "vue";
 
-const count = ref<number>(0)
-const onClick = ():void => {
-    count.value++
-}
+  const count = ref<number>(0);
+  const onClick = (): void => {
+    count.value++;
+  };
 </script>
 ```
 
@@ -589,17 +619,19 @@ docs
         └── index.js
 ```
 
-```js:index.js
-import Theme from 'vitepress/theme'
-import Playground from '../components/Playground.vue'
+index.js
+
+```js
+import Theme from "vitepress/theme";
+import Playground from "../components/Playground.vue";
 
 export default {
   ...Theme,
 
   enhanceApp({ app }) {
-    app.component('playground', Playground)
-  }
-}
+    app.component("playground", Playground);
+  },
+};
 ```
 
 A Vue instance is passed to a property called `enhanceApp` in `index.js`, so set
@@ -608,7 +640,9 @@ layout etc.
 
 Then place the component directly in the markdown file.
 
-```md:index.md
+index.md
+
+```md
 ## Introduction
 
 <playground />
@@ -650,7 +684,9 @@ These are easy to change, so let's change the brand color. Also, change the size
 of the logo. To change it, define the property you want to overwrite in the CSS
 file and import it with `theme/index.js`.
 
-```css:theme/custom.css
+theme/custom.css
+
+```css
 :root {
   --c-brand: #8664ff;
   --c-brand-light: #8974ff;
@@ -662,10 +698,12 @@ file and import it with `theme/index.js`.
 }
 ```
 
-```js:theme/index.js
-import './custom.css'
+theme/index.js
 
-export default {}
+```js
+import "./custom.css";
+
+export default {};
 ```
 
 In this way, I was able to change the color and size of the logo.

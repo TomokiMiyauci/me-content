@@ -57,7 +57,9 @@ npm i
 `tsconfig.json`をプロジェクトルートに設置します。これでエディターに Typescript
 プロジェクトであることを認識させます。
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "target": "esnext",
@@ -104,23 +106,27 @@ import { Fragment, h } from "preact";
 > が必ず存在するなら、`Non-null assertion
   operator`も使えます。
 
-```tsx:main.tsx
-const el = document.getElementById('app')
+main.tsx
+
+```tsx
+const el = document.getElementById("app");
 if (el) {
-  render(<App />, el)
+  render(<App />, el);
 }
 ```
 
 続いて`vite.config.js`に変更を加えます。
 
-```ts:vite.config.js
+vite.config.js
+
+```ts
 const config = {
   jsx: {
-    factory: 'h',
-    fragment: 'Fragment'
+    factory: "h",
+    fragment: "Fragment",
   },
-  plugins: [preactRefresh()]
-}
+  plugins: [preactRefresh()],
+};
 ```
 
 最小構成で Typescript 化できました。以下は、やらなくても問題ありません。
@@ -130,20 +136,22 @@ Module 形式に変更し、プロジェクト全体の統一感を高めまし�
 
 `vite.config.ts`は以下のようになります。
 
-```ts:vite.config.ts
-import preactRefresh from '@prefresh/vite'
-import type { UserConfig } from 'vite'
+vite.config.ts
+
+```ts
+import preactRefresh from "@prefresh/vite";
+import type { UserConfig } from "vite";
 
 const config: UserConfig = {
   jsx: {
-    factory: 'h',
-    fragment: 'Fragment',
+    factory: "h",
+    fragment: "Fragment",
   },
 
   plugins: [preactRefresh()],
-}
+};
 
-export default config
+export default config;
 ```
 
 これで Typescript 化は終了です。
@@ -156,7 +164,9 @@ export default config
 npm i -D eslint eslint-config-preact @typescript-eslint/parser typescript
 ```
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "env": {
     "browser": true,
@@ -180,7 +190,9 @@ npm i -D eslint eslint-config-preact @typescript-eslint/parser typescript
 
 `package.json`の`script`にリント用のコマンドを用意するとのちのち楽です。
 
-```json:package.json
+package.json
+
+```json
 "scripts": {
   "lint:script": "eslint --ext .ts,tsx --ignore-path .gitignore ."
 }
@@ -200,7 +212,9 @@ VSCode
 ESLint
 の拡張が必要なので、なければ[ここを参考に](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)インストールしてください。
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -220,7 +234,9 @@ npm i -D husky lint-staged
 
 `package.json`に次を追加します。
 
-```json:package.json
+package.json
+
+```json
 {
   "husky": {
     "hooks": {
@@ -248,7 +264,9 @@ Prettier にプロジェクト全体のフォーマットを任せましょう�
 npm i -D prettier eslint-config-prettier
 ```
 
-```json:.prettierrc
+.prettierrc
+
+```json
 {
   "trailingComma": "es5",
   "semi": false,
@@ -259,7 +277,9 @@ npm i -D prettier eslint-config-prettier
 ESLint と Prettier
 を併用する場合、ルールのバッティングがあるため、`.eslintrc`を修正します。
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "extends": [
     "eslint:all",
@@ -279,9 +299,11 @@ npm run prettier -w -u .
 
 コミット前に自動フォーマットを適用させたいので、`lint-staged`にその設定を加えます。
 
-```json:package.json
+package.json
+
+```json
 {
- "lint-staged": {
+  "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
     "*": "prettier -w -u" // prettierは一番最後にします
   }
@@ -291,7 +313,9 @@ npm run prettier -w -u .
 VSCode ユーザーは次の設定によって、自動的にフォーマットできます。
 また、例によって拡張が必要なので、なければ[こちらを参考に](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)インストールしてください。
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -306,7 +330,9 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
 
-```json:.stylelintrc
+.stylelintrc
+
+```json
 {
   "extends": ["stylelint-config-recommended", "stylelint-config-standard"]
 }
@@ -314,7 +340,9 @@ npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 
 `package.jsoon`を編集して、コマンドと lint-staged を設定します。
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "lint:style": "stylelint src/**/*.{css,scss}"
@@ -342,20 +370,24 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 > [!WARNING]
 > Key は`/`から始まらなければなりません。
 
-```ts:vite.config.ts
-import { join } from 'path'
-import type { UserConfig } from 'vite'
+vite.config.ts
+
+```ts
+import { join } from "path";
+import type { UserConfig } from "vite";
 
 const config: UserConfig = {
   alias: {
-    '/@/': join(__dirname, 'src'),
-  }
-}
+    "/@/": join(__dirname, "src"),
+  },
+};
 
-export default config
+export default config;
 ```
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -369,8 +401,10 @@ export default config
 
 これで alias の設定ができました。こんな感じで使います。
 
-```tsx:main.tsx
-import { App } from '/@/app'
+main.tsx
+
+```tsx
+import { App } from "/@/app";
 ```
 
 `/`から始まらなければならないのが、少し違和感ありますが、パッケージ名の alias

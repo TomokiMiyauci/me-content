@@ -62,14 +62,16 @@ Place the Lambda functions under the `api` directory. The `api` naming
 convention is familiar from vercel. In the `api` directory, we also put
 `.vscode`. Here, we enable VSCode extension for Deno.
 
-```json:api/.vscode/settings.json
+api/.vscode/settings.json
+
+```json
 {
   "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "deno.enable": true,
+  "deno.enable": true
 }
 ```
 
@@ -83,7 +85,9 @@ We will proceed under the assumption that we use the template for TypeScript.
 
 The entry point of the stack will look like this.
 
-```ts:app/bin/app.ts
+app/bin/app.ts
+
+```ts
 #!/usr/bin/env node
 import "source-map-support/register";
 import { AppStack } from "../lib/app-stack";
@@ -98,14 +102,16 @@ new AppStack(app, "TestAppStack", {});
 There is a convenient type definition for the Lambda function definition. We'll
 give priority to deployment first, and define the appropriate function.
 
-```ts:api/hello.ts
-import type { APIGatewayProxyResultV2 } from 'https://deno.land/x/lambda@1.17.2/mod.ts'
+api/hello.ts
+
+```ts
+import type { APIGatewayProxyResultV2 } from "https://deno.land/x/lambda@1.17.2/mod.ts";
 
 export function handler(): APIGatewayProxyResultV2 {
-  console.log(Deno.version)
+  console.log(Deno.version);
   return {
-    statusCode: 200
-  }
+    statusCode: 200,
+  };
 }
 ```
 
@@ -115,39 +121,41 @@ The AWS stack, on the other hand, is defined as follows. External modules such
 as `@aws-cdk/aws-sam` and `@aws-cdk/aws-lambda` should be installed accordingly
 for use in Node.js environment.
 
-```ts:app/lib/app-stack.ts
-import { Stack, App, StackProps } from '@aws-cdk/core'
-import { CfnApplication } from '@aws-cdk/aws-sam'
-import { Code, Function, LayerVersion, Runtime } from '@aws-cdk/aws-lambda'
-import { resolve } from 'path'
+app/lib/app-stack.ts
+
+```ts
+import { App, Stack, StackProps } from "@aws-cdk/core";
+import { CfnApplication } from "@aws-cdk/aws-sam";
+import { Code, Function, LayerVersion, Runtime } from "@aws-cdk/aws-lambda";
+import { resolve } from "path";
 
 const APPLICATION_ID =
-  'arn:aws:serverlessrepo:us-east-1:390065572566:applications/deno'
-const DENO_VERSION = '1.17.2'
+  "arn:aws:serverlessrepo:us-east-1:390065572566:applications/deno";
+const DENO_VERSION = "1.17.2";
 
 export class AppStack extends Stack {
   constructor(scope: App, id: string, props?: StackProps) {
-    super(scope, id, props)
+    super(scope, id, props);
 
     const denoRuntime = new CfnApplication(this, `DenoRuntime`, {
       location: {
         applicationId: APPLICATION_ID,
-        semanticVersion: DENO_VERSION
-      }
-    })
+        semanticVersion: DENO_VERSION,
+      },
+    });
 
     const layer = LayerVersion.fromLayerVersionArn(
       this,
       `denoRuntimeLayer`,
-      denoRuntime.getAtt('Outputs.LayerArn').toString()
-    )
+      denoRuntime.getAtt("Outputs.LayerArn").toString(),
+    );
 
     new Function(this, `hello-lambda`, {
       runtime: Runtime.PROVIDED_AL2,
-      code: Code.fromAsset(resolve(__dirname, '..', '..', 'api')),
-      handler: 'hello.handler',
-      layers: [layer]
-    })
+      code: Code.fromAsset(resolve(__dirname, "..", "..", "api")),
+      handler: "hello.handler",
+      layers: [layer],
+    });
   }
 }
 ```
@@ -190,7 +198,9 @@ variable.
 
 Modify the Lambda stack.
 
-```ts:app/lib/app-stack.ts{6,7}
+app/lib/app-stack.ts
+
+```ts
 new Function(this, `hello-lambda`, {
   runtime: Runtime.PROVIDED_AL2,
   code: Code.fromAsset(resolve(__dirname, '..', '..', 'api')),
@@ -242,8 +252,10 @@ JavaScript.
 
 To verify this, let's run the following code.
 
-```ts:ssm.ts
-import { SSM } from 'https://deno.land/x/ssm@0.1.4/mod.ts'
+ssm.ts
+
+```ts
+import { SSM } from "https://deno.land/x/ssm@0.1.4/mod.ts";
 
 const ssm = new SSM({
   accessKeyID: Deno.env.get("AWS_ACCESS_KEY_ID")!,
@@ -259,7 +271,7 @@ const parameter = await ssm.getParameter({
   console.error(`parameter is not exists: test`);
 });
 
-console.log(parameter)
+console.log(parameter);
 ```
 
 We will use the AWS SSM client as an external module. We are fetching values
@@ -325,8 +337,10 @@ Under `$DENO_DIR/gen`, JavaScript files transpiled from TypeScript files will be
 saved. In the case of local files, they will be saved under the `file` directory
 with an absolute path.
 
-```ts:/path/to/ssm.ts
-import { SSM } from 'https://deno.land/x/ssm@0.1.4/mod.ts'
+/path/to/ssm.ts
+
+```ts
+import { SSM } from "https://deno.land/x/ssm@0.1.4/mod.ts";
 ```
 
 If you run the above file, it will be saved under the `path` and `to`
@@ -389,7 +403,9 @@ AWS SSM client with Lambda to get parameters.
 
 The Lambda function looks like this:
 
-```ts:api/hello.ts{11}
+api/hello.ts
+
+```ts
 import { SSM } from "https://deno.land/x/ssm@0.1.4/mod.ts";
 import type { APIGatewayProxyResultV2 } from "https://deno.land/x/lambda@1.17.2/mod.ts";
 
@@ -408,7 +424,7 @@ const parameter = await ssm.getParameter({
 });
 
 export function handler(): APIGatewayProxyResultV2 {
-  console.log(parameter)
+  console.log(parameter);
   return {
     statusCode: 200,
   };
@@ -422,7 +438,9 @@ time Lambda is executed.
 On the other hand, due to the use of SSM, it is necessary to grant IAM roles.
 Add the IAM role to the AWS stack and attach it to the Lambda function.
 
-```ts:app/lib/app-stack.ts{22}
+app/lib/app-stack.ts
+
+```ts
 import { ManagedPolicy, Role, ServicePrincipal } from '@aws-cdk/aws-iam'
 import { Code, Function, LayerVersion, Runtime } from "@aws-cdk/aws-lambda";
 
@@ -462,7 +480,9 @@ faster than the first time.
 Now, we will make a change to prevent the cold start from happening the first
 time. The AWS CDK Lambda stack has a bundle hook that we can use.
 
-```ts:app/lib/app-stack.ts{17,24}
+app/lib/app-stack.ts
+
+```ts
 import { App, DockerImage, Stack, StackProps } from '@aws-cdk/core'
 import { Code, Function, LayerVersion, Runtime } from '@aws-cdk/aws-lambda'
 import { resolve } from 'path'
@@ -512,7 +532,9 @@ time and the bundling process will be executed.
 
 Finally, here is the entire definition of the AWS stack used in the example.
 
-```ts:app/lib/app-stack.ts
+app/lib/app-stack.ts
+
+```ts
 import { App, DockerImage, Stack, StackProps } from "@aws-cdk/core";
 import { CfnApplication } from "@aws-cdk/aws-sam";
 import { Code, Function, LayerVersion, Runtime } from "@aws-cdk/aws-lambda";

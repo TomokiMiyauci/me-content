@@ -83,7 +83,9 @@ the module type. Note that at the time of writing, the only valid module type is
 Let's consider the following example of using a JSON file on a remote server or
 locally:
 
-```json:deno.json
+deno.json
+
+```json
 {
   "fmt": {
     "files": {}
@@ -91,7 +93,7 @@ locally:
   "lint": {
     "files": {
       "exclude": [
-        ".git",
+        ".git"
       ]
     }
   }
@@ -100,7 +102,9 @@ locally:
 
 It will look like this:
 
-```ts:import_assertions.ts
+import_assertions.ts
+
+```ts
 import denoJson from "https://deno.land/std/deno.json" assert { type: "json" };
 import localDenoJson from "./deno.json" assert { type: "json" };
 
@@ -120,8 +124,12 @@ deno run import_assertions.ts
 
 For dynamic import, you can specify the field name argument in the same way.
 
-```ts:dynamic_import_assertions.ts
-const denoJson = await import("https://deno.land/std/deno.json", { assert: { type: "json" } }).then((module) => module.default);
+dynamic_import_assertions.ts
+
+```ts
+const denoJson = await import("https://deno.land/std/deno.json", {
+  assert: { type: "json" },
+}).then((module) => module.default);
 ```
 
 For dynamic importing, you need to give flags and permissions.
@@ -159,16 +167,20 @@ In Node.js, the method of resolving JSON modules differs depending on the module
 system. In CommonJS, JSON module resolution can be done with the `require`
 function.
 
-```ts:index.js
-const jsonData = require('./path/to/filename.json')
+index.js
+
+```ts
+const jsonData = require("./path/to/filename.json");
 ```
 
 On the other hand, import assertions have been implemented in ES modules since
 17.1. Note that the `--experimental-json-modules` flag is required for
 execution.
 
-```js:index.mjs
-import jsonData from './path/to/filename.json' assert { type: 'json' };
+index.mjs
+
+```js
+import jsonData from "./path/to/filename.json" assert { type: "json" };
 ```
 
 ```bash
@@ -179,7 +191,9 @@ In earlier versions, it is possible to resolve JSON modules by using
 [createRequire](https://nodejs.org/api/module.html#modulecreaterequirefilename)
 as follows.
 
-```js:index.mjs
+index.mjs
+
+```js
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const packageJson = require("./path/to/filename.json");
@@ -213,7 +227,9 @@ defined, the implementation is done by each bundler.
 
 For example, in `vite` it looks like this:
 
-```css:example.module.css
+example.module.css
+
+```css
 .red {
   color: red;
 }

@@ -30,18 +30,20 @@ jest では 2
 
 index.html 以外の \*.html を \*/index.html に変換する関数
 
-```ts:index.ts
-import { dirname, join, parse } from 'path'
+index.ts
+
+```ts
+import { dirname, join, parse } from "path";
 
 export const path2IndexHtml = (path: string): string => {
-    const EXT = '.html'
-    const INDEX = 'index'
-    const { ext, name, dir } = parse(path)
-    if(ext !== EXT) return path
-    if(name === INDEX) return path
+  const EXT = ".html";
+  const INDEX = "index";
+  const { ext, name, dir } = parse(path);
+  if (ext !== EXT) return path;
+  if (name === INDEX) return path;
 
-    return join(dir, name, `${INDEX}${EXT}`)
-}
+  return join(dir, name, `${INDEX}${EXT}`);
+};
 ```
 
 この関数自体は、Server Side Generation の実装
@@ -61,28 +63,30 @@ test.each(table)(name, fn, timeout);
 Alias があるのでいくつかのオブジェクトが `each` メソッドを持っています。
 具体的なテストケースは次のようになります。
 
-```ts:index.spec.ts
-import { path2IndexHtml } from '../src'
+index.spec.ts
 
-describe('path2IndexHtml', () => {
-    const table = [
-        ['', ''],
-        ['index.html', 'index.html'],
-        ['/index.html', '/index.html'],
-        ['index.css', 'index.css'],
-        ['about.css', 'about.css'],
-        ['about/index.css', 'about/index.css'],
-        ['about.html', 'about/index.html'],
-        ['hoge/about.html', 'hoge/about/index.html'],
-        ['/hoge/about.html', '/hoge/about/index.html'],
-        ['aindex.html', 'aindex/index.html'],
-        ['indexa.html', 'indexa/index.html'],
-        ['/about/index.html', '/about/index.html'],
-    ]
-    it.each(table)('pattern1: path2IndexHtml(%s) = %s', (path, expected, fa) => {
-        expect(path2IndexHtml(path)).toBe(expected)
-    })
-})
+```ts
+import { path2IndexHtml } from "../src";
+
+describe("path2IndexHtml", () => {
+  const table = [
+    ["", ""],
+    ["index.html", "index.html"],
+    ["/index.html", "/index.html"],
+    ["index.css", "index.css"],
+    ["about.css", "about.css"],
+    ["about/index.css", "about/index.css"],
+    ["about.html", "about/index.html"],
+    ["hoge/about.html", "hoge/about/index.html"],
+    ["/hoge/about.html", "/hoge/about/index.html"],
+    ["aindex.html", "aindex/index.html"],
+    ["indexa.html", "indexa/index.html"],
+    ["/about/index.html", "/about/index.html"],
+  ];
+  it.each(table)("pattern1: path2IndexHtml(%s) = %s", (path, expected, fa) => {
+    expect(path2IndexHtml(path)).toBe(expected);
+  });
+});
 ```
 
 テストケースを２次元配列で記述します。配列内の要素の順番はそのままに `fn`
@@ -103,8 +107,10 @@ describe('path2IndexHtml', () => {
 他にも `each`
 メソッドはジェネリックス型を受け入れるので、次のように型を指定できます。
 
-```ts:index.spec.ts
-it.each<string[]>(table)
+index.spec.ts
+
+```ts
+it.each<string[]>(table);
 ```
 
 このテストを実行すると次の出力になりました。
@@ -147,21 +153,23 @@ test.each`
 
 実際に上の例と同じテストを書くと、次のようになります。
 
-```ts:index.spec.ts
-describe('path2IndexHtml', () => {
+index.spec.ts
+
+```ts
+describe("path2IndexHtml", () => {
   it.each`
     path                 | expected
-    ${''}                | ${''}
-    ${'index.html'}      | ${'index.html'}
-    ${'/index.html'}     | ${'/index.html'}
-    ${'about.css'}       | ${'about.css'}
-    ${'about/index.css'} | ${'about/index.css'}
-    ${'about.html'}      | ${'about/index.html'}
-    ${'hoge/about.html'} | ${'hoge/about/index.html'}
-  `('path2IndexHtml($path) -> $expected', ({ path, expected }) => {
-    expect(path2IndexHtml(path)).toBe(expected)
-  })
-})
+    ${""}                | ${""}
+    ${"index.html"}      | ${"index.html"}
+    ${"/index.html"}     | ${"/index.html"}
+    ${"about.css"}       | ${"about.css"}
+    ${"about/index.css"} | ${"about/index.css"}
+    ${"about.html"}      | ${"about/index.html"}
+    ${"hoge/about.html"} | ${"hoge/about/index.html"}
+  `("path2IndexHtml($path) -> $expected", ({ path, expected }) => {
+    expect(path2IndexHtml(path)).toBe(expected);
+  });
+});
 ```
 
 `table` の 1 行目は変数名を指定します。後続の行は `${value}`
@@ -183,11 +191,13 @@ describe('path2IndexHtml', () => {
 
 どうしても型をつけたい場合は、`fn` 関数に型を定義します。
 
-```ts:index.spec.ts
-'path2IndexHtml($path) -> $expected',
+index.spec.ts
+
+```ts
+"path2IndexHtml($path) -> $expected",
   ({ path, expected }: { path: string; expected: string }) => {
-    expect(path2IndexHtml(path)).toBe(expected)
-  }
+    expect(path2IndexHtml(path)).toBe(expected);
+  };
 ```
 
 結果はどちらも同じになるので、テストケースや好みで記法を使い分けるといいと思います。
