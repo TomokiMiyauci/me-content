@@ -24,25 +24,10 @@ Vite は No bundle 掲げており、開発時に高速な HMR を提供して�
 まずは、Tailwind CSS モジュールをインストールし、設定ファイルを生成します。
 ついでに、`scss`や`sass`も使いたいので、それ用のモジュールもインストールします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tailwindcss sass
-yarn tailwindcss init
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -d tailwindcss sass
 npx tailwind init
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 続いて、tailwind
 のディレクティブを注入するために、スタイルファイルを用意します。
@@ -63,9 +48,8 @@ module.exports = {
 
 最後にスタイルファイルをエントリーポイントでインポートします。
 
-<Alert type="warning">
-  例ではパスエイリアスでパスを指定しています。各自適切なパスを設定してください。
-</Alert>
+> [!WARNING]
+> 例ではパスエイリアスでパスを指定しています。各自適切なパスを設定してください。
 
 ```ts:src/main.ts
 import { createApp } from 'vue'

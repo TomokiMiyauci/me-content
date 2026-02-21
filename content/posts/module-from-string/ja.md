@@ -110,10 +110,9 @@ btoa(unescape(encodeURIComponent("日本語")));
 
 次のようになります。
 
-<Alert type="warning">
-  次のコードは
-  Denoランタイムで動作します。ブラウザで実行するためには、バンドルが必要です。
-</Alert>
+> [!WARNING]
+> 次のコードは
+> Denoランタイムで動作します。ブラウザで実行するためには、バンドルが必要です。
 
 ```ts
 import { encode } from "https://deno.land/std/encoding/base64.ts";

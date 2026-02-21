@@ -61,43 +61,13 @@ V9 モジュラー SDK では、`Firebase`
 
 バンドラーに `vite` を使ったプロジェクトでバンドルサイズを比較します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create @vitejs/app <project-name> --template preact-ts
-cd <project-name>
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init @vitejs/app <project-name> -- --template preact-ts
 cd <project-name>
 ```
 
-</CodeGroup>
-</CodeGroups>
-
 `firebase` モジュールの V9 はまだベータ版なので、インストールには `beta`
 フラグが必要です。
-
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-// V8
-yarn add firebase
-
-// V9
-yarn add firebase@beta
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
 
 ```bash
 // V8
@@ -106,9 +76,6 @@ npm i firebase
 // V9
 npm i firebase@beta
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `vite` でコメントやライセンスを削除するために `vite.config.ts`
 を次のように変更します。
@@ -137,30 +104,6 @@ export default defineConfig({
 ### Firebase App のフルバンドルサイズ
 
 Firebase App をすべてバンドルした場合のサイズについて見てみます。
-
-<Alert type="warning">すべてのモジュールをバンドルするコードの一例です</Alert>
-
-<CodeGroups>
-  <CodeGroup label="V8" active>
-
-```ts:main.ts
-import firebase from 'firebase/app'
-
-firebase.initializeApp({ /* config */ })
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9">
-
-```ts:main.ts
-import * as firebase from 'firebase/app'
-
-console.log(firebase)
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | モジュール   | バージョン | サイズ   |
 | ------------ | ---------- | -------- |
@@ -231,43 +174,12 @@ V9 モジュラー SDK では Cloud Firestore に `lite`
 サブモジュールを利用した場合も含めて、Cloud Firestore モジュールは 4
 つのパターンがあります。
 
-<CodeGroups>
-  <CodeGroup label="V8" active>
-
 ```ts:main.ts
-import 'firebase/firestore'
+import 'firebase/firestore' // V8
+import 'firebase/firestore/memory' // V8(memory)
+import * as firestore from 'firebase/firestore' // V9
+import * as firestore from 'firebase/firestore/lite' // V9(lite)
 ```
-
-</CodeGroup>
-
-<CodeGroup label="V8(memory)">
-
-```ts:main.ts
-import 'firebase/firestore/memory'
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9">
-
-```ts:main.ts
-import * as firestore from 'firebase/firestore'
-
-console.log(firestore)
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9(lite)">
-
-```ts:main.ts
-import * as firestore from 'firebase/firestore/lite'
-
-console.log(firestore)
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | モジュール                | バージョン | サイズ    |
 | ------------------------- | ---------- | --------- |
@@ -289,27 +201,12 @@ SDK の `lite`
 V9 モジュラー SDK では `initializeFirestore`
 を行なった状態を、バンドルサイズが下限であるとします。
 
-<CodeGroups>
-  <CodeGroup label="V9" active>
-
 ```ts:main.ts
 import { initializeFirestore } from 'firebase/firestore'
+// import { initializeFirestore } from 'firebase/firestore/lite' V9(lite)
 
 const firestore = initializeFirestore(app, {})
 ```
-
-</CodeGroup>
-
-<CodeGroup label="V9(lite)">
-
-```ts:main.ts
-import { initializeFirestore } from 'firebase/firestore/lite'
-
-const firestore = initializeFirestore(app, {})
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | モジュール              | バージョン | 下限     | 上限      |
 | ----------------------- | ---------- | -------- | --------- |
@@ -339,26 +236,6 @@ getDoc(document);
 同様に  Authentication についても見てみます。
 
 ### Authentication のフルバンドルサイズ
-
-<CodeGroups>
-  <CodeGroup label="V8" active>
-
-```ts:main.ts
-import 'firebase/auth'
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9">
-
-```ts:main.ts
-import * as auth from 'firebase/auth'
-
-console.log(auth)
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | モジュール    | バージョン | サイズ   |
 | ------------- | ---------- | -------- |

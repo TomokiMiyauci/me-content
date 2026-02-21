@@ -64,43 +64,13 @@ is constant.
 
 Compare bundle sizes in a project that uses `vite` as a bundler.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create @vitejs/app <project-name> --template preact-ts
-cd <project-name>
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init @vitejs/app <project-name> -- --template preact-ts
 cd <project-name>
 ```
 
-</CodeGroup>
-</CodeGroups>
-
 V9 of the `firebase` module is still in beta, so it needs the `beta` flag to be
 installed.
-
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-// V8
-yarn add firebase
-
-// V9
-yarn add firebase@beta
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
 
 ```bash
 // V8
@@ -109,9 +79,6 @@ npm i firebase
 // V9
 npm i firebase@beta
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 To remove comments and licenses in `vite`, change `vite.config.ts` as follows
 
@@ -140,30 +107,6 @@ at the bundle size associated with the initialization of Firebase App.
 ## Full bundle size of Firebase App
 
 Let's look at the size of a full bundle of Firebase App.
-
-<Alert type="warning">Example of code that bundles all modules</Alert>
-
-<CodeGroups>
-  <CodeGroup label="V8" active>
-
-```ts:main.ts
-import firebase from 'firebase/app'
-
-firebase.initializeApp({ /* config */ })
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9">
-
-```ts:main.ts
-import * as firebase from 'firebase/app'
-
-console.log(firebase)
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | Module       | Version | Size     |
 | ------------ | ------- | -------- |
@@ -236,43 +179,12 @@ First, let's look at the size when everything is bundled without any
 tree-shaking effect. There are four patterns for Cloud Firestore modules,
 including the use of submodules.
 
-<CodeGroups>
-  <CodeGroup label="V8" active>
-
 ```ts:main.ts
-import 'firebase/firestore'
+import 'firebase/firestore' // V8
+import 'firebase/firestore/memory' // V8(memory)
+import * as firestore from 'firebase/firestore' // V9
+import * as firestore from 'firebase/firestore/lite' // V9(lite)
 ```
-
-</CodeGroup>
-
-<CodeGroup label="V8(memory)">
-
-```ts:main.ts
-import 'firebase/firestore/memory'
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9">
-
-```ts:main.ts
-import * as firestore from 'firebase/firestore'
-
-console.log(firestore)
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9(lite)">
-
-```ts:main.ts
-import * as firestore from 'firebase/firestore/lite'
-
-console.log(firestore)
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | Module                    | Version | Size      |
 | ------------------------- | ------- | --------- |
@@ -295,27 +207,12 @@ shaking.
 In the V9 Modular SDK, the state where `initializeFirestore` is performed is
 considered to be the lower limit of the bundle size.
 
-<CodeGroups>
-  <CodeGroup label="V9" active>
-
 ```ts:main.ts
 import { initializeFirestore } from 'firebase/firestore'
+// import { initializeFirestore } from 'firebase/firestore/lite' V9(lite)
 
 const firestore = initializeFirestore(app, {})
 ```
-
-</CodeGroup>
-
-<CodeGroup label="V9(lite)">
-
-```ts:main.ts
-import { initializeFirestore } from 'firebase/firestore/lite'
-
-const firestore = initializeFirestore(app, {})
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | Module                  | Version | Lower limit | Upper limit |
 | ----------------------- | ------- | ----------- | ----------- |
@@ -347,26 +244,6 @@ switch to it proactively.
 Similarly, let's take a look at Authentication.
 
 ### Full bundle size for Authentication
-
-<CodeGroups>
-  <CodeGroup label="V8" active>
-
-```ts:main.ts
-import 'firebase/auth'
-```
-
-</CodeGroup>
-
-<CodeGroup label="V9">
-
-```ts:main.ts
-import * as auth from 'firebase/auth'
-
-console.log(auth)
-```
-
-</CodeGroup>
-</CodeGroups>
 
 | Module        | Version | Size     |
 | ------------- | ------- | -------- |

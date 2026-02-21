@@ -35,27 +35,11 @@ Storybook については、バンドラーに `webpack` ではなく、`vite`
 
 まずは、プロジェクトの雛形を生成します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create vite --template react-ts
-cd project_name
-yarn add -D @types/node
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init vite@latest --template react-ts
 cd project_name
 npm i -D @types/node
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 また、今回は適当な例のコンポーネントとして、次のコンポーネントを作ってみます。
 
@@ -136,25 +120,10 @@ export default defineConfig({
 
 次に tailwindcss を導入します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tailwindcss@next postcss@latest autoprefixer@latest
-yarn tailwindcss init
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D tailwindcss@next postcss@latest autoprefixer@latest
 npm run tailwindcss init
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 tailwindcss には `postcss` が必要なので設定します。
 
@@ -197,10 +166,9 @@ Preflight で生成されるデフォルトのスタイルは
 
 これらに対応するために、`tailwind.config.js` を変更します。
 
-<Alert type="warning">
-  tailwindcss 2系を利用している場合、フィールド名は `content` ではなく `purge`
-  です。
-</Alert>
+> [!WARNING]
+> tailwindcss 2系を利用している場合、フィールド名は `content` ではなく `purge`
+> です。
 
 ```js:tailwind.config.js{8-11}
 module.exports = {
@@ -294,43 +262,15 @@ TypeScript プロジェクトの場合、上記の CSS Modules
 これを解決するには、型定義ファイルを作成する必要があります。自動生成できる CLI
 があるのでそれを利用します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D typed-css-modules
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D typed-css-modules
 ```
 
-</CodeGroup>
-</CodeGroups>
-
 `tcm` コマンドが利用可能になります。
-
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn tcm src
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
 
 ```bash
 npm run tcm src
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `tcm <input directory>` 形式で実行できます。すると、CSS Modules
 の型定義ファイルが生成されます。
@@ -357,23 +297,9 @@ vite がプリプロセッサを処理するためにインストールが必要
 [typed-scss-modules](https://github.com/skovy/typed-scss-modules)
 というライブラリがあるのでそれを利用します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D sass typed-scss-modules
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D sass typed-scss-modules
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 先程のスタイルシートをそのまま `.scss` に変えてみます。
 
@@ -386,23 +312,9 @@ export default Index
 
 型定義の出力はほとんど同じインターフェイスです。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn tsm src
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run tsm src
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 これで Sass が利用できました。
 
@@ -546,23 +458,9 @@ UX が向上します。
 
 パスエイリアスは `tsc-alias` を使うことでパスの解決をします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tsc-alias
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D tsc-alias
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `tsconfig.json` を次のように変更します。
 
@@ -597,25 +495,10 @@ npm i -D tsc-alias
 
 `declarationMap` も忘れずに設定します。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn tsc --emitDeclarationOnly
-yarn tsc-alias
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run tsc --emitDeclarationOnly
 npm run tsc-alias
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `tsc` で型定義ファイルのみ出力します。その後、パスエイリアスを `tsc-alias`
 で上書きします。
@@ -638,23 +521,9 @@ npm run tsc-alias
 
 [npm-run-all](https://github.com/mysticatea/npm-run-all) を使います。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D npm-run-all
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D npm-run-all
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `npm-run-all` と `run-p` というショートハンドの CLI が利用可能になります。
 並列実行のコマンドの例は次のようになります。

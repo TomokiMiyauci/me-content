@@ -34,27 +34,11 @@ preact/cli の default
 
 まずは、vite のテンプレートを展開しましょう。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create vite-app <project-name> --template preact
-cd <project-name>
-yarn
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init vite-app <project-name> --template preact
 cd <project-name>
 npm i
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 開発サーバーを立ち上げるとその速さに感動します。
 
@@ -115,10 +99,10 @@ import { Fragment, h } from "preact";
 `document.getElementById`は戻り値が`HTMLElement`または`null`なため、null
 チェックを入れてあげます。
 
-<Alert type="warning">
-  `index.html`の id に app が必ず存在するなら、`Non-null assertion
+> [!WARNING]
+> `index.html`の id に app
+> が必ず存在するなら、`Non-null assertion
   operator`も使えます。
-</Alert>
 
 ```tsx:main.tsx
 const el = document.getElementById('app')
@@ -168,24 +152,9 @@ export default config
 
 リンターのない開発は厳しいので、必ず導入しましょう。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D eslint eslint-config-preact @typescript-eslint/parser typescript
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D eslint eslint-config-preact @typescript-eslint/parser typescript
 ```
-
-</CodeGroup>
-
-</CodeGroups>
 
 ```json:.eslintrc
 {
@@ -222,23 +191,9 @@ npm i -D eslint eslint-config-preact @typescript-eslint/parser typescript
 
 さてこれを実行させましょう。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn lint:script --fix
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run lint:script --fix
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 VSCode
 ユーザーは以下の設定もすることで、自動フォーマットを効かせることができます。
@@ -259,23 +214,9 @@ ESLint
 
 コミット前に、静的チェックを走らせ、エラーコードをコミットできない仕組みにしましょう。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D husky lint-staged
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D husky lint-staged
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `package.json`に次を追加します。
 
@@ -303,23 +244,9 @@ Prettier にプロジェクト全体のフォーマットを任せましょう�
 のコードでは、セミコロンは視認性が悪くなるため、Prettier
 で自動的に削除しましょう。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D prettier eslint-config-prettier
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D prettier eslint-config-prettier
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```json:.prettierrc
 {
@@ -346,23 +273,9 @@ ESLint と Prettier
 
 コマンドによってフォーマッターを実行できます。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn prettier -w -u .
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run prettier -w -u .
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 コミット前に自動フォーマットを適用させたいので、`lint-staged`にその設定を加えます。
 
@@ -389,23 +302,9 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 
 スタイルファイルもリント対象にしましょう。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D stylelint stylelint-config-recommended stylelint-config-standard
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```json:.stylelintrc
 {
@@ -440,7 +339,8 @@ VSCode ユーザーは次の設定によって、自動的にフォーマット�
 
 `vite.config.ts`と`tsconfig.json`変更して alias を設定しましょう。
 
-<Alert type="warning">Key は`/`から始まらなければなりません。</Alert>
+> [!WARNING]
+> Key は`/`から始まらなければなりません。
 
 ```ts:vite.config.ts
 import { join } from 'path'

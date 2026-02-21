@@ -101,25 +101,12 @@ has a client library that you can use.
 
 You can use the Bitly client library to operate type-safely with TypeScript.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add bitly
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i bitly
 ```
 
-</CodeGroup>
-</CodeGroups>
-
-<Alert type="warning">Using top level await syntax</Alert>
+> [!WARNING]
+> Using top level await syntax
 
 ```ts
 import { BitlyClient, isBitlyErrResponse } from "bitly";
@@ -184,23 +171,9 @@ Now that we have dynamically generated a short URL, let's tweet it dynamically.
 For more information about tweeting, please refer to
 [Tweeting with TypeScript](/posts/tweet-typescript/) that I wrote before.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D twitter-api-v2
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D twitter-api-v2
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```ts
 import { BitlyClient } from "bitly";

@@ -26,25 +26,10 @@ In the following, I will assume that there is a Vite project.
 First, install Tailwind CSS module and generate a configuration file. As you
 want to use `scss` and `sass`, install modules for them as well.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D tailwindcss sass
-yarn tailwindcss init
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -d tailwindcss sass
 npx tailwind init
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Next, prepare a style file to inject the tailwind directive.
 
@@ -64,10 +49,9 @@ module.exports = {
 
 Finally, import the style file at the entry point.
 
-<Alert type="warning">
-  For example, the path is specified in the path alias. Set the appropriate
-  path.
-</Alert>
+> [!WARNING]
+> For example, the path is specified in the path alias. Set the appropriate
+> path.
 
 ```ts:src/main.ts
 import { createApp } from 'vue'

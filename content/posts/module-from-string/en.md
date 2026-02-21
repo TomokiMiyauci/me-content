@@ -107,10 +107,9 @@ be used.
 
 It looks like this:
 
-<Alert type="warning">
-  The following code works with the Deno runtime. To run in a browser, a bundle
-  is required.
-</Alert>
+> [!WARNING]
+> The following code works with the Deno runtime. To run in a browser, a bundle
+> is required.
 
 ```ts
 import { encode } from "https://deno.land/std/encoding/base64.ts";

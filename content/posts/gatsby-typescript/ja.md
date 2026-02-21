@@ -106,23 +106,9 @@ stop
 まず、TypeScript をトランスパイルするために
 [`esbuild-register`](https://github.com/egoist/esbuild-register)をインストールします。
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D esbuild-register
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D esbuild-register
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 `gatsby-config` は、 `CommonJS` 形式の `.js`
 ファイルでなければならないため、このまま残します。 そして、新しく

@@ -34,27 +34,11 @@ explanation of each tool, so that you can introduce them individually.
 
 First, let's expand the vite template.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create vite-app <project-name> --template preact
-cd <project-name>
-yarn
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init vite-app <project-name> --template preact
 cd <project-name>
 npm i
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Once the development server is up, you'll be impressed by how fast it is.
 
@@ -116,10 +100,9 @@ Next, fix the entry point, `main.tsx`. Now that it's in Typescript, a type error
 has been detected. The `document.getElementById` returns `HTMLElement` or
 `null`, give it a null check.
 
-<Alert type="warning">
-  You can use the `Non-null assertion operator` if the `app` is always exists in
-  `index.html`.
-</Alert>
+> [!WARNING]
+> You can use the `Non-null assertion operator` if the `app` is always exists in
+> `index.html`.
 
 ```tsx:main.tsx
 const el = document.getElementById('app')
@@ -172,24 +155,9 @@ That's the end of Typescript.
 
 Development without a linter is tough, so be sure to install it.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D eslint eslint-config-preact @typescript-eslint/parser typescript
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D eslint eslint-config-preact @typescript-eslint/parser typescript
 ```
-
-</CodeGroup>
-
-</CodeGroups>
 
 ```json:.eslintrc
 {
@@ -229,23 +197,9 @@ Personally, I don't want to fix some situations, so I use `--fix` from outside.
 
 Now let's run this.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn lint:script --fix
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run lint:script --fix
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 VSCode users can also set up the following settings to make the automatic
 formatting work. An extension to ESLint is required, so if you don't have it,
@@ -267,23 +221,9 @@ This allowed me to format the file on save.
 Before committing, let's run a static check to make sure you can't commit the
 error code.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D husky lint-staged
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D husky lint-staged
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Add the following to `package.json`.
 
@@ -310,23 +250,9 @@ Of course, on a linting error, the commit is canceled.
 Let Prettier do the formatting for your entire project. Also, let Prettier
 automatically remove semicolons in Typescript code, as they are less visible.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D prettier eslint-config-prettier
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D prettier eslint-config-prettier
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```json:.prettierrc
 {
@@ -353,23 +279,9 @@ avoid duplicate rules.
 
 command to execute the formatter.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn prettier -w -u .
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run prettier -w -u .
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 We want to apply automatic formatting before committing, so we add the setting
 to `lint-staged`.
@@ -398,23 +310,9 @@ extension is required, so if it is not available, please install it
 
 Let's make the style file a target for linting as well.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D stylelint stylelint-config-recommended stylelint-config-standard
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```json:.stylelintrc
 {
@@ -450,7 +348,8 @@ to the same root.
 
 Change the `vite.config.ts` and `tsconfig.json` to set the alias.
 
-<Alert type="warning">Keys must start with `/`.</Alert>
+> [!WARNING]
+> Keys must start with `/`.
 
 ```ts:vite.config.ts
 import { join } from 'path'

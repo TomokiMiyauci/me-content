@@ -102,23 +102,9 @@ avoid unnecessary errors.
 
 First, we will install the Firebase SDK.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add firebase@9
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i firebase@9
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ### Background event listeners
 
@@ -319,23 +305,9 @@ default credentials. If you want to run it from other servers, please refer to
 
 Let's take Cloud Functions for Firebase as an example.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add firebase-admin firebase-functions
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i firebase-admin firebase-functions
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```ts{26}
 import functions from 'firebase-functions'
@@ -390,7 +362,8 @@ notifications are not displayed when the page is in focus.
 There is a way to receive messages in the foreground case. You can use the
 `onMessage` function to receive the payload as in the background.
 
-<Alert type="warning">This is done in the Window scope. </Alert>
+> [!WARNING]
+> This is done in the Window scope.
 
 ```ts
 import { getMessaging, onMessage } from "firebase/messaging";

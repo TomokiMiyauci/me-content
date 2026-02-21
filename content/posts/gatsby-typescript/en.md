@@ -104,23 +104,9 @@ So let's take a look at `gatsby-config`.
 First, install [`esbuild-register`](https://github.com/egoist/esbuild-register)
 to transpile TypeScript.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D esbuild-register
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D esbuild-register
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Since `gatsby-config` must be a `.js` file in `CommonJS` format, we will leave
 `gatsby-config.js` as is. Then, create a new `gatsby-config.ts` file anywhere

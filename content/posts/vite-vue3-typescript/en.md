@@ -42,27 +42,11 @@ Verified in the next version:
 
 First, let's expand the vite template.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn create @vitejs/app <project-name> --template vue-ts
-cd <project-name>
-yarn
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm init @vitejs/app <project-name> -- --template vue-ts
 cd <project-name>
 npm i
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Once the development server is up, you'll be impressed by how fast it is.
 
@@ -141,24 +125,9 @@ recognize the project as a Typescript project.~~
 
 Development without a linter is tough, so be sure to install it.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
-
-</CodeGroup>
-
-</CodeGroups>
 
 ```json:.eslintrc
 {
@@ -206,23 +175,9 @@ Personally, I don't want to fix some situations, so I use `--fix` from outside.
 
 Now let's run this.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn lint:script --fix
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run lint:script --fix
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 VSCode users can also set up the following settings to make the automatic
 formatting work. An extension to ESLint is required, so if you don't have it,
@@ -244,23 +199,9 @@ This allowed me to format the file on save.
 Before committing, let's run a static check to make sure you can't commit the
 error code.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D husky lint-staged
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D husky lint-staged
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Add the following to `package.json`.
 
@@ -287,23 +228,9 @@ Of course, on a linting error, the commit is canceled.
 Let Prettier do the formatting for your entire project. Also, let Prettier
 automatically remove semicolons in Typescript code.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D prettier eslint-plugin-prettier @vue/eslint-config-prettier
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D prettier eslint-plugin-prettier @vue/eslint-config-prettier
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```json:.prettierrc
 {
@@ -331,23 +258,9 @@ avoid duplicate rules.
 
 command to execute the formatter.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn prettier -w -u .
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run prettier -w -u .
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 I want to apply automatic formatting before committing, so add the setting to
 `lint-staged`.
@@ -376,23 +289,9 @@ extension is required, so if it is not available, please install it
 
 Let's make the style a target for linting as well.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D stylelint stylelint-config-recommended stylelint-config-standard
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 ```json:.stylelintrc
 {

@@ -110,23 +110,9 @@ Note that browsers that do not implement `Indexed DB` cannot be used.
 First, install the Firebase SDK, although this is not necessary if you already
 have it.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add firebase@9
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i firebase@9
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 I will use a single file, `sw.ts`, but you can split the file as needed.
 
@@ -246,46 +232,18 @@ can be separated from the main build.
 
 First, install `esbuild`.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D esbuild
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D esbuild
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 Since `esbuild` provides commands that work in the CLI, we will use them.
 
 <!-- [^3]: It also provides a JavaScript API, so we recommend using that if the build
     process gets too complicated. -->
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm run esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 For `outdir`, specify the root directory where the main build will be output.
 

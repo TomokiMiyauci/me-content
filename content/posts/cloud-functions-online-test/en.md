@@ -299,23 +299,9 @@ transformer. It runs faster than `ts-jest`. See
 Note that the latest version of `@swc/jest` does not work well, so specify the
 version and install it.
 
-<CodeGroups>
-  <CodeGroup label="Yarn" active>
-
-```bash
-yarn add -D firebase-functions-test firebase-functions firebase-admin jest typescript @swc/jest@0.1.4
-```
-
-</CodeGroup>
-
-<CodeGroup label="NPM">
-
 ```bash
 npm i -D firebase-functions-test firebase-functions firebase-admin jest typescript @swc/jest@0.1.4
 ```
-
-</CodeGroup>
-</CodeGroups>
 
 The configuration file for jest looks like this:
 
