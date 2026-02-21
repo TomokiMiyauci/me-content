@@ -126,9 +126,6 @@ measurement**.
 
 Alternatively, you can delay until a user interaction occurs.
 
-<!-- [^2]: Events that are triggered by user actions, such as scrolling or clicking
-    events. -->
-
 ### Get out of the measurement?
 
 This method allows you to literally escape Lighthouse's measurements. However,
@@ -162,9 +159,6 @@ such as scrolling. This is where the Intersection Observer comes in to provide a
 more accurate picture of where the viewport intersects.
 
 Also, for lazy loading in React, the `React.lazy` function can be used.
-
-<!-- [^3]: This is not available on the server side, so you will need to use a third
-    party lazy function. -->
 
 ## React.lazy usage
 

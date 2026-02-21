@@ -92,10 +92,6 @@ btoa(unescape(encodeURIComponent("日本語")));
 However, the use of the `unescape` function has been deprecated because it is no
 longer part of the ECMAScript specification.
 
-<!-- [^3]: It is specified as a legacy feature that should not be newly used. See
-    [Annex B](https://262.ecma-international.org/9.0/#sec-additional-ecmascript-features-for-web-browsers)
-    for details. -->
-
 Since it is not a pure function to begin with, other functions should be used if
 possible. The standard deno module
 [encoding/base64](https://deno.land/std/encoding#base64) is available and should

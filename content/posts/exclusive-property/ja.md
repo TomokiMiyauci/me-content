@@ -135,9 +135,6 @@ const options: Options = {
 Discriminated Union には、必ず共通のプロパティが必要になります。
 またそのプロパティは<u>一意に特定できる型</u>である必要があります。
 
-<!-- [^1]: これはしばしば `singleton types`と呼ばれます。
-    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types) -->
-
 #### 一意に特定できる型とは
 
 リテラル型がその代表ですが、必ずしもそうとは限りません。

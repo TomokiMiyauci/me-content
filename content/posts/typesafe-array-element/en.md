@@ -201,10 +201,6 @@ strings as well. Packages that implement the `head` function, such as
 
 The `Haskell` `head` function also takes `[Char]` as an argument.
 
-<!-- [^3]: The `head` function of `Haskell` has some differences, such as throwing an
-    exception if an empty array is passed, so we are not aiming to follow it
-    strictly. -->
-
 Now, before processing the string, we check the expected value. The processing
 of strings in the `head` function should have the following specifications.
 
@@ -246,10 +242,6 @@ the beginning of the string was inferred.
 
 Now, `${infer L}${string}`, which is a `Template Literal Types`, turns out to
 represent a match against a string of one or more characters.
-
-<!--
-[^4]: JavaScript and TypeScript do not explicitly distinguish between characters
-    and strings. -->
 
 By the way, if you refer to the backward part of the string data structure, the
 following result is obtained.

@@ -237,9 +237,6 @@ npm i -D esbuild
 
 `esbuild` は CLI で動作するコマンドを提供しているため、それを利用します。
 
-<!-- [^3]: JavaScript API
-    も提供しているため、ビルドプロセスが複雑になった場合はそちらの利用を推奨します。 -->
-
 ```bash
 npm run esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external
 ```

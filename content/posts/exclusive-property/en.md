@@ -140,9 +140,6 @@ allows you to narrow down the union types to a single member.
 A Discriminated Union must have a common property. The property must be a
 <u>uniquely identifiable type</u>.
 
-<!-- [^1]: This is often referred to as `singleton types`.
-    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types) -->
-
 #### What is a uniquely identifiable type?
 
 Literal types are the most common, but not necessarily so. Let's look at some

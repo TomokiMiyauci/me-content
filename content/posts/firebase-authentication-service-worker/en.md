@@ -59,9 +59,6 @@ The timing of anonymous authentication may vary depending on the configuration,
 but it is basically passive. In most cases, it does not have to be at page load
 time, and can be done after user interaction.
 
-<!-- [^1]: Events that fire after user interaction, such as click events and scroll
-    events. -->
-
 In addition, the authentication process itself does not need to involve the UI.
 In this case, instead of doing the authentication process in the main thread,
 the process can be moved to the background thread.
@@ -243,9 +240,6 @@ npm i -D esbuild
 ```
 
 Since `esbuild` provides commands that work in the CLI, we will use them.
-
-<!-- [^3]: It also provides a JavaScript API, so we recommend using that if the build
-    process gets too complicated. -->
 
 ```bash
 npm run esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external

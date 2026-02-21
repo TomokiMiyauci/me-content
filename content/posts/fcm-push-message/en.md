@@ -220,9 +220,6 @@ by the package manager, double management is likely to occur. Especially in the
 case of the Firebase SDK, it is safer to match the package versions of the
 `Window` and `Worker` scopes.
 
-<!-- [^1]: When I used the compat version for the service worker and the functional
-    version for the main thread together, it did not work properly. -->
-
 If you write the main part in TypeScript, you can't avoid transpiling, so
 bundling can be done incidentally. Personally, I recommend the module bundling
 method to avoid version control complexity and to optimize performance.

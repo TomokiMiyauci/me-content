@@ -239,10 +239,6 @@ vite はデフォルトで CSS Modules に対応しています。
 
 `*.module.css` ファイルは CSS Modules として認識します。
 
-<!-- [^2]: 他にも `.scss` や `.less` などに対応しています。詳しくは
-    [CSS プリプロセッサ](https://ja.vitejs.dev/guide/features.html#css-%E3%83%97%E3%83%AA%E3%83%97%E3%83%AD%E3%82%BB%E3%83%83%E3%82%B5)
-    を確認ください。 -->
-
 `swipe.module.css` というファイルを作成し、スタイルを追加します。
 
 src/components/swipe.module.css
