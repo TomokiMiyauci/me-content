@@ -16,13 +16,8 @@ export default {
       name: "description",
     },
     {
-      type: "object",
+      type: "image",
       name: "cover_image",
-      fields: [
-        { name: "source", type: "image" },
-        { name: "description", type: "string" },
-        { type: "string", name: "title" },
-      ],
     },
     language,
   ],
