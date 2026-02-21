@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/react-lazy-intersection/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/react-lazy-intersection/ja.md",
+      "key": "ja"
+    }
+  ]
+}

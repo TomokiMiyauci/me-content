@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/bitly-short-url/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/bitly-short-url/ja.md",
+      "key": "ja"
+    }
+  ]
+}

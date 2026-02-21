@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/typescript-package-release/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/typescript-package-release/ja.md",
+      "key": "ja"
+    }
+  ]
+}

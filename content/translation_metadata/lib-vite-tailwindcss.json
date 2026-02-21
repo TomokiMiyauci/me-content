@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/lib-vite-tailwindcss/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/lib-vite-tailwindcss/ja.md",
+      "key": "ja"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/tweet-typescript/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/tweet-typescript/ja.md",
+      "key": "ja"
+    }
+  ]
+}

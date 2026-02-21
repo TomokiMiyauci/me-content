@@ -6,6 +6,7 @@ import legalDocument from "./collections/legal_document.ts";
 import blog from "./collections/blog.ts";
 import home from "./collections/home.ts";
 import category from "./collections/category.ts";
+import translationMetadata from "./collections/translation_metadata.ts";
 
 const collections = [
   post,
@@ -15,6 +16,7 @@ const collections = [
   blog,
   home,
   category,
+  translationMetadata,
 ] satisfies Collection[];
 
 export default {
