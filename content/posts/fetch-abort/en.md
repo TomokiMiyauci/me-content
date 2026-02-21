@@ -31,26 +31,26 @@ client. So, first of all, let's make sure you know how to use it with the
 The `Fetch API` takes an object called `RequestInit` as its second argument. The
 interface is as follows:
 
-```ts{18}
+```ts
 declare function fetch(
   input: Request | URL | string,
-  init?: RequestInit
-): Promise<Response>
+  init?: RequestInit,
+): Promise<Response>;
 
 interface RequestInit {
-  body?: BodyInit | null
-  cache?: RequestCache
-  credentials?: RequestCredentials
-  headers?: HeadersInit
-  integrity?: string
-  keepalive?: boolean
-  method?: string
-  mode?: RequestMode
-  redirect?: RequestRedirect
-  referrer?: string
-  referrerPolicy?: ReferrerPolicy
-  signal?: AbortSignal | null
-  window?: any
+  body?: BodyInit | null;
+  cache?: RequestCache;
+  credentials?: RequestCredentials;
+  headers?: HeadersInit;
+  integrity?: string;
+  keepalive?: boolean;
+  method?: string;
+  mode?: RequestMode;
+  redirect?: RequestRedirect;
+  referrer?: string;
+  referrerPolicy?: ReferrerPolicy;
+  signal?: AbortSignal | null;
+  window?: any;
 }
 ```
 

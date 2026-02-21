@@ -62,14 +62,16 @@ Deno と Node.js
 などでお馴染みですね。 `api` ディレクトリには `.vscode`
 も配置しています。ここでは Deno 用の VSCode 拡張を有効にしています。
 
-```json:api/.vscode/settings.json
+api/.vscode/settings.json
+
+```json
 {
   "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "deno.enable": true,
+  "deno.enable": true
 }
 ```
 
@@ -83,7 +85,9 @@ Deno と Node.js の混合プロジェクトの場合、Deno 用の VSCode
 
 スタックのエントリーポイントは次のようになります。
 
-```ts:app/bin/app.ts
+app/bin/app.ts
+
+```ts
 #!/usr/bin/env node
 import "source-map-support/register";
 import { AppStack } from "../lib/app-stack";
@@ -98,14 +102,16 @@ new AppStack(app, "TestAppStack", {});
 Lambda 関数定義に便利な型定義があるので、それを利用します。
 ひとまずデプロイを優先して、適当な関数を定義します。
 
-```ts:api/hello.ts
-import type { APIGatewayProxyResultV2 } from 'https://deno.land/x/lambda@1.17.2/mod.ts'
+api/hello.ts
+
+```ts
+import type { APIGatewayProxyResultV2 } from "https://deno.land/x/lambda@1.17.2/mod.ts";
 
 export function handler(): APIGatewayProxyResultV2 {
-  console.log(Deno.version)
+  console.log(Deno.version);
   return {
-    statusCode: 200
-  }
+    statusCode: 200,
+  };
 }
 ```
 
@@ -115,39 +121,41 @@ export function handler(): APIGatewayProxyResultV2 {
 `@aws-cdk/aws-lambda` などの外部モジュールを Node.js
 環境で利用するため、適宜インストールしてください。
 
-```ts:app/lib/app-stack.ts
-import { Stack, App, StackProps } from '@aws-cdk/core'
-import { CfnApplication } from '@aws-cdk/aws-sam'
-import { Code, Function, LayerVersion, Runtime } from '@aws-cdk/aws-lambda'
-import { resolve } from 'path'
+app/lib/app-stack.ts
+
+```ts
+import { App, Stack, StackProps } from "@aws-cdk/core";
+import { CfnApplication } from "@aws-cdk/aws-sam";
+import { Code, Function, LayerVersion, Runtime } from "@aws-cdk/aws-lambda";
+import { resolve } from "path";
 
 const APPLICATION_ID =
-  'arn:aws:serverlessrepo:us-east-1:390065572566:applications/deno'
-const DENO_VERSION = '1.17.2'
+  "arn:aws:serverlessrepo:us-east-1:390065572566:applications/deno";
+const DENO_VERSION = "1.17.2";
 
 export class AppStack extends Stack {
   constructor(scope: App, id: string, props?: StackProps) {
-    super(scope, id, props)
+    super(scope, id, props);
 
     const denoRuntime = new CfnApplication(this, `DenoRuntime`, {
       location: {
         applicationId: APPLICATION_ID,
-        semanticVersion: DENO_VERSION
-      }
-    })
+        semanticVersion: DENO_VERSION,
+      },
+    });
 
     const layer = LayerVersion.fromLayerVersionArn(
       this,
       `denoRuntimeLayer`,
-      denoRuntime.getAtt('Outputs.LayerArn').toString()
-    )
+      denoRuntime.getAtt("Outputs.LayerArn").toString(),
+    );
 
     new Function(this, `hello-lambda`, {
       runtime: Runtime.PROVIDED_AL2,
-      code: Code.fromAsset(resolve(__dirname, '..', '..', 'api')),
-      handler: 'hello.handler',
-      layers: [layer]
-    })
+      code: Code.fromAsset(resolve(__dirname, "..", "..", "api")),
+      handler: "hello.handler",
+      layers: [layer],
+    });
   }
 }
 ```
@@ -189,7 +197,9 @@ END RequestId: e326eded-43e4-4bae-a21f-77a652cde9dd
 
 Lambda スタックを変更します。
 
-```ts:app/lib/app-stack.ts{6,7}
+app/lib/app-stack.ts
+
+```ts
 new Function(this, `hello-lambda`, {
   runtime: Runtime.PROVIDED_AL2,
   code: Code.fromAsset(resolve(__dirname, '..', '..', 'api')),
@@ -241,8 +251,10 @@ Deno は TypeScript のランタイムですが、TypeScript
 
 このことを確かめるために、次のコードを実行してみます。
 
-```ts:ssm.ts
-import { SSM } from 'https://deno.land/x/ssm@0.1.4/mod.ts'
+ssm.ts
+
+```ts
+import { SSM } from "https://deno.land/x/ssm@0.1.4/mod.ts";
 
 const ssm = new SSM({
   accessKeyID: Deno.env.get("AWS_ACCESS_KEY_ID")!,
@@ -258,7 +270,7 @@ const parameter = await ssm.getParameter({
   console.error(`parameter is not exists: test`);
 });
 
-console.log(parameter)
+console.log(parameter);
 ```
 
 外部モジュールとして AWS の SSM
@@ -325,8 +337,10 @@ $DENO_DIR/deps/https/deno.land/[hash]
 ファイルが保存されます。 ローカルファイルの場合、`file`
 ディレクトリ以下に、絶対パスに基づいて保存されます。
 
-```ts:/path/to/ssm.ts
-import { SSM } from 'https://deno.land/x/ssm@0.1.4/mod.ts'
+/path/to/ssm.ts
+
+```ts
+import { SSM } from "https://deno.land/x/ssm@0.1.4/mod.ts";
 ```
 
 上のファイルを実行すると `file` ディレクトリの、 `path`、`to`
@@ -388,7 +402,9 @@ Deno を利用する利点の一つは、TypeScript をそのまま実行でき�
 
 Lambda 関数は次のようになります。
 
-```ts:api/hello.ts{11}
+api/hello.ts
+
+```ts
 import { SSM } from "https://deno.land/x/ssm@0.1.4/mod.ts";
 import type { APIGatewayProxyResultV2 } from "https://deno.land/x/lambda@1.17.2/mod.ts";
 
@@ -407,7 +423,7 @@ const parameter = await ssm.getParameter({
 });
 
 export function handler(): APIGatewayProxyResultV2 {
-  console.log(parameter)
+  console.log(parameter);
   return {
     statusCode: 200,
   };
@@ -421,7 +437,9 @@ export function handler(): APIGatewayProxyResultV2 {
 一方、SSM を利用する関係で、IAM ロールを付与する必要があります。 AWS スタックに
 IAM ロールを追加し、Lambda 関数にアタッチします。
 
-```ts:app/lib/app-stack.ts{22}
+app/lib/app-stack.ts
+
+```ts
 import { ManagedPolicy, Role, ServicePrincipal } from '@aws-cdk/aws-iam'
 import { Code, Function, LayerVersion, Runtime } from "@aws-cdk/aws-lambda";
 
@@ -460,7 +478,9 @@ export class AwsCdkStack extends Stack {
 さて、初回にコールドスタートが起きないように変更します。 AWS CDK の Lambda
 スタックにはバンドルフックがあるのでそれを利用します。
 
-```ts:app/lib/app-stack.ts{17,24}
+app/lib/app-stack.ts
+
+```ts
 import { App, DockerImage, Stack, StackProps } from '@aws-cdk/core'
 import { Code, Function, LayerVersion, Runtime } from '@aws-cdk/aws-lambda'
 import { resolve } from 'path'
@@ -509,7 +529,9 @@ Lambda スタックの `bundling` フィールドで事前バンドルの処理�
 
 最後に、例に使用した AWS スタックの定義全体を記載します。
 
-```ts:app/lib/app-stack.ts
+app/lib/app-stack.ts
+
+```ts
 import { App, DockerImage, Stack, StackProps } from "@aws-cdk/core";
 import { CfnApplication } from "@aws-cdk/aws-sam";
 import { Code, Function, LayerVersion, Runtime } from "@aws-cdk/aws-lambda";

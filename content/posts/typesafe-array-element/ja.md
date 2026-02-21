@@ -96,9 +96,9 @@ head([] as []); // undefined
 タプルが必ずしも`readonly`ではないですが、タプルは`const`アサーションを使って定義されることが多いので、まずは`readonly`に対応します。
 この時点では`readonly` な型は受け取れませんので、ジェネリクスを拡張します。
 
-```ts{1}
+```ts
 const head = <T extends readonly unknown[]>(val: T): T[number] | undefined =>
-  head[0]
+  head[0];
 ```
 
 `readonly` シグネチャをジェネリクスへつけるだけですね。これで、配列でも
@@ -111,11 +111,12 @@ head(readonlyArray); // string | undefined
 
 さて準備はできたので、現状の関数でタプルを受け取るとどうなるか見てみましょう。
 
-```ts{1,3}
-const head = <T extends readonly unknown[]>(val: T): T[number] | undefined => head[0]
+```ts
+const head = <T extends readonly unknown[]>(val: T): T[number] | undefined =>
+  head[0];
 
-const tuple = ['hello', 'world'] as const // readonly ['hello', 'world']
-head(tuple) // "hello" | "world" | undefined
+const tuple = ["hello", "world"] as const; // readonly ['hello', 'world']
+head(tuple); // "hello" | "world" | undefined
 ```
 
 Union type でタプルのすべての要素と
@@ -126,7 +127,7 @@ Union type でタプルのすべての要素と
 しかし、タプルの場合、順序のあるので先頭以外の要素が型推論されることはふさわしくありません。
 よって、[`Conditional Types`](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)を使って、正しい型推論が得られるようにします。
 
-```ts{3}
+```ts
 const head <T extends readonly unknown[]> = (val: T): T extends readonly [infer U, ...infer _]
   ? U
   : T[0] | undefined => val[0] as any
@@ -148,21 +149,17 @@ TypeScript
 で推論されるようにします。
 実装の戻り値の型を`any`にしているのは、`Conditional Types`により、実装の戻り値の型推論と、関数の戻り値の型が合わなくなってしまったからです。
 
-<!-- [^1] -->
-
-<!-- [^1]: 関数の戻り値の方のほうが詳細度が上がってしまった。 -->
-
 これを回避する方法はいくつかありますが、今は `any` としておきます。
 
 戻り値の型がごちゃごちゃしてきたので、実装と型定義を分割すると次のようになります。
 
-```ts{6}
-type Head<T extends readonly unknown[]> = T extends readonly [infer U, ...infer _]
-  ? U
-  : T[0] | undefined
+```ts
+type Head<T extends readonly unknown[]> = T extends
+  readonly [infer U, ...infer _] ? U
+  : T[0] | undefined;
 
 const head = <T extends readonly unknown[]>(val: T): Head<T> =>
-  val[0] as Head<T>
+  val[0] as Head<T>;
 ```
 
 先程 `any` した実装の型ですが、上のように　関数の戻り値と同じにすることで、
@@ -186,13 +183,6 @@ const head = <T extends readonly unknown[]>(val: T): Head<T> =>
 [rambda#head](https://ramdajs.com/docs/#head)のように、`head`
 関数を実装しているパッケージも文字列を対象としていますし、 `Haskell` の
 `head`関数も`[Char]`を引数に持つためです。
-
-<!-- [^3] -->
-
-<!-- [^2]: 型推論は弱いですが -->
-
-<!-- [^3]: ただし`Haskell`の `head`
-    関数は空配列を渡すと例外を投げるなど違いがあるので、厳密な踏襲を目指しているわけではない -->
 
 さて文字列の処理に先立って、期待値を確認します。`head`
 関数の文字列の処理は次の仕様とします。
@@ -232,10 +222,6 @@ type Head<T extends string> = T extends `${infer L}${string}` ? L : never;
 
 さて`${infer L}${string}`という
 `Template Literal Types`ですが、これは１文字以上の文字列とのマッチを表していることがわかりました。
-
-<!-- [^4] -->
-
-<!-- [^4]: JavaScript や TypeScript は文字と文字列を明確に区別しません。 -->
 
 ちなみに文字列データ構造の後方を参照すると次の結果になります。
 
@@ -277,22 +263,19 @@ type Head<T extends readonly unknown[] | string> = T extends string
 
 もちろんこの型は`string`と`array`に分割することもできます。
 
-```ts{11,13}
-type HeadString<T extends string> = T extends `${infer L}${string}`
-  ? L
-  : T extends ''
-  ? ''
-  : string
+```ts
+type HeadString<T extends string> = T extends `${infer L}${string}` ? L
+  : T extends "" ? ""
+  : string;
 
-type HeadArray<T extends readonly unknown[]> = T extends readonly [infer U, ...infer _]
-  ? U
-  : T[0] | undefined
+type HeadArray<T extends readonly unknown[]> = T extends
+  readonly [infer U, ...infer _] ? U
+  : T[0] | undefined;
 
 type Head<T extends readonly unknown[] | string> = T extends string
   ? HeadString<T>
-  : T extends readonly unknown[]
-  ? HeadArray<T>
-  : never
+  : T extends readonly unknown[] ? HeadArray<T>
+  : never;
 ```
 
 型を分割するのは、可読性の観点からは良いですが、上のように、`HeadString`は`string`型のみを受け取れるので、`T`が`string`の場合といった場合分けが必要になってしまいます。
@@ -374,29 +357,22 @@ function head(val: string | unknown[]) {
 
 関数宣言は最も一般的な記法です。
 
-<!-- [^5] -->
-
-<!-- [^5]: 例えば Deno の Standard Library もほとんどこの記法です。 -->
-
 一方、アロー関数では上の制約はありますが、それ以外の場面では簡潔に関数を定義できます。
 
 また、アロー関数ではオーバーロードができないという旨の記事をどこかで見た気がしますが、できます。
 次のようになります。
 
-```ts{10}
+```ts
 const head: {
-  <T extends string>(val: T): T extends `${infer F}${string}`
-    ? F
-    : T extends ''
-    ? ''
-    : string
-  <T extends unknown[]>(val: T): T extends readonly [infer U, ...infer _]
-    ? U
-    : T[0] | undefined
+  <T extends string>(val: T): T extends `${infer F}${string}` ? F
+    : T extends "" ? ""
+    : string;
+  <T extends unknown[]>(val: T): T extends readonly [infer U, ...infer _] ? U
+    : T[0] | undefined;
 } = (val: string | unknown[]): any => {
-  const _head = (val as string | unknown[])[0]
-  return Array.isArray(val) ? _head : _head ?? ''
-}
+  const _head = (val as string | unknown[])[0];
+  return Array.isArray(val) ? _head : _head ?? "";
+};
 ```
 
 関数宣言と同じように、`string`と`unknow[]`で分けて書くことができます。唯一の違いは、ハイライトしているように、実装の戻り値の型を`any`にしなければなりません。

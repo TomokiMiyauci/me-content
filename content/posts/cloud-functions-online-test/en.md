@@ -82,13 +82,12 @@ the user information to the database when they sign up.
 
 Also, the data to be saved is the following data.
 
-```plantuml
-@startuml
-entity user {
-   * **uid**
-   * createdAt
-}
-@enduml
+```mermaid
+erDiagram
+  user {
+    string uid
+    string createdAt
+  }
 ```
 
 We'll save the uid and the timestamp of the creation.
@@ -99,27 +98,23 @@ If we use Firebase Authentication for user management, subscribe to user signups
 with Cloud Functions, and store the data in Cloud Firestore, we will have the
 following configuration
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  
+  subgraph auth ["Firebase Authentication"]
+      auth_store["🔐 User store"]
+  end
 
-actor "User" as user
-Authentication(auth, "Authentication", "User store")
+  subgraph Server
+      db[("🗄️ Firestore<br/>Document Database")]
+      func[["⚡ Functions<br/>onCreate (Node14)"]]
+  end
 
-package "Server" {
-  Firestore(db, "Database", "Document Database")
-  Functions(func, "onCreate", "Node14")
-}
-
-
-user ..> auth: sign up
-func --> auth: subscribe
-auth ..> func: publish
-func ..> db: create
-@enduml
+  user -. sign up .-> auth_store
+  func --> auth_store
+  auth_store -. publish .-> func
+  func -. create .-> db
 ```
 
 Since each service has a single responsibility, the configuration is simple,
@@ -130,21 +125,15 @@ performant, and robust.
 Since the process from user sign-up to database is a series of steps, the
 following configuration is of course possible.
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  auth["🔐 Authentication<br/>(User store)"]
+  db[("🔥 Database<br/>(Document Database)")]
 
-actor "User" as user
-Firestore(db, "Database", "Document Database")
-Authentication(auth, "Authentication", "User store")
-
-user ..> auth: sign up
-auth ..> user: user info
-user ..> db: create
-@enduml
+  user -.->|sign up| auth
+  auth -.->|user info| user
+  user -.->|create| db
 ```
 
 This is the way to write user information from the frontend after signup. This
@@ -164,29 +153,23 @@ information in an `IndexedDB`.
 Therefore, by using the Web Worker to sign up and write to the DB, a series of
 operations can be performed without occupying the main thread.
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  form["[form]"]
 
-cloud "Sub thread" {
-  () self
-  Firestore(db, "Database", "Document Database")
-  Authentication(auth, "Authentication", "User store")
-}
+  subgraph sub_thread ["☁️ Sub thread"]
+      self(("○ self"))
+      db[("🔥 Database<br/>(Document Database)")]
+      auth["🔐 Authentication<br/>(User store)"]
+  end
 
-actor "User" as user
-[form]
-
-user --> form: input
-form ..> self: postMessage
-self ..> db: create
-self ..> auth: sign up
-auth ..> self: user info
-self ..> user: onmessage
-@enduml
+  user -->|input| form
+  form -.->|postMessage| self
+  self -.->|create| db
+  self -.->|sign up| auth
+  auth -.->|user info| self
+  self -.->|onmessage| user
 ```
 
 After the user fills out the form, we use `postMessage` to pass the information
@@ -206,8 +189,6 @@ Messages from workers can be retrieved from the `onmessage` event.
 Yes, it gets complicated. The Web Worker is basically used to run heavy
 processing in a background thread. The above process is not particularly heavy,
 and may introduce unnecessary complexity.
-
-<!-- [^1]: It does have the effect of reducing the main bundle size. -->
 
 As mentioned above, there are many ways to do this, but fortunately Cloud
 Functions can subscribe to user signups. Therefore, we will adopt the first
@@ -242,26 +223,26 @@ export { onCreateUser };
 `onCreate` is called when a user signs up. Its first argument is a `UserRecord`
 and its second argument is an `EventContext`. Each is of the following type:
 
-```ts{2,13}
+```ts
 interface UserRecord {
-  uid: string
-  email?: string
-  emailVerified: boolean
-  displayName?: string
-  phoneNumber?: string
-  photoURL?: string
-  disabled: boolean
+  uid: string;
+  email?: string;
+  emailVerified: boolean;
+  displayName?: string;
+  phoneNumber?: string;
+  photoURL?: string;
+  disabled: boolean;
   // omitted
 }
 
 interface EventContext {
-  timestamp: string // RFC 3339
-  eventId: string
-  eventType: string
+  timestamp: string; // RFC 3339
+  eventId: string;
+  eventType: string;
   params: {
-    [option: string]: any
-  }
-  resource: Resource
+    [option: string]: any;
+  };
+  resource: Resource;
   // omitted
 }
 ```
@@ -272,8 +253,6 @@ it as a timestamp in Cloud Firestore by converting it to a `Date` object.
 
 Actually, using `timestamp` in context is quite important for testing. You can
 also use `new Date()` or `serverTimestamp()` for timestamp.
-
-<!-- [^2]: firestore.FieldValue.serverTimestamp -->
 
 However, when testing data containing timestamps, it is recommended that the
 value be provided externally to ensure strict testing. If it is a context, it
@@ -305,7 +284,9 @@ npm i -D firebase-functions-test firebase-functions firebase-admin jest typescri
 
 The configuration file for jest looks like this:
 
-```json:jest.config.json{9}
+jest.config.json
+
+```json
 {
   "clearMocks": true,
   "moduleFileExtensions": ["js", "ts"],
@@ -321,23 +302,27 @@ The configuration file for jest looks like this:
 In `setupFiles`, you can specify the process to be executed before each test
 file is executed. Here is the `firebase-admin` `initializeApp`.
 
-```ts:test/setup.ts
-import { initializeApp } from 'firebase-admin'
-initializeApp()
+test/setup.ts
+
+```ts
+import { initializeApp } from "firebase-admin";
+initializeApp();
 ```
 
 Now, the next step is to initialize the `firebase-functions-test`. We will
 create a test file and initialize it there.
 
-```ts:onCreate_test.ts
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 ```
 
 The `projectId` is the Firebase project ID, and is required. In this case, it is
@@ -368,29 +353,31 @@ Using `firebase-functions-test`, you can do the following operations.
 
 First, wrap the function to be tested and create the mock user data.
 
-```ts:onCreate_test.ts
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
 
 // Use the initialized `firebase-functions-test` function
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-user.uid = 'fixed-user-id'
+user.uid = "fixed-user-id";
 ```
 
 You can create mock user data with `exampleUserRecord`. This is just an object,
 so you can change the `uid` and so on as you like.
 
-<!-- [^3]: By default, it will be a random ID. -->
-
 You can pass this to a wrapped function to actually execute the function.
 
-```ts:onCreate_test.ts
-const timestamp = new Date('2021/1/1 00:01:02')
+onCreate_test.ts
+
+```ts
+const timestamp = new Date("2021/1/1 00:01:02");
 
 onCreateUser(user, {
-  timestamp: timestamp.toISOString()
-})
+  timestamp: timestamp.toISOString(),
+});
 ```
 
 Now, the data is actually written to Cloud Firestore. At this stage, it is a
@@ -405,42 +392,44 @@ handle the date and time data in our tests as we wish.
 Now that we've done that, we just need to get the actual data and assert it.
 Here's the whole test, which is a bit long.
 
-```ts:onCreate_test.ts{18,24-29,33}
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
-import { firestore } from 'firebase-admin'
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
+import { firestore } from "firebase-admin";
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-describe('onCreateUser', () => {
-  it('save user info to firestore /document/users/{uid}', async () => {
-    const timestamp = new Date('2021/1/1 00:01:02')
+describe("onCreateUser", () => {
+  it("save user info to firestore /document/users/{uid}", async () => {
+    const timestamp = new Date("2021/1/1 00:01:02");
     await onCreateUser(user, {
-      timestamp: timestamp.toISOString()
-    })
+      timestamp: timestamp.toISOString(),
+    });
 
-    const snapshot = await firestore().collection('users').doc(user.uid).get()
+    const snapshot = await firestore().collection("users").doc(user.uid).get();
 
-    expect(snapshot.exists).toBeTruthy()
-    expect(snapshot.id).toBe(user.uid)
+    expect(snapshot.exists).toBeTruthy();
+    expect(snapshot.id).toBe(user.uid);
     expect(snapshot.data()).toEqual({
       uid: user.uid,
-      createdAt: firestore.Timestamp.fromDate(timestamp)
-    })
-  })
+      createdAt: firestore.Timestamp.fromDate(timestamp),
+    });
+  });
 
   afterAll(async () => {
-    await firestore().collection('users').doc(user.uid).delete()
-  })
-})
+    await firestore().collection("users").doc(user.uid).delete();
+  });
+});
 ```
 
 The point is that the wrap function is asynchronous, so it waits for the `await`

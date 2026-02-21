@@ -81,13 +81,12 @@ Cloud Functions を使用するには、かなり前から従量課金の `Braze
 
 また、保存するデータは次のデータとします。
 
-```plantuml
-@startuml
-entity user {
-   * **uid**
-   * createdAt
-}
-@enduml
+```mermaid
+erDiagram
+  user {
+    string uid
+    string createdAt
+  }
 ```
 
 シンプルに uid と作成時のタイムスタンプを保持することとします。
@@ -98,27 +97,23 @@ entity user {
 Functions でサブスクライブし、Cloud Firestore へデータを格納するという、
 Firebase リソースをフル活用した構成で行うと次のようになります。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  
+  subgraph auth ["Firebase Authentication"]
+      auth_store["🔐 User store"]
+  end
 
-actor "User" as user
-Authentication(auth, "Authentication", "User store")
+  subgraph Server
+      db[("🗄️ Firestore<br/>Document Database")]
+      func[["⚡ Functions<br/>onCreate (Node14)"]]
+  end
 
-package "Server" {
-  Firestore(db, "Database", "Document Database")
-  Functions(func, "onCreate", "Node14")
-}
-
-
-user ..> auth: sign up
-func --> auth: subscribe
-auth ..> func: publish
-func ..> db: create
-@enduml
+  user -. sign up .-> auth_store
+  func --> auth_store
+  auth_store -. publish .-> func
+  func -. create .-> db
 ```
 
 それぞれのサービスが単一責任を持つため、シンプルでパフォーマンスが高く堅牢な構成になります。
@@ -127,21 +122,15 @@ func ..> db: create
 
 なお、ユーザーのサインアップからデータベースまでは繋がっているので、次のような構成ももちろん可能です。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  auth["🔐 Authentication<br/>(User store)"]
+  db[("🔥 Database<br/>(Document Database)")]
 
-actor "User" as user
-Firestore(db, "Database", "Document Database")
-Authentication(auth, "Authentication", "User store")
-
-user ..> auth: sign up
-auth ..> user: user info
-user ..> db: create
-@enduml
+  user -.->|sign up| auth
+  auth -.->|user info| user
+  user -.->|create| db
 ```
 
 サインアップ後、ユーザー情報をフロントエンドから書き込むという方法です。 Cloud
@@ -158,29 +147,23 @@ Firebase Authentication は、認証情報を `IndexedDB` に保持する事も�
 そのため、 Web Worker でサインアップおよび DB
 への書き込みを行うことで、メインスレッドを専有せずに一連の処理を実行できます。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
+  form["[form]"]
 
-cloud "Sub thread" {
-  () self
-  Firestore(db, "Database", "Document Database")
-  Authentication(auth, "Authentication", "User store")
-}
+  subgraph sub_thread ["☁️ Sub thread"]
+      self(("○ self"))
+      db[("🔥 Database<br/>(Document Database)")]
+      auth["🔐 Authentication<br/>(User store)"]
+  end
 
-actor "User" as user
-[form]
-
-user --> form: input
-form ..> self: postMessage
-self ..> db: create
-self ..> auth: sign up
-auth ..> self: user info
-self ..> user: onmessage
-@enduml
+  user -->|input| form
+  form -.->|postMessage| self
+  self -.->|create| db
+  self -.->|sign up| auth
+  auth -.->|user info| self
+  self -.->|onmessage| user
 ```
 
 ユーザーがフォームへ入力したあと、`postMessage`
@@ -200,8 +183,6 @@ worker.addEventListener("onmessage", () => {
 はい。複雑になりますね。Web Worker
 は基本的に重い処理をバックグラウンドスレッドで実行するために使います。
 上の処理は特に重たい処理ではないため、無用な複雑性をもたらす可能性があります。
-
-<!-- [^1]: メインのバンドルサイズを軽減する効果はあります。 -->
 
 以上のように、様々な方法がありますが、幸い Cloud Functions
 はユーザーのサインアップをサブスクライブできます。
@@ -237,26 +218,26 @@ export { onCreateUser };
 また、その第１引数には、`UserRecord` 、第２引数には `EventContext`
 というデータが渡されます。 それぞれ次のような型です。
 
-```ts{2,13}
+```ts
 interface UserRecord {
-  uid: string
-  email?: string
-  emailVerified: boolean
-  displayName?: string
-  phoneNumber?: string
-  photoURL?: string
-  disabled: boolean
+  uid: string;
+  email?: string;
+  emailVerified: boolean;
+  displayName?: string;
+  phoneNumber?: string;
+  photoURL?: string;
+  disabled: boolean;
   // 省略
 }
 
 interface EventContext {
-  timestamp: string // RFC 3339
-  eventId: string
-  eventType: string
+  timestamp: string; // RFC 3339
+  eventId: string;
+  eventType: string;
   params: {
-    [option: string]: any
-  }
-  resource: Resource
+    [option: string]: any;
+  };
+  resource: Resource;
   // 省略
 }
 ```
@@ -269,8 +250,6 @@ interface EventContext {
 実は、コンテキストの `timestamp` を使うのはテストを行う上で結構重要です。
 タイムスタンプには  `new Date()` や、 `serverTimestamp()`
 も用いることができます。
-
-<!-- [^2]: firestore.FieldValue.serverTimestamp -->
 
 ただ、タイムスタンプを含むデータをテストする場合、その値は外部から与えられるようにすると、厳密なテストが行なえます。
 コンテキストであればテスト時に注入できます。
@@ -301,7 +280,9 @@ npm i -D firebase-functions-test firebase-functions firebase-admin jest typescri
 
 jest の設定ファイルは次のようになります。
 
-```json:jest.config.json{9}
+jest.config.json
+
+```json
 {
   "clearMocks": true,
   "moduleFileExtensions": ["js", "ts"],
@@ -317,23 +298,27 @@ jest の設定ファイルは次のようになります。
 `setupFiles` で各テストファイルが実行する前に実行する処理を行えます。
 ここで、`firebase-admin`の `initializeApp` を行います。
 
-```ts:test/setup.ts
-import { initializeApp } from 'firebase-admin'
-initializeApp()
+test/setup.ts
+
+```ts
+import { initializeApp } from "firebase-admin";
+initializeApp();
 ```
 
 さて、続いて`firebase-functions-test`の初期化を行います。
 テストファイルを作成し、そこで初期化を行います。
 
-```ts:onCreate_test.ts
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 ```
 
 `projectId` は Firebase のプロジェクト ID で、必須です。 今回は Cloud Firestore
@@ -363,29 +348,31 @@ const test = _test(
 
 まずは、テスト対象の関数をラップし、モックユーザーデータを作成します。
 
-```ts:onCreate_test.ts
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
 
 // 初期化した `firebase-functions-test` 関数を使う
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-user.uid = 'fixed-user-id'
+user.uid = "fixed-user-id";
 ```
 
 `exampleUserRecord` でモックユーザーデータを作成できます。
 これはただのオブジェクトなので、 `uid` などは好きに変更できます。
 
-<!-- [^3]: デフォルトではランダムな ID になります -->
-
 これをラップした関数に渡すことで、実際に関数を実行します。
 
-```ts:onCreate_test.ts
-const timestamp = new Date('2021/1/1 00:01:02')
+onCreate_test.ts
+
+```ts
+const timestamp = new Date("2021/1/1 00:01:02");
 
 onCreateUser(user, {
-  timestamp: timestamp.toISOString()
-})
+  timestamp: timestamp.toISOString(),
+});
 ```
 
 さて、これで実際に Cloud Firestore
@@ -399,42 +386,44 @@ onCreateUser(user, {
 ここまできたので、あとは実際のデータを取得しアサートします。
 少し長いですがテストの全体を載せます。
 
-```ts:onCreate_test.ts{18,24-29,33}
-import { onCreateUser as _onCreateUser } from 'path/to/functions'
-import { firestore } from 'firebase-admin'
-import _test from 'firebase-functions-test'
+onCreate_test.ts
+
+```ts
+import { onCreateUser as _onCreateUser } from "path/to/functions";
+import { firestore } from "firebase-admin";
+import _test from "firebase-functions-test";
 
 const test = _test(
   {
-    projectId: '<project_id>'
+    projectId: "<project_id>",
   },
-  'path/to/serviceAccountKey.json'
-)
+  "path/to/serviceAccountKey.json",
+);
 
-const onCreateUser = test.wrap(_onCreateUser)
-const user = test.auth.exampleUserRecord()
+const onCreateUser = test.wrap(_onCreateUser);
+const user = test.auth.exampleUserRecord();
 
-describe('onCreateUser', () => {
-  it('save user info to firestore /document/users/{uid}', async () => {
-    const timestamp = new Date('2021/1/1 00:01:02')
+describe("onCreateUser", () => {
+  it("save user info to firestore /document/users/{uid}", async () => {
+    const timestamp = new Date("2021/1/1 00:01:02");
     await onCreateUser(user, {
-      timestamp: timestamp.toISOString()
-    })
+      timestamp: timestamp.toISOString(),
+    });
 
-    const snapshot = await firestore().collection('users').doc(user.uid).get()
+    const snapshot = await firestore().collection("users").doc(user.uid).get();
 
-    expect(snapshot.exists).toBeTruthy()
-    expect(snapshot.id).toBe(user.uid)
+    expect(snapshot.exists).toBeTruthy();
+    expect(snapshot.id).toBe(user.uid);
     expect(snapshot.data()).toEqual({
       uid: user.uid,
-      createdAt: firestore.Timestamp.fromDate(timestamp)
-    })
-  })
+      createdAt: firestore.Timestamp.fromDate(timestamp),
+    });
+  });
 
   afterAll(async () => {
-    await firestore().collection('users').doc(user.uid).delete()
-  })
-})
+    await firestore().collection("users").doc(user.uid).delete();
+  });
+});
 ```
 
 ポイントとしては、ラップ関数は非同期なため、

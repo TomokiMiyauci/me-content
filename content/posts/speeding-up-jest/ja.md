@@ -32,7 +32,9 @@ cover_image: /posts/speeding-up-jest/hero.png
 yarn add -D jest @swc/jest
 ```
 
-```json:jest.config.json
+jest.config.json
+
+```json
 {
   "transform": {
     "^.+\\.(t|j)sx?$": "@swc/jest"
@@ -57,25 +59,31 @@ yarn add -D jest @swc/jest
 
 関数の中身に興味はないので、適当な関数を用意してテストします。
 
-```js:index.js
-exports.add = (a, b) => a + b
+index.js
+
+```js
+exports.add = (a, b) => a + b;
 ```
 
-```js:test/index.spec.js
-const { add } = require('../src')
+test/index.spec.js
 
-describe('add', () => {
-    it('should return 2 when it gives 1,1', () => {
-        const result = add(1,1)
-        expect(result).toBe(2)
-    })
-})
+```js
+const { add } = require("../src");
+
+describe("add", () => {
+  it("should return 2 when it gives 1,1", () => {
+    const result = add(1, 1);
+    expect(result).toBe(2);
+  });
+});
 ```
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   testEnvironment: "node",
-  roots: ["<rootDir>/test/"]
+  roots: ["<rootDir>/test/"],
 };
 ```
 
@@ -99,24 +107,30 @@ for i in {0..9}; do yarn jest --no-cache ; done
 TypeScript を ES module 形式で記述するパターンです。TypeScript
 を使う場合の多くはこのパターンでしょう。
 
-```ts:index.ts
-export const add = (a: number, b: number): number => a + b
+index.ts
+
+```ts
+export const add = (a: number, b: number): number => a + b;
 ```
 
-```ts:test/index.spec.ts
-import { add } from '../src/'
+test/index.spec.ts
 
-describe('add', () => {
-    it('should return 2 when it gives 1,1', () => {
-        const result = add(1,1)
-        expect(result).toBe(2)
-    })
-})
+```ts
+import { add } from "../src/";
+
+describe("add", () => {
+  it("should return 2 when it gives 1,1", () => {
+    const result = add(1, 1);
+    expect(result).toBe(2);
+  });
+});
 ```
 
 #### トランスフォーマーに ts-jest を使う
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   ...,
   transform: {
@@ -145,7 +159,9 @@ CommonJS + JavaScript
 yarn add -D esbuild-jest esbuild
 ```
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   ...,
   transform: {
@@ -174,7 +190,9 @@ module.exports = {
 yarn add -D @swc/jest
 ```
 
-```js:jest.config.js
+jest.config.js
+
+```js
 module.exports = {
   ...,
   transform: {

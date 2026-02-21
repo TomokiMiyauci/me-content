@@ -73,7 +73,9 @@ yarn add -D typescript @types/node
 yarn tsc --init
 ```
 
-```ts:tsconfig.json
+tsconfig.json
+
+```ts
 {
   "compilerOptions": {
     "target": "ESNext",
@@ -108,7 +110,9 @@ compilation. The main code is placed under `src`.
 Set the `script` in package.json to include the build command and the command to
 build the code before publishing each time.
 
-```json:package.json
+package.json
+
+```json
 {
   "name": "test-typescript-release",
   "version": "0.0.0",
@@ -145,12 +149,16 @@ dist/index.js in `main` earlier, there is no problem as long as you have
 Import the functions from the file and re-export them as you see fit. You can
 create your own program here as well.
 
-```ts:src/index.ts
-export { hello } from './core'
+src/index.ts
+
+```ts
+export { hello } from "./core";
 ```
 
-```ts:src/core.ts
-export const hello = () => console.info('hello world')
+src/core.ts
+
+```ts
+export const hello = () => console.info("hello world");
 ```
 
 When compile it, you get the following directory structure

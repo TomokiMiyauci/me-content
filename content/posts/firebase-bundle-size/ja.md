@@ -27,8 +27,6 @@ V8 SDK
 V9 モジュラー SDK を使用すると、V8 SDK を使用して構築された同等のアプリよりも
 80％少なくなる可能性があるようです。
 
-<!-- [^1]: [新しい Firebase JS SDK の紹介](https://firebase.googleblog.com/2021/07/introducing-the-new-firebase-js-sdk.html) -->
-
 V8 SDK では、クラスからメソッドチェーンスタイルで実行するのが印象的です。
 クラスは、バンドラーのツリーシェイキングの恩恵を受けれないため、未使用のメソッドでも全てバンドルされます。
 これにより、例えばただ `Cloud Firestore`
@@ -80,18 +78,20 @@ npm i firebase@beta
 `vite` でコメントやライセンスを削除するために `vite.config.ts`
 を次のように変更します。
 
-```ts:vite.config.ts
-import { defineConfig } from 'vite'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
     terserOptions: {
       format: {
-        comments: false
-      }
-    }
-  }
-})
+        comments: false,
+      },
+    },
+  },
+});
 ```
 
 もしデプロイする場合は、ライセンス情報は別途ほかのファイルへ出力するなどの対応が必要です。
@@ -124,10 +124,12 @@ V9 モジュラー SDK
 `initializeApp` 関数は すべての `Firebase`
 リソースの初期化に先立って実行する必要があります。
 
-```ts:main.ts
-import { initializeApp } from　'firebase/app'
+main.ts
 
-initializeApp(firebaseOptions)
+```ts
+import { initializeApp } from "firebase/app";
+
+initializeApp(firebaseOptions);
 ```
 
 `initializeApp` 関数のみバンドルすると、`15.99 kb` になりました。 つまり、
@@ -174,11 +176,13 @@ V9 モジュラー SDK では Cloud Firestore に `lite`
 サブモジュールを利用した場合も含めて、Cloud Firestore モジュールは 4
 つのパターンがあります。
 
-```ts:main.ts
-import 'firebase/firestore' // V8
-import 'firebase/firestore/memory' // V8(memory)
-import * as firestore from 'firebase/firestore' // V9
-import * as firestore from 'firebase/firestore/lite' // V9(lite)
+main.ts
+
+```ts
+import "firebase/firestore"; // V8
+import "firebase/firestore/memory"; // V8(memory)
+import * as firestore from "firebase/firestore"; // V9
+import * as firestore from "firebase/firestore/lite"; // V9(lite)
 ```
 
 | モジュール                | バージョン | サイズ    |
@@ -201,11 +205,13 @@ SDK の `lite`
 V9 モジュラー SDK では `initializeFirestore`
 を行なった状態を、バンドルサイズが下限であるとします。
 
-```ts:main.ts
-import { initializeFirestore } from 'firebase/firestore'
+main.ts
+
+```ts
+import { initializeFirestore } from "firebase/firestore";
 // import { initializeFirestore } from 'firebase/firestore/lite' V9(lite)
 
-const firestore = initializeFirestore(app, {})
+const firestore = initializeFirestore(app, {});
 ```
 
 | モジュール              | バージョン | 下限     | 上限      |
@@ -259,8 +265,6 @@ initializeAuth(app);
 非常に小さくなりました。ここに例えば `signInAnonymously`
 関数をインポートし、匿名ユーザーでのサインインを有効にすると、
 バンドルサイズは合計で、`41.07kb` になります。
-
-<!-- [^2]: `signInAnonymously`によって 1kb 程度増化 -->
 
 V8 SDK と比較すると、たしかに 80%程度バンドルサイズを削減したことになります。
 

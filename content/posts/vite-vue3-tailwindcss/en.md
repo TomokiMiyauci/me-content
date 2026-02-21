@@ -33,7 +33,9 @@ npx tailwind init
 
 Next, prepare a style file to inject the tailwind directive.
 
-```css:src/assets/styles/tailwind.scss
+src/assets/styles/tailwind.scss
+
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,10 +43,12 @@ Next, prepare a style file to inject the tailwind directive.
 
 Also need a PostCSS configuration file in the project root.
 
-```js:postcss.config.js
+postcss.config.js
+
+```js
 module.exports = {
-  plugins: [require('tailwindcss'), require('autoprefixer')],
-}
+  plugins: [require("tailwindcss"), require("autoprefixer")],
+};
 ```
 
 Finally, import the style file at the entry point.
@@ -53,13 +57,15 @@ Finally, import the style file at the entry point.
 > For example, the path is specified in the path alias. Set the appropriate
 > path.
 
-```ts:src/main.ts
-import { createApp } from 'vue'
-import App from '/@/App.vue'
-import '/@/assets/styles/main.scss'
-import '/@/assets/styles/tailwind.scss'
+src/main.ts
 
-createApp(App).mount('#app')
+```ts
+import { createApp } from "vue";
+import App from "/@/App.vue";
+import "/@/assets/styles/main.scss";
+import "/@/assets/styles/tailwind.scss";
+
+createApp(App).mount("#app");
 ```
 
 Now you can use Utility Classes during development.
@@ -73,7 +79,9 @@ to install it.
 Also, VSCode has `unknownAtRules` by default as it validates `css`. To fix it,
 set the `settings.json` as follows.
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "scss.validate": false,
   "css.validate": false
@@ -112,11 +120,13 @@ Classes that you don't use with it.
 Tailwind CSS supports PurgeCSS as standard, so you should configure it to
 optimize your build.
 
-```js:tailwind.config.js
+tailwind.config.js
+
+```js
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { join } = require('path')
-const BASE_DIR = join(__dirname, 'src')
-const VUE_FILE = join('**', '*.vue')
+const { join } = require("path");
+const BASE_DIR = join(__dirname, "src");
+const VUE_FILE = join("**", "*.vue");
 
 const config = {
   future: {
@@ -125,17 +135,17 @@ const config = {
   },
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    content: [join(BASE_DIR, VUE_FILE), join(__dirname, '*.html')],
+    enabled: process.env.NODE_ENV === "production",
+    content: [join(BASE_DIR, VUE_FILE), join(__dirname, "*.html")],
   },
   theme: {
     extend: {},
   },
   variants: {},
-  plugins:[],
-}
+  plugins: [],
+};
 
-module.exports = config
+module.exports = config;
 ```
 
 The reason why CommonJS format is used instead of ES Module format, is because

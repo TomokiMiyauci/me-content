@@ -20,19 +20,19 @@ type WhatIsThis = "what" | "is" | "this" | string;
 
 例えば文字列リテラル型はプリミティブ型 `string` の派生です。
 
-```plantuml
-@startuml
-node string
-node hello as "'hello'"
-node world as "'world'"
-node number
-node 0
-node 1
-string --> hello
-string --> world
-number --> 0
-number --> 1
-@enduml
+```mermaid
+graph TD
+  n_string["string"]
+  n_hello["'hello'"]
+  n_world["'world'"]
+  n_number["number"]
+  n_0["0"]
+  n_1["1"]
+
+  n_string --> n_hello
+  n_string --> n_world
+  n_number --> n_0
+  n_number --> n_1
 ```
 
 [Union types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)で
@@ -134,9 +134,6 @@ const options: Options = {
 
 Discriminated Union には、必ず共通のプロパティが必要になります。
 またそのプロパティは<u>一意に特定できる型</u>である必要があります。
-
-<!-- [^1]: これはしばしば `singleton types`と呼ばれます。
-    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types) -->
 
 #### 一意に特定できる型とは
 
@@ -268,8 +265,6 @@ const options: Options = {
 
 これに `PropertyKey` 以外の型が加わると、正しく判別できるようになります。
 
-<!-- [^2]: `string` | `number` | `symbol` -->
-
 ```ts
 type Options =
   | {
@@ -352,8 +347,6 @@ type Options =
 `PropertyKey`以外の型として `undefined`型を指定します。 また、そのプロパティは
 Optional にします。
 
-<!-- [^3]: `never` 型でも結果は同じです。 -->
-
 以下のようになります。
 
 ```ts
@@ -377,8 +370,6 @@ type Options =
 
 これによって、`theme` と `color`
 が同時に指定できないインターフェイスになりました。
-
-<!-- [^4]: `undefined` のみ受け付けます。 -->
 
 さらに 片方にしかない型を加えても正しく動作します。
 
@@ -418,13 +409,13 @@ Utility types
 
 次のようになります。
 
-```ts{5}
+```ts
 type Exclusive<
   T extends Record<PropertyKey, unknown>,
-  U extends Record<PropertyKey, unknown>
+  U extends Record<PropertyKey, unknown>,
 > =
   | (T & { [k in Exclude<keyof U, keyof T>]?: never })
-  | (U & { [k in Exclude<keyof T, keyof U>]?: never })
+  | (U & { [k in Exclude<keyof T, keyof U>]?: never });
 ```
 
 まず、ジェネリクスで`T` と `U` を定義します。

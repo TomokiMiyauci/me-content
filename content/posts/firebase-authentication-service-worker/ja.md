@@ -56,15 +56,11 @@ Firebase Authentication のモジュールを読み込むタイミングは、�
 匿名認証を行うタイミングは、構成によって様々でしょうが、基本的に受動的に行われます。
 多くの場合、ページの読み込み時でなくとも良く、ユーザーインタラクション後でも問題ないでしょう。
 
-<!-- [^1]: クリックイベントやスクロールイベントなど、ユーザーが操作後に発火するイベント -->
-
 また、認証自体の処理は、UI を伴う必要性が薄いです。
 この場合、メインスレッドで認証処理を行うのではなく、バックグラウンドスレッドに処理を移行できます。
 
 バックグラウンドスレッドで処理を行うことで、UI
 を妨げることなく処理を実行できます。 また、基本的には CWVが向上します。
-
-<!-- [^2]: Core Web Vitals -->
 
 ## Service worker で Firebase Authentication を使う
 
@@ -112,12 +108,14 @@ npm i firebase@9
 
 続いて、`firebase/auth` を初期化します。
 
-```ts:sw.ts
-import { initializeApp } from 'firebase/app'
-import { initializeAuth } from 'firebase/auth'
+sw.ts
 
-const app = initializeApp(/* firebaseOptions */)
-const auth = initializeAuth(app)
+```ts
+import { initializeApp } from "firebase/app";
+import { initializeAuth } from "firebase/auth";
+
+const app = initializeApp(); /* firebaseOptions */
+const auth = initializeAuth(app);
 ```
 
 Service Worker は大きな特徴として http
@@ -128,35 +126,39 @@ Service Worker は大きな特徴として http
 認証情報をヘッダーへ付与することができます。
 匿名の認証情報を付与する場合は、次のようになります。
 
-```ts:sw.ts
-const whitelist = ['https://firestore.googleapis.com']
+sw.ts
 
-self.addEventListener('fetch', async (ev) => {
+```ts
+const whitelist = ["https://firestore.googleapis.com"];
+
+self.addEventListener("fetch", async (ev) => {
   const requestProcessor = async (): Promise<Response> => {
-    const url = new URL(ev.request.url)
+    const url = new URL(ev.request.url);
 
     if (whitelist.includes(url.origin)) {
-      const user = await getUser(auth)
+      const user = await getUser(auth);
 
       if (user) {
-        const idToken = await getIdToken(user)
-        const request = makeAuthRequest(ev.request, idToken)
-        return fetch(request)
+        const idToken = await getIdToken(user);
+        const request = makeAuthRequest(ev.request, idToken);
+        return fetch(request);
       }
     }
 
-    return fetch(ev.request)
-  }
+    return fetch(ev.request);
+  };
 
-  ev.respondWith(requestProcessor())
-})
+  ev.respondWith(requestProcessor());
+});
 ```
 
 ここでは、特定のオリジンに対して、認証トークンを付与しています。
 
 サインインと、トークンを付与したリクエストオブジェトを作成するヘルパー関数を作ると便利です。
 
-```ts:sw.ts{12,21}
+sw.ts
+
+```ts
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth'
 import type { User, Auth } from 'firebase/auth'
 } from 'firebase/auth'
@@ -203,10 +205,12 @@ Service Worker がすぐにアクティベートされるように設定しま�
 認証は Service Worker 登録後すぐに使いたい機能なため、`Clients.claim()`
 メソッドを使い、登録後すぐにアクティベートします。
 
-```ts:sw.ts
-self.addEventListener('activate', (ev) => {
-  ev.waitUntil(self.clients.claim())
-})
+sw.ts
+
+```ts
+self.addEventListener("activate", (ev) => {
+  ev.waitUntil(self.clients.claim());
+});
 ```
 
 あとはフロントエンドから、Service Worker を登録するだけです。
@@ -232,9 +236,6 @@ npm i -D esbuild
 ```
 
 `esbuild` は CLI で動作するコマンドを提供しているため、それを利用します。
-
-<!-- [^3]: JavaScript API
-    も提供しているため、ビルドプロセスが複雑になった場合はそちらの利用を推奨します。 -->
 
 ```bash
 npm run esbuild sw.ts --outdir=<outdir> --bundle --sourcemap --minify --format=esm --legal-comments=external
@@ -280,31 +281,24 @@ if ("serviceWorker" in window.navigator) {
 
 まず、現状を整理すると次のようになります。
 
-```plantuml
-@startuml
-left to right direction
-!define FirebasePuml https://raw.githubusercontent.com/k2wanko/firebase-icons-plantuml/master/plantuml
-!includeurl FirebasePuml/FirebaseCommon.puml
-!includeurl FirebasePuml/FirebaseAll.puml
+```mermaid
+graph LR
+  user["👤 User"]
 
-file "Sub thread: sw.js" {
-  node "firebase/auth"
-  () self
-}
+  subgraph sw_js ["📄 Sub thread: sw.js"]
+      node_auth["node: firebase/auth"]
+      self(("○ self"))
+  end
 
-cloud "GCP" {
-  Authentication(auth, "Authentication", "User store")
-  Firestore(db, "Database", "/users/{uid}")
-}
+  subgraph GCP ["☁️ GCP"]
+      auth["🔐 Authentication<br/>(User store)"]
+      db[("🔥 Firestore<br/>(/users/{uid})")]
+  end
 
-actor "User" as user
-node "firebase/firestore"
-
-user ..> self: fetch hijack
-self ..> auth: sign in or sign up
-auth ..> self: user info
-self ..> db: fetch
-@enduml
+  user -.->|fetch hijack| self
+  self -.->|sign in or sign up| auth
+  auth -.->|user info| self
+  self -.->|fetch| db
 ```
 
 ユーザーがメインスレッドから `fetch` したタイミングでは、まだ `uid`
@@ -318,11 +312,13 @@ Service Worker とメインスレッドとは、 `postMessage`
 Service Worker では、`message`
 イベントを登録することで、クライアントからのメッセージを待ち受けます。
 
-```ts:sw.ts
-self.addEventListener('message', async ({ source }) => {
-  const user = await getUser(auth)
-  source.postMessage(user.uid)
-})
+sw.ts
+
+```ts
+self.addEventListener("message", async ({ source }) => {
+  const user = await getUser(auth);
+  source.postMessage(user.uid);
+});
 ```
 
 `postMessage` を使い、クライアントにメッセージを送信します。ここでは  `uid`
@@ -359,23 +355,6 @@ sw.addEventListener(
 
 active な Service Worker に対して、 `postMessage` でメッセージを送信します。
 Service Worker からのメッセージは、 `message` イベントで取得できます。
-
-```plantuml
-@startuml
-left to right direction
-
-file "Sub thread: sw.js" {
-  () self
-}
-
-
-() window
-
-window ..> self: postMessage
-self ..> window: postMessage (uid)
-
-@enduml
-```
 
 これで `uid` を取得できました。このやり取りは非同期なため、Cloud Firestore
 へリクエストする際は、 `uid` が取得できるまで待機するか、

@@ -35,30 +35,29 @@ Gatsby を TypeScript 化するという名目のもと、コンポーネント�
 は、`ES Modules`と`CommonJS` の両方を利用できます。 また、
 エクスポートの方法も、 API が複数ある場合は Named Exports にする必要があります。
 
-<!-- [^1]: ここでは TypeScript 化した際の、ES6
-    でのエクスポートの方法について言及しています。 -->
-
 さらに、`gatsby-ssr` は少し特殊な挙動をします。 `gatsby-ssr`
 が実行されるには、[Gatsby SSR APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/)が名前付きエクスポートされている必要があります。
 
 名前付きエクスポートがない場合は実行されません。
 
-```js:gatsby-ssr.js
-console.log('not exec')
+gatsby-ssr.js
+
+```js
+console.log("not exec");
 ```
 
 実行される例:
 
-```js:gatsby-ssr.js
-console.log('exec')
+gatsby-ssr.js
+
+```js
+console.log("exec");
 
 const onRenderBody = () => {
-  console.log('onRenderBody')
-}
+  console.log("onRenderBody");
+};
 
-export {
-  onRenderBody
-}
+export { onRenderBody };
 ```
 
 ```bash
@@ -68,12 +67,14 @@ onRenderBody
 
 またデフォルトエクスポートではエクスポートしたことにはなりません。
 
-```js:gatsby-ssr.js
-const onRenderBody = () => {
-  console.log('not exec')
-}
+gatsby-ssr.js
 
-export default { onRenderBody }
+```js
+const onRenderBody = () => {
+  console.log("not exec");
+};
+
+export default { onRenderBody };
 ```
 
 さらに、すべての config に共通して、 `.ts` や `.tsx`
@@ -86,15 +87,13 @@ export default { onRenderBody }
 
 Gatsby config は次の順に読み込まれます。
 
-```plantuml
-@startuml
-start
-:gatsby-config;
-:gatsby-node;
-:gatsby-ssr;
-:gatsby-browser;
-stop
-@enduml
+```mermaid
+graph TD
+  Start([ ]) --> gatsby-config
+  gatsby-config --> gatsby-node
+  gatsby-node --> gatsby-ssr
+  gatsby-ssr --> gatsby-browser
+  gatsby-browser --> Stop([ ])
 ```
 
 `gatsby-config` が設定ファイルの中で一番最初に読み込まれます。
@@ -127,7 +126,9 @@ npm i -D esbuild-register
 今後、`gatsby-config.ts` に型付きで設定をしていくことになります。
 次のようになります。
 
-```ts:gatsby-config.ts
+gatsby-config.ts
+
+```ts
 import type { GatsbyConfig } from 'gatsby'
 import { resolve } from 'path'
 
@@ -170,14 +171,16 @@ export default config
 
 `gatsby-config.js` を次のように変更します。
 
-```js:gatsby-config.js
-const { register } = require('esbuild-register/dist/node')
+gatsby-config.js
+
+```js
+const { register } = require("esbuild-register/dist/node");
 
 register({
-  target: 'node16'
-})
+  target: "node16",
+});
 
-module.exports = require('./gatsby-config.ts')
+module.exports = require("./gatsby-config.ts");
 ```
 
 ここでは２つのことをしています。
@@ -198,50 +201,56 @@ module.exports = require('./gatsby-config.ts')
 
 `gatsby-node`:
 
-```ts:gatsby-node.ts
-import type { GatsbyNode } from 'gatsby'
-import { resolve } from 'path'
-const createPages: GatsbyNode['createPages'] = async ({
+gatsby-node.ts
+
+```ts
+import type { GatsbyNode } from "gatsby";
+import { resolve } from "path";
+const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
-  reporter
+  reporter,
 }) => {
   // ...
-}
+};
 
-export { createPages }
+export { createPages };
 ```
 
 `tsx`ももちろん扱うことができます。
 
 `gatsby-ssr`:
 
-```tsx:gatsby-ssr.tsx
-import React from 'react'
-import type { GatsbySSR } from 'gatsby'
+gatsby-ssr.tsx
 
-const wrapPageElement: GatsbySSR['wrapPageElement'] = ({
+```tsx
+import React from "react";
+import type { GatsbySSR } from "gatsby";
+
+const wrapPageElement: GatsbySSR["wrapPageElement"] = ({
   element,
 }) => {
-  return <div className='wrap'>{element}</div>
-}
+  return <div className="wrap">{element}</div>;
+};
 
-export { wrapPageElement }
+export { wrapPageElement };
 ```
 
 `gatsby-browser`:
 
-```tsx:gatsby-browser.tsx
-import React from 'react'
-import type { GatsbyBrowser } from 'gatsby'
+gatsby-browser.tsx
 
-const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
+```tsx
+import React from "react";
+import type { GatsbyBrowser } from "gatsby";
+
+const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
   element,
 }) => {
-  return <div className='wrap'>{element}</div>
-}
+  return <div className="wrap">{element}</div>;
+};
 
-export { wrapPageElement }
+export { wrapPageElement };
 ```
 
 基本的に 名前付きエクスポートをしなければならない点に注意してください。 Gatsby

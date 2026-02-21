@@ -24,8 +24,6 @@ If you have few components, you may not see much benefit in speed. Compared to
 `Webpack`, the speed to get the browser to display is dramatically improved, but
 It will take some time to load in your browser.
 
-<!-- [^1]: Storybook's bundle size is quite large. -->
-
 On the other hand, the increase in time when more components are added will be
 contained. Also, I think you will notice a clear difference in speed when
 rebuilding with HMR.
@@ -101,9 +99,11 @@ not necessary for the explanation.
 
 Also, the following commands have been added to `package.json`.
 
-```json:package.json
+package.json
+
+```json
 {
- "scripts": {
+  "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }
@@ -128,22 +128,24 @@ In order to use `mdx` files in Storybook with `preact`, two changes are needed.
 Next, we will modify the `.storybook/main.js` file. We'll show you later how to
 make this file `.ts` to make it type-safe.
 
-```js:.storybook/main.js{8}
+.storybook/main.js
+
+```js
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   core: {
-    builder: 'storybook-builder-vite'
+    builder: "storybook-builder-vite",
   },
 
   viteFinal: (config) => {
     config.plugins = [
       ...config.plugins,
-      require('@preact/preset-vite').default()
-    ]
-    return config
-  }
-}
+      require("@preact/preset-vite").default(),
+    ];
+    return config;
+  },
+};
 ```
 
 The `storybook-builder-vite` adds a hook called `viteFinal`. You can change the
@@ -208,24 +210,26 @@ to define type-safe configuration files.
 Since `main.js` is the entry point, we'll leave this file as is. Create a new
 `main.ts` and copy the contents of `main.js` then rewrite `ES modules`.
 
-```ts:.storybook/main.ts{10,11,12}
-import preact from '@preact/preset-vite'
+.storybook/main.ts
+
+```ts
+import preact from "@preact/preset-vite";
 const config = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   core: {
-    builder: 'storybook-builder-vite'
+    builder: "storybook-builder-vite",
   },
   viteFinal: (config) => {
-    config.plugins = [...config.plugins, preact()]
-    if (process.env.NODE_ENV === 'production') {
-      config.build.chunkSizeWarningLimit = 1200
+    config.plugins = [...config.plugins, preact()];
+    if (process.env.NODE_ENV === "production") {
+      config.build.chunkSizeWarningLimit = 1200;
     }
-    return config
-  }
-}
+    return config;
+  },
+};
 
-export default config
+export default config;
 ```
 
 At this point, we add the code to change the `chunkSizeWarningLimit`. The
@@ -235,17 +239,19 @@ problem without it.
 We give it a type annotation. The types are not provided by
 `storybook-builder-vite`, so you need to create your own.
 
-```ts:.storybook/main.ts
-import { StorybookConfig, CoreConfig, Options } from '@storybook/core-common'
-import { UserConfig } from 'vite'
-import { Weaken } from 'utilitypes'
+.storybook/main.ts
 
-interface CustomizedCoreConfig extends Weaken<CoreConfig, 'builder'> {
-  builder: CoreConfig['builder'] | 'storybook-builder-vite'
+```ts
+import { CoreConfig, Options, StorybookConfig } from "@storybook/core-common";
+import { UserConfig } from "vite";
+import { Weaken } from "utilitypes";
+
+interface CustomizedCoreConfig extends Weaken<CoreConfig, "builder"> {
+  builder: CoreConfig["builder"] | "storybook-builder-vite";
 }
-interface CustomizedStorybookConfig extends Weaken<StorybookConfig, 'core'> {
-  core: CustomizedCoreConfig
-  viteFinal?: (config: UserConfig, options: Options) => UserConfig
+interface CustomizedStorybookConfig extends Weaken<StorybookConfig, "core"> {
+  core: CustomizedCoreConfig;
+  viteFinal?: (config: UserConfig, options: Options) => UserConfig;
 }
 ```
 
@@ -266,36 +272,38 @@ npm i -D utilitypes@beta
 Now we can specify this type in the type annotation. The entire file will look
 like this:
 
-```ts:.storybook/main.ts
-import preact from '@preact/preset-vite'
-import { StorybookConfig, CoreConfig, Options } from '@storybook/core-common'
-import { UserConfig } from 'vite'
-import { Weaken } from 'utilitypes'
+.storybook/main.ts
 
-interface CustomizedCoreConfig extends Weaken<CoreConfig, 'builder'> {
-  builder: CoreConfig['builder'] | 'storybook-builder-vite'
+```ts
+import preact from "@preact/preset-vite";
+import { CoreConfig, Options, StorybookConfig } from "@storybook/core-common";
+import { UserConfig } from "vite";
+import { Weaken } from "utilitypes";
+
+interface CustomizedCoreConfig extends Weaken<CoreConfig, "builder"> {
+  builder: CoreConfig["builder"] | "storybook-builder-vite";
 }
-interface CustomizedStorybookConfig extends Weaken<StorybookConfig, 'core'> {
-  core: CustomizedCoreConfig
-  viteFinal?: (config: UserConfig, options: Options) => UserConfig
+interface CustomizedStorybookConfig extends Weaken<StorybookConfig, "core"> {
+  core: CustomizedCoreConfig;
+  viteFinal?: (config: UserConfig, options: Options) => UserConfig;
 }
 
 const config: CustomizedStorybookConfig = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   core: {
-    builder: 'storybook-builder-vite'
+    builder: "storybook-builder-vite",
   },
   viteFinal: (config) => {
-    config.plugins = [...config.plugins, preact()]
-    if (process.env.NODE_ENV === 'production') {
-      config.build.chunkSizeWarningLimit = 1200
+    config.plugins = [...config.plugins, preact()];
+    if (process.env.NODE_ENV === "production") {
+      config.build.chunkSizeWarningLimit = 1200;
     }
-    return config
-  }
-}
+    return config;
+  },
+};
 
-export default config
+export default config;
 ```
 
 Next, we will import `main.ts` from `main.js`. Since `main.js` is `Commonjs`, it
@@ -312,12 +320,14 @@ npm i -D esbuild-register
 
 `main.js` will look like this:
 
-```js:.storybook/main.js
-const { register } = require('esbuild-register/dist/node')
+.storybook/main.js
+
+```js
+const { register } = require("esbuild-register/dist/node");
 register({
-  target: 'node15'
-})
-module.exports = require('./main.ts')
+  target: "node15",
+});
+module.exports = require("./main.ts");
 ```
 
 So `main.js` is just an entry point, and the actual configuration can be
@@ -333,17 +343,19 @@ handle TypeScripts.
 
 It will look like this:
 
-```ts:.storybook/preview.ts
-import { Parameters } from '@storybook/addons'
+.storybook/preview.ts
+
+```ts
+import { Parameters } from "@storybook/addons";
 export const parameters: Parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/
-    }
-  }
-}
+      date: /Date$/,
+    },
+  },
+};
 ```
 
 Storybook provides a large number of files, so it was hard to find the

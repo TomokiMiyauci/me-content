@@ -31,18 +31,20 @@ where there is a conditional branch as a test target.
 
 Function to convert \*.html other than index.html to \*/index.html
 
-```ts:index.ts
-import { dirname, join, parse } from 'path'
+index.ts
+
+```ts
+import { dirname, join, parse } from "path";
 
 export const path2IndexHtml = (path: string): string => {
-    const EXT = '.html'
-    const INDEX = 'index'
-    const { ext, name, dir } = parse(path)
-    if(ext !== EXT) return path
-    if(name === INDEX) return path
+  const EXT = ".html";
+  const INDEX = "index";
+  const { ext, name, dir } = parse(path);
+  if (ext !== EXT) return path;
+  if (name === INDEX) return path;
 
-    return join(dir, name, `${INDEX}${EXT}`)
-}
+  return join(dir, name, `${INDEX}${EXT}`);
+};
 ```
 
 This function itself was used when the Server Side Generation implementation
@@ -61,28 +63,30 @@ test.each(table)(name, fn, timeout);
 
 Some objects have a same `each` method. The specific test case is as follows.
 
-```ts:index.spec.ts
-import { path2IndexHtml } from '../src'
+index.spec.ts
 
-describe('path2IndexHtml', () => {
-    const table = [
-        ['', ''],
-        ['index.html', 'index.html'],
-        ['/index.html', '/index.html'],
-        ['index.css', 'index.css'],
-        ['about.css', 'about.css'],
-        ['about/index.css', 'about/index.css'],
-        ['about.html', 'about/index.html'],
-        ['hoge/about.html', 'hoge/about/index.html'],
-        ['/hoge/about.html', '/hoge/about/index.html'],
-        ['aindex.html', 'aindex/index.html'],
-        ['indexa.html', 'indexa/index.html'],
-        ['/about/index.html', '/about/index.html'],
-    ]
-    it.each(table)('pattern1: path2IndexHtml(%s) = %s', (path, expected, fa) => {
-        expect(path2IndexHtml(path)).toBe(expected)
-    })
-})
+```ts
+import { path2IndexHtml } from "../src";
+
+describe("path2IndexHtml", () => {
+  const table = [
+    ["", ""],
+    ["index.html", "index.html"],
+    ["/index.html", "/index.html"],
+    ["index.css", "index.css"],
+    ["about.css", "about.css"],
+    ["about/index.css", "about/index.css"],
+    ["about.html", "about/index.html"],
+    ["hoge/about.html", "hoge/about/index.html"],
+    ["/hoge/about.html", "/hoge/about/index.html"],
+    ["aindex.html", "aindex/index.html"],
+    ["indexa.html", "indexa/index.html"],
+    ["/about/index.html", "/about/index.html"],
+  ];
+  it.each(table)("pattern1: path2IndexHtml(%s) = %s", (path, expected, fa) => {
+    expect(path2IndexHtml(path)).toBe(expected);
+  });
+});
 ```
 
 Describe the test case in a two-dimensional array. The order of the elements in
@@ -103,8 +107,10 @@ inferred to be `... args: string []`. If you want to infer as a tuple, add
 The `each` method also accepts generic types, so you can specify the type as
 follows:
 
-```ts:index.spec.ts
-it.each<string[]>(table)
+index.spec.ts
+
+```ts
+it.each<string[]>(table);
 ```
 
 When run the test, got the following output:
@@ -148,21 +154,23 @@ test.each`
 
 Write the same test as the above example, it will look like this:
 
-```ts:index.spec.ts
-describe('path2IndexHtml', () => {
+index.spec.ts
+
+```ts
+describe("path2IndexHtml", () => {
   it.each`
     path                 | expected
-    ${''}                | ${''}
-    ${'index.html'}      | ${'index.html'}
-    ${'/index.html'}     | ${'/index.html'}
-    ${'about.css'}       | ${'about.css'}
-    ${'about/index.css'} | ${'about/index.css'}
-    ${'about.html'}      | ${'about/index.html'}
-    ${'hoge/about.html'} | ${'hoge/about/index.html'}
-  `('path2IndexHtml($path) -> $expected', ({ path, expected }) => {
-    expect(path2IndexHtml(path)).toBe(expected)
-  })
-})
+    ${""}                | ${""}
+    ${"index.html"}      | ${"index.html"}
+    ${"/index.html"}     | ${"/index.html"}
+    ${"about.css"}       | ${"about.css"}
+    ${"about/index.css"} | ${"about/index.css"}
+    ${"about.html"}      | ${"about/index.html"}
+    ${"hoge/about.html"} | ${"hoge/about/index.html"}
+  `("path2IndexHtml($path) -> $expected", ({ path, expected }) => {
+    expect(path2IndexHtml(path)).toBe(expected);
+  });
+});
 ```
 
 The first line of `table` specifies the variable name. Subsequent lines describe
@@ -185,11 +193,13 @@ accept generics.
 
 If you really want to type, define the type in the `fn` function.
 
-```ts:index.spec.ts
-'path2IndexHtml($path) -> $expected',
+index.spec.ts
+
+```ts
+"path2IndexHtml($path) -> $expected",
   ({ path, expected }: { path: string; expected: string }) => {
-    expect(path2IndexHtml(path)).toBe(expected)
-  }
+    expect(path2IndexHtml(path)).toBe(expected);
+  };
 ```
 
 The test results will be the same for both, so it's a good idea to use different

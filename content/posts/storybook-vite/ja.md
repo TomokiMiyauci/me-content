@@ -23,8 +23,6 @@ iframe 内のビルドを `Webpack` から `vite` に切り替えることで次
 `Webpack` と比較すると、ブラウザが表示されるまでのスピードは劇的に向上しますが、
 ブラウザ上での読み込みに時間がかかるためです。
 
-<!-- [^1]: Storybook のバンドルサイズはかなり大きいです。 -->
-
 一方、コンポーネントが増えた場合に増加する時間は、抑えられると思います。
 また、HMR での再ビルドは明らかな速度の差を感じられると思います。
 
@@ -95,9 +93,11 @@ npx sb init --builder storybook-builder-vite
 
 また、`package.json` には次のコマンドが追加されています。
 
-```json:package.json
+package.json
+
+```json
 {
- "scripts": {
+  "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }
@@ -123,22 +123,24 @@ npx sb init --builder storybook-builder-vite
 続いて、`.storybook/main.js` ファイルを変更します。あとでこのファイルを `.ts`
 にして型安全にする方法を紹介します。
 
-```js:.storybook/main.js{8}
+.storybook/main.js
+
+```js
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   core: {
-    builder: 'storybook-builder-vite'
+    builder: "storybook-builder-vite",
   },
 
   viteFinal: (config) => {
     config.plugins = [
       ...config.plugins,
-      require('@preact/preset-vite').default()
-    ]
-    return config
-  }
-}
+      require("@preact/preset-vite").default(),
+    ];
+    return config;
+  },
+};
 ```
 
 `storybook-builder-vite` によって、`viteFinal`というフックが追加されます。
@@ -200,24 +202,26 @@ Storybook の設定ファイルは、デフォルトでは `.js`です。
 `main.js` はエントリーポイントなので、このファイルはそのまま残します。 新たに
 `main.ts` を作成し、 `main.js` の内容を `ES modules` に書き換えます。
 
-```ts:.storybook/main.ts{10,11,12}
-import preact from '@preact/preset-vite'
+.storybook/main.ts
+
+```ts
+import preact from "@preact/preset-vite";
 const config = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   core: {
-    builder: 'storybook-builder-vite'
+    builder: "storybook-builder-vite",
   },
   viteFinal: (config) => {
-    config.plugins = [...config.plugins, preact()]
-    if (process.env.NODE_ENV === 'production') {
-      config.build.chunkSizeWarningLimit = 1200
+    config.plugins = [...config.plugins, preact()];
+    if (process.env.NODE_ENV === "production") {
+      config.build.chunkSizeWarningLimit = 1200;
     }
-    return config
-  }
-}
+    return config;
+  },
+};
 
-export default config
+export default config;
 ```
 
 このタイミングで `chunkSizeWarningLimit` を変更するコードを追加しています。
@@ -226,17 +230,19 @@ export default config
 これに型注釈を与えます。型は `storybook-builder-vite`
 からは提供されていないので、自作する必要があります。
 
-```ts:.storybook/main.ts
-import { StorybookConfig, CoreConfig, Options } from '@storybook/core-common'
-import { UserConfig } from 'vite'
-import { Weaken } from 'utilitypes'
+.storybook/main.ts
 
-interface CustomizedCoreConfig extends Weaken<CoreConfig, 'builder'> {
-  builder: CoreConfig['builder'] | 'storybook-builder-vite'
+```ts
+import { CoreConfig, Options, StorybookConfig } from "@storybook/core-common";
+import { UserConfig } from "vite";
+import { Weaken } from "utilitypes";
+
+interface CustomizedCoreConfig extends Weaken<CoreConfig, "builder"> {
+  builder: CoreConfig["builder"] | "storybook-builder-vite";
 }
-interface CustomizedStorybookConfig extends Weaken<StorybookConfig, 'core'> {
-  core: CustomizedCoreConfig
-  viteFinal?: (config: UserConfig, options: Options) => UserConfig
+interface CustomizedStorybookConfig extends Weaken<StorybookConfig, "core"> {
+  core: CustomizedCoreConfig;
+  viteFinal?: (config: UserConfig, options: Options) => UserConfig;
 }
 ```
 
@@ -256,36 +262,38 @@ npm i -D utilitypes@beta
 
 あとはこの型を型注釈で指定します。ファイル全体は次のようになります。
 
-```ts:.storybook/main.ts
-import preact from '@preact/preset-vite'
-import { StorybookConfig, CoreConfig, Options } from '@storybook/core-common'
-import { UserConfig } from 'vite'
-import { Weaken } from 'utilitypes'
+.storybook/main.ts
 
-interface CustomizedCoreConfig extends Weaken<CoreConfig, 'builder'> {
-  builder: CoreConfig['builder'] | 'storybook-builder-vite'
+```ts
+import preact from "@preact/preset-vite";
+import { CoreConfig, Options, StorybookConfig } from "@storybook/core-common";
+import { UserConfig } from "vite";
+import { Weaken } from "utilitypes";
+
+interface CustomizedCoreConfig extends Weaken<CoreConfig, "builder"> {
+  builder: CoreConfig["builder"] | "storybook-builder-vite";
 }
-interface CustomizedStorybookConfig extends Weaken<StorybookConfig, 'core'> {
-  core: CustomizedCoreConfig
-  viteFinal?: (config: UserConfig, options: Options) => UserConfig
+interface CustomizedStorybookConfig extends Weaken<StorybookConfig, "core"> {
+  core: CustomizedCoreConfig;
+  viteFinal?: (config: UserConfig, options: Options) => UserConfig;
 }
 
 const config: CustomizedStorybookConfig = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   core: {
-    builder: 'storybook-builder-vite'
+    builder: "storybook-builder-vite",
   },
   viteFinal: (config) => {
-    config.plugins = [...config.plugins, preact()]
-    if (process.env.NODE_ENV === 'production') {
-      config.build.chunkSizeWarningLimit = 1200
+    config.plugins = [...config.plugins, preact()];
+    if (process.env.NODE_ENV === "production") {
+      config.build.chunkSizeWarningLimit = 1200;
     }
-    return config
-  }
-}
+    return config;
+  },
+};
 
-export default config
+export default config;
 ```
 
 続いて、 `main.js` から　`main.ts` をインポートします。 `main.js`は `Commonjs`
@@ -302,12 +310,14 @@ npm i -D esbuild-register
 
 `main.js` は次のようになります。
 
-```js:.storybook/main.js
-const { register } = require('esbuild-register/dist/node')
+.storybook/main.js
+
+```js
+const { register } = require("esbuild-register/dist/node");
 register({
-  target: 'node15'
-})
-module.exports = require('./main.ts')
+  target: "node15",
+});
+module.exports = require("./main.ts");
 ```
 
 `main.js` は単なるエントリーポイントで、実際の設定は型安全に `main.ts`
@@ -323,17 +333,19 @@ module.exports = require('./main.ts')
 
 こんな感じになります。
 
-```ts:.storybook/preview.ts
-import { Parameters } from '@storybook/addons'
+.storybook/preview.ts
+
+```ts
+import { Parameters } from "@storybook/addons";
 export const parameters: Parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/
-    }
-  }
-}
+      date: /Date$/,
+    },
+  },
+};
 ```
 
 Storybook

@@ -33,26 +33,26 @@ HTTP でリクエストを送信するには、古くは `XMLHttpRequest`
 `Fetch API` は第２引数に `RequestInit`
 というオブジェクトを受け取ります。インターフェイスは次のとおりです。
 
-```ts{18}
+```ts
 declare function fetch(
   input: Request | URL | string,
-  init?: RequestInit
-): Promise<Response>
+  init?: RequestInit,
+): Promise<Response>;
 
 interface RequestInit {
-  body?: BodyInit | null
-  cache?: RequestCache
-  credentials?: RequestCredentials
-  headers?: HeadersInit
-  integrity?: string
-  keepalive?: boolean
-  method?: string
-  mode?: RequestMode
-  redirect?: RequestRedirect
-  referrer?: string
-  referrerPolicy?: ReferrerPolicy
-  signal?: AbortSignal | null
-  window?: any
+  body?: BodyInit | null;
+  cache?: RequestCache;
+  credentials?: RequestCredentials;
+  headers?: HeadersInit;
+  integrity?: string;
+  keepalive?: boolean;
+  method?: string;
+  mode?: RequestMode;
+  redirect?: RequestRedirect;
+  referrer?: string;
+  referrerPolicy?: ReferrerPolicy;
+  signal?: AbortSignal | null;
+  window?: any;
 }
 ```
 

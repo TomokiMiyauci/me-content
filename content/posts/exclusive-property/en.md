@@ -22,19 +22,19 @@ is a derived type of the data type to which the literal belongs.
 For example, the string literal type is a derivative of the primitive type
 `string`.
 
-```plantuml
-@startuml
-node string
-node hello as "'hello'"
-node world as "'world'"
-node number
-node 0
-node 1
-string --> hello
-string --> world
-number --> 0
-number --> 1
-@enduml
+```mermaid
+graph TD
+  n_string["string"]
+  n_hello["'hello'"]
+  n_world["'world'"]
+  n_number["number"]
+  n_0["0"]
+  n_1["1"]
+
+  n_string --> n_hello
+  n_string --> n_world
+  n_number --> n_0
+  n_number --> n_1
 ```
 
 If a primitive type and its derived literal types are specified in
@@ -139,9 +139,6 @@ allows you to narrow down the union types to a single member.
 
 A Discriminated Union must have a common property. The property must be a
 <u>uniquely identifiable type</u>.
-
-<!-- [^1]: This is often referred to as `singleton types`.
-    [Enum Member Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#enum-member-types) -->
 
 #### What is a uniquely identifiable type?
 
@@ -276,8 +273,6 @@ element is only a data type, it cannot be discriminated by Discriminated Union.
 
 If you add a type other than `PropertyKey`, it will work correctly.
 
-<!-- [^2]: `string` | `number` | `symbol` -->
-
 ```ts
 type Options =
   | {
@@ -360,8 +355,6 @@ Complement properties that are not present in each other to make each one
 unique. Specify the type `undefined` as a type other than `PropertyKey`. Also,
 its properties should be Optional.
 
-<!-- [^3]: The result is the same for the `never` type. -->
-
 The result is as follows:
 
 ```ts
@@ -385,8 +378,6 @@ On the other hand, if you specify `color`, the logic will be the same.
 
 This makes the interface such that `theme` and `color` cannot be specified at
 the same time.
-
-<!-- [^4]: Only `undefined` is accepted. -->
 
 In addition, adding a type that is only available in one of them will work
 correctly.
@@ -428,13 +419,13 @@ make the property what not defined optional `undefined`.
 
 It looks like this:
 
-```ts{5}
+```ts
 type Exclusive<
   T extends Record<PropertyKey, unknown>,
-  U extends Record<PropertyKey, unknown>
+  U extends Record<PropertyKey, unknown>,
 > =
   | (T & { [k in Exclude<keyof U, keyof T>]?: never })
-  | (U & { [k in Exclude<keyof T, keyof U>]?: never })
+  | (U & { [k in Exclude<keyof T, keyof U>]?: never });
 ```
 
 First, we define `T` and `U` in generics. This generic should be

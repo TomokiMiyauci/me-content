@@ -54,8 +54,6 @@ as is. Otherwise, `;base64` must be specified after encoding `data` in Base64.
 
 When omitted, `text/plain;charset=US-ASCII` is used.
 
-<!-- [^1]: [Data URL Syntax](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs#syntax) -->
-
 ### text/javascript MIME type
 
 Added 4/1/2022
@@ -85,8 +83,6 @@ The Web API has long had
 pure function. An exception is raised if a character that occupies more than 2
 bytes in UTF-16 is included.
 
-<!-- [^2]: [Unicode character string](https://developer.mozilla.org/docs/Glossary/Base64) -->
-
 The following is a commonly introduced method of escaping this.
 
 ```ts
@@ -95,10 +91,6 @@ btoa(unescape(encodeURIComponent("日本語")));
 
 However, the use of the `unescape` function has been deprecated because it is no
 longer part of the ECMAScript specification.
-
-<!-- [^3]: It is specified as a legacy feature that should not be newly used. See
-    [Annex B](https://262.ecma-international.org/9.0/#sec-additional-ecmascript-features-for-web-browsers)
-    for details. -->
 
 Since it is not a pure function to begin with, other functions should be used if
 possible. The standard deno module

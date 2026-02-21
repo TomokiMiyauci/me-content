@@ -81,10 +81,12 @@ CDN として有名なのは [skypack](https://www.skypack.dev/) や
 [Deno 用のモジュール](https://deno.land/x/lodash)
 が提供されているので、そちらを使ったほうがいいですが参考までに。
 
-```ts:cli.ts
-import { first } from 'https://cdn.skypack.dev/lodash'
+cli.ts
 
-first([1, 2, 3]) // 1
+```ts
+import { first } from "https://cdn.skypack.dev/lodash";
+
+first([1, 2, 3]); // 1
 ```
 
 `deno run cli.ts`
@@ -144,19 +146,23 @@ dnt がない世界では、Deno ベースのコードを Node.js
 どうでもいいですが、 例中の `isx` というのは私が作っている is?
 というものを集めたコレクションです。
 
-```ts:example.ts
-import { isFunction } from "https://deno.land/x/isx/mod.ts"
+example.ts
+
+```ts
+import { isFunction } from "https://deno.land/x/isx/mod.ts";
 
 export function call(value: unknown) {
-  if(isFunction(value))  {
-    return value()
+  if (isFunction(value)) {
+    return value();
   }
-  return value
+  return value;
 }
 ```
 
-```ts:mod.ts
-export * from "./example.ts"
+mod.ts
+
+```ts
+export * from "./example.ts";
 ```
 
 この例では次の２つのことを行っています。
@@ -166,7 +172,9 @@ export * from "./example.ts"
 
 これを Node.js 用にビルドするために、次のスクリプトを用意します。
 
-```ts:build_npm.ts
+build_npm.ts
+
+```ts
 import { build } from "https://deno.land/x/dnt@0.7.4/mod.ts";
 
 await build({
@@ -213,7 +221,9 @@ npm
 型宣言ファイルの出力と、型チェックおよびテストが行われます。
 また、`package.json` は次のようになっています。
 
-```json:npm/package.json
+npm/package.json
+
+```json
 {
   "module": "./esm/main.js",
   "main": "./umd/main.js",
@@ -276,13 +286,15 @@ npm
 `deps`
 配下に依存関係が配置されました。また、依存関係の参照はファイルストラクチャーに合わせて書き換えられます。
 
-```js:example.js
+example.js
+
+```js
 import { isFunction } from "./deps/deno_land_x_isx_v1_0_0-beta_17/mod.js";
 export function safeCall(value) {
-    if (isFunction(value)) {
-        return value();
-    }
-    return value;
+  if (isFunction(value)) {
+    return value();
+  }
+  return value;
 }
 ```
 
@@ -305,11 +317,11 @@ npm
 deno.land/x にホスティングされていますが、 `isxx` という  NPM
 にあるものに変えてみます。
 
-<!-- [^1]: どちらも私が作ったものです。名前空間が取れず違う名前になりました。 -->
-
 ビルドスクリプトを変更します。
 
-```ts:build_npm.ts{6-11}
+build_npm.ts
+
+```ts
 import { build } from "https://deno.land/x/dnt@0.7.4/mod.ts";
 
 await build({
@@ -328,7 +340,9 @@ await build({
 `mappings` フィールドに NPM のモジュール名をマッピングします。
 これでビルドすると次のようになります。
 
-```json:package.json
+package.json
+
+```json
 {
   ...
   "dependencies": {
@@ -355,12 +369,14 @@ dnt はそれらに対しても解決策を提供しています。
 
 例えば `fetch` を使うプログラムを考えます。
 
-```ts:example.ts
-async function fetchHello() {
-  const req = await fetch("https://miyauchi.dev/")
-  const html = await req.text()
+example.ts
 
-  return html
+```ts
+async function fetchHello() {
+  const req = await fetch("https://miyauchi.dev/");
+  const html = await req.text();
+
+  return html;
 }
 ```
 
@@ -371,16 +387,20 @@ Deno は `fetch` をサポートしていますが、Node.js ではサポート�
 
 このコードをビルドすると次のような結果になります。
 
-```js:exmaple.js{1,3}
+exmaple.js
+
+```js
 import * as denoShim from "deno.ns";
 export async function fetchHello() {
-    const req = await denoShim.fetch("https://miyauchi.dev/");
-    const html = await req.text();
-    return html;
+  const req = await denoShim.fetch("https://miyauchi.dev/");
+  const html = await req.text();
+  return html;
 }
 ```
 
-```json:package.json
+package.json
+
+```json
 {
   ...
   "dependencies": {
@@ -394,13 +414,15 @@ export async function fetchHello() {
 また、Deno shim の注入を無効にするには、`// deno-shim-ignore`
 コメントを該当コードの上に付けます。
 
-```ts:example.ts{2}
+example.ts
+
+```ts
 async function fetchHello() {
   // deno-shim-ignore
-  const req = await fetch("https://miyauchi.dev/")
-  const html = await req.text()
+  const req = await fetch("https://miyauchi.dev/");
+  const html = await req.text();
 
-  return html
+  return html;
 }
 ```
 
@@ -489,8 +511,6 @@ GitHub Actions のコンテキストから `v1.1.0` を抜き出し、`package.j
 
 先程の例で、バージョン文字列を `Deno.args[0]?.replace(/^v/, "")`
 で変換していたのはこのためです。
-
-<!-- [^2]: GitHub Actions 上で変換してももちろん OK ですが。 -->
 
 その後、semver のパースをし、NPM のリリースタグを導出します。 通常は `latest`
 タグを付ければいいですが、プレリリースの場合はそれ用のタグを付けてあげます。

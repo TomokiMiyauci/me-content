@@ -116,36 +116,38 @@ Firebase V9 では、CDN はまだ
 [Service worker をビルドする](/posts/firebase-authentication-service-worker/#service-worker-をビルドする)
 を参考にしてください。
 
-```ts:sw.ts{12,16,23}
-import { onBackgroundMessage } from 'firebase/messaging/sw'
-import { initializeApp, FirebaseOptions } from 'firebase/app'
-import { getMessaging, isSupported } from 'firebase/messaging/sw'
+sw.ts
 
-declare let self: ServiceWorkerGlobalScope
-const app = initializeApp(/* firebaseOptions */)
+```ts
+import { onBackgroundMessage } from "firebase/messaging/sw";
+import { FirebaseOptions, initializeApp } from "firebase/app";
+import { getMessaging, isSupported } from "firebase/messaging/sw";
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim())
-})
+declare let self: ServiceWorkerGlobalScope;
+const app = initializeApp(); /* firebaseOptions */
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
+});
 
 isSupported()
   .then(() => {
-    const messaging = getMessaging(app)
+    const messaging = getMessaging(app);
 
     onBackgroundMessage(messaging, ({ notification }) => {
-      const { title, body, image } = notification ?? {}
+      const { title, body, image } = notification ?? {};
 
       if (!title) {
-        return
+        return;
       }
 
       self.registration.showNotification(title, {
         body,
-        icon: image
-      })
-    })
+        icon: image,
+      });
+    });
   })
-  .catch(/* error */)
+  .catch(); /* error */
 ```
 
 `isSupported` は `Promise<boolean>`
@@ -190,27 +192,28 @@ Service worker はブラウザが実行できるよう、JavaScript
 
 参考までに、`importScripts` を使った場合は次のように型拡張すれば良いでしょう。
 
-```ts:sw.ts
-import type firebase from 'firebase/compat/app'
+sw.ts
+
+```ts
+import type firebase from "firebase/compat/app";
 
 declare let self: ServiceWorkerGlobalScope & {
-  firebase: typeof firebase
-}
+  firebase: typeof firebase;
+};
 
-importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js')
 importScripts(
-  'https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js'
-)
+  "https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js",
+);
+importScripts(
+  "https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js",
+);
 
-const app = self.firebase.initializeApp(/* config */)
+const app = self.firebase.initializeApp(); /* config */
 ```
 
 一方で、バージョン管理が煩雑になる可能性があります。パッケージマネージャーでは扱えないため、２重管理が発生しやすいです。
 特に、Firebase SDK の場合は、`Window` スコープと `Worker`
 スコープで、パッケージのバージョンをあわせたほうが無難です。
-
-<!-- [^1]: Service worker に compat
-    バージョン、メインスレッドに関数型バージョンを併用したところ、正常に動作しませんでした。 -->
 
 メインを TypeScript
 で記述する場合、トランスパイルは避けれないので、バンドルはついでにできてしまいます。
@@ -246,22 +249,22 @@ window.Notification.requestPermission((permission) => {
 通知が表示されるのが確認できたので、ユーザートークンを取得します。これは前述のユーザーの購読情報に相当します。
 `Window` スコープで行います。
 
-```ts{13-14}
-import { initializeApp, FirebaseOptions } from 'firebase/app'
-import { isSupported, getMessaging, getToken } from 'firebase/messaging'
+```ts
+import { FirebaseOptions, initializeApp } from "firebase/app";
+import { getMessaging, getToken, isSupported } from "firebase/messaging";
 
-const supported = await isSupported().catch(() => false)
+const supported = await isSupported().catch(() => false);
 if (!supported) {
-  return
+  return;
 }
 
-const sw = await window.navigator.serviceWorker.register('/sw.js')
+const sw = await window.navigator.serviceWorker.register("/sw.js");
 
-const app = initializeApp(firebaseOptions)
-const messaging = getMessaging(app)
+const app = initializeApp(firebaseOptions);
+const messaging = getMessaging(app);
 const token = await getToken(messaging, {
-  serviceWorkerRegistration: sw
-})
+  serviceWorkerRegistration: sw,
+});
 ```
 
 `isSupported` で Service worker
@@ -306,34 +309,34 @@ Cloud Functions for Firebase を例に挙げます。
 npm i firebase-admin firebase-functions
 ```
 
-```ts{26}
-import functions from 'firebase-functions'
-import admin, { initializeApp, messaging } from 'firebase-admin'
+```ts
+import functions from "firebase-functions";
+import admin, { initializeApp, messaging } from "firebase-admin";
 
 initializeApp({
-  credential: admin.credential.applicationDefault()
-})
+  credential: admin.credential.applicationDefault(),
+});
 
 export const sendMessage = functions.firestore
-  .document('posts/{slug}')
+  .document("posts/{slug}")
   .onCreate((snapShot) => {
-    const { title, description, thumbnailUrl, path } = snapShot.data()
+    const { title, description, thumbnailUrl, path } = snapShot.data();
 
-    const tokens = ['<token>']
+    const tokens = ["<token>"];
     const content: messaging.MulticastMessage = {
       notification: {
         title,
         body: description,
-        imageUrl: thumbnailUrl
+        imageUrl: thumbnailUrl,
       },
       data: {
-        pathname: path
+        pathname: path,
       },
-      tokens
-    }
+      tokens,
+    };
 
-    return messaging().sendMulticast(content)
-  })
+    return messaging().sendMulticast(content);
+  });
 ```
 
 例では、Cloud Firestore
@@ -387,18 +390,18 @@ URL を開くように変更してみましょう。
 
 メッセージとして次のデータを送ることとします。
 
-```ts{7-9}
+```ts
 const message: messaging.MulticastMessage = {
   notification: {
     title,
     body,
-    imageUrl
+    imageUrl,
   },
   data: {
-    pathname: path
+    pathname: path,
   },
-  tokens
-}
+  tokens,
+};
 ```
 
 先の例で、`data`
@@ -406,7 +409,9 @@ const message: messaging.MulticastMessage = {
 
 Service worker で受け取るペイロードは次のデータ構造になります。
 
-```ts:sw.ts{5}
+sw.ts
+
+```ts
 const payload = {
   notification: {
     title,
@@ -424,49 +429,52 @@ const payload = {
 というキーに変わっていることに注意が必要です。 これをさらに `showNotification`
 に受け渡します。
 
-```ts:sw.ts{11}
+sw.ts
+
+```ts
 onBackgroundMessage(messaging, ({ notification, data }) => {
-  const { title, body, image } = notification ?? {}
+  const { title, body, image } = notification ?? {};
 
   if (!title) {
-    return
+    return;
   }
 
   self.registration.showNotification(title, {
     body,
     icon: image,
-    data
-  })
-})
+    data,
+  });
+});
 ```
 
 通知のクリックは `notificationclick` イベントをリッスンします。
 
-```ts:sw.ts{2,10,18}
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close()
+sw.ts
 
-  if (!event.notification.data.pathname) return
-  const pathname = event.notification.data.pathname
-  const url = new URL(pathname, self.location.origin).href
+```ts
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+
+  if (!event.notification.data.pathname) return;
+  const pathname = event.notification.data.pathname;
+  const url = new URL(pathname, self.location.origin).href;
 
   event.waitUntil(
     self.clients
-      .matchAll({ type: 'window', includeUncontrolled: true })
+      .matchAll({ type: "window", includeUncontrolled: true })
       .then((clientsArr) => {
         const hadWindowToFocus = clientsArr.some((windowClient) =>
           windowClient.url === url ? (windowClient.focus(), true) : false
-        )
+        );
 
-        if (!hadWindowToFocus)
+        if (!hadWindowToFocus) {
           self.clients
             .openWindow(url)
-            .then((windowClient) =>
-              windowClient ? windowClient.focus() : null
-            )
-      })
-  )
-})
+            .then((windowClient) => windowClient ? windowClient.focus() : null);
+        }
+      }),
+  );
+});
 ```
 
 ここでは、通知に渡した URL と同じ URL
@@ -499,8 +507,6 @@ deleteToken(messaging);
 `deleteToken` で通知を解除できます。
 
 トークンがなくてもエラーは発生しません。
-
-<!-- [^2]: 例えば `deleteToken` を何度も呼び出すなど -->
 
 ### ユーザーがプッシュ通知を購読しているかどうか
 

@@ -32,7 +32,9 @@ npx tailwind init
 続いて、tailwind
 のディレクティブを注入するために、スタイルファイルを用意します。
 
-```css:src/assets/styles/tailwind.scss
+src/assets/styles/tailwind.scss
+
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,10 +42,12 @@ npx tailwind init
 
 PostCSS の設定ファイルも必要なので、プロジェクトルートに用意します。
 
-```js:postcss.config.js
+postcss.config.js
+
+```js
 module.exports = {
-  plugins: [require('tailwindcss'), require('autoprefixer')],
-}
+  plugins: [require("tailwindcss"), require("autoprefixer")],
+};
 ```
 
 最後にスタイルファイルをエントリーポイントでインポートします。
@@ -51,13 +55,15 @@ module.exports = {
 > [!WARNING]
 > 例ではパスエイリアスでパスを指定しています。各自適切なパスを設定してください。
 
-```ts:src/main.ts
-import { createApp } from 'vue'
-import App from '/@/App.vue'
-import '/@/assets/styles/main.scss'
-import '/@/assets/styles/tailwind.scss'
+src/main.ts
 
-createApp(App).mount('#app')
+```ts
+import { createApp } from "vue";
+import App from "/@/App.vue";
+import "/@/assets/styles/main.scss";
+import "/@/assets/styles/tailwind.scss";
+
+createApp(App).mount("#app");
 ```
 
 これで開発時に Utility Class を使えるようになりました。
@@ -71,7 +77,9 @@ VSCode では tailwind のインテリセンスを効かせることができま
 ではデフォルトで`css`のバリデーションを行っているので、`unknownAtRules`が出ています。
 それを、解消するには以下のように`settings.json`に設定します。
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "scss.validate": false,
   "css.validate": false
@@ -83,7 +91,9 @@ Stylelint のルールに引っかかることがあります。
 
 これを解消しましょう。
 
-```json:.stylelintrc
+.stylelintrc
+
+```json
 {
   "rules": {
     "at-rule-no-unknown": [
@@ -94,10 +104,10 @@ Stylelint のルールに引っかかることがあります。
           "apply",
           "variants",
           "responsive",
-          "screen",
-        ],
-      },
-    ],
+          "screen"
+        ]
+      }
+    ]
   }
 }
 ```
@@ -110,11 +120,13 @@ tailwind はそのままビルドしてしまうと、使っていない膨大�
 Tailwind CSS は PurgeCSS
 を標準でサポートしているため、設定してビルドを最適化しましょう。
 
-```js:tailwind.config.js
+tailwind.config.js
+
+```js
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { join } = require('path')
-const BASE_DIR = join(__dirname, 'src')
-const VUE_FILE = join('**', '*.vue')
+const { join } = require("path");
+const BASE_DIR = join(__dirname, "src");
+const VUE_FILE = join("**", "*.vue");
 
 const config = {
   future: {
@@ -123,17 +135,17 @@ const config = {
   },
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    content: [join(BASE_DIR, VUE_FILE), join(__dirname, '*.html')],
+    enabled: process.env.NODE_ENV === "production",
+    content: [join(BASE_DIR, VUE_FILE), join(__dirname, "*.html")],
   },
   theme: {
     extend: {},
   },
   variants: {},
-  plugins:[],
-}
+  plugins: [],
+};
 
-module.exports = config
+module.exports = config;
 ```
 
 ちなみに ES Module 形式ではなく、CommonJS 形式で記述している理由は、Tailwind CSS

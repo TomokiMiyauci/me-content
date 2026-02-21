@@ -109,9 +109,9 @@ Tuples are not necessarily `readonly`, but since tuples are often defined using
 the `const` assertion, I'll support `readonly` first. Since I can't accept
 `readonly` types at this point, extend the generics.
 
-```ts{1}
+```ts
 const head = <T extends readonly unknown[]>(val: T): T[number] | undefined =>
-  head[0]
+  head[0];
 ```
 
 Just add the `readonly` signature to the generics. Now you can get `readonly`
@@ -125,11 +125,12 @@ head(readonlyArray); // string | undefined
 Now that we're ready, let's see what happens when we receive a tuple in our
 current function.
 
-```ts{1,3}
-const head = <T extends readonly unknown[]>(val: T): T[number] | undefined => head[0]
+```ts
+const head = <T extends readonly unknown[]>(val: T): T[number] | undefined =>
+  head[0];
 
-const tuple = ['hello', 'world'] as const // readonly ['hello', 'world']
-head(tuple) // "hello" | "world" | undefined
+const tuple = ["hello", "world"] as const; // readonly ['hello', 'world']
+head(tuple); // "hello" | "world" | undefined
 ```
 
 All elements of the tuple and `undefined` are now enumerated in Union type.
@@ -141,7 +142,7 @@ other than the first to be type-inferred. Therefore, we will use
 [`Conditional Types`](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)
 to make sure that we get the correct type inference.
 
-```ts{3}
+```ts
 const head <T extends readonly unknown[]> = (val: T): T extends readonly [infer U, ...infer _]
   ? U
   : T[0] | undefined => val[0] as any
@@ -164,22 +165,18 @@ type of the implementation is set to `any` is that the type inference of the
 return value of the implementation and the return type of the function no longer
 match due to `Conditional Types`.
 
-<!-- [^1] -->
-
-<!-- [^1]: The return value of the function is now more detailed. -->
-
 There are several ways to work around this, but for now we'll assume `any`.
 
 The return type is getting messy, so I split the implementation and the type
 definition as follows:
 
-```ts{6}
-type Head<T extends readonly unknown[]> = T extends readonly [infer U, ...infer _]
-  ? U
-  : T[0] | undefined
+```ts
+type Head<T extends readonly unknown[]> = T extends
+  readonly [infer U, ...infer _] ? U
+  : T[0] | undefined;
 
 const head = <T extends readonly unknown[]>(val: T): Head<T> =>
-  val[0] as Head<T>
+  val[0] as Head<T>;
 ```
 
 The type of the implementation we just `any`, can be defined without `any` by
@@ -202,15 +199,7 @@ The `head` function only targets tuples and arrays, but we want to target
 strings as well. Packages that implement the `head` function, such as
 [rambda#head](https://ramdajs.com/docs/#head), also target strings.
 
-<!-- [^2]: Though with weaker type inference -->
-
 The `Haskell` `head` function also takes `[Char]` as an argument.
-
-<!-- [^3] -->
-
-<!-- [^3]: The `head` function of `Haskell` has some differences, such as throwing an
-    exception if an empty array is passed, so we are not aiming to follow it
-    strictly. -->
 
 Now, before processing the string, we check the expected value. The processing
 of strings in the `head` function should have the following specifications.
@@ -253,11 +242,6 @@ the beginning of the string was inferred.
 
 Now, `${infer L}${string}`, which is a `Template Literal Types`, turns out to
 represent a match against a string of one or more characters.
-
-<!-- [^4] -->
-<!--
-[^4]: JavaScript and TypeScript do not explicitly distinguish between characters
-    and strings. -->
 
 By the way, if you refer to the backward part of the string data structure, the
 following result is obtained.
@@ -304,22 +288,19 @@ type Head<T extends readonly unknown[] | string> = T extends string
 
 Of course, this type can also be split into `string` and `array`.
 
-```ts{11,13}
-type HeadString<T extends string> = T extends `${infer L}${string}`
-  ? L
-  : T extends ''
-  ? ''
-  : string
+```ts
+type HeadString<T extends string> = T extends `${infer L}${string}` ? L
+  : T extends "" ? ""
+  : string;
 
-type HeadArray<T extends readonly unknown[]> = T extends readonly [infer U, ...infer _]
-  ? U
-  : T[0] | undefined
+type HeadArray<T extends readonly unknown[]> = T extends
+  readonly [infer U, ...infer _] ? U
+  : T[0] | undefined;
 
 type Head<T extends readonly unknown[] | string> = T extends string
   ? HeadString<T>
-  : T extends readonly unknown[]
-  ? HeadArray<T>
-  : never
+  : T extends readonly unknown[] ? HeadArray<T>
+  : never;
 ```
 
 Splitting types is good from the point of view of readability. But as shown
@@ -416,30 +397,23 @@ it has the following features.
 
 Function declaration is the most common notation.
 
-<!-- [^5] -->
-
-<!-- [^5]: even Deno's Standard Library is mostly in this notation -->
-
 On the other hand, arrow functions have the above restrictions, but in other
 situations, functions can be defined concisely.
 
 Also, I think I read somewhere that overloading is not possible with Arrow
 functions, but it is. It looks like this:
 
-```ts{10}
+```ts
 const head: {
-  <T extends string>(val: T): T extends `${infer F}${string}`
-    ? F
-    : T extends ''
-    ? ''
-    : string
-  <T extends unknown[]>(val: T): T extends readonly [infer U, ...infer _]
-    ? U
-    : T[0] | undefined
+  <T extends string>(val: T): T extends `${infer F}${string}` ? F
+    : T extends "" ? ""
+    : string;
+  <T extends unknown[]>(val: T): T extends readonly [infer U, ...infer _] ? U
+    : T[0] | undefined;
 } = (val: string | unknown[]): any => {
-  const _head = (val as string | unknown[])[0]
-  return Array.isArray(val) ? _head : _head ?? ''
-}
+  const _head = (val as string | unknown[])[0];
+  return Array.isArray(val) ? _head : _head ?? "";
+};
 ```
 
 As with function declaration, you can write them separately in `string` and

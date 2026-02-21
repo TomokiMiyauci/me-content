@@ -71,18 +71,26 @@ user experience in the editor.~~
 
 ~~To fix this, need to create a type declaration file for vue.~~
 
-```ts:src/shims-vue.d.ts
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-  const component: DefineComponent<Record<string,unknown>, Record<string,unknown>, unknown>
-  export default component
+src/shims-vue.d.ts
+
+```ts
+declare module "*.vue" {
+  import type { DefineComponent } from "vue";
+  const component: DefineComponent<
+    Record<string, unknown>,
+    Record<string, unknown>,
+    unknown
+  >;
+  export default component;
 }
 ```
 
 ~~Place the `tsconfig.json` in your project root. This will tell the editor to
 recognize the project as a Typescript project.~~
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     "target": "es5",
@@ -111,7 +119,7 @@ recognize the project as a Typescript project.~~
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
+    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules"
@@ -129,13 +137,15 @@ Development without a linter is tough, so be sure to install it.
 npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "root": true,
   "env": {
-      "browser": true,
-      "es2021": true,
-      "node": true
+    "browser": true,
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "plugin:vue/vue3-recommended",
@@ -143,10 +153,9 @@ npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-esli
     "@vue/typescript/recommended"
   ],
   "parserOptions": {
-      "ecmaVersion": 2021
+    "ecmaVersion": 2021
   },
-  "plugins": [
-  ],
+  "plugins": [],
   "rules": {
   }
 }
@@ -154,18 +163,26 @@ npm i -D eslint eslint-plugin-vue @vue/eslint-config-typescript @typescript-esli
 
 This will result in an error, so we will modify the type definition.
 
-```ts:src/shims-vue.d.ts
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-  const component: DefineComponent<Record<string,unknown>, Record<string,unknown>, unknown>
-  export default component
+src/shims-vue.d.ts
+
+```ts
+declare module "*.vue" {
+  import type { DefineComponent } from "vue";
+  const component: DefineComponent<
+    Record<string, unknown>,
+    Record<string, unknown>,
+    unknown
+  >;
+  export default component;
 }
 ```
 
 It is easy to prepare a linting command in the `script` of the `package.json`
 for later.
 
-```json:package.json
+package.json
+
+```json
 "scripts": {
   "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
 }
@@ -184,7 +201,9 @@ formatting work. An extension to ESLint is required, so if you don't have it,
 please install it
 [see here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -205,7 +224,9 @@ npm i -D husky lint-staged
 
 Add the following to `package.json`.
 
-```json:package.json
+package.json
+
+```json
 {
   "husky": {
     "hooks": {
@@ -232,7 +253,9 @@ automatically remove semicolons in Typescript code.
 npm i -D prettier eslint-plugin-prettier @vue/eslint-config-prettier
 ```
 
-```json:.prettierrc
+.prettierrc
+
+```json
 {
   "singleQuote": true,
   "semi": false,
@@ -243,7 +266,9 @@ npm i -D prettier eslint-plugin-prettier @vue/eslint-config-prettier
 When ESLint and Prettier are used together, I need to fix the `.eslintrc` to
 avoid duplicate rules.
 
-```json:.eslintrc
+.eslintrc
+
+```json
 {
   "extends": [
     "plugin:vue/vue3-recommended",
@@ -265,9 +290,11 @@ npm run prettier -w -u .
 I want to apply automatic formatting before committing, so add the setting to
 `lint-staged`.
 
-```json:package.json
+package.json
+
+```json
 {
- "lint-staged": {
+  "lint-staged": {
     "*.{ts,vue}": "eslint --fix",
     "*": "prettier -w -u" // Set prettier to last
   }
@@ -278,7 +305,9 @@ VSCode users can format it automatically with the following settings. Also, an
 extension is required, so if it is not available, please install it
 [here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
-```json:.vscode/settings.json
+.vscode/settings.json
+
+```json
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -293,7 +322,9 @@ Let's make the style a target for linting as well.
 npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 ```
 
-```json:.stylelintrc
+.stylelintrc
+
+```json
 {
   "extends": ["stylelint-config-recommended", "stylelint-config-standard"]
 }
@@ -301,7 +332,9 @@ npm i -D stylelint stylelint-config-recommended stylelint-config-standard
 
 Edit the `package.json` and set the commands and lint-staged.
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "lint:style": "stylelint src/**/*.{css,scss,vue}"
@@ -325,24 +358,28 @@ That's the end of the basic setup of the linker and formatter.
 The import of the module is relative by default, but you want to set an alias to
 always refer to the same root.
 
-```ts:vite.config.ts
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+vite.config.ts
+
+```ts
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { resolve } from "path";
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
-  plugins: [vue()]
-})
+  plugins: [vue()],
+});
 ```
 
 Also change `tsconfig.json`.
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     //...
@@ -356,9 +393,11 @@ Also change `tsconfig.json`.
 
 Now you can set up alias. I'll use it like this.
 
-```html:App.vue
+App.vue
+
+```html
 <script lang="ts">
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 ```
 
@@ -370,20 +409,24 @@ It is installed when the template is generated. However, as of
 `@vue/runtime-dom@3.1.4`, it does not work unless `skipLibCheck` in
 `tsconfig.json` is set to `true`.
 
-```json:tsconfig.json
+tsconfig.json
+
+```json
 {
   "compilerOptions": {
     //...
     "skipLibCheck": true
-  },
+  }
 }
 ```
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     //...
-    "lint:markup": "vue-tsc --noEmit",
+    "lint:markup": "vue-tsc --noEmit"
   }
 }
 ```

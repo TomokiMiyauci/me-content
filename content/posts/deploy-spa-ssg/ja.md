@@ -44,47 +44,53 @@ yarn add vue-router@next
 
 ルーティングテーブルは後述する  SSG と同じにします。
 
-```ts:src/route.ts {1}
-import type { RouteRecordRaw } from 'vue-router'
+src/route.ts
 
-import Index from './pages/index.vue'
+```ts
+import type { RouteRecordRaw } from "vue-router";
+
+import Index from "./pages/index.vue";
 
 const routes: RouteRecordRaw[] = [{
-    component: Index,
-    path: '/'
-},{
-    component: () => import('./pages/hello.vue'),
-    path: '/hello'
-},{
-    component: () => import('./pages/hello-world.vue'),
-    path: '/hello/world'
-},{
-    component: () => import('./pages/:name.vue'),
-    path: '/hello/:id'
-}]
+  component: Index,
+  path: "/",
+}, {
+  component: () => import("./pages/hello.vue"),
+  path: "/hello",
+}, {
+  component: () => import("./pages/hello-world.vue"),
+  path: "/hello/world",
+}, {
+  component: () => import("./pages/:name.vue"),
+  path: "/hello/:id",
+}];
 
-export default routes
+export default routes;
 ```
 
-```ts:src/main.ts
-import { createApp } from 'vue'
-import App from './App.vue'
-import {createRouter, createWebHistory} from 'vue-router'
-import routes from './routes'
+src/main.ts
 
-const history = createWebHistory()
+```ts
+import { createApp } from "vue";
+import App from "./App.vue";
+import { createRouter, createWebHistory } from "vue-router";
+import routes from "./routes";
+
+const history = createWebHistory();
 const router = createRouter({
-    routes,
-    history
-})
+  routes,
+  history,
+});
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).mount("#app");
 ```
 
-```tsx:src/App.vue
+src/App.vue
+
+```tsx
 <template>
   <router-view />
-</template>
+</template>;
 ```
 
 この状態でビルドすると次のようなファイル構造になります。
@@ -105,7 +111,9 @@ SPA なので`index.html`と assets
 の中にページごとにチャンクされた`js`ファイルが生成されています。ちなみにページ単位のチャンク分割は、ルーティングの設定の際、dynamic
 import でコンポーネントを設定すると適応されます。
 
-```ts:src/routes.ts
+src/routes.ts
+
+```ts
 const routes: RouteRecordRaw[] = [{
     component: Index,
     path: '/'
@@ -125,7 +133,9 @@ firebase init
 
 `publish`オプションをビルドのアウトプットディレクトリを同じにする必要があります。
 
-```json:firebase.json
+firebase.json
+
+```json
 {
   "hosting": {
     "public": "dist",
@@ -187,49 +197,54 @@ yarn add -D vue-router@next vite-ssg @vue/server-renderer @vue/compiler-sfc
 
 以下のようにビルドコマンドを変更します。
 
-```json:package.json
+package.json
+
+```json
 {
   "scripts": {
     "dev": "vite",
-    "build": "vite-ssg build",
+    "build": "vite-ssg build"
   }
 }
 ```
 
-```ts:src/main.ts
-import { ViteSSG } from 'vite-ssg'
-import App from './App.vue'
-import routes from './routes'
+src/main.ts
+
+```ts
+import { ViteSSG } from "vite-ssg";
+import App from "./App.vue";
+import routes from "./routes";
 
 export const createApp = ViteSSG(
   App,
   { routes },
-)
+);
 ```
 
 ルーティングテーブルは SPA と同じとします。
 
-```ts:src/routes.ts
-import type {RouteRecordRaw} from 'vue-router'
+src/routes.ts
 
-import Index from './pages/index.vue'
+```ts
+import type { RouteRecordRaw } from "vue-router";
+
+import Index from "./pages/index.vue";
 
 const routes: RouteRecordRaw[] = [{
-    component: Index,
-    path: '/'
-},{
-    component: () => import('./pages/hello.vue'),
-    path: '/hello'
-},{
-    component: () => import('./pages/hello-world.vue'),
-    path: '/hello/world'
-},{
-    component: () => import('./pages/:name.vue'),
-    path: '/hello/:id'
-},
-{ path: '/:pathMatch(.*)*', component: () => import('./pages/404.vue') }]
+  component: Index,
+  path: "/",
+}, {
+  component: () => import("./pages/hello.vue"),
+  path: "/hello",
+}, {
+  component: () => import("./pages/hello-world.vue"),
+  path: "/hello/world",
+}, {
+  component: () => import("./pages/:name.vue"),
+  path: "/hello/:id",
+}, { path: "/:pathMatch(.*)*", component: () => import("./pages/404.vue") }];
 
-export default routes
+export default routes;
 ```
 
 この状態でビルドすると、次のような出力を得られます。
@@ -254,7 +269,9 @@ export default routes
 ファイルが出力されていますね。動的ルーティングは、ビルド時にパラメータを渡してあげなければ、静的ファイルは生成されません。
 Firebase Hosting の設定は、ひとまずデフォルトである次のようにしておきます。
 
-```json:firebase.json
+firebase.json
+
+```json
 {
   "hosting": {
     "public": "dist",
@@ -303,13 +320,15 @@ SSG
 とてもシンプルですね:sparkles:。このパターンリダイレクトは多くの Web
 サーバには簡単に設定できるので Firebase Hosting の場合を見てみましょう。
 
-```json:firebase.json
+firebase.json
+
+```json
 {
   "hosting": {
     // ...,
     "cleanUrls": true,
     "trailingSlash": false
-  },
+  }
 }
 ```
 

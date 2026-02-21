@@ -120,36 +120,38 @@ There is an example of building a web worker in a separate process using
 `esbuild` in my previous article, so please refer to that article
 [Building a Service worker](/posts/firebase-authentication-service-worker/#build-the-service-worker).
 
-```ts:sw.ts{12,16,23}
-import { onBackgroundMessage } from 'firebase/messaging/sw'
-import { initializeApp, FirebaseOptions } from 'firebase/app'
-import { getMessaging, isSupported } from 'firebase/messaging/sw'
+sw.ts
 
-declare let self: ServiceWorkerGlobalScope
-const app = initializeApp(/* firebaseOptions */)
+```ts
+import { onBackgroundMessage } from "firebase/messaging/sw";
+import { FirebaseOptions, initializeApp } from "firebase/app";
+import { getMessaging, isSupported } from "firebase/messaging/sw";
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim())
-})
+declare let self: ServiceWorkerGlobalScope;
+const app = initializeApp(); /* firebaseOptions */
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
+});
 
 isSupported()
   .then(() => {
-    const messaging = getMessaging(app)
+    const messaging = getMessaging(app);
 
     onBackgroundMessage(messaging, ({ notification }) => {
-      const { title, body, image } = notification ?? {}
+      const { title, body, image } = notification ?? {};
 
       if (!title) {
-        return
+        return;
       }
 
       self.registration.showNotification(title, {
         body,
-        icon: image
-      })
-    })
+        icon: image,
+      });
+    });
   })
-  .catch(/* error */)
+  .catch(); /* error */
 ```
 
 `isSupported` is a utility that returns a `Promise<boolean>`. This check allows
@@ -194,28 +196,29 @@ TypeScript, you can use type extensions to complement types.
 
 For reference, if you use `importScripts`, you can extend the type as follows.
 
-```ts:sw.ts
-import type firebase from 'firebase/compat/app'
+sw.ts
+
+```ts
+import type firebase from "firebase/compat/app";
 
 declare let self: ServiceWorkerGlobalScope & {
-  firebase: typeof firebase
-}
+  firebase: typeof firebase;
+};
 
-importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js')
 importScripts(
-  'https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js'
-)
+  "https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js",
+);
+importScripts(
+  "https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js",
+);
 
-const app = self.firebase.initializeApp(/* config */)
+const app = self.firebase.initializeApp(); /* config */
 ```
 
 On the other hand, it may complicate version control. Since it cannot be handled
 by the package manager, double management is likely to occur. Especially in the
 case of the Firebase SDK, it is safer to match the package versions of the
 `Window` and `Worker` scopes.
-
-<!-- [^1]: When I used the compat version for the service worker and the functional
-    version for the main thread together, it did not work properly. -->
 
 If you write the main part in TypeScript, you can't avoid transpiling, so
 bundling can be done incidentally. Personally, I recommend the module bundling
@@ -250,22 +253,22 @@ Now that we have confirmed that the notifications are displayed, we need to get
 the user token. This is equivalent to the user's subscription information
 mentioned above. We will do this in the `Window` scope.
 
-```ts{13-14}
-import { initializeApp, FirebaseOptions } from 'firebase/app'
-import { isSupported, getMessaging, getToken } from 'firebase/messaging'
+```ts
+import { FirebaseOptions, initializeApp } from "firebase/app";
+import { getMessaging, getToken, isSupported } from "firebase/messaging";
 
-const supported = await isSupported().catch(() => false)
+const supported = await isSupported().catch(() => false);
 if (!supported) {
-  return
+  return;
 }
 
-const sw = await window.navigator.serviceWorker.register('/sw.js')
+const sw = await window.navigator.serviceWorker.register("/sw.js");
 
-const app = initializeApp(firebaseOptions)
-const messaging = getMessaging(app)
+const app = initializeApp(firebaseOptions);
+const messaging = getMessaging(app);
 const token = await getToken(messaging, {
-  serviceWorkerRegistration: sw
-})
+  serviceWorkerRegistration: sw,
+});
 ```
 
 As with the service worker, check if the browser is supported by `isSupported`.
@@ -309,34 +312,34 @@ Let's take Cloud Functions for Firebase as an example.
 npm i firebase-admin firebase-functions
 ```
 
-```ts{26}
-import functions from 'firebase-functions'
-import admin, { initializeApp, messaging } from 'firebase-admin'
+```ts
+import functions from "firebase-functions";
+import admin, { initializeApp, messaging } from "firebase-admin";
 
 initializeApp({
-  credential: admin.credential.applicationDefault()
-})
+  credential: admin.credential.applicationDefault(),
+});
 
 export const sendMessage = functions.firestore
-  .document('posts/{slug}')
+  .document("posts/{slug}")
   .onCreate((snapShot) => {
-    const { title, description, thumbnailUrl, path } = snapShot.data()
+    const { title, description, thumbnailUrl, path } = snapShot.data();
 
-    const tokens = ['<token>']
+    const tokens = ["<token>"];
     const content: messaging.MulticastMessage = {
       notification: {
         title,
         body: description,
-        imageUrl: thumbnailUrl
+        imageUrl: thumbnailUrl,
       },
       data: {
-        pathname: path
+        pathname: path,
       },
-      tokens
-    }
+      tokens,
+    };
 
-    return messaging().sendMulticast(content)
-  })
+    return messaging().sendMulticast(content);
+  });
 ```
 
 In the example, a message is sent to the device as the Cloud Firestore writes.
@@ -389,18 +392,18 @@ it so that a click on the notification opens the specified URL.
 
 Let's say we want to send the following data as a message:
 
-```ts{7-9}
+```ts
 const message: messaging.MulticastMessage = {
   notification: {
     title,
     body,
-    imageUrl
+    imageUrl,
   },
   data: {
-    pathname: path
+    pathname: path,
   },
-  tokens
-}
+  tokens,
+};
 ```
 
 In the previous example, we gave `data` a custom data. Let's specify the path of
@@ -409,7 +412,9 @@ the page that will be opened when the notification is clicked.
 The payload received by the service worker will have the following data
 structure.
 
-```ts:sw.ts{5}
+sw.ts
+
+```ts
 const payload = {
   notification: {
     title,
@@ -427,49 +432,52 @@ At first glance, the data structure looks the same. Note that `imageUrl` has
 been replaced with the key `image`. This is then passed on to
 `showNotification`.
 
-```ts:sw.ts{11}
+sw.ts
+
+```ts
 onBackgroundMessage(messaging, ({ notification, data }) => {
-  const { title, body, image } = notification ?? {}
+  const { title, body, image } = notification ?? {};
 
   if (!title) {
-    return
+    return;
   }
 
   self.registration.showNotification(title, {
     body,
     icon: image,
-    data
-  })
-})
+    data,
+  });
+});
 ```
 
 The `notificationclick` event is fired when a notification is clicked.
 
-```ts:sw.ts{2,10,18}
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close()
+sw.ts
 
-  if (!event.notification.data.pathname) return
-  const pathname = event.notification.data.pathname
-  const url = new URL(pathname, self.location.origin).href
+```ts
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+
+  if (!event.notification.data.pathname) return;
+  const pathname = event.notification.data.pathname;
+  const url = new URL(pathname, self.location.origin).href;
 
   event.waitUntil(
     self.clients
-      .matchAll({ type: 'window', includeUncontrolled: true })
+      .matchAll({ type: "window", includeUncontrolled: true })
       .then((clientsArr) => {
         const hadWindowToFocus = clientsArr.some((windowClient) =>
           windowClient.url === url ? (windowClient.focus(), true) : false
-        )
+        );
 
-        if (!hadWindowToFocus)
+        if (!hadWindowToFocus) {
           self.clients
             .openWindow(url)
-            .then((windowClient) =>
-              windowClient ? windowClient.focus() : null
-            )
-      })
-  )
-})
+            .then((windowClient) => windowClient ? windowClient.focus() : null);
+        }
+      }),
+  );
+});
 ```
 
 Here, if there is a window with the same URL as the one passed in the
@@ -504,8 +512,6 @@ deleteToken(messaging);
 You can cancel the notification with `deleteToken`.
 
 No error will occur without the token.
-
-<!-- [^2]: For example, calling `deleteToken` multiple times. -->
 
 ### Whether the user is subscribed to push notifications or not
 

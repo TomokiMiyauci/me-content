@@ -27,26 +27,23 @@ First, let's take a quick look at how JavaScript is executed. For example,
 Google Chrome's JavaScript Engine is [V8](https://v8.dev/docs#about-v8), but you
 can run it as follows:
 
-```plantuml
-@startuml
-:Source code;
-:AST;
-:Bytecode;
-:Graph;
-:Assembly;
-@enduml
+```mermaid
+graph TD
+  Source_code["Source code"] --> AST
+  AST --> Bytecode
+  Bytecode --> Graph
+  Graph --> Assembly
 ```
 
 Simplifying from getting the source code, it looks like this:
 
-```plantuml
-@startuml
-:Fetch;
-partition Evaluate {
-:Source code;
-:...;
-}
-@enduml
+```mermaid
+graph TD
+  Fetch["Fetch"] --> Source_code
+  
+  subgraph Evaluate
+    Source_code["Source code"] --> dots["..."]
+  end
 ```
 
 Obviously, you need to realize that fetching the script is the beginning of
@@ -63,7 +60,9 @@ enough.
 
 For example, consider the following example.
 
-```html:index.html
+index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <body>
@@ -72,8 +71,10 @@ For example, consider the following example.
 </html>
 ```
 
-```js:heavy.js
-console.log('Long words ...')
+heavy.js
+
+```js
+console.log("Long words ...");
 ```
 
 For `heavy.js`, let's say it's a very large executable. As soon as the `html` is
@@ -81,8 +82,6 @@ loaded, `heavy.js` will be executed.
 
 At this time, Even if you add `async` or `defer` attributes to the script tag,
 [TBT](https://web.dev/i18n/tbt/) will increase.
-
-<!-- [^1]: Total Blocking Time -->
 
 ### User Interaction and Lazy Strategies
 
@@ -92,27 +91,29 @@ any time, you can lazy load it.
 
 The simplest way is to use `setTimeout`.
 
-```html:index.html
+index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <body>
     <script type="module">
       window.addEventListener(
-        'load',
+        "load",
         () => {
           setTimeout(() => {
-            const script = document.createElement('script')
-            script.src = '/heavy.js'
-            script.async = true
+            const script = document.createElement("script");
+            script.src = "/heavy.js";
+            script.async = true;
 
-            const body = document.querySelector('body')
-            body.appendChild(script)
-          }, 3000)
+            const body = document.querySelector("body");
+            body.appendChild(script);
+          }, 3000);
         },
         {
-          once: true
-        }
-      )
+          once: true,
+        },
+      );
     </script>
   </body>
 </html>
@@ -124,9 +125,6 @@ Ligthouse's measurement coverage, but lazy loading allows us to **get out of the
 measurement**.
 
 Alternatively, you can delay until a user interaction occurs.
-
-<!-- [^2]: Events that are triggered by user actions, such as scrolling or clicking
-    events. -->
 
 ### Get out of the measurement?
 
@@ -162,19 +160,20 @@ more accurate picture of where the viewport intersects.
 
 Also, for lazy loading in React, the `React.lazy` function can be used.
 
-<!-- [^3]: This is not available on the server side, so you will need to use a third
-    party lazy function. -->
-
 ## React.lazy usage
 
 Let's take a quick look at the `React.lazy` usage, as I'm sure many of you know
 it. Basically, it just splits the files and wraps the components.
 
-```tsx:Dialog.tsx
-import type { FC } from 'react'
-const Dialog: FC<{ open: boolean }> = ({ open }) => <dialog {...{ open }}>...</dialog>
+Dialog.tsx
 
-export default Dialog
+```tsx
+import type { FC } from "react";
+const Dialog: FC<{ open: boolean }> = ({ open }) => (
+  <dialog {...{ open }}>...</dialog>
+);
+
+export default Dialog;
 ```
 
 ```tsx{4,8}
@@ -207,73 +206,74 @@ By the way, it doesn't make much sense to just wrap all components in
 `React.lazy`. On the contrary, it may cause [CLS](https://web.dev/cls/), which
 may degrade the UX.
 
-<!-- [^4]: Cumulative Layout Shift -->
-
 ## Intersection Observer component
 
 In the same way, we will delay the rendering of the component until it enters
 the viewport. A component with an intersection observer would look like this:
 
-```tsx:Intersection.tsx{32,45}
-import { useRef, useState, useEffect, createElement } from 'react'
+Intersection.tsx
+
+```tsx
+import { createElement, useEffect, useRef, useState } from "react";
 import type {
-  FC,
-  ReactNode,
-  ReactHTML,
   DetailedHTMLProps,
-  HTMLAttributes
-} from 'react'
+  FC,
+  HTMLAttributes,
+  ReactHTML,
+  ReactNode,
+} from "react";
 
 const Intersection: FC<
-  {
-    children: ReactNode
-    as?: keyof ReactHTML
-    keepRender?: boolean
-  } & IntersectionObserverInit &
-    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  & {
+    children: ReactNode;
+    as?: keyof ReactHTML;
+    keepRender?: boolean;
+  }
+  & IntersectionObserverInit
+  & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 > = ({
   children,
-  as = 'div',
+  as = "div",
   keepRender = true,
   root,
   rootMargin,
   threshold,
   ...props
 }) => {
-  const [isShow, setShow] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const [isShow, setShow] = useState(false);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry], obs) => {
         if (entry.isIntersecting) {
-          setShow(true)
+          setShow(true);
           if (keepRender && ref.current) {
-            obs.unobserve(ref.current)
+            obs.unobserve(ref.current);
           }
         } else {
-          setShow(false)
+          setShow(false);
         }
       },
-      { root, rootMargin, threshold }
-    )
+      { root, rootMargin, threshold },
+    );
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
-    return () => observer.disconnect()
-  }, [keepRender, root, rootMargin, threshold])
+    return () => observer.disconnect();
+  }, [keepRender, root, rootMargin, threshold]);
 
   return (
     <>
       {createElement(as, { ref, ...props })}
       {isShow && children}
     </>
-  )
-}
+  );
+};
 
-export default Intersection
+export default Intersection;
 ```
 
 What we are doing is very simple. We register an `IntersectionObserver` so that

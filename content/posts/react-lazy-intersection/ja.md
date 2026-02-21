@@ -27,26 +27,23 @@ cover_image: /posts/react-lazy-intersection/hero.png
 Chrome の JavaScript Engine は [V8](https://v8.dev/docs#about-v8)
 ですが、次のように実行します。
 
-```plantuml
-@startuml
-:Source code;
-:AST;
-:Bytecode;
-:Graph;
-:Assembly;
-@enduml
+```mermaid
+graph TD
+  Source_code["Source code"] --> AST
+  AST --> Bytecode
+  Bytecode --> Graph
+  Graph --> Assembly
 ```
 
 ソースコードの取得から単純化すると次のようになります。
 
-```plantuml
-@startuml
-:Fetch;
-partition Evaluate {
-:Source code;
-:...;
-}
-@enduml
+```mermaid
+graph TD
+  Fetch["Fetch"] --> Source_code
+  
+  subgraph Evaluate
+    Source_code["Source code"] --> dots["..."]
+  end
 ```
 
 当たり前ですが、スクリプトを fetch
@@ -62,7 +59,9 @@ JavaScript の実行はそのソースコードを fetch することから始�
 
 例えば次の例を考えます。
 
-```html:index.html
+index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <body>
@@ -71,8 +70,10 @@ JavaScript の実行はそのソースコードを fetch することから始�
 </html>
 ```
 
-```js:heavy.js
-console.log('Long words ...')
+heavy.js
+
+```js
+console.log("Long words ...");
 ```
 
 `heavy.js` では、とても大きな実行ファイルであるとします。 `html`
@@ -80,8 +81,6 @@ console.log('Long words ...')
 
 この時、いくらスクリプトタグに `async` や `defer`
 属性を付与しても、[TBT](https://web.dev/i18n/tbt/) は増加します。
-
-<!-- [^1]: Total Blocking Time -->
 
 ### ユーザーインタラクションと遅延戦略
 
@@ -92,27 +91,29 @@ console.log('Long words ...')
 
 最も単純な方法は、`setTimeout` を使うことです。
 
-```html:index.html
+index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <body>
     <script type="module">
       window.addEventListener(
-        'load',
+        "load",
         () => {
           setTimeout(() => {
-            const script = document.createElement('script')
-            script.src = '/heavy.js'
-            script.async = true
+            const script = document.createElement("script");
+            script.src = "/heavy.js";
+            script.async = true;
 
-            const body = document.querySelector('body')
-            body.appendChild(script)
-          }, 3000)
+            const body = document.querySelector("body");
+            body.appendChild(script);
+          }, 3000);
         },
         {
-          once: true
-        }
-      )
+          once: true,
+        },
+      );
     </script>
   </body>
 </html>
@@ -124,8 +125,6 @@ fetch が開始します。 Ligthouse
 
 また、時間指定ではなく、ユーザーインタラクション
 が発生するまで遅延する方法もあります。
-
-<!-- [^2]: スクロールやクリックイベントなど、ユーザー操作により発生するイベント -->
 
 ### 計測対象から逃れる？
 
@@ -158,18 +157,20 @@ fetch が開始します。 Ligthouse
 
 また、React で遅延ロードするには、`React.lazy` 関数が利用できます。
 
-<!-- [^3]: サーバーサイドでは利用できないため、サードパーティの遅延関数を利用する必要があります。 -->
-
 ## React.lazy の使い方
 
 多くの方が知っていると思うので、簡単に `React.lazy` 使い方を見てみます。
 基本的にはファイル分割して、コンポーネントをラップするだけです。
 
-```tsx:Dialog.tsx
-import type { FC } from 'react'
-const Dialog: FC<{ open: boolean }> = ({ open }) => <dialog {...{ open }}>...</dialog>
+Dialog.tsx
 
-export default Dialog
+```tsx
+import type { FC } from "react";
+const Dialog: FC<{ open: boolean }> = ({ open }) => (
+  <dialog {...{ open }}>...</dialog>
+);
+
+export default Dialog;
 ```
 
 ```tsx{4,8}
@@ -202,8 +203,6 @@ const Index: FC = () => {
 それどころか、[CLS](https://web.dev/cls/)  が発生するため、UX
 が低下する可能性があります。
 
-<!-- [^4]: Cumulative Layout Shift -->
-
 初期描写に関係ない部分に対し、ユーザーイベントに連動してスクリプトがロードされるのが理想的です。
 
 ## インターセクションオブザーバーコンポーネント
@@ -211,66 +210,69 @@ const Index: FC = () => {
 同じようにして、ビューポートに入るまでコンポーネントのレンダリングを遅延します。
 インターセクションオブザーバーを使ったコンポーネントは次のようになります。
 
-```tsx:Intersection.tsx{32,45}
-import { useRef, useState, useEffect, createElement } from 'react'
+Intersection.tsx
+
+```tsx
+import { createElement, useEffect, useRef, useState } from "react";
 import type {
-  FC,
-  ReactNode,
-  ReactHTML,
   DetailedHTMLProps,
-  HTMLAttributes
-} from 'react'
+  FC,
+  HTMLAttributes,
+  ReactHTML,
+  ReactNode,
+} from "react";
 
 const Intersection: FC<
-  {
-    children: ReactNode
-    as?: keyof ReactHTML
-    keepRender?: boolean
-  } & IntersectionObserverInit &
-    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  & {
+    children: ReactNode;
+    as?: keyof ReactHTML;
+    keepRender?: boolean;
+  }
+  & IntersectionObserverInit
+  & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 > = ({
   children,
-  as = 'div',
+  as = "div",
   keepRender = true,
   root,
   rootMargin,
   threshold,
   ...props
 }) => {
-  const [isShow, setShow] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const [isShow, setShow] = useState(false);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry], obs) => {
         if (entry.isIntersecting) {
-          setShow(true)
+          setShow(true);
           if (keepRender && ref.current) {
-            obs.unobserve(ref.current)
+            obs.unobserve(ref.current);
           }
         } else {
-          setShow(false)
+          setShow(false);
         }
       },
-      { root, rootMargin, threshold }
-    )
+      { root, rootMargin, threshold },
+    );
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
-    return () => observer.disconnect()
-  }, [keepRender, root, rootMargin, threshold])
+    return () => observer.disconnect();
+  }, [keepRender, root, rootMargin, threshold]);
 
   return (
     <>
       {createElement(as, { ref, ...props })}
       {isShow && children}
     </>
-  )
-}
+  );
+};
 
-export default Intersection
+export default Intersection;
 ```
 
 やっていることは非常に単純です。`children`
