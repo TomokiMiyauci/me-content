@@ -3,6 +3,10 @@
     {
       "value": "content/posts/site-renewal/en.md",
       "key": "en"
+    },
+    {
+      "value": "content/posts/site-renewal/ja.md",
+      "key": "ja"
     }
   ]
 }
