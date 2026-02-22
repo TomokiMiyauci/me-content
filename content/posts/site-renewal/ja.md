@@ -1,7 +1,9 @@
 ---
 title: ウェブサイトをリニューアルしました（SSG から RSC へ）
 slug: site-renewal
-published_at: 2026-02-21T01:51:56.691Z
+description: ウェブサイトのアーキテクチャを見直し、SSG から React Server Components を前提とした構成へ移行しました。あわせてランタイムを Node.js から Deno に変更し、コンテンツ管理方法も刷新しています。
+cover_image: /posts/site-renewal/hero.png
+published_at: 2026-01-01T01:51:56.691Z
 language: ja
 ---
 
@@ -29,7 +31,7 @@ SSG はシンプルで堅牢な構成ですが、すべてをビルド時に確�
 
 今回、React Server Components（RSC）を前提とした構成に移行したことで、
 
-サイトは** 静的ファイルの集合**ではなく、**サーバー上で動作するアプリケーション**として再構成されています。
+サイトは\*\* 静的ファイルの集合\*\*ではなく、**サーバー上で動作するアプリケーション**として再構成されています。
 
 これによって、
 
