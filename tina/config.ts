@@ -5,6 +5,7 @@ import schema from "./schema.ts";
 const clientId = process.env["TINA_CLIENT_ID"];
 const token = process.env["TINA_TOKEN"];
 const branch = process.env["TINA_BRANCH"];
+const indexerToken = process.env["TINA_SEARCH_TOKEN"];
 
 export default defineConfig({
   branch,
@@ -25,6 +26,9 @@ export default defineConfig({
   build: {
     publicFolder: "dist", // The public asset folder for your framework
     outputFolder: "./", // within the public folder
+  },
+  search: {
+    tina: { indexerToken },
   },
   schema,
   client: { skip: true },
