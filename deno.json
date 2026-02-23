@@ -8,9 +8,13 @@
       "command": "deno x --unstable-bare-node-builtins @tinacms/cli build --skip-indexing --skip-cloud-checks --skip-search-index && rm dist/.gitignore",
       "description": "Build artifact"
     },
-    "lint:content": {
+    "lint:schema": {
       "command": "deno x --unstable-bare-node-builtins @tinacms/cli audit",
-      "description": "Audit content"
+      "description": "Lint schema"
+    },
+    "lint:content": {
+      "command": "deno run --allow-read scripts/validator.ts",
+      "description": "Lint content"
     },
     "lint": {
       "command": "deno task \"lint:*\"",
