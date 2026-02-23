@@ -2,7 +2,7 @@
 title: Website Renewal (From SSG to RSC)
 slug: site-renewal
 description: 'We’ve revisited the architecture of this website and migrated from an SSG-based setup to one built around React Server Components. At the same time, the runtime has been moved from Node.js to Deno, and the way content is managed has been updated as well.'
-cover_image: /posts/site-renewal/hero.png
+cover_image: /posts/site_renewal/hero.png
 published_at: 2026-01-01T06:33:25.123Z
 language: en
 ---
