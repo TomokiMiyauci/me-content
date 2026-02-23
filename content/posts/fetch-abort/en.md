@@ -4,7 +4,7 @@ description: Introduces how to abort an HTTP request using fetch. It also covers
 published_at: 2021-06-10
 slug: fetch-abort
 language: en
-cover_image: /posts/fetch-abort/hero.png
+cover_image: /posts/fetch_abort/hero.png
 ---
 
 ## Introduction

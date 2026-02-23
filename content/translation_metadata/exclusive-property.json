@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/exclusive-property/en.md",
+      "value": "content/posts/exclusive_property/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/exclusive-property/ja.md",
+      "value": "content/posts/exclusive_property/ja.md",
       "key": "ja"
     }
   ]

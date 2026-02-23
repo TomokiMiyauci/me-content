@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/deno-lambda-cdk/en.md",
+      "value": "content/posts/deno_lambda_cdk/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/deno-lambda-cdk/ja.md",
+      "value": "content/posts/deno_lambda_cdk/ja.md",
       "key": "ja"
     }
   ]

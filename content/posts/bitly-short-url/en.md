@@ -3,7 +3,7 @@ title: Dynamically create short URL with Bitly and tweet
 description: Introduce how to generate short URL dynamically with Bitly. Also, since tweets are an effective use of short URL, I will also explain how to dynamically tweet.
 published_at: 2021-08-07
 slug: bitly-short-url
-cover_image: /posts/bitly-short-url/hero.png
+cover_image: /posts/bitly_short_url/hero.png
 language: en
 ---
 

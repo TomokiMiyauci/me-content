@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/dts-deno-module/en.md",
+      "value": "content/posts/dts_deno_module/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/dts-deno-module/ja.md",
+      "value": "content/posts/dts_deno_module/ja.md",
       "key": "ja"
     }
   ]

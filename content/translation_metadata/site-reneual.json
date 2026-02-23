@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/site-renewal/en.md",
+      "value": "content/posts/site_renewal/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/site-renewal/ja.md",
+      "value": "content/posts/site_renewal/ja.md",
       "key": "ja"
     }
   ]

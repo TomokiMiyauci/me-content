@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/typescript-conditional-types/en.md",
+      "value": "content/posts/typescript_conditional_types/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/typescript-conditional-types/ja.md",
+      "value": "content/posts/typescript_conditional_types/ja.md",
       "key": "ja"
     }
   ]

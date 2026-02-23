@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/fcm-push-message/en.md",
+      "value": "content/posts/fcm_push_message/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/fcm-push-message/ja.md",
+      "value": "content/posts/fcm_push_message/ja.md",
       "key": "ja"
     }
   ]

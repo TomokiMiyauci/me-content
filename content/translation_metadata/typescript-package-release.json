@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/typescript-package-release/en.md",
+      "value": "content/posts/typescript_package_release/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/typescript-package-release/ja.md",
+      "value": "content/posts/typescript_package_release/ja.md",
       "key": "ja"
     }
   ]

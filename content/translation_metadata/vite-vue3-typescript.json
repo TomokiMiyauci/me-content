@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/vite-vue3-typescript/en.md",
+      "value": "content/posts/vite_vue3_typescript/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/vite-vue3-typescript/ja.md",
+      "value": "content/posts/vite_vue3_typescript/ja.md",
       "key": "ja"
     }
   ]

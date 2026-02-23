@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/import-assertions-json-modules/en.md",
+      "value": "content/posts/import_assertions_json_modules/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/import-assertions-json-modules/ja.md",
+      "value": "content/posts/import_assertions_json_modules/ja.md",
       "key": "ja"
     }
   ]

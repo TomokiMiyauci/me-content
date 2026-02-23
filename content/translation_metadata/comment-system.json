@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/comment-system/en.md",
+      "value": "content/posts/comment_system/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/comment-system/ja.md",
+      "value": "content/posts/comment_system/ja.md",
       "key": "ja"
     }
   ]

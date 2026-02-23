@@ -4,7 +4,7 @@ description: Firebase Authentication を Service Worker で使う方法を紹介
 published_at: 2021-08-29
 slug: firebase-authentication-service-worker
 language: ja
-cover_image: /posts/firebase-authentication-service-worker/hero.png
+cover_image: /posts/firebase_authentication_service-worker/hero.png
 ---
 
 ## はじめに

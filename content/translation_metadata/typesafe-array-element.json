@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/typesafe-array-element/en.md",
+      "value": "content/posts/typesafe_array_element/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/typesafe-array-element/ja.md",
+      "value": "content/posts/typesafe_array_element/ja.md",
       "key": "ja"
     }
   ]

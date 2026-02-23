@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/typescript-literal-hack/en.md",
+      "value": "content/posts/typescript_literal_hack/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/typescript-literal-hack/ja.md",
+      "value": "content/posts/typescript_literal_hack/ja.md",
       "key": "ja"
     }
   ]

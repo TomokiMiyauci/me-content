@@ -4,7 +4,7 @@ description: Learn how to test by Table Driven Tests with Jest. I explain two no
 published_at: 2021-03-28
 slug: jest-table-driven-tests
 language: en
-cover_image: /posts/jest-table-driven-tests/hero.png
+cover_image: /posts/jest_table_driven-tests/hero.png
 ---
 
 ## Introduction

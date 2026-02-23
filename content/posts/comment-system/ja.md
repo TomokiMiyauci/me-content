@@ -4,7 +4,7 @@ description: 技術ブログのコメントシステムにおすすめなutteran
 published_at: 2021-07-09
 slug: comment-system
 language: ja
-cover_image: /posts/comment-system/hero.png
+cover_image: /posts/comment_system/hero.png
 ---
 
 ## はじめに

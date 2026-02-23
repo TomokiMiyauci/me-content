@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/vite-vue3-tailwindcss/en.md",
+      "value": "content/posts/vite_vue3_tailwindcss/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/vite-vue3-tailwindcss/ja.md",
+      "value": "content/posts/vite_vue3_tailwindcss/ja.md",
       "key": "ja"
     }
   ]

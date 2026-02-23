@@ -1,11 +1,11 @@
 {
   "translations": [
     {
-      "value": "content/posts/module-from-string/en.md",
+      "value": "content/posts/module_from_string/en.md",
       "key": "en"
     },
     {
-      "value": "content/posts/module-from-string/ja.md",
+      "value": "content/posts/module_from_string/ja.md",
       "key": "ja"
     }
   ]
