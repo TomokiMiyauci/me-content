@@ -4,7 +4,7 @@ description: Explain the use of import assertions in Deno, which is now supporte
 published_at: 2022-01-21
 slug: import-assertions-json-modules
 language: en
-cover_image: /posts/import_assertions_json-modules/hero.png
+cover_image: /posts/import_assertions_json_modules/hero.png
 ---
 
 ## Introduction
