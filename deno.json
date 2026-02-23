@@ -16,5 +16,39 @@
       "command": "deno task \"lint:*\"",
       "description": "Static check"
     }
+  },
+  "imports": {
+    "@tinacms/cli": "npm:@tinacms/cli@^2.1.6",
+    "i18next": "npm:i18next@^25.8.13",
+    "tinacms": "npm:tinacms@^3.5.0"
+  },
+  "nodeModulesDir": "auto",
+  "lint": {
+    "rules": {
+      "include": [
+        "camelcase",
+        "ban-untagged-todo",
+        "default-param-last",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "no-eval",
+        "no-external-import",
+        "no-import-prefix",
+        "no-inferrable-types",
+        "no-non-null-asserted-optional-chain",
+        "no-non-null-assertion",
+        "no-self-compare",
+        "no-slow-types",
+        "no-sparse-arrays",
+        "no-sync-fn-in-async-fn",
+        "no-throw-literal",
+        "no-top-level-await",
+        "no-useless-rename",
+        "prefer-ascii",
+        "single-var-declarator",
+        "verbatim-module-syntax"
+      ]
+    }
   }
 }

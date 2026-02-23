@@ -1,7 +1,10 @@
 on:
   push:
     branches:
-      - main
+      - draft
+    paths-ignore:
+      - public
+      - content
 
 jobs:
   deploy:
@@ -22,6 +25,8 @@ jobs:
         env:
           TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
+          TINA_BRANCH: ${{ github.ref_name  }}
 
       - name: Deploy
         run: |
