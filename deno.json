@@ -31,8 +31,6 @@
     "gray-matter": "npm:gray-matter@^4.0.3",
     "i18next": "npm:i18next@^25.8.13",
     "json-schema": "npm:json-schema@^0.4.0",
-    "remark-frontmatter": "npm:remark-frontmatter@^5.0.0",
-    "remark-lint-frontmatter-schema": "npm:remark-lint-frontmatter-schema@^3.15.4",
     "tinacms": "npm:tinacms@^3.5.0"
   },
   "nodeModulesDir": "auto",
