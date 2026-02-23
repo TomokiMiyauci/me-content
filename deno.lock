@@ -1,13 +1,54 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/fs@^1.0.23": "1.0.23",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "jsr:@std/path@^1.1.4": "1.1.4",
+    "jsr:@std/yaml@^1.0.12": "1.0.12",
     "npm:@tinacms/cli@^2.1.6": "2.1.6_react@19.2.4_react-dom@19.2.4__react@19.2.4_graphql@15.8.0_tailwindcss@3.4.19__postcss@8.5.6__jiti@1.21.7_fs-extra@11.3.3_yup@1.7.1_vite@4.5.14_typanion@3.13.0_typescript@5.9.3",
+    "npm:@tinacms/schema-tools@^2.6.0": "2.6.0_react@19.2.4_yup@1.7.1",
+    "npm:ajv@^8.18.0": "8.18.0",
+    "npm:gray-matter@^4.0.3": "4.0.3",
     "npm:i18next@^25.8.13": "25.8.13",
+    "npm:json-schema@0.4": "0.4.0",
+    "npm:remark-frontmatter@5": "5.0.0",
+    "npm:remark-lint-frontmatter-schema@^3.15.4": "3.15.4_ajv@8.12.0",
     "npm:tinacms@^3.5.0": "3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4"
+  },
+  "jsr": {
+    "@std/fs@1.0.23": {
+      "integrity": "3ecbae4ce4fee03b180fa710caff36bb5adb66631c46a6460aaad49515565a37",
+      "dependencies": [
+        "jsr:@std/internal",
+        "jsr:@std/path"
+      ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    },
+    "@std/path@1.1.4": {
+      "integrity": "1d2d43f39efb1b42f0b1882a25486647cb851481862dc7313390b2bb044314b5",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/yaml@1.0.12": {
+      "integrity": "7deabca4545bcedd07c5f69ea53acea71b8b4c67562f224e17b90d75944cb20c"
+    }
   },
   "npm": {
     "@alloc/quick-lru@5.2.0": {
       "integrity": "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="
+    },
+    "@apidevtools/json-schema-ref-parser@11.1.0": {
+      "integrity": "sha512-g/VW9ZQEFJAOwAyUb8JFf7MLiLy2uEB4rU270rGzDwICxnxMlPy0O11KVePSgS36K1NI29gSlK84n5INGhd4Ag==",
+      "dependencies": [
+        "@jsdevtools/ono",
+        "@types/json-schema",
+        "@types/lodash.clonedeep",
+        "js-yaml@4.1.1",
+        "lodash.clonedeep"
+      ]
     },
     "@ardatan/relay-compiler@12.0.3_graphql@15.8.0": {
       "integrity": "sha512-mBDFOGvAoVlWaWqs3hm1AciGHSQE1rqFc/liZTyYz/Oek9yZdT5H26pH2zAFuEiTiBVPPyMuqf5VjOFPI2DGsQ==",
@@ -724,7 +765,7 @@
         "@graphql-tools/schema",
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
         "graphql",
-        "p-limit",
+        "p-limit@3.1.0",
         "tslib@2.8.1"
       ]
     },
@@ -851,6 +892,9 @@
         "@jridgewell/resolve-uri",
         "@jridgewell/sourcemap-codec"
       ]
+    },
+    "@jsdevtools/ono@7.1.3": {
+      "integrity": "sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg=="
     },
     "@jsep-plugin/assignment@1.3.0_jsep@1.4.0": {
       "integrity": "sha512-VVgV+CXrhbMI3aSusQyclHkenWSAm95WaiKrMxRFam3JSUiIaQjoMIw2sEs/OX4XifnqeQUN4DYbJjlA8EfktQ==",
@@ -1129,7 +1173,7 @@
         "@radix-ui/react-compose-refs",
         "@radix-ui/react-context",
         "@radix-ui/react-primitive",
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "react",
         "react-dom"
       ]
@@ -1159,7 +1203,7 @@
         "@radix-ui/react-portal",
         "@radix-ui/react-presence",
         "@radix-ui/react-primitive",
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-use-controllable-state",
         "aria-hidden",
         "react",
@@ -1239,7 +1283,7 @@
         "@radix-ui/react-presence",
         "@radix-ui/react-primitive",
         "@radix-ui/react-roving-focus",
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-use-callback-ref",
         "aria-hidden",
         "react",
@@ -1261,7 +1305,7 @@
         "@radix-ui/react-portal",
         "@radix-ui/react-presence",
         "@radix-ui/react-primitive",
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-use-controllable-state",
         "aria-hidden",
         "react",
@@ -1307,7 +1351,7 @@
     "@radix-ui/react-primitive@2.1.3_react@19.2.4_react-dom@19.2.4__react@19.2.4": {
       "integrity": "sha512-m9gTwRkhy2lvCPe6QJp4d3G1TYEUHn/FzJUtq9MjH46an1wJU+GdoGC5VLof8RX8Ft/DlpshApkhswDLZzHIcQ==",
       "dependencies": [
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "react",
         "react-dom"
       ]
@@ -1344,7 +1388,7 @@
         "@radix-ui/react-popper",
         "@radix-ui/react-portal",
         "@radix-ui/react-primitive",
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-use-callback-ref",
         "@radix-ui/react-use-controllable-state",
         "@radix-ui/react-use-layout-effect",
@@ -1366,13 +1410,6 @@
     },
     "@radix-ui/react-slot@1.2.3_react@19.2.4": {
       "integrity": "sha512-aeNmHnBxbi2St0au6VBVC7JXFlhLlOnvIIlePNniyUNAClzmtAUEY8/pBiK3iHjufOlwA+c20/8jngo7xcrg8A==",
-      "dependencies": [
-        "@radix-ui/react-compose-refs",
-        "react"
-      ]
-    },
-    "@radix-ui/react-slot@1.2.4_react@19.2.4": {
-      "integrity": "sha512-Jl+bCv8HxKnlTLVrcDE8zTMJ09R9/ukw4qBs/oZClOfoQk/cOTbDn+NceXfV7j09YPVQUryJPHurafcSg6EVKA==",
       "dependencies": [
         "@radix-ui/react-compose-refs",
         "react"
@@ -1428,7 +1465,7 @@
         "@radix-ui/react-portal",
         "@radix-ui/react-presence",
         "@radix-ui/react-primitive",
-        "@radix-ui/react-slot@1.2.3_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-use-controllable-state",
         "@radix-ui/react-visually-hidden",
         "react",
@@ -1919,14 +1956,14 @@
         "estree-util-is-identifier-name",
         "mdast-util-compact",
         "mdast-util-directive",
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-gfm@2.0.2",
         "mdast-util-mdx-jsx",
-        "mdast-util-to-markdown",
+        "mdast-util-to-markdown@1.5.0",
         "micromark-extension-gfm@2.0.3",
         "micromark-factory-mdx-expression",
-        "micromark-factory-space",
-        "micromark-factory-whitespace",
+        "micromark-factory-space@1.0.0",
+        "micromark-factory-whitespace@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
@@ -1953,14 +1990,14 @@
         "estree-util-is-identifier-name",
         "mdast-util-compact",
         "mdast-util-directive",
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-gfm@2.0.2",
         "mdast-util-mdx-jsx",
-        "mdast-util-to-markdown",
+        "mdast-util-to-markdown@1.5.0",
         "micromark-extension-gfm@2.0.3",
         "micromark-factory-mdx-expression",
-        "micromark-factory-space",
-        "micromark-factory-whitespace",
+        "micromark-factory-space@1.0.0",
+        "micromark-factory-whitespace@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
@@ -2063,6 +2100,18 @@
     },
     "@types/js-cookie@2.2.7": {
       "integrity": "sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA=="
+    },
+    "@types/json-schema@7.0.15": {
+      "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
+    },
+    "@types/lodash.clonedeep@4.5.9": {
+      "integrity": "sha512-19429mWC+FyaAhOLzsS8kZUsI+/GmBAQ0HFiCPsKGU+7pBXOQWhyrY6xNNDwUSX8SMZMJvuFVMF9O5dQOlQK9Q==",
+      "dependencies": [
+        "@types/lodash"
+      ]
+    },
+    "@types/lodash@4.17.23": {
+      "integrity": "sha512-RDvF6wTulMPjrNdCoYRC8gNR880JNGT8uB+REUpC2Ns4pRqQJhGz90wh7rgdXDPpCczF3VGktDuFGVnz8zP7HA=="
     },
     "@types/mdast@3.0.15": {
       "integrity": "sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==",
@@ -2382,7 +2431,7 @@
     "@udecode/react-utils@47.3.1_react@19.2.4_react-dom@19.2.4__react@19.2.4": {
       "integrity": "sha512-fHnY0RGOeKKPnFW8xx8VWlLI0yscHd/kIU5t0bZ5bJ7Vanlhk1CUnPGDNa5HCIMVQrLARngGut/lIyGtoF65EQ==",
       "dependencies": [
-        "@radix-ui/react-slot@1.2.4_react@19.2.4",
+        "@radix-ui/react-slot",
         "@udecode/utils",
         "clsx@2.1.1",
         "react",
@@ -2470,6 +2519,33 @@
     },
     "add@2.0.6": {
       "integrity": "sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q=="
+    },
+    "ajv-formats@2.1.1_ajv@8.12.0": {
+      "integrity": "sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==",
+      "dependencies": [
+        "ajv@8.12.0"
+      ],
+      "optionalPeers": [
+        "ajv@8.12.0"
+      ]
+    },
+    "ajv@8.12.0": {
+      "integrity": "sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==",
+      "dependencies": [
+        "fast-deep-equal",
+        "json-schema-traverse",
+        "require-from-string",
+        "uri-js"
+      ]
+    },
+    "ajv@8.18.0": {
+      "integrity": "sha512-PlXPeEWMXMZ7sPYOHqmDyCJzcfNrUr3fGNKtezX14ykXOEIvyK81d+qydx89KY5O71FKMPaQ2vBfBFI5NHR63A==",
+      "dependencies": [
+        "fast-deep-equal",
+        "fast-uri",
+        "json-schema-traverse",
+        "require-from-string"
+      ]
     },
     "altair-express-middleware@7.3.6": {
       "integrity": "sha512-VxllMZT67KvS51HvCkvKKT6r+asj0HbbRpK1n39hQiKKVatSoB/HFmyVm8PFSm+spgxMriuXo0xHkI+/X14qUA==",
@@ -3541,6 +3617,9 @@
     "fast-shallow-equal@1.0.0": {
       "integrity": "sha512-HPtaa38cPgWvaCFmRNhlc6NG7pv6NUHqjPgVAkWGoB9mQMwYB27/K0CvOM5Czy+qpT3e8XJ6Q4aPAnzpNpzNaw=="
     },
+    "fast-uri@3.1.0": {
+      "integrity": "sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA=="
+    },
     "fastest-stable-stringify@2.0.2": {
       "integrity": "sha512-bijHueCGd0LqqNK9b5oCMHc0MluJAx0cwqASgbWMvkO01lCYgIhacVRLcaDz3QnyYIRNJRDwMb41VuT6pHJ91Q=="
     },
@@ -3548,6 +3627,12 @@
       "integrity": "sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==",
       "dependencies": [
         "reusify"
+      ]
+    },
+    "fault@2.0.1": {
+      "integrity": "sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==",
+      "dependencies": [
+        "format"
       ]
     },
     "fb-watchman@2.0.2": {
@@ -3638,11 +3723,21 @@
         "unpipe"
       ]
     },
+    "find-up@6.3.0": {
+      "integrity": "sha512-v2ZsoEuVHYy8ZIlYqwPe/39Cy+cFDzp4dXPaxNvkEuouymu+2Jbz0PxpKarJHYJTmv2HWT3O382qY8l4jMWthw==",
+      "dependencies": [
+        "locate-path",
+        "path-exists"
+      ]
+    },
     "for-each@0.3.5": {
       "integrity": "sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==",
       "dependencies": [
         "is-callable"
       ]
+    },
+    "format@0.2.2": {
+      "integrity": "sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww=="
     },
     "forwarded@0.2.0": {
       "integrity": "sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow=="
@@ -4149,6 +4244,12 @@
     "json-parse-even-better-errors@2.3.1": {
       "integrity": "sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w=="
     },
+    "json-schema-traverse@1.0.0": {
+      "integrity": "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="
+    },
+    "json-schema@0.4.0": {
+      "integrity": "sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA=="
+    },
     "json5@2.2.3": {
       "integrity": "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==",
       "bin": true
@@ -4217,8 +4318,17 @@
         "uc.micro@2.1.0"
       ]
     },
+    "locate-path@7.2.0": {
+      "integrity": "sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==",
+      "dependencies": [
+        "p-locate"
+      ]
+    },
     "lodash-es@4.17.23": {
       "integrity": "sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg=="
+    },
+    "lodash.clonedeep@4.5.0": {
+      "integrity": "sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ=="
     },
     "lodash.mapvalues@4.6.0": {
       "integrity": "sha512-JPFqXFeZQ7BfS00H58kClY7SPVeHertPE0lNuCyZ26/XlN8TvakYD7b9bGyNmXbT/D3BbtPAAmq90gPWqLkxlQ=="
@@ -4329,8 +4439,8 @@
       "dependencies": [
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown",
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0",
         "parse-entities",
         "stringify-entities",
         "unist-util-visit-parents@5.1.3"
@@ -4351,15 +4461,43 @@
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
         "decode-named-character-reference",
-        "mdast-util-to-string",
-        "micromark",
-        "micromark-util-decode-numeric-character-reference",
-        "micromark-util-decode-string",
-        "micromark-util-normalize-identifier",
+        "mdast-util-to-string@3.2.0",
+        "micromark@3.2.0",
+        "micromark-util-decode-numeric-character-reference@1.1.0",
+        "micromark-util-decode-string@1.1.0",
+        "micromark-util-normalize-identifier@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
         "unist-util-stringify-position@3.0.3",
         "uvu"
+      ]
+    },
+    "mdast-util-from-markdown@2.0.3": {
+      "integrity": "sha512-W4mAWTvSlKvf8L6J+VN9yLSqQ9AOAAvHuoDAmPkz4dHf553m5gVj2ejadHJhoJmcmxEnOv6Pa8XJhpxE93kb8Q==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "@types/unist@3.0.3",
+        "decode-named-character-reference",
+        "devlop",
+        "mdast-util-to-string@4.0.0",
+        "micromark@4.0.2",
+        "micromark-util-decode-numeric-character-reference@2.0.2",
+        "micromark-util-decode-string@2.0.1",
+        "micromark-util-normalize-identifier@2.0.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2",
+        "unist-util-stringify-position@4.0.0"
+      ]
+    },
+    "mdast-util-frontmatter@2.0.1": {
+      "integrity": "sha512-LRqI9+wdgC25P0URIJY9vwocIzCcksduHQ9OF2joxQoyTNVduwLAFUzjoopuRJbJAReaKrNQKAZKL3uCMugWJA==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "devlop",
+        "escape-string-regexp",
+        "mdast-util-from-markdown@2.0.3",
+        "mdast-util-to-markdown@2.1.2",
+        "micromark-extension-frontmatter"
       ]
     },
     "mdast-util-gfm-autolink-literal@1.0.3": {
@@ -4375,15 +4513,15 @@
       "integrity": "sha512-56D19KOGbE00uKVj3sgIykpwKL179QsVFwx/DCW0u/0+URsryacI4MAdNJl0dh+u2PSsD9FtxPFbHCzJ78qJFQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown",
-        "micromark-util-normalize-identifier"
+        "mdast-util-to-markdown@1.5.0",
+        "micromark-util-normalize-identifier@1.1.0"
       ]
     },
     "mdast-util-gfm-strikethrough@1.0.3": {
       "integrity": "sha512-DAPhYzTYrRcXdMjUtUjKvW9z/FNAMTdU0ORyMcbmkwYNbKocDpdk+PX1L1dQgOID/+vVs1uBQ7ElrBQfZ0cuiQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-gfm-table@1.0.7": {
@@ -4391,15 +4529,15 @@
       "dependencies": [
         "@types/mdast@3.0.15",
         "markdown-table",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown"
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-gfm-task-list-item@1.0.2": {
       "integrity": "sha512-PFTA1gzfp1B1UaiJVyhJZA1rm0+Tzn690frc/L8vNX1Jop4STZgOE6bxUhnzdVSB+vm2GU1tIsuQcA9bxTQpMQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-gfm@1.0.0": {
@@ -4414,13 +4552,13 @@
     "mdast-util-gfm@2.0.2": {
       "integrity": "sha512-qvZ608nBppZ4icQlhQQIAdc6S3Ffj9RGmzwUKUWuEICFnd1LVkN3EktF7ZHAgfcEdvZB5owU9tQgt99e2TlLjg==",
       "dependencies": [
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-gfm-autolink-literal",
         "mdast-util-gfm-footnote",
         "mdast-util-gfm-strikethrough",
         "mdast-util-gfm-table",
         "mdast-util-gfm-task-list-item",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-mdx-expression@1.3.2": {
@@ -4429,8 +4567,8 @@
         "@types/estree-jsx",
         "@types/hast@2.3.10",
         "@types/mdast@3.0.15",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown"
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-mdx-jsx@2.1.2": {
@@ -4441,8 +4579,8 @@
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
         "ccount",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown",
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0",
         "parse-entities",
         "stringify-entities",
         "unist-util-remove-position",
@@ -4453,11 +4591,11 @@
     "mdast-util-mdx@2.0.1": {
       "integrity": "sha512-38w5y+r8nyKlGvNjSEqWrhG0w5PmnRA+wnBvm+ulYCct7nsGYhFVb0lljS9bQav4psDAS1eGkP2LMVcZBi/aqw==",
       "dependencies": [
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-mdx-expression",
         "mdast-util-mdx-jsx",
         "mdast-util-mdxjs-esm",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-mdxjs-esm@1.3.1": {
@@ -4466,8 +4604,8 @@
         "@types/estree-jsx",
         "@types/hast@2.3.10",
         "@types/mdast@3.0.15",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown"
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-phrasing@3.0.1": {
@@ -4475,6 +4613,13 @@
       "dependencies": [
         "@types/mdast@3.0.15",
         "unist-util-is@5.2.1"
+      ]
+    },
+    "mdast-util-phrasing@4.1.0": {
+      "integrity": "sha512-TqICwyvJJpBwvGAMZjj4J2n0X8QWp21b9l0o7eXyVJ25YNWYbJDVIyD1bZXE6WtV6RmKJVYmQAKWa0zWOABz2w==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "unist-util-is@6.0.1"
       ]
     },
     "mdast-util-to-hast@13.2.1": {
@@ -4497,10 +4642,24 @@
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
         "longest-streak",
-        "mdast-util-phrasing",
-        "mdast-util-to-string",
-        "micromark-util-decode-string",
+        "mdast-util-phrasing@3.0.1",
+        "mdast-util-to-string@3.2.0",
+        "micromark-util-decode-string@1.1.0",
         "unist-util-visit@4.1.2",
+        "zwitch"
+      ]
+    },
+    "mdast-util-to-markdown@2.1.2": {
+      "integrity": "sha512-xj68wMTvGXVOKonmog6LwyJKrYXZPvlwabaryTjLh9LuvovB/KAH+kvi8Gjj+7rJjsFi23nkUxRQv1KqSroMqA==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "@types/unist@3.0.3",
+        "longest-streak",
+        "mdast-util-phrasing@4.1.0",
+        "mdast-util-to-string@4.0.0",
+        "micromark-util-classify-character@2.0.1",
+        "micromark-util-decode-string@2.0.1",
+        "unist-util-visit@5.1.0",
         "zwitch"
       ]
     },
@@ -4508,6 +4667,12 @@
       "integrity": "sha512-V4Zn/ncyN1QNSqSBxTrMOLpjr+IKdHl2v3KVLoWmDPscP4r9GcCi71gjgvUV1SFSKh92AjAG4peFuBl2/YgCJg==",
       "dependencies": [
         "@types/mdast@3.0.15"
+      ]
+    },
+    "mdast-util-to-string@4.0.0": {
+      "integrity": "sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==",
+      "dependencies": [
+        "@types/mdast@4.0.4"
       ]
     },
     "mdn-data@2.0.14": {
@@ -4561,21 +4726,51 @@
       "integrity": "sha512-BgHO1aRbolh2hcrzL2d1La37V0Aoz73ymF8rAcKnohLy93titmv62E0gP8Hrx9PKcKrqCZ1BbLGbP3bEhoXYlw==",
       "dependencies": [
         "decode-named-character-reference",
-        "micromark-factory-destination",
-        "micromark-factory-label",
-        "micromark-factory-space",
-        "micromark-factory-title",
-        "micromark-factory-whitespace",
+        "micromark-factory-destination@1.1.0",
+        "micromark-factory-label@1.1.0",
+        "micromark-factory-space@1.0.0",
+        "micromark-factory-title@1.1.0",
+        "micromark-factory-whitespace@1.0.0",
         "micromark-util-character@1.1.0",
-        "micromark-util-chunked",
-        "micromark-util-classify-character",
-        "micromark-util-html-tag-name",
-        "micromark-util-normalize-identifier",
-        "micromark-util-resolve-all",
-        "micromark-util-subtokenize",
+        "micromark-util-chunked@1.1.0",
+        "micromark-util-classify-character@1.1.0",
+        "micromark-util-html-tag-name@1.2.0",
+        "micromark-util-normalize-identifier@1.1.0",
+        "micromark-util-resolve-all@1.1.0",
+        "micromark-util-subtokenize@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
         "uvu"
+      ]
+    },
+    "micromark-core-commonmark@2.0.3": {
+      "integrity": "sha512-RDBrHEMSxVFLg6xvnXmb1Ayr2WzLAWjeSATAoxwKYJV94TeNavgoIdA0a9ytzDSVzBy2YKFK+emCPOEibLeCrg==",
+      "dependencies": [
+        "decode-named-character-reference",
+        "devlop",
+        "micromark-factory-destination@2.0.1",
+        "micromark-factory-label@2.0.1",
+        "micromark-factory-space@2.0.1",
+        "micromark-factory-title@2.0.1",
+        "micromark-factory-whitespace@2.0.1",
+        "micromark-util-character@2.1.1",
+        "micromark-util-chunked@2.0.1",
+        "micromark-util-classify-character@2.0.1",
+        "micromark-util-html-tag-name@2.0.1",
+        "micromark-util-normalize-identifier@2.0.1",
+        "micromark-util-resolve-all@2.0.1",
+        "micromark-util-subtokenize@2.1.0",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
+      ]
+    },
+    "micromark-extension-frontmatter@2.0.0": {
+      "integrity": "sha512-C4AkuM3dA58cgZha7zVnuVxBhDsbttIMiytjgsM2XbHAB2faRVaHRle40558FBN+DJcrLNCoqG5mlrpdU4cRtg==",
+      "dependencies": [
+        "fault",
+        "micromark-util-character@2.1.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
       ]
     },
     "micromark-extension-gfm-autolink-literal@1.0.5": {
@@ -4590,10 +4785,10 @@
     "micromark-extension-gfm-footnote@1.1.2": {
       "integrity": "sha512-Yxn7z7SxgyGWRNa4wzf8AhYYWNrwl5q1Z8ii+CSTTIqVkmGZF1CElX2JI8g5yGoM3GAman9/PVCUFUSJ0kB/8Q==",
       "dependencies": [
-        "micromark-core-commonmark",
-        "micromark-factory-space",
+        "micromark-core-commonmark@1.1.0",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
-        "micromark-util-normalize-identifier",
+        "micromark-util-normalize-identifier@1.1.0",
         "micromark-util-sanitize-uri@1.2.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
@@ -4603,9 +4798,9 @@
     "micromark-extension-gfm-strikethrough@1.0.7": {
       "integrity": "sha512-sX0FawVE1o3abGk3vRjOH50L5TTLr3b5XMqnP9YDRb34M0v5OoZhG+OHFz1OffZ9dlwgpTBKaT4XW/AsUVnSDw==",
       "dependencies": [
-        "micromark-util-chunked",
-        "micromark-util-classify-character",
-        "micromark-util-resolve-all",
+        "micromark-util-chunked@1.1.0",
+        "micromark-util-classify-character@1.1.0",
+        "micromark-util-resolve-all@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
         "uvu"
@@ -4614,7 +4809,7 @@
     "micromark-extension-gfm-table@1.0.7": {
       "integrity": "sha512-3ZORTHtcSnMQEKtAOsBQ9/oHp9096pI/UvdPtN7ehKvrmZZ2+bbWhi0ln+I9drmwXMt5boocn6OlwQzNXeVeqw==",
       "dependencies": [
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
@@ -4630,7 +4825,7 @@
     "micromark-extension-gfm-task-list-item@1.0.5": {
       "integrity": "sha512-RMFXl2uQ0pNQy6Lun2YBYT9g9INXtWJULgbt01D/x8/6yJ2qpKyzdZD3pi6UIkzF++Da49xAelVKUeUMqd5eIQ==",
       "dependencies": [
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
@@ -4645,7 +4840,7 @@
         "micromark-extension-gfm-table",
         "micromark-extension-gfm-tagfilter",
         "micromark-extension-gfm-task-list-item",
-        "micromark-util-combine-extensions",
+        "micromark-util-combine-extensions@1.1.0",
         "micromark-util-types@1.0.2"
       ]
     },
@@ -4658,7 +4853,7 @@
         "micromark-extension-gfm-table",
         "micromark-extension-gfm-tagfilter",
         "micromark-extension-gfm-task-list-item",
-        "micromark-util-combine-extensions",
+        "micromark-util-combine-extensions@1.1.0",
         "micromark-util-types@1.0.2"
       ]
     },
@@ -4667,7 +4862,7 @@
       "dependencies": [
         "@types/estree",
         "micromark-factory-mdx-expression",
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-events-to-acorn",
         "micromark-util-symbol@1.0.1",
@@ -4682,7 +4877,7 @@
         "@types/estree",
         "estree-util-is-identifier-name",
         "micromark-factory-mdx-expression",
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
@@ -4700,7 +4895,7 @@
       "integrity": "sha512-xNRBw4aoURcyz/S69B19WnZAkWJMxHMT5hE36GtDAyhoyn/8TuAeqjFJQlwk+MKQsUD7b3l7kFX+vlfVWgcX1w==",
       "dependencies": [
         "@types/estree",
-        "micromark-core-commonmark",
+        "micromark-core-commonmark@1.1.0",
         "micromark-util-character@1.1.0",
         "micromark-util-events-to-acorn",
         "micromark-util-symbol@1.0.1",
@@ -4719,7 +4914,7 @@
         "micromark-extension-mdx-jsx",
         "micromark-extension-mdx-md",
         "micromark-extension-mdxjs-esm",
-        "micromark-util-combine-extensions",
+        "micromark-util-combine-extensions@1.1.0",
         "micromark-util-types@1.0.2"
       ]
     },
@@ -4731,6 +4926,14 @@
         "micromark-util-types@1.0.2"
       ]
     },
+    "micromark-factory-destination@2.0.1": {
+      "integrity": "sha512-Xe6rDdJlkmbFRExpTOmRj9N3MaWmbAgdpSrBQvCFqhezUn4AHqJHbaEnfbVYYiexVSs//tqOdY/DxhjdCiJnIA==",
+      "dependencies": [
+        "micromark-util-character@2.1.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
+      ]
+    },
     "micromark-factory-label@1.1.0": {
       "integrity": "sha512-OLtyez4vZo/1NjxGhcpDSbHQ+m0IIGnT8BoPamh+7jVlzLJBH98zzuCoUeMxvM6WsNeh8wx8cKvqLiPHEACn0w==",
       "dependencies": [
@@ -4740,10 +4943,19 @@
         "uvu"
       ]
     },
+    "micromark-factory-label@2.0.1": {
+      "integrity": "sha512-VFMekyQExqIW7xIChcXn4ok29YE3rnuyveW3wZQWWqF4Nv9Wk5rgJ99KzPvHjkmPXF93FXIbBp6YdW3t71/7Vg==",
+      "dependencies": [
+        "devlop",
+        "micromark-util-character@2.1.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
+      ]
+    },
     "micromark-factory-mdx-expression@1.0.7": {
       "integrity": "sha512-QAdFbkQagTZ/eKb8zDGqmjvgevgJH3+aQpvvKrXWxNJp3o8/l2cAbbrBd0E04r0Gx6nssPpqWIjnbHFvZu5qsQ==",
       "dependencies": [
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-events-to-acorn",
         "micromark-util-symbol@1.0.1",
@@ -4760,22 +4972,47 @@
         "micromark-util-types@1.0.2"
       ]
     },
+    "micromark-factory-space@2.0.1": {
+      "integrity": "sha512-zRkxjtBxxLd2Sc0d+fbnEunsTj46SWXgXciZmHq0kDYGnck/ZSGj9/wULTV95uoeYiK5hRXP2mJ98Uo4cq/LQg==",
+      "dependencies": [
+        "micromark-util-character@2.1.1",
+        "micromark-util-types@2.0.2"
+      ]
+    },
     "micromark-factory-title@1.1.0": {
       "integrity": "sha512-J7n9R3vMmgjDOCY8NPw55jiyaQnH5kBdV2/UXCtZIpnHH3P6nHUKaH7XXEYuWwx/xUJcawa8plLBEjMPU24HzQ==",
       "dependencies": [
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2"
       ]
     },
+    "micromark-factory-title@2.0.1": {
+      "integrity": "sha512-5bZ+3CjhAd9eChYTHsjy6TGxpOFSKgKKJPJxr293jTbfry2KDoWkhBb6TcPVB4NmzaPhMs1Frm9AZH7OD4Cjzw==",
+      "dependencies": [
+        "micromark-factory-space@2.0.1",
+        "micromark-util-character@2.1.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
+      ]
+    },
     "micromark-factory-whitespace@1.0.0": {
       "integrity": "sha512-Qx7uEyahU1lt1RnsECBiuEbfr9INjQTGa6Err+gF3g0Tx4YEviPbqqGKNv/NrBaE7dVHdn1bVZKM/n5I/Bak7A==",
       "dependencies": [
-        "micromark-factory-space",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2"
+      ]
+    },
+    "micromark-factory-whitespace@2.0.1": {
+      "integrity": "sha512-Ob0nuZ3PKt/n0hORHyvoD9uZhr+Za8sFoP+OnMcnWK5lngSzALgQYKMr9RJVOWLqQYuyn6ulqGWSXdwf6F80lQ==",
+      "dependencies": [
+        "micromark-factory-space@2.0.1",
+        "micromark-util-character@2.1.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
       ]
     },
     "micromark-util-character@1.1.0": {
@@ -4798,6 +5035,12 @@
         "micromark-util-symbol@1.0.1"
       ]
     },
+    "micromark-util-chunked@2.0.1": {
+      "integrity": "sha512-QUNFEOPELfmvv+4xiNg2sRYeS/P84pTW0TCgP5zc9FpXetHY0ab7SxKyAQCNCc1eK0459uoLI1y5oO5Vc1dbhA==",
+      "dependencies": [
+        "micromark-util-symbol@2.0.1"
+      ]
+    },
     "micromark-util-classify-character@1.1.0": {
       "integrity": "sha512-SL0wLxtKSnklKSUplok1WQFoGhUdWYKggKUiqhX+Swala+BtptGCu5iPRc+xvzJ4PXE/hwM3FNXsfEVgoZsWbw==",
       "dependencies": [
@@ -4806,11 +5049,26 @@
         "micromark-util-types@1.0.2"
       ]
     },
+    "micromark-util-classify-character@2.0.1": {
+      "integrity": "sha512-K0kHzM6afW/MbeWYWLjoHQv1sgg2Q9EccHEDzSkxiP/EaagNzCm7T/WMKZ3rjMbvIpvBiZgwR3dKMygtA4mG1Q==",
+      "dependencies": [
+        "micromark-util-character@2.1.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
+      ]
+    },
     "micromark-util-combine-extensions@1.1.0": {
       "integrity": "sha512-Q20sp4mfNf9yEqDL50WwuWZHUrCO4fEyeDCnMGmG5Pr0Cz15Uo7KBs6jq+dq0EgX4DPwwrh9m0X+zPV1ypFvUA==",
       "dependencies": [
-        "micromark-util-chunked",
+        "micromark-util-chunked@1.1.0",
         "micromark-util-types@1.0.2"
+      ]
+    },
+    "micromark-util-combine-extensions@2.0.1": {
+      "integrity": "sha512-OnAnH8Ujmy59JcyZw8JSbK9cGpdVY44NKgSM7E9Eh7DiLS2E9RNQf0dONaGDzEG9yjEl5hcqeIsj4hfRkLH/Bg==",
+      "dependencies": [
+        "micromark-util-chunked@2.0.1",
+        "micromark-util-types@2.0.2"
       ]
     },
     "micromark-util-decode-numeric-character-reference@1.1.0": {
@@ -4819,13 +5077,28 @@
         "micromark-util-symbol@1.0.1"
       ]
     },
+    "micromark-util-decode-numeric-character-reference@2.0.2": {
+      "integrity": "sha512-ccUbYk6CwVdkmCQMyr64dXz42EfHGkPQlBj5p7YVGzq8I7CtjXZJrubAYezf7Rp+bjPseiROqe7G6foFd+lEuw==",
+      "dependencies": [
+        "micromark-util-symbol@2.0.1"
+      ]
+    },
     "micromark-util-decode-string@1.1.0": {
       "integrity": "sha512-YphLGCK8gM1tG1bd54azwyrQRjCFcmgj2S2GoJDNnh4vYtnL38JS8M4gpxzOPNyHdNEpheyWXCTnnTDY3N+NVQ==",
       "dependencies": [
         "decode-named-character-reference",
         "micromark-util-character@1.1.0",
-        "micromark-util-decode-numeric-character-reference",
+        "micromark-util-decode-numeric-character-reference@1.1.0",
         "micromark-util-symbol@1.0.1"
+      ]
+    },
+    "micromark-util-decode-string@2.0.1": {
+      "integrity": "sha512-nDV/77Fj6eH1ynwscYTOsbK7rR//Uj0bZXBwJZRfaLEJ1iGBR6kIfNmlNqaqJf649EP0F3NWNdeJi03elllNUQ==",
+      "dependencies": [
+        "decode-named-character-reference",
+        "micromark-util-character@2.1.1",
+        "micromark-util-decode-numeric-character-reference@2.0.2",
+        "micromark-util-symbol@2.0.1"
       ]
     },
     "micromark-util-encode@1.1.0": {
@@ -4850,16 +5123,31 @@
     "micromark-util-html-tag-name@1.2.0": {
       "integrity": "sha512-VTQzcuQgFUD7yYztuQFKXT49KghjtETQ+Wv/zUjGSGBioZnkA4P1XXZPT1FHeJA6RwRXSF47yvJ1tsJdoxwO+Q=="
     },
+    "micromark-util-html-tag-name@2.0.1": {
+      "integrity": "sha512-2cNEiYDhCWKI+Gs9T0Tiysk136SnR13hhO8yW6BGNyhOC4qYFnwF1nKfD3HFAIXA5c45RrIG1ub11GiXeYd1xA=="
+    },
     "micromark-util-normalize-identifier@1.1.0": {
       "integrity": "sha512-N+w5vhqrBihhjdpM8+5Xsxy71QWqGn7HYNUvch71iV2PM7+E3uWGox1Qp90loa1ephtCxG2ftRV/Conitc6P2Q==",
       "dependencies": [
         "micromark-util-symbol@1.0.1"
       ]
     },
+    "micromark-util-normalize-identifier@2.0.1": {
+      "integrity": "sha512-sxPqmo70LyARJs0w2UclACPUUEqltCkJ6PhKdMIDuJ3gSf/Q+/GIe3WKl0Ijb/GyH9lOpUkRAO2wp0GVkLvS9Q==",
+      "dependencies": [
+        "micromark-util-symbol@2.0.1"
+      ]
+    },
     "micromark-util-resolve-all@1.1.0": {
       "integrity": "sha512-b/G6BTMSg+bX+xVCshPTPyAu2tmA0E4X98NSR7eIbeC6ycCqCeE7wjfDIgzEbkzdEVJXRtOG4FbEm/uGbCRouA==",
       "dependencies": [
         "micromark-util-types@1.0.2"
+      ]
+    },
+    "micromark-util-resolve-all@2.0.1": {
+      "integrity": "sha512-VdQyxFWFT2/FGJgwQnJYbe1jjQoNTS4RjglmSjTUlpUMa95Htx9NHeYW4rGDJzbjvCsl9eLjMQwGeElsqmzcHg==",
+      "dependencies": [
+        "micromark-util-types@2.0.2"
       ]
     },
     "micromark-util-sanitize-uri@1.2.0": {
@@ -4881,10 +5169,19 @@
     "micromark-util-subtokenize@1.1.0": {
       "integrity": "sha512-kUQHyzRoxvZO2PuLzMt2P/dwVsTiivCK8icYTeR+3WgbuPqfHgPPy7nFKbeqRivBvn/3N3GBiNC+JRTMSxEC7A==",
       "dependencies": [
-        "micromark-util-chunked",
+        "micromark-util-chunked@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
         "uvu"
+      ]
+    },
+    "micromark-util-subtokenize@2.1.0": {
+      "integrity": "sha512-XQLu552iSctvnEcgXw6+Sx75GflAPNED1qx7eBJ+wydBb2KCbRZe+NwvIEEMM83uml1+2WSXpBAcp9IUCgCYWA==",
+      "dependencies": [
+        "devlop",
+        "micromark-util-chunked@2.0.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
       ]
     },
     "micromark-util-symbol@1.0.1": {
@@ -4905,20 +5202,42 @@
         "@types/debug",
         "debug@4.4.3",
         "decode-named-character-reference",
-        "micromark-core-commonmark",
-        "micromark-factory-space",
+        "micromark-core-commonmark@1.1.0",
+        "micromark-factory-space@1.0.0",
         "micromark-util-character@1.1.0",
-        "micromark-util-chunked",
-        "micromark-util-combine-extensions",
-        "micromark-util-decode-numeric-character-reference",
+        "micromark-util-chunked@1.1.0",
+        "micromark-util-combine-extensions@1.1.0",
+        "micromark-util-decode-numeric-character-reference@1.1.0",
         "micromark-util-encode@1.1.0",
-        "micromark-util-normalize-identifier",
-        "micromark-util-resolve-all",
+        "micromark-util-normalize-identifier@1.1.0",
+        "micromark-util-resolve-all@1.1.0",
         "micromark-util-sanitize-uri@1.2.0",
-        "micromark-util-subtokenize",
+        "micromark-util-subtokenize@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
         "uvu"
+      ]
+    },
+    "micromark@4.0.2": {
+      "integrity": "sha512-zpe98Q6kvavpCr1NPVSCMebCKfD7CA2NqZ+rykeNhONIJBpc1tFKt9hucLGwha3jNTNI8lHpctWJWoimVF4PfA==",
+      "dependencies": [
+        "@types/debug",
+        "debug@4.4.3",
+        "decode-named-character-reference",
+        "devlop",
+        "micromark-core-commonmark@2.0.3",
+        "micromark-factory-space@2.0.1",
+        "micromark-util-character@2.1.1",
+        "micromark-util-chunked@2.0.1",
+        "micromark-util-combine-extensions@2.0.1",
+        "micromark-util-decode-numeric-character-reference@2.0.2",
+        "micromark-util-encode@2.0.1",
+        "micromark-util-normalize-identifier@2.0.1",
+        "micromark-util-resolve-all@2.0.1",
+        "micromark-util-sanitize-uri@2.0.1",
+        "micromark-util-subtokenize@2.1.0",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2"
       ]
     },
     "micromatch@4.0.8": {
@@ -4946,6 +5265,12 @@
     },
     "minimatch@5.1.6": {
       "integrity": "sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==",
+      "dependencies": [
+        "brace-expansion"
+      ]
+    },
+    "minimatch@9.0.3": {
+      "integrity": "sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==",
       "dependencies": [
         "brace-expansion"
       ]
@@ -5119,7 +5444,19 @@
     "p-limit@3.1.0": {
       "integrity": "sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==",
       "dependencies": [
-        "yocto-queue"
+        "yocto-queue@0.1.0"
+      ]
+    },
+    "p-limit@4.0.0": {
+      "integrity": "sha512-5b0R4txpzjPWVw/cXXUResoD4hb6U/x9BH08L7nw+GN1sezDzPdxeRvpc9c433fZhBan/wusjbCsqwqm4EIBIQ==",
+      "dependencies": [
+        "yocto-queue@1.2.2"
+      ]
+    },
+    "p-locate@6.0.0": {
+      "integrity": "sha512-wPrq66Llhl7/4AGC6I+cqxT07LhXvWL08LNXz1fENOw0Ap4sRZZ/gZpTTJ5jpurzzzfS2W/Ge9BY3LgLjCShcw==",
+      "dependencies": [
+        "p-limit@4.0.0"
       ]
     },
     "p-queue@7.3.4": {
@@ -5194,6 +5531,9 @@
         "dot-case",
         "tslib@2.8.1"
       ]
+    },
+    "path-exists@5.0.0": {
+      "integrity": "sha512-RjhtfwJOxzcFmNOi6ltcbcu4Iu+FL3zEj83dk4kAS+fVpTxXLO1b38RvJgT/0QwvV/L3aY9TAnyv0EOqW4GoMQ=="
     },
     "path-key@3.1.1": {
       "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q=="
@@ -5450,6 +5790,9 @@
     },
     "punycode.js@2.3.1": {
       "integrity": "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA=="
+    },
+    "punycode@2.3.1": {
+      "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
     },
     "qs@6.14.2": {
       "integrity": "sha512-V/yCWTTF7VJ9hIh18Ugr2zhJMP01MY7c5kh4J870L7imm6/DIzBsNLTXzMwUA3yZ5b/KBqLx8Kp3uRvd7xSe3Q==",
@@ -5715,13 +6058,34 @@
         "invariant"
       ]
     },
+    "remark-frontmatter@5.0.0": {
+      "integrity": "sha512-XTFYvNASMe5iPN0719nPrdItC9aU0ssC4v14mH1BCi1u0n1gAocqcujWUrByftZTbLhRtiKRyjYTSIOcr69UVQ==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "mdast-util-frontmatter",
+        "micromark-extension-frontmatter",
+        "unified@11.0.5"
+      ]
+    },
     "remark-gfm@2.0.0": {
       "integrity": "sha512-waIv4Tjcd2CTUDxKRYzuPyIHw1FoX4H2GjXAzXV9PxQWb+dU4fJivd/FZ+nxyzPARrqTjMIkwIwPoWNbpBhjcQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
         "mdast-util-gfm@1.0.0",
         "micromark-extension-gfm@1.0.0",
-        "unified"
+        "unified@10.1.2"
+      ]
+    },
+    "remark-lint-frontmatter-schema@3.15.4_ajv@8.12.0": {
+      "integrity": "sha512-egChkbtCCG4hw1F2qoipzSxp6Ea9z4pxaVkWYa36DnCZ9fn3GhCNyOUjbFSIvdhVcWN+AqvHdqPbXC9Pp81Hmg==",
+      "dependencies": [
+        "@apidevtools/json-schema-ref-parser",
+        "ajv@8.12.0",
+        "ajv-formats",
+        "find-up",
+        "minimatch@9.0.3",
+        "unified-lint-rule",
+        "yaml@2.3.3"
       ]
     },
     "remark-mdx@2.3.0": {
@@ -5735,16 +6099,16 @@
       "integrity": "sha512-3ydxgHa/ZQzG8LvC7jTXccARYDcRld3VfcgIIFs7bI6vbRSxJJmzgLEIIoYKyrfhaY+ujuWaf/PJiMZXoiCXgw==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-from-markdown",
-        "unified"
+        "mdast-util-from-markdown@1.3.0",
+        "unified@10.1.2"
       ]
     },
     "remark-stringify@10.0.3": {
       "integrity": "sha512-koyOzCMYoUHudypbj4XpnAKFbkddRMYZHwghnxd7ue5210WzGw6kOBwauJTRUMq16jsovXx8dYNvSSWP89kZ3A==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown",
-        "unified"
+        "mdast-util-to-markdown@1.5.0",
+        "unified@10.1.2"
       ]
     },
     "remark@14.0.2": {
@@ -5753,11 +6117,14 @@
         "@types/mdast@3.0.15",
         "remark-parse",
         "remark-stringify",
-        "unified"
+        "unified@10.1.2"
       ]
     },
     "remove-trailing-separator@1.1.0": {
       "integrity": "sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw=="
+    },
+    "require-from-string@2.0.2": {
+      "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="
     },
     "resize-observer-polyfill@1.5.1": {
       "integrity": "sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg=="
@@ -6292,7 +6659,7 @@
         "@radix-ui/react-popover",
         "@radix-ui/react-select",
         "@radix-ui/react-separator",
-        "@radix-ui/react-slot@1.2.4_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-toolbar",
         "@radix-ui/react-tooltip",
         "@react-hook/window-size",
@@ -6381,7 +6748,7 @@
         "@radix-ui/react-popover",
         "@radix-ui/react-select",
         "@radix-ui/react-separator",
-        "@radix-ui/react-slot@1.2.4_react@19.2.4",
+        "@radix-ui/react-slot",
         "@radix-ui/react-toolbar",
         "@radix-ui/react-tooltip",
         "@react-hook/window-size",
@@ -6564,7 +6931,7 @@
         "minimatch@9.0.5",
         "shiki",
         "typescript@5.6.3",
-        "yaml"
+        "yaml@2.8.2"
       ],
       "bin": true
     },
@@ -6576,7 +6943,7 @@
         "minimatch@9.0.5",
         "shiki",
         "typescript@5.9.3",
-        "yaml"
+        "yaml@2.8.2"
       ],
       "bin": true
     },
@@ -6604,6 +6971,15 @@
     "undici-types@7.18.2": {
       "integrity": "sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w=="
     },
+    "unified-lint-rule@2.1.2": {
+      "integrity": "sha512-JWudPtRN7TLFHVLEVZ+Rm8FUb6kCAtHxEXFgBGDxRSdNMnGyTU5zyYvduHSF/liExlFB3vdFvsAHnNVE/UjAwA==",
+      "dependencies": [
+        "@types/unist@2.0.11",
+        "trough",
+        "unified@10.1.2",
+        "vfile@5.3.7"
+      ]
+    },
     "unified@10.1.2": {
       "integrity": "sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==",
       "dependencies": [
@@ -6614,6 +6990,18 @@
         "is-plain-obj",
         "trough",
         "vfile@5.3.7"
+      ]
+    },
+    "unified@11.0.5": {
+      "integrity": "sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==",
+      "dependencies": [
+        "@types/unist@3.0.3",
+        "bail",
+        "devlop",
+        "extend",
+        "is-plain-obj",
+        "trough",
+        "vfile@6.0.3"
       ]
     },
     "unist-util-is@5.2.1": {
@@ -6728,6 +7116,12 @@
       "integrity": "sha512-KgdgDGJt2TpuwBUIjgG6lzw2GWFRCW9Qkfkiv0DxqHHLYJHmtmdUIKcZd8rHgFSjopVTlw6ggzCm1b8MFQwikg==",
       "dependencies": [
         "tslib@2.8.1"
+      ]
+    },
+    "uri-js@4.4.1": {
+      "integrity": "sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==",
+      "dependencies": [
+        "punycode"
       ]
     },
     "url-pattern@1.0.3": {
@@ -6903,12 +7297,18 @@
     "yallist@3.1.1": {
       "integrity": "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="
     },
+    "yaml@2.3.3": {
+      "integrity": "sha512-zw0VAJxgeZ6+++/su5AFoqBbZbrEakwu+X0M5HmcwUiBL7AzcuPKjj5we4xfQLp78LkEMpD0cOnUhmgOVy3KdQ=="
+    },
     "yaml@2.8.2": {
       "integrity": "sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==",
       "bin": true
     },
     "yocto-queue@0.1.0": {
       "integrity": "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
+    },
+    "yocto-queue@1.2.2": {
+      "integrity": "sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ=="
     },
     "yup@1.7.1": {
       "integrity": "sha512-GKHFX2nXul2/4Dtfxhozv701jLQHdf6J34YDh2cEkpqoo8le5Mg6/LrdseVLrFarmFygZTlfIhHx/QKfb/QWXw==",
@@ -6952,8 +7352,17 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/fs@^1.0.23",
+      "jsr:@std/path@^1.1.4",
+      "jsr:@std/yaml@^1.0.12",
       "npm:@tinacms/cli@^2.1.6",
+      "npm:@tinacms/schema-tools@^2.6.0",
+      "npm:ajv@^8.18.0",
+      "npm:gray-matter@^4.0.3",
       "npm:i18next@^25.8.13",
+      "npm:json-schema@0.4",
+      "npm:remark-frontmatter@5",
+      "npm:remark-lint-frontmatter-schema@^3.15.4",
       "npm:tinacms@^3.5.0"
     ]
   }
