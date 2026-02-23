@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/vite_preact_typescript/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/vite_preact_typescript/ja.md",
+      "key": "ja"
+    }
+  ]
+}

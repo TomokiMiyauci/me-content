@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/module_from_string/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/module_from_string/ja.md",
+      "key": "ja"
+    }
+  ]
+}

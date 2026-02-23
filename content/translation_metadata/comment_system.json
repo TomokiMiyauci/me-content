@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/comment_system/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/comment_system/ja.md",
+      "key": "ja"
+    }
+  ]
+}

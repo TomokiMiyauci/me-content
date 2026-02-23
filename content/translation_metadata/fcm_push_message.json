@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/fcm_push_message/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/fcm_push_message/ja.md",
+      "key": "ja"
+    }
+  ]
+}

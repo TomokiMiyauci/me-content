@@ -1,0 +1,376 @@
+---
+title: Using Vite for Bandler in Storybook
+description: It shows you how to develop Storybook with Vite. Explains in detail the points where you can get stuck in a preact project. It also shows how to make the Storybook configuration file type-safe.
+published_at: 2021-07-15
+slug: storybook-vite
+language: en
+cover_image: /posts/storybook_vite/hero.png
+---
+
+## Introduction
+
+Storybook can now be built using Vite, so let's take a look.
+
+Switching from `Webpack` to `vite` for building in an iframe has the following
+advantages.
+
+- Improved build speed
+- Faster HMR
+- Automated asset handling
+- Compatibility with Vite project settings
+- Access to Vite's plugin ecosystem
+
+If you have few components, you may not see much benefit in speed. Compared to
+`Webpack`, the speed to get the browser to display is dramatically improved, but
+It will take some time to load in your browser.
+
+On the other hand, the increase in time when more components are added will be
+contained. Also, I think you will notice a clear difference in speed when
+rebuilding with HMR.
+
+Personally, the biggest advantage of switching to `vite` is that it eliminates
+the need to configure asset handling.
+
+With `Webpack`, for example, if you want to use `sass`, you need to set up a
+loader for it. With `vite`, you don't need to configure TypeScript, CSS
+preprocessor, Static Assets handling, etc. because they are provided by default.
+
+On the other hand, switching to `vite` may cause some Storybook add-ons to be
+disabled. This is also true when using `webpack 5` with Storybook. For projects
+that use many Storybook add-ons, it is recommended to switch after thorough
+verification.
+
+By the way, we have confirmed that the following addons work.
+
+- [@storybook/addon-essentials](https://github.com/storybookjs/storybook/tree/main/addons/essentials)
+- [@storybook/addon-links](https://github.com/storybookjs/storybook/tree/main/addons/links)
+- [@storybook/addon-a11y](https://github.com/storybookjs/storybook/tree/main/addons/a11y)
+- [storybook-dark-mode](https://github.com/hipstersmoothie/storybook-dark-mode)
+
+## Prepare the Storybook
+
+I will use `preact` for explanation. The reason for using `preact` as an example
+is that there are a few points where you may get stuck in the `preact`
+environment.
+
+First, create a project skeleton.
+
+```bash
+npm init @vitejs/app <project-name> -- --template preact-ts
+cd <project-name>
+npm i -D @mdx-js/preact
+```
+
+We also installed `peerDependency` for `storybook-builder-vite`, which will be
+needed later.
+
+Next, we need to generate a Storybook template. Of course you can build the
+environment from scratch, but you can generate the skeleton with the following
+command:
+
+```bash
+npx sb init --builder storybook-builder-vite
+```
+
+If you specify `storybook-builder-vite` as the `builder` option, it will also
+install
+[`storybook-builder-vite`](https://github.com/eirslett/storybook-builder-vite)
+
+Now, the template is complete.
+
+The directory structure at this point is as follows, excluding files that are
+not necessary for the explanation.
+
+```bash
+.
+├── .storybook
+│   ├── main.js
+│   └── preview.js
+├── package.json
+├── src
+│   ├── stories
+│   │   ├── Button.jsx
+│   │   ├── Button.stories.jsx
+│   │   └── Introduction.stories.mdx
+│   └── vite-env.d.ts
+├── tsconfig.json
+└── vite.config.ts
+```
+
+Also, the following commands have been added to `package.json`.
+
+package.json
+
+```json
+{
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
+```
+
+If you run the `start-storybook` command at this stage, it will fail to render
+`Introduction.stories.mdx`.
+
+If you want `preact` to handle `mdx` files, you need to configure it. If you
+choose `react` or `vue` for your project, you don't need to do the following.
+
+Also, if you are in a `preact` environment and don't need to handle `mdx` files,
+you can delete `Introduction.stories.mdx`. And you can skip the next section.
+
+## Work with mdx files in Preact
+
+In order to use `mdx` files in Storybook with `preact`, two changes are needed.
+
+### Change the Storybook configuration file
+
+Next, we will modify the `.storybook/main.js` file. We'll show you later how to
+make this file `.ts` to make it type-safe.
+
+.storybook/main.js
+
+```js
+module.exports = {
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  core: {
+    builder: "storybook-builder-vite",
+  },
+
+  viteFinal: (config) => {
+    config.plugins = [
+      ...config.plugins,
+      require("@preact/preset-vite").default(),
+    ];
+    return config;
+  },
+};
+```
+
+The `storybook-builder-vite` adds a hook called `viteFinal`. You can change the
+settings of `vite` from this hook. Change the plugin to use
+`@preact/preset-vite`. By the way, in the original configuration, the following
+plugins are enabled.
+
+- storybook-vite-code-generator-plugin
+- mock-core-js
+- vite-plugin-mdx
+- mdx:transclusion
+- storybook-vite-inject-export-order-plugin
+
+Since we need to continue using these as well, we can use them by
+[Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+to assign an array of plugins to `plugins`.
+
+### Support for jsx inject
+
+`@preact/preset-vite` will automatically insert
+`import { h, Fragment } from 'preact'` into the `[j,t]sx` file. If you generate
+a Storybook with a template, the generated file will already have
+`import { h, Fragment } from 'preact'` declared.
+
+Since the declaration will be duplicated due to automatic insertion, remove the
+above declaration from **all files** in the template.
+
+Now that we are ready, let's run the `start-storbybook` command. It should be
+rendered successfully.
+
+## Make the Storybook configuration file type-safe
+
+The Storybook configuration file is `.js` by default. I want my configuration
+files to be type-safe at all costs, so I'll show you how to do that.
+
+The current directory structure is as follows:
+
+```bash
+.
+└── .storybook
+    ├── main.js
+    └── preview.js
+```
+
+The module system used by `main.js` and `preview.js` is different.
+
+| File       | Module       | Ext         |
+| ---------- | ------------ | ----------- |
+| main.js    | `Commonjs`   | `.js`       |
+| preview.js | `ES modules` | `.[j,t]sx?` |
+
+Since `main.js` is designed to be used with `Node.js`, it uses `Commonjs`. On
+the other hand, `preview.js` is run in the browser, so it is `ES modules`.
+TypeScript is also supported here.
+
+We will change both of them to TypeScrit and use `ES modules`. Incidentally,
+`Gatsby` and others have a similar structure, so you can use the same technique
+to define type-safe configuration files.
+
+### Make main.js type safe
+
+Since `main.js` is the entry point, we'll leave this file as is. Create a new
+`main.ts` and copy the contents of `main.js` then rewrite `ES modules`.
+
+.storybook/main.ts
+
+```ts
+import preact from "@preact/preset-vite";
+const config = {
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  core: {
+    builder: "storybook-builder-vite",
+  },
+  viteFinal: (config) => {
+    config.plugins = [...config.plugins, preact()];
+    if (process.env.NODE_ENV === "production") {
+      config.build.chunkSizeWarningLimit = 1200;
+    }
+    return config;
+  },
+};
+
+export default config;
+```
+
+At this point, we add the code to change the `chunkSizeWarningLimit`. The
+purpose is to suppress the bundle size warning at build time. There is no
+problem without it.
+
+We give it a type annotation. The types are not provided by
+`storybook-builder-vite`, so you need to create your own.
+
+.storybook/main.ts
+
+```ts
+import { CoreConfig, Options, StorybookConfig } from "@storybook/core-common";
+import { UserConfig } from "vite";
+import { Weaken } from "utilitypes";
+
+interface CustomizedCoreConfig extends Weaken<CoreConfig, "builder"> {
+  builder: CoreConfig["builder"] | "storybook-builder-vite";
+}
+interface CustomizedStorybookConfig extends Weaken<StorybookConfig, "core"> {
+  core: CustomizedCoreConfig;
+  viteFinal?: (config: UserConfig, options: Options) => UserConfig;
+}
+```
+
+We need to extend Storybook's `StorybookConfig` type. If you want to extend a
+property that already exists in the `interface`, you need to set it to `any`
+once.
+
+`Weaken` is a useful type provided by a project I'm working on
+[utilitypes](https://github.com/TomokiMiyauci/utilitypes). It returns a type
+with `any` of the specified properties.
+
+It is still `beta` at the time of this writing.
+
+```bash
+npm i -D utilitypes@beta
+```
+
+Now we can specify this type in the type annotation. The entire file will look
+like this:
+
+.storybook/main.ts
+
+```ts
+import preact from "@preact/preset-vite";
+import { CoreConfig, Options, StorybookConfig } from "@storybook/core-common";
+import { UserConfig } from "vite";
+import { Weaken } from "utilitypes";
+
+interface CustomizedCoreConfig extends Weaken<CoreConfig, "builder"> {
+  builder: CoreConfig["builder"] | "storybook-builder-vite";
+}
+interface CustomizedStorybookConfig extends Weaken<StorybookConfig, "core"> {
+  core: CustomizedCoreConfig;
+  viteFinal?: (config: UserConfig, options: Options) => UserConfig;
+}
+
+const config: CustomizedStorybookConfig = {
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  core: {
+    builder: "storybook-builder-vite",
+  },
+  viteFinal: (config) => {
+    config.plugins = [...config.plugins, preact()];
+    if (process.env.NODE_ENV === "production") {
+      config.build.chunkSizeWarningLimit = 1200;
+    }
+    return config;
+  },
+};
+
+export default config;
+```
+
+Next, we will import `main.ts` from `main.js`. Since `main.js` is `Commonjs`, it
+can't normally handle TypeScript or `ES modules`.
+
+To do this, we will use the package
+[`esbuild-register`](https://github.com/egoist/esbuild-register).
+`esbuild-register` is the `esbuild` version of `ts-node`. There is no type
+checking. It is fast.
+
+```bash
+npm i -D esbuild-register
+```
+
+`main.js` will look like this:
+
+.storybook/main.js
+
+```js
+const { register } = require("esbuild-register/dist/node");
+register({
+  target: "node15",
+});
+module.exports = require("./main.ts");
+```
+
+So `main.js` is just an entry point, and the actual configuration can be
+type-safely written in `main.ts`.
+
+## Make preview.js type-safe
+
+There's not much to do with `preview.js`, since it's an `ES modules` and can
+handle TypeScripts.
+
+- Change the file extension to `.ts` or `.tsx`.
+- Type annotate the Storybook type
+
+It will look like this:
+
+.storybook/preview.ts
+
+```ts
+import { Parameters } from "@storybook/addons";
+export const parameters: Parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+};
+```
+
+Storybook provides a large number of files, so it was hard to find the
+type:sweat_drops:.
+
+Now we can develop in a type-safe way.
+
+## Preview the production code
+
+This is a extra. Sometimes you want to check the pre-built code. This is
+especially true if you are switching from `Webpack` to `vite`.
+
+Storybook does not provide a command for previewing. So you have to build a
+static file server yourself. It's easy, though.
+
+`npx http-server storybook-static`
+
+Now you can preview.

@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/cloud_functions_online_test/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/cloud_functions_online_test/ja.md",
+      "key": "ja"
+    }
+  ]
+}

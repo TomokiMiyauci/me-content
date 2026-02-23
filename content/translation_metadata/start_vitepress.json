@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/start_vitepress/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/start_vitepress/ja.md",
+      "key": "ja"
+    }
+  ]
+}

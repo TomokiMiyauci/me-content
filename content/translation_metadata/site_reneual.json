@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/site_renewal/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/site_renewal/ja.md",
+      "key": "ja"
+    }
+  ]
+}

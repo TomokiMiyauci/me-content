@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/deno_lambda_cdk/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/deno_lambda_cdk/ja.md",
+      "key": "ja"
+    }
+  ]
+}

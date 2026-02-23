@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/jest_table_driven_tests/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/jest_table_driven_tests/ja.md",
+      "key": "ja"
+    }
+  ]
+}

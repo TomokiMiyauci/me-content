@@ -1,0 +1,12 @@
+{
+  "translations": [
+    {
+      "value": "content/posts/file_dialog/en.md",
+      "key": "en"
+    },
+    {
+      "value": "content/posts/file_dialog/ja.md",
+      "key": "ja"
+    }
+  ]
+}
