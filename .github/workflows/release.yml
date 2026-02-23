@@ -3,8 +3,8 @@ on:
     branches:
       - draft
     paths-ignore:
-      - public
-      - content
+      - public/**
+      - content/**
 
 jobs:
   deploy:
