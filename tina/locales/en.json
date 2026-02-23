@@ -1,0 +1,47 @@
+{
+  "post": {
+    "title": "Blog Posts",
+    "fields": {
+      "title": {
+        "title": "Title",
+        "description": "The headline of the article."
+      },
+      "slug": {
+        "title": "Slug",
+        "description": "URL-friendly identifier for the post."
+      },
+      "description": {
+        "title": "Description",
+        "description": "Summary for search results and social sharing."
+      },
+      "cover_image": {
+        "title": "Cover Image",
+        "description": "Main featured image for the post."
+      },
+      "published_at": {
+        "title": "Published At",
+        "description": "The scheduled or actual publication date."
+      },
+      "modified_at": {
+        "title": "Modified At",
+        "description": "Date and time of the last update."
+      },
+      "body": {
+        "title": "Body",
+        "description": "The main content of the article."
+      },
+      "tags": {
+        "title": "Tags",
+        "description": "Keywords for filtering and search."
+      },
+      "authors": {
+        "title": "Authors",
+        "description": "Assigned writers for this content."
+      },
+      "categories": {
+        "title": "Categories",
+        "description": "Primary classification for the post."
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 // deno-lint-ignore-file no-process-global
+import "./lib/i18next.ts";
 import { defineConfig } from "tinacms";
 import schema from "./schema.ts";
 
