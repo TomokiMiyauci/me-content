@@ -9,7 +9,7 @@ import tinaLock from "../tina/tina-lock.json" with { type: "json" };
 import { existsSync, expandGlob } from "@std/fs";
 import matter from "gray-matter";
 import ajv from "ajv";
-import { join } from "@std/path";
+import { join, resolve } from "@std/path";
 
 async function* validate(
   defifinitions: ValidationDefinition[],
@@ -81,20 +81,22 @@ if (import.meta.main) {
     throw new Error("dirname is not defined");
   }
 
+  const rootDir = resolve(dirname, "..");
+
   const definitions = tinaLockToValidationDefinitions(
     tinaLock as TinaLock,
-    dirname,
+    rootDir,
   );
   const result = validate(definitions, {
     exclude: ["**/.gitkeep.*"],
-    rootDir: dirname,
+    rootDir: rootDir,
   });
 
   // deno-lint-ignore no-top-level-await
   const errors = await Array.fromAsync(result);
 
   if (errors.length) {
-    throw new Error();
+    throw new AggregateError(errors);
   } else {
     console.info("Ok");
   }
