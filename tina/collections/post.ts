@@ -1,14 +1,7 @@
 import type { Collection } from "tinacms";
 import language from "./fields/language.ts";
 import { t } from "i18next";
-
-function ns<T extends string>(
-  first: T,
-): <U extends string>(b: U) => `${T}${U}` {
-  return <U extends string>(last: U) => {
-    return `${first}${last}`;
-  };
-}
+import { ns } from "../lib/util.ts";
 
 const fields = ns("post.fields.");
 

@@ -12,13 +12,11 @@ i18next.init({
 });
 
 declare module "i18next" {
-  // Extend CustomTypeOptions
   interface CustomTypeOptions {
-    // custom namespace type, if you changed it
-    defaultNS: "en";
+    defaultNS: "translation";
     // custom resources type
     resources: {
-      en: typeof translation;
+      translation: typeof translation;
     };
   }
 }
