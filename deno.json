@@ -62,5 +62,5 @@
       ]
     }
   },
-  "workspace": ["packages/tina_audit_plus", "packages/tina_lock"]
+  "workspace": ["packages/tina_audit", "packages/tina_lock"]
 }
