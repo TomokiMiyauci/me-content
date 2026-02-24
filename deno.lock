@@ -4,7 +4,6 @@
     "jsr:@std/fs@^1.0.23": "1.0.23",
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@^1.1.4": "1.1.4",
-    "jsr:@std/yaml@^1.0.12": "1.0.12",
     "npm:@tinacms/cli@^2.1.6": "2.1.6_react@19.2.4_react-dom@19.2.4__react@19.2.4_graphql@15.8.0_tailwindcss@3.4.19__postcss@8.5.6__jiti@1.21.7_fs-extra@11.3.3_yup@1.7.1_vite@4.5.14_typanion@3.13.0_typescript@5.9.3",
     "npm:@tinacms/schema-tools@^2.6.0": "2.6.0_react@19.2.4_yup@1.7.1",
     "npm:ajv@^8.18.0": "8.18.0",
@@ -30,9 +29,6 @@
       "dependencies": [
         "jsr:@std/internal"
       ]
-    },
-    "@std/yaml@1.0.12": {
-      "integrity": "7deabca4545bcedd07c5f69ea53acea71b8b4c67562f224e17b90d75944cb20c"
     }
   },
   "npm": {
@@ -6996,19 +6992,12 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/fs@^1.0.23",
-      "jsr:@std/path@^1.1.4",
-      "jsr:@std/yaml@^1.0.12",
       "npm:@tinacms/cli@^2.1.6",
-      "npm:@tinacms/schema-tools@^2.6.0",
-      "npm:ajv@^8.18.0",
-      "npm:gray-matter@^4.0.3",
       "npm:i18next@^25.8.13",
-      "npm:json-schema@0.4",
       "npm:tinacms@^3.5.0"
     ],
     "members": {
-      "packages/tina_audit_plus": {
+      "packages/tina_audit": {
         "dependencies": [
           "jsr:@std/fs@^1.0.23",
           "jsr:@std/path@^1.1.4",
@@ -7021,6 +7010,7 @@
       },
       "packages/tina_lock": {
         "dependencies": [
+          "jsr:@std/path@^1.1.4",
           "npm:tinacms@^3.5.1"
         ]
       }

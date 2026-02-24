@@ -1,5 +1,5 @@
 import type { TinaLock } from "./type.ts";
-import { fromFileUrl } from "@std/path";
+import { fromFileUrl } from "@std/path/from-file-url";
 
 export async function loadTinaLock(url: URL): Promise<TinaLock> {
   if (url.protocol === "file:") {
