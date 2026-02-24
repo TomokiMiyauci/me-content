@@ -13,8 +13,12 @@
       "description": "Lint schema"
     },
     "lint:content": {
-      "command": "deno run --allow-read @miyauci/tina-audit-plus/run ",
+      "command": "deno run --allow-read @miyauci/tina-audit-plus/run",
       "description": "Lint content"
+    },
+    "lint:deno": {
+      "command": "deno lint",
+      "description": "Lint by Deno"
     },
     "lint": {
       "command": "deno task \"lint:*\"",
