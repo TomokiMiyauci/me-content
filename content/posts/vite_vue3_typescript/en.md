@@ -16,7 +16,7 @@ bundling required. Vue3, React and Preact are also supported.
 In this article, I'll build a Vue3 project environment using Vite.
 
 You can find the template in
-[here](https://github.com/TomokiMiyauci/vite-vue3-template).
+[GitHub Template](https://github.com/TomokiMiyauci/vite-vue3-template).
 
 ## Things to do
 
@@ -303,7 +303,7 @@ package.json
 
 VSCode users can format it automatically with the following settings. Also, an
 extension is required, so if it is not available, please install it
-[here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+[VSCode Prettier Plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
 .vscode/settings.json
 
