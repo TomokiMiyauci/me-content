@@ -1,9 +1,9 @@
 ---
 title: Bitlyで動的に短縮 URLを作成してツイートする
-description: Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
-published_at: 2021-08-07
 slug: bitly-short-url
+description: Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
 cover_image: /posts/bitly_short_url/hero.png
+published_at: 2021-08-07T00:00:00.000Z
 language: ja
 ---
 
@@ -37,7 +37,7 @@ Bitly はクレジットカードの登録が不要なフリープランがあ�
 
 例えばこのサイトの URL を短縮すると、
 
-https://miyauchi.dev/ -> https://bit.ly/3jzAv7l
+[https://miyauchi.dev/](https://miyauchi.dev/) -> [https://bit.ly/3jzAv7l](https://bit.ly/3jzAv7l)
 
 という URL が生成されました。
 
@@ -60,7 +60,7 @@ https://miyauchi.dev/ -> https://bit.ly/3jzAv7l
 
 短縮 URL のエンドポイントは次のとおりです。
 
-https://api-ssl.bitly.com/v4/shorten
+[https://api-ssl.bitly.com/v4/shorten](https://api-ssl.bitly.com/v4/shorten)
 
 リクエストヘッダーにアクセストークンを付与して、body に短縮したい URL
 を指定します。
@@ -112,7 +112,7 @@ Bitly クライアントライブラリを使うことで、 TypeScript で型�
 npm i bitly
 ```
 
-> [!WARNING]
+> \[!WARNING]
 > Top level await 構文を使っています
 
 ```ts
@@ -203,23 +203,6 @@ await client.v1.tweet(tweetContent);
 上の例では、短縮 URL をそのままツイートしています。
 
 普通ツイートには URL 以外にも情報を記載すると思います。
-
-このブログでは、次のように記事の公開時に自動ツイートするようにしています。
-
-<blockquote align="center" class="twitter-tweet">
-  <p lang="ja" dir="ltr">
-    🤖 新しい記事を投稿しました🚀
-    <a href="https://t.co/ThUPfgUld9">https://t.co/ThUPfgUld9</a>
-    <br />
-    <br />
-    Bitlyで動的に短縮 URLを作成してツイートする
-    <br />
-    Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
-  </p>
-  &mdash; Tomoki Miyauci (@tomoki_miyauci) <a href="https://twitter.com/tomoki_miyauci/status/1424007666687303687?ref_src=twsrc%5Etfw">
-    August 7, 2021
-  </a>
-</blockquote>
 
 テンプレートエンジンを使ってツイートコンテンツをレンダリングするのがおすすめですが、
 280 文字の文字数制限には注意する必要があります。

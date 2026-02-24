@@ -83,7 +83,7 @@ Twitter Client
 例えば、次のエンドポイントへのリクエストを`twitter`
 クライアントを使うと以下のようになります。
 
-https://api.twitter.com/1.1/statuses/update.json
+<https://api.twitter.com/1.1/statuses/update.json>
 
 ```ts
 import Twitter from "twitter";

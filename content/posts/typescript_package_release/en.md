@@ -186,7 +186,7 @@ When compile it, you get the following directory structure
 
 All you have to do now is to publish the package. To publish, you need an NPM
 account first. If you don't have an account, please create one from
-[here](https://www.npmjs.com/signup).
+[NPM Signup](https://www.npmjs.com/signup).
 
 Then, log in with the command line.
 
@@ -266,8 +266,8 @@ By the way, yarn v1 does not support the unpublish command. So if you publish
 with yarn, you can unpublish with npm.
 
 Also, unpublish has a privacy policy. See
-[here](https://www.npmjs.com/policies/unpublish) for more details, but in
-summary, you can make the following cases private
+[NPM Unpublish Policy](https://www.npmjs.com/policies/unpublish) for more
+details, but in summary, you can make the following cases private
 
 - Packages published within 72 hours
 

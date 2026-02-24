@@ -448,7 +448,7 @@ Specify the list of dependencies you want to exclude in the `external` field of
 `rollupOptions`. You can do this by specifying `peerDependencies` and
 `dependencies` in `package.json`.
 
-### Set the target environment.
+### Set the target environment
 
 You can specify which browser versions and Node.js runtime versions are
 supported. The `target` of `build` can be `chrome58`, `node12`, etc. to generate

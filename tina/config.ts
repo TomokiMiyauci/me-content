@@ -33,4 +33,9 @@ export default defineConfig({
   },
   schema,
   client: { skip: true },
+  ui: {
+    regexValidation: {
+      folderNameRegex: "^[a-z0-9_]+$",
+    },
+  },
 });

@@ -178,7 +178,7 @@ Download https://deno.land/x/lambda@1.17.2/mod.ts
 Download https://deno.land/x/lambda@1.17.2/types.d.ts
 
 START RequestId: e326eded-43e4-4bae-a21f-77a652cde9dd Version: $LATEST
-INFO	RequestId: e326eded-43e4-4bae-a21f-77a652cde9dd
+INFO RequestId: e326eded-43e4-4bae-a21f-77a652cde9dd
 { deno: "1.17.2", v8: "9.7.106.15", typescript: "4.5.2" }
 END RequestId: e326eded-43e4-4bae-a21f-77a652cde9dd
 ```
@@ -224,7 +224,7 @@ If you deploy and run this, you will get the following output:
 
 ```bash
 START RequestId: 93a7fc6a-b9d3-4551-9cae-c773bbd0cf0e Version: $LATEST
-INFO	93a7fc6a-b9d3-4551-9cae-c773bbd0cf0e	    at handler (file:///var/task/hello.ts:5:11)
+INFO 93a7fc6a-b9d3-4551-9cae-c773bbd0cf0e     at handler (file:///var/task/hello.ts:5:11)
 { deno: "1.17.2", v8: "9.7.106.15", typescript: "4.5.2" }
 END RequestId: 93a7fc6a-b9d3-4551-9cae-c773bbd0cf0e
 ```

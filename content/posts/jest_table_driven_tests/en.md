@@ -93,8 +93,9 @@ Describe the test case in a two-dimensional array. The order of the elements in
 the array is passed as an argument to `fn`. Also, for `name`, specify the title
 of the test suite. You can generate a unique test title by injecting parameters
 that follow the format of `printf`. Please check
-[here](https://jestjs.io/ja/docs/api#1-describeeachtablename-fn-timeout) for
-details. The parameters are passed in the order of the elements in the array.
+[Jest Docs](https://jestjs.io/ja/docs/api#1-describeeachtablename-fn-timeout)
+for details. The parameters are passed in the order of the elements in the
+array.
 
 By the way, if you pass a one-dimensional array, it will be converted internally
 as `[1, 2, 3]` -> `[[1], [2], [3]]`.

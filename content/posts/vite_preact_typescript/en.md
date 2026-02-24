@@ -15,7 +15,7 @@ bundling required. Vue3, React and Preact are also supported. In this article,
 I'll use Vite to build a Preact project environment.
 
 You can find the result template in
-[here](https://github.com/TomokiMiyauci/vite-preact).
+[GitHub Template](https://github.com/TomokiMiyauci/vite-preact).
 
 ## To do
 
@@ -216,7 +216,7 @@ npm run lint:script --fix
 VSCode users can also set up the following settings to make the automatic
 formatting work. An extension to ESLint is required, so if you don't have it,
 please install it
-[here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+[VSCode ESLint Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 .vscode/settings.json
 
@@ -319,7 +319,7 @@ package.json
 
 VSCode users can format it automatically with the following settings. Also, an
 extension is required, so if it is not available, please install it
-[here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+[VSCode Prettier Plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
 .vscode/settings.json
 
@@ -365,7 +365,7 @@ package.json
 
 VSCode users can format it automatically with the following settings. Extensions
 are required, so if you don't have them, install them
-[here](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
+[VSCode Stylelint Plugin](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
 
 That's the end of the basic setup of the linker and formatter.
 
@@ -416,6 +416,6 @@ import { App } from "/@/app";
 
 It's a little strange that it has to start from `/`, but it seems to combine
 with the alias of the package name. For more information, please refer to
-[here](https://github.com/vitejs/vite/blob/master/src/node/config.ts#L53).
+<https://github.com/vitejs/vite/blob/master/src/node/config.ts#L53>.
 
 That's the minimum environment you can build.

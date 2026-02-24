@@ -1,9 +1,9 @@
 ---
 title: Dynamically create short URL with Bitly and tweet
-description: Introduce how to generate short URL dynamically with Bitly. Also, since tweets are an effective use of short URL, I will also explain how to dynamically tweet.
-published_at: 2021-08-07
 slug: bitly-short-url
+description: 'Introduce how to generate short URL dynamically with Bitly. Also, since tweets are an effective use of short URL, I will also explain how to dynamically tweet.'
 cover_image: /posts/bitly_short_url/hero.png
+published_at: 2021-08-07T00:00:00.000Z
 language: en
 ---
 
@@ -31,7 +31,7 @@ free plan, you can generate up to 1000 short URL per month.
 
 For example, when I short the URL of this site, it generated the following URL:
 
-https://miyauchi.dev/ -> https://bit.ly/3jzAv7l
+[https://miyauchi.dev/](https://miyauchi.dev/) -> [https://bit.ly/3jzAv7l](https://bit.ly/3jzAv7l)
 
 With the free plan, you cannot change the `bit.ly` domain. However, even with
 the free plan, you can customize the path part.
@@ -52,7 +52,7 @@ the dashboard.
 
 The endpoint of the short URL is as follows
 
-https://api-ssl.bitly.com/v4/shorten
+[https://api-ssl.bitly.com/v4/shorten](https://api-ssl.bitly.com/v4/shorten)
 
 Give an access token in the request header, and specify the URL to be short in
 the body.
@@ -105,7 +105,7 @@ You can use the Bitly client library to operate type-safely with TypeScript.
 npm i bitly
 ```
 
-> [!WARNING]
+> \[!WARNING]
 > Using top level await syntax
 
 ```ts
@@ -195,25 +195,6 @@ await client.v1.tweet(tweetContent);
 In the example above, the short URL is tweeted as is.
 
 Normally, you would include more information in the tweet than just the URL.
-
-This blog automatically tweets when an article is published, as shown below.
-
-<blockquote align="center" class="twitter-tweet">
-  <p lang="en" dir="ltr">
-    🤖 A new article has been posted🚀
-    <a href="https://t.co/XF3qyL0Leq">https://t.co/XF3qyL0Leq</a>
-    <br />
-    <br />
-    Dynamically create short URL with Bitly and tweet
-    <br />
-    Introduce how to generate short URL dynamically with Bitly. Also, since
-    tweets are an effective use of short URL, I will also explain how to
-    dynamically tweet.
-  </p>
-  &mdash; Tomoki Miyauci (@tomoki_miyauci) <a href="https://twitter.com/tomoki_miyauci/status/1424007666800619524?ref_src=twsrc%5Etfw">
-    August 7, 2021
-  </a>
-</blockquote>
 
 I recommend using a template engine to render your tweet content, but you should
 be aware of the 280-character limit.

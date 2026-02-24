@@ -1,0 +1,10 @@
+{
+  "name": "@miyauci/tina-lock",
+  "exports": {
+    ".": "./src/mod.ts"
+  },
+  "imports": {
+    "@std/path": "jsr:@std/path@^1.1.4",
+    "tinacms": "npm:tinacms@^3.5.1"
+  }
+}

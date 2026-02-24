@@ -120,8 +120,8 @@ articles with the same content in different languages and with different
 In this case, you can choose whether to unify the comments for the articles or
 separate them.
 
-- https://miyauchi.dev/posts/comment-system/
-- https://miyauchi.dev/ja/posts/comment-system/
+- <https://miyauchi.dev/posts/comment-system/>
+- <https://miyauchi.dev/ja/posts/comment-system/>
 
 In the case of above URL, this blog wanted to have separate comments for the
 Japanese and English articles, so I chose to tie them by `pathname`.

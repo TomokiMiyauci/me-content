@@ -1,0 +1,15 @@
+{
+  "name": "@miyauci/tina-audit-plus",
+  "imports": {
+    "@std/fs": "jsr:@std/fs@^1.0.23",
+    "@std/path": "jsr:@std/path@^1.1.4",
+    "@tinacms/schema-tools": "npm:@tinacms/schema-tools@^2.6.0",
+    "ajv": "npm:ajv@^8.18.0",
+    "gray-matter": "npm:gray-matter@^4.0.3",
+    "json-schema": "npm:json-schema@^0.4.0",
+    "tinacms": "npm:tinacms@^3.5.1"
+  },
+  "exports": {
+    "./run": "./src/main.ts"
+  }
+}

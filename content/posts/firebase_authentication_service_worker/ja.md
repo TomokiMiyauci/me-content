@@ -75,28 +75,6 @@ CDN から `importScripts` を用いて読み込む場合は適宜読み替え�
 加えて、認証情報の永続化には `Indexed DB` が利用されます。 `Indexed DB`
 が実装されていないブラウザは利用できないため注意してください。
 
-<p
-  class="ciu_embed"
-  data-feature="indexeddb"
-  data-periods="future_1,current,past_1,past_2"
-  data-accessible-colours="true"
->
-  <picture>
-    <source
-      type="image/webp"
-      srcset="https://caniuse.bitsofco.de/image/indexeddb.webp"
-    />
-    <source
-      type="image/png"
-      srcset="https://caniuse.bitsofco.de/image/indexeddb.png"
-    />
-    <img
-      src="https://caniuse.bitsofco.de/image/indexeddb.jpg"
-      alt="Data on support for the indexeddb feature across the major browsers from caniuse.com"
-    />
-  </picture>
-</p>
-
 まず、既にある場合は不要ですが、Firebase SDK をインストールします。
 
 ```bash

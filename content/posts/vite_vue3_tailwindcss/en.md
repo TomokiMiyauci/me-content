@@ -16,8 +16,9 @@ project, you'll have to build your own environment to use the other modules.
 In this article, I will use Vite to build an environment for Tailwind CSS as CSS
 framework.
 
-Please refer to [here](https://github.com/TomokiMiyauci/vite-vue3-template) for
-more details.
+Please refer to
+[GitHub Template](https://github.com/TomokiMiyauci/vite-vue3-template) for more
+details.
 
 In the following, I will assume that there is a Vite project.
 
@@ -73,7 +74,7 @@ Now you can use Utility Classes during development.
 ## Improving DX
 
 VSCode allows you to make tailwind's intellisense work.
-[here](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+[VSCode Tailwindcss Plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 to install it.
 
 Also, VSCode has `unknownAtRules` by default as it validates `css`. To fix it,
