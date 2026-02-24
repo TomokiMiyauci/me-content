@@ -13,7 +13,7 @@
       "description": "Lint schema"
     },
     "lint:content": {
-      "command": "deno run --allow-read scripts/validator.ts",
+      "command": "deno run --allow-read @miyauci/tina-audit-plus/run ",
       "description": "Lint content"
     },
     "lint": {
@@ -61,5 +61,6 @@
         "verbatim-module-syntax"
       ]
     }
-  }
+  },
+  "workspace": ["packages/tina_audit_plus", "packages/tina_lock"]
 }

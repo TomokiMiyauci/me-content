@@ -11,7 +11,8 @@
     "npm:gray-matter@^4.0.3": "4.0.3",
     "npm:i18next@^25.8.13": "25.8.13",
     "npm:json-schema@0.4": "0.4.0",
-    "npm:tinacms@^3.5.0": "3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4"
+    "npm:tinacms@^3.5.0": "3.5.1_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4",
+    "npm:tinacms@^3.5.1": "3.5.1_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4"
   },
   "jsr": {
     "@std/fs@1.0.23": {
@@ -1882,11 +1883,11 @@
       ],
       "bin": true
     },
-    "@tinacms/graphql@2.1.2_react@19.2.4_yup@1.7.1": {
+    "@tinacms/graphql@2.1.2_react@19.2.4_yup@1.7.1_typescript@5.9.3": {
       "integrity": "sha512-SWaVCbKx3WmHrgv4sNAdp9M3Y31g0HPCrH34fElvNNQ9JVsW5FVY4YYcSDQsMVNZuQotprnAzAM+DnKPeE26GA==",
       "dependencies": [
         "@iarna/toml",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1",
+        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
         "@tinacms/schema-tools",
         "abstract-level",
         "date-fns@2.30.0",
@@ -1907,11 +1908,11 @@
         "yup"
       ]
     },
-    "@tinacms/graphql@2.1.2_react@19.2.4_yup@1.7.1_typescript@5.9.3": {
-      "integrity": "sha512-SWaVCbKx3WmHrgv4sNAdp9M3Y31g0HPCrH34fElvNNQ9JVsW5FVY4YYcSDQsMVNZuQotprnAzAM+DnKPeE26GA==",
+    "@tinacms/graphql@2.1.3_react@19.2.4_yup@1.7.1": {
+      "integrity": "sha512-5r9JJxRJJBGGxzKxQLGtPbyBB4UG0nWMBcSfkn3eswvTOGHzd4JKdJljz53uuOoC+2TgbPV2XWtKoJ5jve+3aw==",
       "dependencies": [
         "@iarna/toml",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1",
         "@tinacms/schema-tools",
         "abstract-level",
         "date-fns@2.30.0",
@@ -2016,10 +2017,10 @@
         "zod"
       ]
     },
-    "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1": {
+    "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1_typescript@5.9.3": {
       "integrity": "sha512-l4DnYe7FnTL0X/W0rO2lXtKgOlxV8wabR0s/KG/AwueOTHCWPHsEJdhCsf3kTm6Uh0cOoVQ/vg3Sz9CxuVzTqw==",
       "dependencies": [
-        "@tinacms/graphql@2.1.2_react@19.2.4_yup@1.7.1",
+        "@tinacms/graphql@2.1.2_react@19.2.4_yup@1.7.1_typescript@5.9.3",
         "@tinacms/schema-tools",
         "memory-level",
         "search-index",
@@ -2027,10 +2028,10 @@
         "stopword"
       ]
     },
-    "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1_typescript@5.9.3": {
-      "integrity": "sha512-l4DnYe7FnTL0X/W0rO2lXtKgOlxV8wabR0s/KG/AwueOTHCWPHsEJdhCsf3kTm6Uh0cOoVQ/vg3Sz9CxuVzTqw==",
+    "@tinacms/search@1.2.4_react@19.2.4_yup@1.7.1": {
+      "integrity": "sha512-nBXp8XiqVPvnuxVhVtkuyR8FexC5be5E5xyDKnnrV9ifCrioXyH3dXQquo0Q+5EkgM5LWhvSm67Qe0aGk1bitA==",
       "dependencies": [
-        "@tinacms/graphql@2.1.2_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/graphql@2.1.3_react@19.2.4_yup@1.7.1",
         "@tinacms/schema-tools",
         "memory-level",
         "search-index",
@@ -6316,7 +6317,7 @@
     "throttle-debounce@3.0.1": {
       "integrity": "sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg=="
     },
-    "tinacms@3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4": {
+    "tinacms@3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4_typescript@5.9.3": {
       "integrity": "sha512-qDhTjbRB6yxgNplYlC5C9mvbOLOzDHsW3Px29xUxk9P2SdfiRp6ccAtqJ3HoebAo0Pd1MglYsKDq7xOgkaw6Fg==",
       "dependencies": [
         "@ariakit/react",
@@ -6340,9 +6341,9 @@
         "@radix-ui/react-tooltip",
         "@react-hook/window-size",
         "@tanstack/react-table",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1",
+        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
         "@tinacms/schema-tools",
-        "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1",
+        "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1_typescript@5.9.3",
         "@udecode/cmdk",
         "@udecode/cn",
         "@udecode/plate",
@@ -6405,8 +6406,8 @@
         "zod"
       ]
     },
-    "tinacms@3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4_typescript@5.9.3": {
-      "integrity": "sha512-qDhTjbRB6yxgNplYlC5C9mvbOLOzDHsW3Px29xUxk9P2SdfiRp6ccAtqJ3HoebAo0Pd1MglYsKDq7xOgkaw6Fg==",
+    "tinacms@3.5.1_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4": {
+      "integrity": "sha512-3fV5gMueUfVzej9E3RcFy+37IIZB7iKHqhqdw2VBkn4m0wLcwpGrnCUE1JhysSACrBhJFvjpV63yWO+siEeVHQ==",
       "dependencies": [
         "@ariakit/react",
         "@dnd-kit/core",
@@ -6429,9 +6430,9 @@
         "@radix-ui/react-tooltip",
         "@react-hook/window-size",
         "@tanstack/react-table",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1",
         "@tinacms/schema-tools",
-        "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/search@1.2.4_react@19.2.4_yup@1.7.1",
         "@udecode/cmdk",
         "@udecode/cn",
         "@udecode/plate",
@@ -7005,6 +7006,24 @@
       "npm:i18next@^25.8.13",
       "npm:json-schema@0.4",
       "npm:tinacms@^3.5.0"
-    ]
+    ],
+    "members": {
+      "packages/tina_audit_plus": {
+        "dependencies": [
+          "jsr:@std/fs@^1.0.23",
+          "jsr:@std/path@^1.1.4",
+          "npm:@tinacms/schema-tools@^2.6.0",
+          "npm:ajv@^8.18.0",
+          "npm:gray-matter@^4.0.3",
+          "npm:json-schema@0.4",
+          "npm:tinacms@^3.5.1"
+        ]
+      },
+      "packages/tina_lock": {
+        "dependencies": [
+          "npm:tinacms@^3.5.1"
+        ]
+      }
+    }
   }
 }

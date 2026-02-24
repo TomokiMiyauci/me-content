@@ -1,17 +1,14 @@
-import {
-  type ReferenceDefinition,
-  type Source,
-  type TinaLock,
-  tinaLockToValidationDefinitions,
-  type ValidationDefinition,
-} from "./schema.ts";
-import tinaLock from "../tina/tina-lock.json" with { type: "json" };
+import type {
+  ReferenceDefinition,
+  Source,
+  ValidationDefinition,
+} from "./type.ts";
 import { existsSync, expandGlob } from "@std/fs";
 import matter from "gray-matter";
 import ajv from "ajv";
-import { join, resolve } from "@std/path";
+import { join } from "@std/path";
 
-async function* validate(
+export async function* validate(
   defifinitions: ValidationDefinition[],
   options: { exclude?: string[]; rootDir: string },
 ): AsyncIterable<Error> {
@@ -71,33 +68,5 @@ function convertTo(content: string, source: Source): object {
     case "yaml": {
       throw new Error("unimplemented");
     }
-  }
-}
-
-if (import.meta.main) {
-  const dirname = import.meta.dirname;
-
-  if (!dirname) {
-    throw new Error("dirname is not defined");
-  }
-
-  const rootDir = resolve(dirname, "..");
-
-  const definitions = tinaLockToValidationDefinitions(
-    tinaLock as TinaLock,
-    rootDir,
-  );
-  const result = validate(definitions, {
-    exclude: ["**/.gitkeep.*"],
-    rootDir: rootDir,
-  });
-
-  // deno-lint-ignore no-top-level-await
-  const errors = await Array.fromAsync(result);
-
-  if (errors.length) {
-    throw new AggregateError(errors);
-  } else {
-    console.info("Ok");
   }
 }

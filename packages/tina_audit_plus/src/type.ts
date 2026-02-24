@@ -3,6 +3,7 @@ import type { JSONSchema7, JSONSchema7Definition } from "json-schema";
 import type { Collection, TinaField } from "tinacms";
 import type { ContentFormat } from "@tinacms/schema-tools";
 import { join } from "@std/path";
+import type { TinaLock } from "@miyauci/tina-lock";
 
 export type Source =
   | {
@@ -18,29 +19,6 @@ export type Source =
 export interface ValidationDefinition {
   schema: JSONSchema7;
   source: Source;
-}
-
-export interface TinaLock {
-  schema: {
-    version: {
-      fullVersion: string;
-      major: string;
-      minor: string;
-      patch: string;
-    };
-    meta: {
-      flags: string[];
-    };
-    collections: Collection[];
-    config: {
-      media: {
-        tina: {
-          publicFolder: string;
-          mediaRoot: string;
-        };
-      };
-    };
-  };
 }
 
 export function tinaLockToValidationDefinitions(
