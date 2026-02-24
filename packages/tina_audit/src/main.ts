@@ -1,4 +1,4 @@
-import { validate } from "./cli.ts";
+import { validate } from "./util.ts";
 import { tinaLockToValidationDefinitions } from "./type.ts";
 import { join, toFileUrl } from "@std/path";
 import { loadTinaLock } from "@miyauci/tina-lock";
