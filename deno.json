@@ -20,6 +20,10 @@
       "command": "deno lint",
       "description": "Lint by Deno"
     },
+    "lint:markdown": {
+      "command": "deno x markdownlint content",
+      "description": "Lint by markdownlint"
+    },
     "lint": {
       "command": "deno task \"lint:*\"",
       "description": "Static check"
@@ -28,6 +32,7 @@
   "imports": {
     "@tinacms/cli": "npm:@tinacms/cli@^2.1.6",
     "i18next": "npm:i18next@^25.8.13",
+    "markdownlint-cli": "npm:markdownlint-cli@^0.47.0",
     "tinacms": "npm:tinacms@^3.5.0"
   },
   "nodeModulesDir": "auto",
