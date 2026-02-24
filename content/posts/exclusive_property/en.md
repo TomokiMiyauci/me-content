@@ -138,7 +138,7 @@ So how should we determine the object literal type of Union types? The pattern
 allows you to narrow down the union types to a single member.
 
 A Discriminated Union must have a common property. The property must be a
-<u>uniquely identifiable type</u>.
+**uniquely identifiable type**.
 
 #### What is a uniquely identifiable type?
 
@@ -181,7 +181,7 @@ As we saw at the beginning, the string literal type is a derivative of the
 `string` type. Also, they are upcasted in Union types.
 
 Therefore, the combination of a literal type and its literal data type is not a
-<u>uniquely identifiable type</u>.
+**uniquely identifiable type**.
 
 ```ts
 type Options =
