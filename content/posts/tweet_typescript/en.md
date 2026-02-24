@@ -86,7 +86,7 @@ wrappers for HTTP clients.
 For example, a request to the following endpoint using a `twitter` client would
 look like this
 
-https://api.twitter.com/1.1/statuses/update.json
+<https://api.twitter.com/1.1/statuses/update.json>
 
 ```ts
 import Twitter from "twitter";

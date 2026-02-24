@@ -115,8 +115,8 @@ GitHub の issue に紐付ける方法として６つの方法があります。
 
 このとき、記事のコメントを統一するのか、別々にするのかを選択できます。
 
-- https://miyauchi.dev/posts/comment-system/
-- https://miyauchi.dev/ja/posts/comment-system/
+- <https://miyauchi.dev/posts/comment-system/>
+- <https://miyauchi.dev/ja/posts/comment-system/>
 
 という URL
 の場合、このブログでは日本語と英語の記事でコメントを別々にしたかったので、
