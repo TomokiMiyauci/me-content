@@ -19,7 +19,7 @@ take full advantage of the tree-shaking in Bandler.
 
 As for Firebase Authentication, it seems to be able to reduce the bundle size by
 up to 70%. Please check
-[Bundle size comparison in Firebase modular SDK](/posts/firebase-bundle-size/)
+[Bundle size comparison in Firebase modular SDK](../firebase_bundle_size/en.md)
 to see how much the bundle size has been reduced.
 
 Unfortunately, the size problem still exists.

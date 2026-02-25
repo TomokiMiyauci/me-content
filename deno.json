@@ -37,6 +37,7 @@
     "@tinacms/cli": "npm:@tinacms/cli@^2.1.6",
     "i18next": "npm:i18next@^25.8.13",
     "markdownlint-cli2": "npm:markdownlint-cli2@^0.21.0",
+    "markdownlint-rule-relative-links": "npm:markdownlint-rule-relative-links@^5.0.2",
     "textlint": "npm:textlint@^15.5.2",
     "textlint-rule-preset-japanese": "npm:textlint-rule-preset-japanese@^10.0.4",
     "tinacms": "npm:tinacms@^3.5.0"

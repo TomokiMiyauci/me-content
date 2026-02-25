@@ -118,7 +118,7 @@ the external module will be bundled.
 
 There is an example of building a web worker in a separate process using
 `esbuild` in my previous article, so please refer to that article
-[Building a Service worker](/posts/firebase-authentication-service-worker/#build-the-service-worker).
+[Building a Service worker](../firebase_authentication_service_worker/en.md#build-the-service-worker).
 
 sw.ts
 

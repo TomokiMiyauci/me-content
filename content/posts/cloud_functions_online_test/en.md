@@ -273,7 +273,7 @@ to test Cloud Functions. Also, you can use any assertions, but we'll use `jest`.
 
 Since we want to use TypeScript with `jest`, we'll use `@swc/jest` as the
 transformer. It runs faster than `ts-jest`. See
-[Speeding up TypeScript with Jest](/posts/speeding-up-jest/) for details.
+[Speeding up TypeScript with Jest](../speeding_up_jest/en.md) for details.
 
 Note that the latest version of `@swc/jest` does not work well, so specify the
 version and install it.

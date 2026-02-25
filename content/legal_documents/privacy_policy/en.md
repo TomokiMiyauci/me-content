@@ -3,9 +3,8 @@ type: privacy_policy
 language: en
 ---
 
-miyauch.me operates [https://miyauchi.dev/](/en). This site is to inform you of
-my policies regarding the collection, use, and disclosure of personal
-information.
+This site is to inform you of my policies regarding the collection, use, and
+disclosure of personal information.
 
 At the site, I recognize that protecting the privacy of your personal
 information is important. Here you will find information about what types of
@@ -23,11 +22,11 @@ described in the policy.
 Personal information you may provide to me through the Service or otherwise
 includes:
 
-* Contact details, such as your first and last name, email and mailing
+- Contact details, such as your first and last name, email and mailing
   addresses, phone number, professional title and company name
-* Communications that I exchange with you, including when you contact me with
+- Communications that I exchange with you, including when you contact me with
   questions, feedback, or otherwise
-* Marketing data, such as your preferences for receiving my marketing
+- Marketing data, such as your preferences for receiving my marketing
   communications, and details about your engagement with them
 
 Other data not specifically listed here, which I will use as described in this
@@ -38,9 +37,9 @@ Privacy Policy or as otherwise disclosed at the time of collection.
 I may combine personal information I receive from you with personal information
 I obtain from other sources, such as:
 
-* Data providers, such as information services and data licensors
-* Public sources, such as social media platforms
-* Marketing partners, such as companies that have entered into joint marketing
+- Data providers, such as information services and data licensors
+- Public sources, such as social media platforms
+- Marketing partners, such as companies that have entered into joint marketing
   relationships with me
 
 ### Automatic data collection
@@ -49,13 +48,13 @@ I, my service providers, and my business partners may automatically log
 information about you, your computer or mobile device, and your interaction over
 time with the Service, my communications and other online services, such as:
 
-* Device data, such as your computer’s or mobile device’s operating system type
+- Device data, such as your computer’s or mobile device’s operating system type
   and version, manufacturer and model, browser type, screen resolution, RAM and
   disk size, CPU usage, device type (e.g., phone, tablet), IP address, unique
   identifiers (including identifiers used for advertising purposes), language
   settings, mobile device carrier, radio/network information (e.g., WiFi, LTE,
   3G), and general location information such as city, state or geographic area
-* Online activity data, such as pages or screens you viewed, how long you spent
+- Online activity data, such as pages or screens you viewed, how long you spent
   on a page or screen, the website you visited before browsing to the Service,
   navigation paths between pages or screens, information about your activity on
   a page or screen, access times, and duration of access, and whether you have
@@ -76,15 +75,15 @@ described at the time of collection:
 
 I use your personal information to:
 
-* provide, operate and improve the Service and my business
-* process your payments and complete transactions with you
-* communicate with you about the Service, including by sending announcements,
+- provide, operate and improve the Service and my business
+- process your payments and complete transactions with you
+- communicate with you about the Service, including by sending announcements,
   updates, security alerts, and support and administrative messages
-* understand your needs and interests, and personalize your experience with the
+- understand your needs and interests, and personalize your experience with the
   Service and my communications
-* provide support for the Service, respond to your requests, questions and
+- provide support for the Service, respond to your requests, questions and
   feedback
-* Google's use of the advertising cookie enables Google and its partners to
+- Google's use of the advertising cookie enables Google and its partners to
   serve relevant advertisements to you based on information about your visits to
   that site and other sites
 
@@ -110,12 +109,12 @@ section below.
 
 I may use your personal information to:
 
-* comply with applicable laws, lawful requests, and legal process, such as to
+- comply with applicable laws, lawful requests, and legal process, such as to
   respond to subpoenas or requests from government authorities
-* protect my, your or others’ rights, privacy, safety or property (including by
+- protect my, your or others’ rights, privacy, safety or property (including by
   making and defending legal claims)
-* enforce the terms and conditions that govern the Service
-* prevent, identify, investigate and deter fraudulent, harmful, unauthorized,
+- enforce the terms and conditions that govern the Service
+- prevent, identify, investigate and deter fraudulent, harmful, unauthorized,
   unethical or illegal activity, including cyberattacks and identity theft
 
 ## How I share your personal information
@@ -236,4 +235,5 @@ Policy indicates your acceptance of the modified Privacy Policy.
 
 ### How to contact me
 
-You can contact me via email at ([contact@miyauchi.dev](mailto:contact@miyauchi.dev)).
+You can contact me via email at
+([contact@miyauchi.dev](mailto:contact@miyauchi.dev)).

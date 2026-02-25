@@ -16,7 +16,7 @@ This is often used with relative URLs or http schemes on the filesystem.
 
 Import Assertions also allows, for example, json format to be treated as a JSON
 Modules. See
-[Summary of import assertions and JSON modules](/posts/import-assertions-json-modules)
+[Summary of import assertions and JSON modules](../import_assertions_json_modules/en.md)
 for details. This is already available in many modern browsers.
 
 On the other hand, what if you want to use the following **string** as a

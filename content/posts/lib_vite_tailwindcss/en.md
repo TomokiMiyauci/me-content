@@ -22,7 +22,7 @@ vite offers the following advantages:
 
 For Storybook, you can use the `vite` bandler instead of `webpack`. For more
 information, see my previous post
-[Using Vite for Bandler in Storybook](/posts/storybook-vite/).
+[Using Vite for Bandler in Storybook](../storybook_vite/en.md).
 
 The focus of library development is often on the test environment and
 documentation. In this article, we'll focus on the library itself, and show you
@@ -613,5 +613,5 @@ If it does contain side-effects, see
 Now you're ready to publish. The only thing left to do is to publish to NPM.
 
 To publish to NPM, please refer to
-[Publish Typescript Packages with minimal configuration](/posts/typescript-package-release/)
+[Publish Typescript Packages with minimal configuration](../typescript_package_release/en.md)
 which I wrote before.

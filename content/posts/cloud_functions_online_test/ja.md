@@ -269,7 +269,8 @@ Cloud Functions のテストには
 
 `jest` で TypeScript を使用したいので、トランスフォーマーに `@swc/jest`
 を使います。 `ts-jest` よりも高速に動作します。詳しくは
-[Jest で TypeScript を高速化する](/posts/speeding-up-jest/) を参照してください。
+[Jest で TypeScript を高速化する](../speeding_up_jest/ja.md)
+を参照してください。
 
 ちなみに `@swc/jest`
 最新のバージョンはうまく動かないため、バージョン指定してインストールします。

@@ -113,7 +113,7 @@ Firebase V9 では、CDN はまだ
 
 以前書いた記事に `esbuild` を使って 別プロセスで Web worker
 をビルドする例があるので、そちらを
-[Service worker をビルドする](/posts/firebase-authentication-service-worker/#service-worker-をビルドする)
+[Service worker をビルドする](../firebase_authentication_service_worker/ja.md#service-worker-をビルドする)
 を参考にしてください。
 
 sw.ts

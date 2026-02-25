@@ -17,7 +17,7 @@ JavaScript Object として利用できます。
 
 また、Import Assertions により例えば json フォーマットは JSON Modules
 として扱うことができます。詳しくは
-[import assertions と JSON modules まとめ](/posts/import-assertions-json-modules)
+[import assertions と JSON modules まとめ](../import_assertions_json_modules/ja.md)
 を参照してください。 これは、多くのモダンブラウザではすでに利用可能です。
 
 一方で、次の**文字列**を JavaScript Object

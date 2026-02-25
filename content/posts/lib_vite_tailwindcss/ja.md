@@ -23,7 +23,7 @@ tailwindcss はその特徴がそのまま利点になりますが、vite
 
 Storybook については、バンドラーに `webpack` ではなく、`vite`
 を用いることができます。 詳しくは、以前書いた
-[Storybook でバンドラーに Vite を使う](/posts/storybook-vite/) をご覧ください。
+[Storybook でバンドラーに Vite を使う](../storybook_vite/ja.md) をご覧ください。
 
 ライブラリ開発の力点は、テスト環境だったり、ドキュメントだったりするのですが、
 今回は、ライブラリそのものに焦点を当てて、高速なビルド環境の構築方法を紹介します。
@@ -621,5 +621,5 @@ package.json
 以上でひとまず公開できる状態になりました。あとは NPM に公開するだけです。
 
 NPM への公開は以前書いた
-[最小構成で Typescript パッケージを公開する](/posts/typescript-package-release/)
+[最小構成で Typescript パッケージを公開する](../typescript_package_release/ja.md)
 を参考にしてください。
