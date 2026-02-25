@@ -10,7 +10,7 @@
     "npm:gray-matter@^4.0.3": "4.0.3",
     "npm:i18next@^25.8.13": "25.8.13",
     "npm:json-schema@0.4": "0.4.0",
-    "npm:markdownlint-cli@0.47": "0.47.0",
+    "npm:markdownlint-cli2@0.21": "0.21.0",
     "npm:textlint-rule-preset-japanese@^10.0.4": "10.0.4",
     "npm:textlint@^15.5.2": "15.5.2_zod@3.25.76",
     "npm:tinacms@^3.5.0": "3.5.1_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4",
@@ -757,7 +757,7 @@
       "dependencies": [
         "@graphql-tools/import",
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
-        "globby",
+        "globby@11.1.0",
         "graphql",
         "tslib@2.8.1",
         "unixify"
@@ -1785,6 +1785,9 @@
     },
     "@shikijs/vscode-textmate@10.0.2": {
       "integrity": "sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg=="
+    },
+    "@sindresorhus/merge-streams@4.0.0": {
+      "integrity": "sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ=="
     },
     "@svgr/babel-plugin-add-jsx-attribute@8.0.0_@babel+core@7.29.0": {
       "integrity": "sha512-b9MIk7yhdS1pMCZM8VeNfUlSKVRhsHZNMl5O9SfaX0l0t5wjdgu4IDzGB8bpnGBBOjGST3rRFVsaaEtI4W6f7g==",
@@ -3248,9 +3251,6 @@
     "comma-separated-tokens@2.0.3": {
       "integrity": "sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg=="
     },
-    "commander@14.0.3": {
-      "integrity": "sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw=="
-    },
     "commander@4.1.1": {
       "integrity": "sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA=="
     },
@@ -4299,7 +4299,18 @@
         "fast-glob",
         "ignore@5.3.2",
         "merge2",
-        "slash"
+        "slash@3.0.0"
+      ]
+    },
+    "globby@16.1.0": {
+      "integrity": "sha512-+A4Hq7m7Ze592k9gZRy4gJ27DrXRNnC1vPjxTt1qQxEY8RxagBkBxivkCwg7FxSTG0iLLEMaUx13oOr0R2/qcQ==",
+      "dependencies": [
+        "@sindresorhus/merge-streams",
+        "fast-glob",
+        "ignore@7.0.5",
+        "is-path-inside",
+        "slash@5.1.0",
+        "unicorn-magic@0.4.0"
       ]
     },
     "gopd@1.2.0": {
@@ -4537,9 +4548,6 @@
     "ini@1.3.8": {
       "integrity": "sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew=="
     },
-    "ini@4.1.3": {
-      "integrity": "sha512-X7rqawQBvfdjS10YU1y1YVreA3SsLrW9dX2CewP2EbBJM4ypVNLDkO5y04gejPwKIY9lR+7r9gn3rFPt/kmWFg=="
-    },
     "inline-style-prefixer@7.0.1": {
       "integrity": "sha512-lhYo5qNTQp3EvSSp3sRvXMbVQTLrvGV6DycRMJ5dm2BLMiJ30wpXKdDdgX+GmJZ5uQMucwRKHamXSst3Sj/Giw==",
       "dependencies": [
@@ -4653,6 +4661,9 @@
     },
     "is-number@7.0.0": {
       "integrity": "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng=="
+    },
+    "is-path-inside@4.0.0": {
+      "integrity": "sha512-lJJV/5dYS+RcL8uQdBDW9c9uWFLLBNRyFhnAKXw5tVqLlKZ4RMGZKv+YQ/IA3OhD+RpbJa1LLFM1FQPGyIXvOA=="
     },
     "is-plain-obj@2.1.0": {
       "integrity": "sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA=="
@@ -4834,9 +4845,6 @@
         "jsep"
       ],
       "bin": true
-    },
-    "jsonpointer@5.0.1": {
-      "integrity": "sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ=="
     },
     "katex@0.16.28": {
       "integrity": "sha512-YHzO7721WbmAL6Ov1uzN/l5mY5WWWhJBSW+jq4tkfZfsxmo1hu6frS0EOswvjBUnWE6NtjEs48SFn5CQESRLZg==",
@@ -5047,21 +5055,22 @@
     "markdown-table@3.0.4": {
       "integrity": "sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw=="
     },
-    "markdownlint-cli@0.47.0": {
-      "integrity": "sha512-HOcxeKFAdDoldvoYDofd85vI8LgNWy8vmYpCwnlLV46PJcodmGzD7COSSBlhHwsfT4o9KrAStGodImVBus31Bg==",
+    "markdownlint-cli2-formatter-default@0.0.6_markdownlint-cli2@0.21.0": {
+      "integrity": "sha512-VVDGKsq9sgzu378swJ0fcHfSicUnMxnL8gnLm/Q4J/xsNJ4e5bA6lvAz7PCzIl0/No0lHyaWdqVD2jotxOSFMQ==",
       "dependencies": [
-        "commander@14.0.3",
-        "deep-extend",
-        "ignore@7.0.5",
+        "markdownlint-cli2"
+      ]
+    },
+    "markdownlint-cli2@0.21.0": {
+      "integrity": "sha512-DzzmbqfMW3EzHsunP66x556oZDzjcdjjlL2bHG4PubwnL58ZPAfz07px4GqteZkoCGnBYi779Y2mg7+vgNCwbw==",
+      "dependencies": [
+        "globby@16.1.0",
         "js-yaml@4.1.1",
         "jsonc-parser",
-        "jsonpointer",
         "markdown-it@14.1.1",
         "markdownlint",
-        "minimatch@10.1.3",
-        "run-con",
-        "smol-toml",
-        "tinyglobby"
+        "markdownlint-cli2-formatter-default",
+        "micromatch"
       ],
       "bin": true
     },
@@ -6730,9 +6739,9 @@
       "integrity": "sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==",
       "dependencies": [
         "deep-extend",
-        "ini@1.3.8",
+        "ini",
         "minimist",
-        "strip-json-comments@2.0.1"
+        "strip-json-comments"
       ],
       "bin": true
     },
@@ -6921,7 +6930,7 @@
         "normalize-package-data",
         "parse-json@8.3.0",
         "type-fest@4.41.0",
-        "unicorn-magic"
+        "unicorn-magic@0.1.0"
       ]
     },
     "readable-stream@3.6.2": {
@@ -7120,16 +7129,6 @@
       "dependencies": [
         "@babel/runtime"
       ]
-    },
-    "run-con@1.3.2": {
-      "integrity": "sha512-CcfE+mYiTcKEzg0IqS08+efdnH0oJ3zV0wSUFBNrMHMuxCtXvBCLzCJHatwuXDcu/RlhjTziTo/a1ruQik6/Yg==",
-      "dependencies": [
-        "deep-extend",
-        "ini@4.1.3",
-        "minimist",
-        "strip-json-comments@3.1.1"
-      ],
-      "bin": true
     },
     "run-parallel-limit@1.1.0": {
       "integrity": "sha512-jJA7irRNM91jaKc3Hcl1npHsFLOXOoTkPCUL1JEa1R82O2miplXXRaGdjW/KM/98YQWDhJLiSs793CnXfblJUw==",
@@ -7404,6 +7403,9 @@
     "slash@3.0.0": {
       "integrity": "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="
     },
+    "slash@5.1.0": {
+      "integrity": "sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg=="
+    },
     "slate-dom@0.114.0_slate@0.114.0": {
       "integrity": "sha512-3LWIfiDPNQSY+SCPsvMTErCkx2gXTViLoWISisw6uM+unwiOkEF9ZmpHp88/SSmcq6k3P4aIquehUNeNUlkdiA==",
       "dependencies": [
@@ -7458,9 +7460,6 @@
     },
     "slide@1.1.6": {
       "integrity": "sha512-NwrtjCg+lZoqhFU8fOwl4ay2ei8PaqCBOUV3/ektPY9trO1yQ1oXEfmHAhKArUVUr/hOHvy5f6AdP17dCM0zMw=="
-    },
-    "smol-toml@1.5.2": {
-      "integrity": "sha512-QlaZEqcAH3/RtNyet1IPIYPsEWAaYyXXv1Krsi+1L/QHppjX4Ifm8MQsBISz9vE8cHicIq3clogsheili5vhaQ=="
     },
     "snake-case@3.0.4": {
       "integrity": "sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==",
@@ -7603,9 +7602,6 @@
     },
     "strip-json-comments@2.0.1": {
       "integrity": "sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ=="
-    },
-    "strip-json-comments@3.1.1": {
-      "integrity": "sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig=="
     },
     "structured-source@4.0.0": {
       "integrity": "sha512-qGzRFNJDjFieQkl/sVOI2dUjHKRyL9dAJi2gCPGJLbJHBIkyOHxjuocpIEfbLioX+qSJpvbYdT49/YCdMznKxA==",
@@ -8237,6 +8233,9 @@
     "unicorn-magic@0.1.0": {
       "integrity": "sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ=="
     },
+    "unicorn-magic@0.4.0": {
+      "integrity": "sha512-wH590V9VNgYH9g3lH9wWjTrUoKsjLF6sGLjhR4sH1LWpLmCOH0Zf7PukhDA8BiS7KHe4oPNkcTHqYkj7SOGUOw=="
+    },
     "unified@10.1.2": {
       "integrity": "sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==",
       "dependencies": [
@@ -8684,7 +8683,7 @@
     "dependencies": [
       "npm:@tinacms/cli@^2.1.6",
       "npm:i18next@^25.8.13",
-      "npm:markdownlint-cli@0.47",
+      "npm:markdownlint-cli2@0.21",
       "npm:textlint-rule-preset-japanese@^10.0.4",
       "npm:textlint@^15.5.2",
       "npm:tinacms@^3.5.0"
