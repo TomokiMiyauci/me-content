@@ -162,7 +162,7 @@ module.exports = {
 `@preact/preset-vite` によって、`[j,t]sx`ファイルには自動的に
 `import { h, Fragment } from 'preact'` が挿入されます。 雛形で Storybook
 を生成した場合、 生成されたファイルにはすでに
-`import { h, Fragment } from 'preact'`が宣言されています。 
+`import { h, Fragment } from 'preact'`が宣言されています。
 自動挿入により宣言が重複するので、雛形の**すべてファイル**から上の宣言を削除します。
 
 これで準備は完了したので、`start-storbybook` コマンドを実行しましょう。

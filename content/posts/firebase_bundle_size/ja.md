@@ -173,7 +173,7 @@ V9 モジュラー SDK では Cloud Firestore に `lite`
 ### Cloud Firestore のフルバンドルサイズ
 
 まずは、ツリーシェイキングを効かせずにすべてをバンドルした場合のサイズについて見てみましょう。
-サブモジュールを利用した場合も含めて、Cloud Firestore モジュールは 4
+サブモジュールを利用した場合も含めて、Cloud Firestore モジュールは4
 つのパターンがあります。
 
 main.ts
