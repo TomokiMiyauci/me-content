@@ -84,7 +84,7 @@ issues にコメントしたのと同様なので、ブログの運営者は Git
 ### コメントへのリアクション
 
 GitHub issues
-と同様なので、コメントへのリアクションもできます。:rocket:とか　:heart:とかコメントに付けれます。
+と同様なので、コメントへのリアクションもできます。:rocket:とか　:heart:とかコメントに付けられます。
 また、リアクティブに動作するのも本家と同様です。
 
 同様のプロジェクトとして[`Gitment`](https://github.com/imsun/gitment)や[`Gitalk`](https://github.com/gitalk/gitalk)がありますが、GitHub
