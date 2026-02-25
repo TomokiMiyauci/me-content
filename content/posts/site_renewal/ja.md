@@ -2,7 +2,7 @@
 title: ウェブサイトをリニューアルしました（SSG から RSC へ）
 slug: site-renewal
 description: ウェブサイトのアーキテクチャを見直し、SSG から React Server Components を前提とした構成へ移行しました。あわせてランタイムを Node.js から Deno に変更し、コンテンツ管理方法も刷新しています。
-cover_image: /posts/site_renewal/hero.png
+cover_image: ./hero.png
 published_at: 2026-01-01T01:51:56.691Z
 language: ja
 ---

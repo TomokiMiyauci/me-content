@@ -4,7 +4,7 @@ description: TypescriptプロジェクトをパッケージとしてNPMレジス
 published_at: 2021-02-24
 slug: typescript-package-release
 language: ja
-cover_image: /posts/typescript_package_release/hero.png
+cover_image: ./hero.png
 ---
 
 ## はじめに

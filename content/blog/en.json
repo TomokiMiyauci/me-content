@@ -1,6 +1,6 @@
 {
   "title": "Blog",
   "description": "Latest IT news and technical articles on programming, web development, cloud computing, and more, providing practical knowledge for working engineers.",
-  "cover_image": "/blog.jpg",
+  "cover_image": "../blog.jpg",
   "language": "en"
 }

@@ -4,7 +4,7 @@ description: Building a Typescript Vue3 environment using the No bundle tool Vit
 published_at: 2021-03-11
 slug: vite-vue3-typescript
 language: en
-cover_image: /posts/vite_vue3_typescript/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction

@@ -4,7 +4,7 @@ description: Introduce how to use Intersection Observer in React to improve perf
 published_at: 2021-09-12
 slug: react-lazy-intersection
 language: en
-cover_image: /posts/react_lazy_intersection/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction

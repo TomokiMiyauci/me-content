@@ -4,7 +4,7 @@ description: It shows you how to develop Storybook with Vite. Explains in detail
 published_at: 2021-07-15
 slug: storybook-vite
 language: en
-cover_image: /posts/storybook_vite/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction

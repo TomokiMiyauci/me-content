@@ -4,7 +4,7 @@ description: StorybookをViteで開発する方法を紹介します。preactプ
 published_at: 2021-07-15
 slug: storybook-vite
 language: ja
-cover_image: /posts/storybook_vite/hero.png
+cover_image: ./hero.png
 ---
 
 ## はじめに

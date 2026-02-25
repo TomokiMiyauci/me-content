@@ -4,7 +4,7 @@ description: ViteプロジェクトでCSSフレームワークのTailwind CSSを
 published_at: 2021-03-05
 slug: vite-vue3-tailwindcss
 language: ja
-cover_image: /posts/vite_vue3_tailwindcss/hero.png
+cover_image: ./hero.png
 ---
 
 ## はじめに

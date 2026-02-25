@@ -4,7 +4,7 @@ description: React で Intersection Observer を使ったパフォーマンス�
 published_at: 2021-09-12
 slug: react-lazy-intersection
 language: ja
-cover_image: /posts/react_lazy_intersection/hero.png
+cover_image: ./hero.png
 ---
 
 ## はじめに

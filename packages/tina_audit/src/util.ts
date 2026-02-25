@@ -2,7 +2,7 @@
 import { existsSync, expandGlob } from "@std/fs";
 import matter from "gray-matter";
 import ajv from "ajv";
-import { join } from "@std/path";
+import { dirname, join, resolve } from "@std/path";
 import type { JSONSchema7, JSONSchema7Definition } from "json-schema";
 import type { TinaLock } from "@miyauci/tina-lock";
 import type { Collection, TinaField } from "tinacms";
@@ -262,9 +262,13 @@ export async function* validate(
             validate: (schema: ReferenceDefinition, data: string): boolean => {
               switch (schema.type) {
                 case "internal": {
-                  const pathname = join(options.rootDir, schema.base, data);
+                  const resolvedPath = resolvePath(
+                    options.rootDir,
+                    entry.path,
+                    data,
+                  );
 
-                  return existsSync(pathname);
+                  return existsSync(resolvedPath);
                 }
                 case "external": {
                   throw new Error();
@@ -302,4 +306,15 @@ function convertTo(content: string, source: Source): object {
       throw new Error("unimplemented");
     }
   }
+}
+
+function resolvePath(root: string, base: string, path: string): string {
+  if (path.startsWith(".")) {
+    const baseDir = dirname(base);
+    const resolved = resolve(baseDir, path);
+
+    return resolved;
+  }
+
+  return join(root, path);
 }

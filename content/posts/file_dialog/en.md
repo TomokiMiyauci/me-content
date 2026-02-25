@@ -4,7 +4,7 @@ description: Explains how to call a file dialog from a program and receive a Fil
 published_at: 2021-02-05
 slug: file-dialog
 language: en
-cover_image: /posts/file_dialog/hero.png
+cover_image: ./hero.png
 ---
 
 ## What is the File Dialog

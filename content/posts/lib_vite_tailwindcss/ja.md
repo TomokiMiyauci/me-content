@@ -4,7 +4,7 @@ description: vite と tailwindcss を使ってライブラリ開発を行う方�
 published_at: 2021-10-20
 slug: lib-vite-tailwindcss
 language: ja
-cover_image: /posts/lib_vite_tailwindcss/hero.png
+cover_image: ./hero.png
 ---
 
 ## はじめに

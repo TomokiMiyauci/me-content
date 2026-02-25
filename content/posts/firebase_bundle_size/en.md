@@ -4,7 +4,7 @@ description: Explain how the new Firebase module can reduce the bundle size. It 
 published_at: 2021-08-02
 slug: firebase-bundle-size
 language: en
-cover_image: /posts/firebase_bundle_size/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction

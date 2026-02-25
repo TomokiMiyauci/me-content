@@ -4,7 +4,7 @@ description: Introduce the basic usage of VitePress,multilingual support, homepa
 published_at: 2021-02-14
 slug: start-vitepress
 language: en
-cover_image: /posts/start_vitepress/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction

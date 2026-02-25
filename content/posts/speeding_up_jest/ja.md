@@ -4,7 +4,7 @@ description: Jestでテストの高速化させる方法を紹介します。ト
 published_at: 2021-03-27
 slug: speeding-up-jest
 language: ja
-cover_image: /posts/speeding_up_jest/hero.png
+cover_image: ./hero.png
 ---
 
 ## はじめに

@@ -4,7 +4,7 @@ description: dnt is a build tool that generates code for Node.js from Deno-based
 published_at: 2021-12-02
 slug: dts-deno-module
 language: en
-cover_image: /posts/dts_deno_module/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction

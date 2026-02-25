@@ -4,7 +4,7 @@ description: Explains how to make a config file with TypeScript in Gatsby. It me
 published_at: 2021-07-19
 slug: gatsby-typescript
 language: en
-cover_image: /posts/gatsby_typescript/hero.png
+cover_image: ./hero.png
 ---
 
 ## Introduction
