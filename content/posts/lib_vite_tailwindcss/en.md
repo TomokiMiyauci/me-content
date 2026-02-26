@@ -4,7 +4,7 @@ description: Shows how to develop a library using vite and tailwindcss. We'll sh
 published_at: 2021-10-20
 slug: lib-vite-tailwindcss
 language: en
-cover_image: ./hero.png
+cover_image: /posts/lib_vite_tailwindcss/hero.png
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 title: Bitlyで動的に短縮 URLを作成してツイートする
 slug: bitly-short-url
 description: Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
-cover_image: ./hero.png
+cover_image: /posts/bitly_short_url/hero.png
 published_at: 2021-08-07T00:00:00.000Z
 language: ja
 ---

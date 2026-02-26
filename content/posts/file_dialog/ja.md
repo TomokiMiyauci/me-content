@@ -4,7 +4,7 @@ description: プログラムからファイルダイアログを呼び出し、F
 published_at: 2021-02-05
 slug: file-dialog
 language: ja
-cover_image: ./hero.png
+cover_image: /posts/file_dialog/hero.png
 ---
 
 ## ファイルダイアログとは

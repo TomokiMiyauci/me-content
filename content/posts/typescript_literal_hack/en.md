@@ -4,7 +4,7 @@ description: This section shows how to define 'string' | string in TypeScript. N
 published_at: 2021-11-10
 slug: typescript-literal-hack
 language: en
-cover_image: ./hero.png
+cover_image: /posts/typescript_literal_hack/hero.png
 ---
 
 ## Introduction

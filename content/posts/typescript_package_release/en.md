@@ -4,7 +4,7 @@ description: Describes how to publish the Typescript project as a package to the
 published_at: 2021-02-24
 slug: typescript-package-release
 language: en
-cover_image: ./hero.png
+cover_image: /posts/typescript_package_release/hero.png
 ---
 
 ## Introduction

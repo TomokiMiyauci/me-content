@@ -4,7 +4,7 @@ description: Introduce a project called utterances that I recommend for a commen
 published_at: 2021-07-09
 slug: comment-system
 language: en
-cover_image: ./hero.png
+cover_image: /posts/comment_system/hero.png
 ---
 
 ## Getting Started

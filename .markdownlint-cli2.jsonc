@@ -4,8 +4,5 @@
     "MD014": false,
     "MD041": false
   },
-  "gitignore": true,
-  "globs": [
-    "content/**/*.md"
-  ]
+  "gitignore": true
 }

@@ -21,7 +21,7 @@
       "description": "Lint by Deno"
     },
     "lint:markdown": {
-      "command": "deno x markdownlint-cli2",
+      "command": "deno x markdownlint-cli2 content",
       "description": "Lint by markdownlint"
     },
     "lint:textlint": {

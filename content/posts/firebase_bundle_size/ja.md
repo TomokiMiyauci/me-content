@@ -4,7 +4,7 @@ description: 新しい Firebase モジュールによって、どのくらいバ
 published_at: 2021-08-02
 slug: firebase-bundle-size
 language: ja
-cover_image: ./hero.png
+cover_image: /posts/firebase_bundle_size/hero.png
 ---
 
 ## はじめに

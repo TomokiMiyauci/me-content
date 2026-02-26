@@ -4,7 +4,7 @@ description: No bundleツールのViteを使って、TypescriptベースのPreac
 published_at: 2021-03-03
 slug: vite-preact-typescript
 language: ja
-cover_image: ./hero.png
+cover_image: /posts/vite_preact_typescript/hero.png
 ---
 
 ## はじめに

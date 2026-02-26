@@ -20,7 +20,7 @@ export default defineConfig({
     // },
     // this is the config for the tina cloud media store
     tina: {
-      publicFolder: "content",
+      publicFolder: "public",
       mediaRoot: "",
     },
   },
