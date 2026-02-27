@@ -113,7 +113,7 @@ matter.
 
 The home layout is as follows.
 
-![plain home](plain-home.png) This can be set with `.md`.
+![plain home](/posts/start_vitepress/plain_home.png) This can be set with `.md`.
 
 index.md
 
@@ -160,12 +160,12 @@ You can add a footer tag to `footer`.
 
 By setting these, can create the following layout.
 
-![home](home-description.png)
+![home](/posts/start_vitepress/home_description.png)
 
 ### Document layout
 
 Next is the document layout. Basically, just write the markdown and the layout
-will be as follows. ![Document](plain-document.png)
+will be as follows. ![Document](/posts/start_vitepress/plain_document.png)
 
 Now let's take a look at the `title` tag. By default, the `title` tag looks like
 this:
@@ -362,7 +362,7 @@ module.exports = {
 };
 ```
 
-![edit on GitHub](edit-on-github.png)
+![edit on GitHub](/posts/start_vitepress/edit-on_github.png)
 
 `docsDir` specifies the document root on GiHub. Basically, it is the same as the
 document root set at the beginning and there is no problem.
@@ -382,14 +382,14 @@ module.exports = {
 };
 ```
 
-![last updated](lastupdate.png)
+![last updated](/posts/start_vitepress/lastupdate.png)
 
 #### logo
 
 You can set the logo at the top with the `logo` property.
 
-![logo](logo.png) This logo may be misaligned depending on the image size, but
-it will be fixed by the custom CSS described below.
+![logo](/posts/start_vitepress/logo.png) This logo may be misaligned depending
+on the image size, but it will be fixed by the custom CSS described below.
 
 #### nav
 
@@ -417,7 +417,7 @@ module.exports = {
 };
 ```
 
-![navigation](navigation.png)
+![navigation](/posts/start_vitepress/navigation.png)
 
 At this point, the document should be created nicely. Of course, you can leave
 it as it is, but there are still more customizable elements in VitePress.
@@ -454,8 +454,8 @@ module.exports = {
 };
 ```
 
-![locale](locale.png) This allows you to switch languages. It's
-convenient:sparkles:.
+![locale](/posts/start_vitepress/locale.png) This allows you to switch
+languages. It's convenient:sparkles:.
 
 You can also set the `themeConfig` property described above with the `locales`
 property. For example, to change `editLinkText` depending on the language, do as
@@ -707,7 +707,7 @@ export default {};
 ```
 
 In this way, I was able to change the color and size of the logo.
-![theme color](theme-color.png)
+![theme color](/posts/start_vitepress/theme-color.png)
 
 ## Summary
 
