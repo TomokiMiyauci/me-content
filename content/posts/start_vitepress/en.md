@@ -707,7 +707,7 @@ export default {};
 ```
 
 In this way, I was able to change the color and size of the logo.
-![theme color](/posts/start_vitepress/theme-color.png)
+![theme color](/posts/start_vitepress/theme_color.png)
 
 ## Summary
 
