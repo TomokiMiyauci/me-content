@@ -16,14 +16,6 @@
       "command": "deno run --allow-read @miyauci/tina-audit-plus/run",
       "description": "Lint content"
     },
-    "lint:deno": {
-      "command": "deno lint",
-      "description": "Lint by Deno"
-    },
-    "lint:markdown": {
-      "command": "deno x markdownlint-cli2",
-      "description": "Lint by markdownlint"
-    },
     "lint:textlint": {
       "command": "deno x textlint content",
       "description": "Lint by textlint"
@@ -35,8 +27,6 @@
   },
   "imports": {
     "i18next": "npm:i18next@^25.8.13",
-    "markdownlint-cli2": "npm:markdownlint-cli2@^0.21.0",
-    "markdownlint-rule-relative-links": "npm:markdownlint-rule-relative-links@^5.0.2",
     "textlint": "npm:textlint@^15.5.2",
     "textlint-rule-preset-japanese": "npm:textlint-rule-preset-japanese@^10.0.4",
     "tinacms": "npm:tinacms@^3.5.0"

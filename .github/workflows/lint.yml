@@ -1,0 +1,30 @@
+name: Lint
+
+on:
+  workflow_call:
+
+jobs:
+  lint-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+  lint-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+    
+      - uses: DavidAnson/markdownlint-cli2-action@v22
+      
+  lint-deno:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - run: deno lint
+
