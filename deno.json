@@ -8,7 +8,7 @@
       "command": "deno x --unstable-bare-node-builtins tinacms build --skip-indexing --skip-cloud-checks --skip-search-index && rm dist/.gitignore",
       "description": "Build artifact"
     },
-    "lint:schema": {
+    "lint:tinacms": {
       "command": "deno x --unstable-bare-node-builtins tinacms audit",
       "description": "Lint schema"
     },
@@ -19,10 +19,6 @@
     "lint:textlint": {
       "command": "deno x textlint content",
       "description": "Lint by textlint"
-    },
-    "lint": {
-      "command": "deno task \"lint:*\"",
-      "description": "Static check"
     }
   },
   "imports": {

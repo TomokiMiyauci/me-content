@@ -4,11 +4,6 @@ on:
   workflow_call:
 
 jobs:
-  lint-schema:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-
   lint-content:
     runs-on: ubuntu-latest
     steps:
@@ -28,3 +23,38 @@ jobs:
 
       - run: deno lint
 
+  lint-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - run: deno task lint:schema
+
+  lint-textlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - run: deno lint:textlint
+
+  lint-tinacms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - run: deno lint:tinacms
