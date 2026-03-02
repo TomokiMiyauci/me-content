@@ -1,15 +1,15 @@
 {
   "tasks": {
     "dev": {
-      "command": "deno x --unstable-bare-node-builtins @tinacms/cli dev",
+      "command": "deno x --unstable-bare-node-builtins tinacms dev",
       "description": "Start dev server"
     },
     "build": {
-      "command": "deno x --unstable-bare-node-builtins @tinacms/cli build --skip-indexing --skip-cloud-checks --skip-search-index && rm dist/.gitignore",
+      "command": "deno x --unstable-bare-node-builtins tinacms build --skip-indexing --skip-cloud-checks --skip-search-index && rm dist/.gitignore",
       "description": "Build artifact"
     },
     "lint:schema": {
-      "command": "deno x --unstable-bare-node-builtins @tinacms/cli audit",
+      "command": "deno x --unstable-bare-node-builtins tinacms audit",
       "description": "Lint schema"
     },
     "lint:content": {
@@ -34,7 +34,6 @@
     }
   },
   "imports": {
-    "@tinacms/cli": "npm:@tinacms/cli@^2.1.6",
     "i18next": "npm:i18next@^25.8.13",
     "markdownlint-cli2": "npm:markdownlint-cli2@^0.21.0",
     "markdownlint-rule-relative-links": "npm:markdownlint-rule-relative-links@^5.0.2",
