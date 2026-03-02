@@ -19,3 +19,13 @@ jobs:
 
       - name: Audit
         run: deno task lint
+
+  deal-link-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - uses: actions/checkout@v5
+      
+      - uses: AlexanderDokuchaev/md-dead-link-check@v1.3.0
