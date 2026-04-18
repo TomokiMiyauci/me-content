@@ -4,7 +4,7 @@ description: Introduce how to use Firebase Authentication in Service Worker. It 
 published_at: 2021-08-29
 slug: firebase-authentication-service-worker
 language: en
-cover_image: /posts/firebase_authentication_service_worker/hero.png
+cover_image: hero.png
 ---
 
 ## Introduction

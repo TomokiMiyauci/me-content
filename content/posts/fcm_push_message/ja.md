@@ -4,7 +4,7 @@ description: Firebase Cloud Messaging(FCM) でウェブプッシュ通知の送�
 published_at: 2021-09-07
 slug: fcm-push-message
 language: ja
-cover_image: /posts/fcm_push_message/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに

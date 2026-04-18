@@ -4,7 +4,7 @@ description: VitePress の基本的な使い方から、ドキュメントには
 published_at: 2021-02-14
 slug: start-vitepress
 language: ja
-cover_image: /posts/start_vitepress/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -654,10 +654,24 @@ Variables を見てみます。
   --c-brand: #3eaf7c;
   --c-brand-light: #4abf8a;
   --font-family-base:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   --font-family-mono:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
+    monospace;
   --z-index-navbar: 10;
   --z-index-sidebar: 6;
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);

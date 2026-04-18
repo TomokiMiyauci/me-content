@@ -4,7 +4,7 @@ description: Send and receive web push notifications with Firebase Cloud Messagi
 published_at: 2021-09-07
 slug: fcm-push-message
 language: en
-cover_image: /posts/fcm_push_message/hero.png
+cover_image: hero.png
 ---
 
 ## Introduction

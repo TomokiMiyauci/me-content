@@ -12,9 +12,9 @@ export default {
     description: {
       type: "string",
     },
-    // cover_image: {
-    //   type: "asset",
-    // },
+    cover_image: {
+      type: "asset",
+    },
     published_at: {
       type: "datetime",
     },

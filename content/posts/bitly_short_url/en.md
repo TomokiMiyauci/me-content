@@ -1,8 +1,8 @@
 ---
 title: Dynamically create short URL with Bitly and tweet
 slug: bitly-short-url
-description: 'Introduce how to generate short URL dynamically with Bitly. Also, since tweets are an effective use of short URL, I will also explain how to dynamically tweet.'
-cover_image: /posts/bitly_short_url/hero.png
+description: "Introduce how to generate short URL dynamically with Bitly. Also, since tweets are an effective use of short URL, I will also explain how to dynamically tweet."
+cover_image: hero.png
 published_at: 2021-08-07T00:00:00.000Z
 language: en
 ---
@@ -31,7 +31,8 @@ free plan, you can generate up to 1000 short URL per month.
 
 For example, when I short the URL of this site, it generated the following URL:
 
-[https://miyauchi.dev/](https://miyauchi.dev/) -> [https://bit.ly/3jzAv7l](https://bit.ly/3jzAv7l)
+[https://miyauchi.dev/](https://miyauchi.dev/) ->
+[https://bit.ly/3jzAv7l](https://bit.ly/3jzAv7l)
 
 With the free plan, you cannot change the `bit.ly` domain. However, even with
 the free plan, you can customize the path part.
@@ -105,8 +106,7 @@ You can use the Bitly client library to operate type-safely with TypeScript.
 npm i bitly
 ```
 
-> \[!WARNING]
-> Using top level await syntax
+> \[!WARNING] Using top level await syntax
 
 ```ts
 import { BitlyClient, isBitlyErrResponse } from "bitly";
