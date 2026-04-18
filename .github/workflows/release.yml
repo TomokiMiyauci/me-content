@@ -1,37 +1,37 @@
-on:
-  push:
-    branches:
-      - draft
-    # paths-ignore:
-    #   - public/**
-    #   - content/**
+# on:
+#   push:
+#     branches:
+#       - draft
+#     # paths-ignore:
+#     #   - public/**
+#     #   - content/**
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v5
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+#     steps:
+#       - uses: actions/checkout@v5
 
-      - uses: denoland/setup-deno@v2
-        with:
-          cache: true
+#       - uses: denoland/setup-deno@v2
+#         with:
+#           cache: true
 
-      # - run: deno install
+#       # - run: deno install
 
-      # - name: Build
-      #   run: deno task build
-      #   env:
-      #     TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
-      #     TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-      #     TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
-      #     TINA_BRANCH: ${{ github.ref_name  }}
+#       # - name: Build
+#       #   run: deno task build
+#       #   env:
+#       #     TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
+#       #     TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+#       #     TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
+#       #     TINA_BRANCH: ${{ github.ref_name  }}
 
-      - name: Deploy
-        run: |
-          deno deploy \
-            --org=${{ vars.ORG }} \
-            --app=${{ vars.APP }} \
-            --token=${{ secrets.DENO_TOKEN }} \
-            --no-wait \
+#       - name: Deploy
+#         run: |
+#           deno deploy \
+#             --org=${{ vars.ORG }} \
+#             --app=${{ vars.APP }} \
+#             --token=${{ secrets.DENO_TOKEN }} \
+#             --no-wait \
