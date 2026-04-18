@@ -1,18 +1,6 @@
 {
   "tasks": {
-    "dev": {
-      "command": "deno x --unstable-bare-node-builtins tinacms dev",
-      "description": "Start dev server"
-    },
     "build": "deno run -A scripts/build.ts",
-    "lint:tinacms": {
-      "command": "deno x --unstable-bare-node-builtins tinacms audit",
-      "description": "Lint schema"
-    },
-    "lint:content": {
-      "command": "deno run --allow-read @miyauci/tina-audit-plus/run",
-      "description": "Lint content"
-    },
     "lint:textlint": {
       "command": "deno x textlint content",
       "description": "Lint by textlint"
@@ -45,7 +33,6 @@
     "@cosmos/store-sqlite": "npm:@TomokiMiyauci/store-sqlite@0.1.6",
     "@std/path": "jsr:@std/path@^1.1.4"
   },
-  "nodeModulesDir": "auto",
   "lint": {
     "rules": {
       "include": [
@@ -73,6 +60,5 @@
         "verbatim-module-syntax"
       ]
     }
-  },
-  "workspace": ["packages/tina_audit", "packages/tina_lock"]
+  }
 }
