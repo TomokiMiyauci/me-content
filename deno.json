@@ -4,10 +4,7 @@
       "command": "deno x --unstable-bare-node-builtins tinacms dev",
       "description": "Start dev server"
     },
-    "build": {
-      "command": "deno x --unstable-bare-node-builtins tinacms build --skip-indexing --skip-cloud-checks --skip-search-index && rm dist/.gitignore",
-      "description": "Build artifact"
-    },
+    "build": "deno run -A scripts/build.ts",
     "lint:tinacms": {
       "command": "deno x --unstable-bare-node-builtins tinacms audit",
       "description": "Lint schema"
