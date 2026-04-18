@@ -4,7 +4,7 @@ description: import assertions について Deno での使用法を中心とし�
 published_at: 2022-01-21
 slug: import-assertions-json-modules
 language: ja
-cover_image: /posts/import_assertions_json_modules/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに

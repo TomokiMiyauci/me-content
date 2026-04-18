@@ -4,7 +4,7 @@ description: Typescriptでアロー関数の戻り値の型をより正確に推
 published_at: 2021-02-21
 slug: typescript-conditional-types
 language: ja
-cover_image: /posts/typescript_conditional_types/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに

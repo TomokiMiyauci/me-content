@@ -4,7 +4,7 @@ description: fetchを使ったHTTPリクエストを中断する方法を紹介�
 published_at: 2021-06-10
 slug: fetch-abort
 language: ja
-cover_image: /posts/fetch_abort/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
