@@ -2,9 +2,9 @@ on:
   push:
     branches:
       - draft
-    paths-ignore:
-      - public/**
-      - content/**
+    # paths-ignore:
+    #   - public/**
+    #   - content/**
 
 jobs:
   deploy:
@@ -18,15 +18,15 @@ jobs:
         with:
           cache: true
 
-      - run: deno install
+      # - run: deno install
 
-      - name: Build
-        run: deno task build
-        env:
-          TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
-          TINA_BRANCH: ${{ github.ref_name  }}
+      # - name: Build
+      #   run: deno task build
+      #   env:
+      #     TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
+      #     TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+      #     TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
+      #     TINA_BRANCH: ${{ github.ref_name  }}
 
       - name: Deploy
         run: |
@@ -34,6 +34,4 @@ jobs:
             --org=${{ vars.ORG }} \
             --app=${{ vars.APP }} \
             --token=${{ secrets.DENO_TOKEN }} \
-            --prod \
             --no-wait \
-            dist
