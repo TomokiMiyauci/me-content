@@ -1,9 +1,32 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/fs@*": "1.0.23",
     "jsr:@std/fs@^1.0.23": "1.0.23",
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@^1.1.4": "1.1.4",
+    "npm:@TomokiMiyauci/cosmos@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/delivery@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-asset@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-boolean@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-datetime@~0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-instance@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-list@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-map@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-markdown@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-number@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-path-reference@~0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-string@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/field-union@~0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/formatter-frontmatter@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/formatter-json@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/formatter-text@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/formatter-yaml@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/index-fs@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/indexer@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/protocol-graphql@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/storage-fs@0.1.6": "0.1.6",
+    "npm:@TomokiMiyauci/store-sqlite@0.1.6": "0.1.6",
     "npm:@tinacms/cli@^2.1.6": "2.1.6_react@19.2.4_react-dom@19.2.4__react@19.2.4_graphql@15.8.0_tailwindcss@3.4.19__postcss@8.5.6__jiti@1.21.7_fs-extra@11.3.3_yup@1.7.1_vite@4.5.14_typanion@3.13.0_typescript@5.9.3",
     "npm:@tinacms/schema-tools@^2.6.0": "2.6.0_react@19.2.4_yup@1.7.1",
     "npm:ajv@^8.18.0": "8.18.0",
@@ -33,6 +56,166 @@
     }
   },
   "npm": {
+    "@TomokiMiyauci/cosmos@0.1.6": {
+      "integrity": "sha512-E3G7h4Ih0TgNNF3tZcgvQfttWO0Xb4VgdXELRTpGsrPbYUBzrXVhr0oC+RRghk231KxB6TVNbCfaytCiTZsyqA==",
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/cosmos/0.1.6/c43d0b37ca6f8b2f60568b6aec05c18ad8ccadc6"
+    },
+    "@TomokiMiyauci/delivery@0.1.6": {
+      "integrity": "sha512-OGiPxFD6icPEXSkoQEye8wpKH2eG0GuqpVzjMWDzhqEPUBcL8EuUYm+0hW1YiXoy7cpR/DONwOlDp3hlR8xqOA==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/delivery/0.1.6/6029a7c8d6291b828a8e67b244bce258c10664a8"
+    },
+    "@TomokiMiyauci/field-asset@0.1.6": {
+      "integrity": "sha512-mgbBfQaU3/RiFFnosNEfVNo+Glmh87QTwMDlrK9XogwGi+DmJVkUJx1FX73rAVt4NUQWUB1QHsndr03M9x+c0g==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-asset/0.1.6/88cab02385256d6a182c2f3133c1aed9c522d6b8"
+    },
+    "@TomokiMiyauci/field-boolean@0.1.6": {
+      "integrity": "sha512-CKmUJhAyBGEKGoVJ/dJDM/WDhLJ/cQsQlJ8Pu91rs8oFdPGQurle3TavdS/IHa9lc7pGij6uwNkpgOrHE+8HgQ==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-boolean/0.1.6/c8ed9d4c56c6ca701ce67af3fb29056256c138e7"
+    },
+    "@TomokiMiyauci/field-datetime@0.1.6": {
+      "integrity": "sha512-tTtLoplHDFNdPkT7Q6/JhhpbDHTceS0UNtvCt0T2YXoIOq1x/sMXYT5T6yIpEZpD2wWS3KVi+rY/QBjG8IOBLQ==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-datetime/0.1.6/43519646ecfd3222f3a6ad7d597762c28dd0ed1c"
+    },
+    "@TomokiMiyauci/field-instance@0.1.6": {
+      "integrity": "sha512-nX5EFLfBSQZ03bWDeuqjXO0Rx5OXnTdGXEMZxg/K7yWMUU9sxCDn0WTFJmCX2o45pEUI3xlLdwMbkpDa8Sqd7g==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-instance/0.1.6/92b580164062d5fdc723dcbb8c0f917bbcab9edb"
+    },
+    "@TomokiMiyauci/field-list@0.1.6": {
+      "integrity": "sha512-MqKxI0FKnjbPYmJUn0UNKBBhWRfArzpdjtvu2p0Cf068ctXqS/wJdB2kJyFIZX2oFkbxT8mjSHfT5oam7vWXbA==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-list/0.1.6/e43c367be843d4f37c867c0883af2fa936b33275"
+    },
+    "@TomokiMiyauci/field-map@0.1.6": {
+      "integrity": "sha512-bNPgedgB0NpHgPeEVphoECwEDEjue/WIOWmBu+EeujbIF2aqsnB6JDQjLfMCS25PaYYxnbFW0u1csCjEZ/htGw==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-map/0.1.6/f72fc60af6db8b66bf1bfb183069ee6279c39488"
+    },
+    "@TomokiMiyauci/field-markdown@0.1.6": {
+      "integrity": "sha512-tInDTEVbaoNGOgHFie7LQPaXXXFXzNh8U1p9omH4sa0b4oBm/vGeAa8H6uWcSrr2qmJW/evvw80lUipyy6msOw==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos",
+        "mdast",
+        "mdast-util-from-markdown@2.0.3",
+        "mdast-util-to-markdown@2.1.2"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-markdown/0.1.6/e98a40b8bb09ee6d6adaac3afda6a6660e08668f"
+    },
+    "@TomokiMiyauci/field-number@0.1.6": {
+      "integrity": "sha512-UqK/ENywHg9xU9DvLjlIR7HO5wp0UxohCwnqZypgi3bNWgaIuypJVebIBdx7rpxDikGqGPhg4uASNbjCcy+Ccw==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-number/0.1.6/27c63351600f78f1c98e21f4d33c49899116f208"
+    },
+    "@TomokiMiyauci/field-path-reference@0.1.6": {
+      "integrity": "sha512-fztgZM+FF7VG/9CKn/ZvRdjrwsI51amgxHVMUKG5OXcS+XXlM3yZu0oZ5tONMGXvD5M6GvPEIn2mbmhNV4ThKg==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-path-reference/0.1.6/3a299c19ebc6b9a0e9d0250e2be9dbd6e8ea90b7"
+    },
+    "@TomokiMiyauci/field-string@0.1.6": {
+      "integrity": "sha512-n66eva5UbtXWxwjRVTE0BEFRJm0AFA5HdReGK7rXF/ch4jhds8tfLhFf1VoVlcghBI86YKqzt6ZHIbmUSWbYDw==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-string/0.1.6/b3707903bbd23a20e2e0bb2956b6a7a1787d7fe2"
+    },
+    "@TomokiMiyauci/field-union@0.1.6": {
+      "integrity": "sha512-jlwPg7Y1W7VWqsA78s+VX0fnDeMXjRmXQ6Y+Z3DbOx8u0i3vlgD/fxE4zS1UF5JKmy7LnrOOOFX+12+RdYaH0A==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/field-union/0.1.6/42b19be741a588b6dd8db9c554bc440a766c6871"
+    },
+    "@TomokiMiyauci/formatter-frontmatter@0.1.6": {
+      "integrity": "sha512-2hKHaNRWUjNohswFOvWdH5Psv9NAt0gZOXqpk9+m4OTVqR0aF7xD87lo3wsLWyNkzkEXzAwqidIKaM0M3uNWwg==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos",
+        "gray-matter"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-frontmatter/0.1.6/0cdf2cc0cbccaf73a451fe672d8597cfcef702c5"
+    },
+    "@TomokiMiyauci/formatter-json@0.1.6": {
+      "integrity": "sha512-+4L6U2FnO+6I4Ak2DAQAcXg20ZjarikMCLPOw98WilaMUM0Qjrw9sIg0ZhL+S3z3si/yanBSXta1Y/WoswKQpg==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-json/0.1.6/2f7cbdfa5c8dd0c43ee1825b2e29b2071d32532d"
+    },
+    "@TomokiMiyauci/formatter-text@0.1.6": {
+      "integrity": "sha512-smzhhusR60hAfapMYsFkFTtxNElnOGmPKGCVe/OgsTfKWoMmAghtLguSpdGZJyhFrzN00BJvaWXrjcAj8mywZg==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-text/0.1.6/3beb0d865c12143483570015c3436c84b0dc3651"
+    },
+    "@TomokiMiyauci/formatter-yaml@0.1.6": {
+      "integrity": "sha512-9a3P1iTiH+HFTNPBnihFHTOx1vpS28KxTTlALtszqvvJL+Okc4zjqL6qmbBFjLEA01MqjvfkrnHsU70iE6dJIg==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-yaml/0.1.6/55f543ba89bfe77b9a766874fe0df8244e80b03f"
+    },
+    "@TomokiMiyauci/index-fs@0.1.6": {
+      "integrity": "sha512-CQuKVKxY4Bb6/YCkEse8HhGjrqU9FJaUkREheD/PIp2gnch+fkrJctVSqkC2lh4sFzoTfU3Sx4Q0XlaCtYK67Q==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/index-fs/0.1.6/6eca3f02265e1c801fc8b58efd87c9aee6dc9371"
+    },
+    "@TomokiMiyauci/indexer@0.1.6": {
+      "integrity": "sha512-+Fy70dvYxrpNrOxIafOr/WF/ufSND+vkzCJndjLIcWouHwyeXrjiOpZT0bV591zwUIOXRTwNX3EPqeBJUtI0cQ==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/indexer/0.1.6/70cf54f625c4cbe4c6a2a789cd26f9b30bd8faff"
+    },
+    "@TomokiMiyauci/protocol-graphql@0.1.6": {
+      "integrity": "sha512-B1OXLqeABtu2dJdC0gORpSBpIYV2XKJTTH0DI7L/MbfXJBqrCHrzLvakTRgCJVG/DOChWKkh5K7Hkatf+Eo3bw==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos",
+        "@graphql-tools/utils@11.0.1_graphql@16.13.2",
+        "graphql@16.13.2",
+        "graphql-relay",
+        "graphql-scalars",
+        "graphql-yoga"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/protocol-graphql/0.1.6/bb2f0fb3d83997145e73bc00d456704386d8e2d0"
+    },
+    "@TomokiMiyauci/storage-fs@0.1.6": {
+      "integrity": "sha512-+VK5AI2g2aUMbFii/wprsozHiO2EZ1TVhNIW5Xje5q8KOsQeQplIIGZ10cLzCvQFjTn93FcgL7W6mQnDuH+gJg==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/storage-fs/0.1.6/b5427c41ec5a7759b75af2909b03a9980f0bcb3b"
+    },
+    "@TomokiMiyauci/store-sqlite@0.1.6": {
+      "integrity": "sha512-bn9YGkYF7vLA7rdbP/G0UCHEjzCdPW+xD5hMk3RP0Zgqy6CYi0C+OJfCTxq/U8Il9iqWj/eL4YEGbLybErk3aA==",
+      "dependencies": [
+        "@TomokiMiyauci/cosmos"
+      ],
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/store-sqlite/0.1.6/d2b665f25e32939061337154b226e4b49e4416ea"
+    },
     "@alloc/quick-lru@5.2.0": {
       "integrity": "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="
     },
@@ -44,7 +227,7 @@
         "@babel/runtime",
         "chalk@4.1.2",
         "fb-watchman",
-        "graphql",
+        "graphql@15.8.0",
         "immutable",
         "invariant",
         "nullthrows",
@@ -288,6 +471,29 @@
     "@emotion/memoize@0.7.4": {
       "integrity": "sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw=="
     },
+    "@envelop/core@5.5.1": {
+      "integrity": "sha512-3DQg8sFskDo386TkL5j12jyRAdip/8yzK3x7YGbZBgobZ4aKXrvDU0GppU0SnmrpQnNaiTUsxBs9LKkwQ/eyvw==",
+      "dependencies": [
+        "@envelop/instrumentation",
+        "@envelop/types",
+        "@whatwg-node/promise-helpers",
+        "tslib@2.8.1"
+      ]
+    },
+    "@envelop/instrumentation@1.0.0": {
+      "integrity": "sha512-cxgkB66RQB95H3X27jlnxCRNTmPuSTgmBAq6/4n2Dtv4hsk4yz8FadA1ggmd0uZzvKqWD6CR+WFgTjhDqg7eyw==",
+      "dependencies": [
+        "@whatwg-node/promise-helpers",
+        "tslib@2.8.1"
+      ]
+    },
+    "@envelop/types@5.2.1": {
+      "integrity": "sha512-CsFmA3u3c2QoLDTfEpGr4t25fjMU31nyvse7IzWTvb0ZycuPjMjb0fjlheh+PbhBYb9YLugnT2uY6Mwcg1o+Zg==",
+      "dependencies": [
+        "@whatwg-node/promise-helpers",
+        "tslib@2.8.1"
+      ]
+    },
     "@esbuild/aix-ppc64@0.24.2": {
       "integrity": "sha512-thpVCb/rhxE/BnMLQ7GReQLLN8q9qbHmI55F4489/ByVg2aQaQ6kbcLb6FHkocZzQhxc4gx0sCk0tJkKBFzDhA==",
       "os": ["aix"],
@@ -523,6 +729,9 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
+    "@fastify/busboy@3.2.0": {
+      "integrity": "sha512-m9FVDXU3GT2ITSe0UaMA5rU3QkfC/UXtCU8y0gSN/GugTqtVldOBWIB5V6V3sbmenVZUIpU6f+mPEO2+m5iTaA=="
+    },
     "@floating-ui/core@1.7.4": {
       "integrity": "sha512-C3HlIdsBxszvm5McXlB8PeOEWfBhcGBTZGkGlWc2U0KFY5IwG5OQEuQ8rq52DZmcHDlPLd+YFBK+cZcytwIFWg==",
       "dependencies": [
@@ -567,7 +776,7 @@
     "@floating-ui/utils@0.2.10": {
       "integrity": "sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ=="
     },
-    "@graphiql/react@0.18.0_graphql@15.8.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_codemirror@5.65.21": {
+    "@graphiql/react@0.18.0_graphql@15.8.0_react@19.2.4_react-dom@19.2.4__react@19.2.4": {
       "integrity": "sha512-OIzUjnxBM4k9DY0DXBMRfU+fTak2tbnmY2o6J5t/vKvqGaa4opRUhgIZEvrerjnktjCxj2dJY706gCwnUZQsNg==",
       "dependencies": [
         "@graphiql/toolkit",
@@ -582,7 +791,7 @@
         "codemirror-graphql",
         "copy-to-clipboard",
         "framer-motion",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-language-service",
         "markdown-it@12.3.2",
         "react",
@@ -594,7 +803,7 @@
       "integrity": "sha512-cFUGqh3Dau+SD3Vq9EFlZrhzYfaHKyOJveFtaCR+U5Cn/S68p7oy+vQBIdwtO6J2J58FncnwBbVRfr+IvVfZqQ==",
       "dependencies": [
         "@n1ru4l/push-pull-async-iterable-iterator",
-        "graphql",
+        "graphql@15.8.0",
         "meros"
       ]
     },
@@ -602,9 +811,9 @@
       "integrity": "sha512-JKllNIipPrheRgl+/Hm/xuWMw9++xNQ12XJR/OHHgFopOg4zmN3TdlRSyYcv/K90hCFkkIwhlHFUQTfKrm8rxQ==",
       "dependencies": [
         "@graphql-codegen/plugin-helpers@3.1.2_graphql@15.8.0",
-        "@graphql-tools/schema",
+        "@graphql-tools/schema@9.0.19_graphql@15.8.0",
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.4.1"
       ]
     },
@@ -614,7 +823,7 @@
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
         "change-case-all",
         "common-tags",
-        "graphql",
+        "graphql@15.8.0",
         "import-from",
         "lodash",
         "tslib@2.4.1"
@@ -626,7 +835,7 @@
         "@graphql-tools/utils@10.11.0_graphql@15.8.0",
         "change-case-all",
         "common-tags",
-        "graphql",
+        "graphql@15.8.0",
         "import-from",
         "lodash",
         "tslib@2.6.3"
@@ -638,7 +847,7 @@
         "@graphql-tools/utils@10.11.0_graphql@15.8.0",
         "change-case-all",
         "common-tags",
-        "graphql",
+        "graphql@15.8.0",
         "import-from",
         "lodash",
         "tslib@2.6.3"
@@ -649,7 +858,7 @@
       "dependencies": [
         "@graphql-codegen/plugin-helpers@5.1.1_graphql@15.8.0",
         "@graphql-tools/utils@10.11.0_graphql@15.8.0",
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.6.3"
       ]
     },
@@ -660,7 +869,7 @@
         "@graphql-codegen/typescript",
         "@graphql-codegen/visitor-plugin-common@5.8.0_graphql@15.8.0",
         "auto-bind",
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.6.3"
       ]
     },
@@ -671,7 +880,7 @@
         "@graphql-codegen/schema-ast",
         "@graphql-codegen/visitor-plugin-common@5.8.0_graphql@15.8.0",
         "auto-bind",
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.6.3"
       ]
     },
@@ -685,7 +894,7 @@
         "auto-bind",
         "change-case-all",
         "dependency-graph@0.11.0",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-tag",
         "parse-filepath",
         "tslib@2.6.3"
@@ -701,7 +910,7 @@
         "auto-bind",
         "change-case-all",
         "dependency-graph@0.11.0",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-tag",
         "parse-filepath",
         "tslib@2.6.3"
@@ -711,7 +920,7 @@
       "integrity": "sha512-MnRtzV5TuzhkgwlGJV0qSewHo9UUVSd9D+79WCNHzjRBQ+Lej1x0i9/KoXebK71dDlOeeueKlGhBCXqPEb7wag==",
       "dependencies": [
         "dependency-graph@0.11.0",
-        "graphql",
+        "graphql@15.8.0",
         "object-inspect@1.12.3",
         "tslib@2.5.0"
       ]
@@ -720,9 +929,21 @@
       "integrity": "sha512-nkwT3bNsYVotQ/xHe7o+No89HB2RSsy/AVyZCoDElkKbPr6a4MtwYxPyXrBsS8u5nu6Czr0fAE5lF5tS5yPmeg==",
       "dependencies": [
         "dependency-graph@1.0.0",
-        "graphql",
+        "graphql@15.8.0",
         "object-inspect@1.13.2",
         "tslib@2.6.2"
+      ]
+    },
+    "@graphql-tools/executor@1.5.2_graphql@16.13.2": {
+      "integrity": "sha512-V7QaW/59Dml7DK0MApMP/Z+qx2qkQ0inGJGi/n1JwBHRZehXTKDNKO7OFRA0h6V1w2afmcVso2GFwlDnPyusGA==",
+      "dependencies": [
+        "@graphql-tools/utils@11.0.1_graphql@16.13.2",
+        "@graphql-typed-document-node/core@3.2.0_graphql@16.13.2",
+        "@repeaterjs/repeater",
+        "@whatwg-node/disposablestack",
+        "@whatwg-node/promise-helpers",
+        "graphql@16.13.2",
+        "tslib@2.8.1"
       ]
     },
     "@graphql-tools/graphql-file-loader@7.5.17_graphql@15.8.0": {
@@ -731,7 +952,7 @@
         "@graphql-tools/import",
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
         "globby",
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.8.1",
         "unixify"
       ]
@@ -740,7 +961,7 @@
       "integrity": "sha512-XQDdyZTp+FYmT7as3xRWH/x8dx0QZA2WZqfMF5EWb36a0PiH7WwlRQYIdyYXj8YCLpiWkeBXgBRHmMnwEYR8iQ==",
       "dependencies": [
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
-        "graphql",
+        "graphql@15.8.0",
         "resolve-from@5.0.0",
         "tslib@2.8.1"
       ]
@@ -748,9 +969,9 @@
     "@graphql-tools/load@7.8.14_graphql@15.8.0": {
       "integrity": "sha512-ASQvP+snHMYm+FhIaLxxFgVdRaM0vrN9wW2BKInQpktwWTXVyk+yP5nQUCEGmn0RTdlPKrffBaigxepkEAJPrg==",
       "dependencies": [
-        "@graphql-tools/schema",
+        "@graphql-tools/schema@9.0.19_graphql@15.8.0",
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
-        "graphql",
+        "graphql@15.8.0",
         "p-limit",
         "tslib@2.8.1"
       ]
@@ -759,14 +980,22 @@
       "integrity": "sha512-XbrHAaj8yDuINph+sAfuq3QCZ/tKblrTLOpirK0+CAgNlZUCHs0Fa+xtMUURgwCVThLle1AF7svJCxFizygLsw==",
       "dependencies": [
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
-        "graphql",
+        "graphql@15.8.0",
+        "tslib@2.8.1"
+      ]
+    },
+    "@graphql-tools/merge@9.1.8_graphql@16.13.2": {
+      "integrity": "sha512-25V7WDrODo1cPrmuUCrqf5qlMA4a/Ow4aHaqJ1MnTUaluwsV3UiqzCHWux3HSLb0H63mkoZiuOrU5xJhxRcoCg==",
+      "dependencies": [
+        "@graphql-tools/utils@11.0.1_graphql@16.13.2",
+        "graphql@16.13.2",
         "tslib@2.8.1"
       ]
     },
     "@graphql-tools/optimize@2.0.0_graphql@15.8.0": {
       "integrity": "sha512-nhdT+CRGDZ+bk68ic+Jw1OZ99YCDIKYA5AlVAnBHJvMawSx9YQqQAIj4refNc1/LRieGiuWvhbG3jvPVYho0Dg==",
       "dependencies": [
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.8.1"
       ]
     },
@@ -774,17 +1003,26 @@
       "integrity": "sha512-rdkL1iDMFaGDiHWd7Bwv7hbhrhnljkJaD0MXeqdwQlZVgVdUDlMot2WuF7CEKVgijpH6eSC6AxXMDeqVgSBS2g==",
       "dependencies": [
         "@ardatan/relay-compiler",
-        "@graphql-tools/utils@11.0.0_graphql@15.8.0",
-        "graphql",
+        "@graphql-tools/utils@11.0.1_graphql@15.8.0",
+        "graphql@15.8.0",
+        "tslib@2.8.1"
+      ]
+    },
+    "@graphql-tools/schema@10.0.32_graphql@16.13.2": {
+      "integrity": "sha512-kJ1Qn20MPnlaEVH37639E6rzQ1tEtr6XTUhNdR4EKydl+FijtLhWX2WLZbGnvrYuG8XUcMxsZU9mRRYYNvK02w==",
+      "dependencies": [
+        "@graphql-tools/merge@9.1.8_graphql@16.13.2",
+        "@graphql-tools/utils@11.0.1_graphql@16.13.2",
+        "graphql@16.13.2",
         "tslib@2.8.1"
       ]
     },
     "@graphql-tools/schema@9.0.19_graphql@15.8.0": {
       "integrity": "sha512-oBRPoNBtCkk0zbUsyP4GaIzCt8C0aCI4ycIRUL67KK5pOHljKLBBtGT+Jr6hkzA74C8Gco8bpZPe7aWFjiaK2w==",
       "dependencies": [
-        "@graphql-tools/merge",
+        "@graphql-tools/merge@8.4.2_graphql@15.8.0",
         "@graphql-tools/utils@9.2.1_graphql@15.8.0",
-        "graphql",
+        "graphql@15.8.0",
         "tslib@2.8.1",
         "value-or-promise"
       ]
@@ -792,35 +1030,78 @@
     "@graphql-tools/utils@10.11.0_graphql@15.8.0": {
       "integrity": "sha512-iBFR9GXIs0gCD+yc3hoNswViL1O5josI33dUqiNStFI/MHLCEPduasceAcazRH77YONKNiviHBV8f7OgcT4o2Q==",
       "dependencies": [
-        "@graphql-typed-document-node/core",
+        "@graphql-typed-document-node/core@3.2.0_graphql@15.8.0",
         "@whatwg-node/promise-helpers",
         "cross-inspect",
-        "graphql",
         "tslib@2.8.1"
       ]
     },
-    "@graphql-tools/utils@11.0.0_graphql@15.8.0": {
-      "integrity": "sha512-bM1HeZdXA2C3LSIeLOnH/bcqSgbQgKEDrjxODjqi3y58xai2TkNrtYcQSoWzGbt9VMN1dORGjR7Vem8SPnUFQA==",
+    "@graphql-tools/utils@10.11.0_graphql@16.13.2": {
+      "integrity": "sha512-iBFR9GXIs0gCD+yc3hoNswViL1O5josI33dUqiNStFI/MHLCEPduasceAcazRH77YONKNiviHBV8f7OgcT4o2Q==",
       "dependencies": [
-        "@graphql-typed-document-node/core",
+        "@graphql-typed-document-node/core@3.2.0_graphql@16.13.2",
         "@whatwg-node/promise-helpers",
         "cross-inspect",
-        "graphql",
+        "graphql@16.13.2",
+        "tslib@2.8.1"
+      ]
+    },
+    "@graphql-tools/utils@11.0.1_graphql@15.8.0": {
+      "integrity": "sha512-pNyCOb95ab/z3zkkiPwIPYxigX7IcpyFVcgD1XACDEvg/7yGnKCESx3k/XHEeneKYx/aWKGzEh/uuf6M6Q8HOw==",
+      "dependencies": [
+        "@graphql-typed-document-node/core@3.2.0_graphql@15.8.0",
+        "@whatwg-node/promise-helpers",
+        "cross-inspect",
+        "tslib@2.8.1"
+      ]
+    },
+    "@graphql-tools/utils@11.0.1_graphql@16.13.2": {
+      "integrity": "sha512-pNyCOb95ab/z3zkkiPwIPYxigX7IcpyFVcgD1XACDEvg/7yGnKCESx3k/XHEeneKYx/aWKGzEh/uuf6M6Q8HOw==",
+      "dependencies": [
+        "@graphql-typed-document-node/core@3.2.0_graphql@16.13.2",
+        "@whatwg-node/promise-helpers",
+        "cross-inspect",
+        "graphql@16.13.2",
         "tslib@2.8.1"
       ]
     },
     "@graphql-tools/utils@9.2.1_graphql@15.8.0": {
       "integrity": "sha512-WUw506Ql6xzmOORlriNrD6Ugx+HjVgYxt9KCXD9mHAak+eaXSwuGGPyE60hy9xaDEoXKBsG7SkG69ybitaVl6A==",
       "dependencies": [
-        "@graphql-typed-document-node/core",
-        "graphql",
+        "@graphql-typed-document-node/core@3.2.0_graphql@15.8.0",
+        "graphql@15.8.0",
         "tslib@2.8.1"
       ]
     },
     "@graphql-typed-document-node/core@3.2.0_graphql@15.8.0": {
+      "integrity": "sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ=="
+    },
+    "@graphql-typed-document-node/core@3.2.0_graphql@16.13.2": {
       "integrity": "sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==",
       "dependencies": [
-        "graphql"
+        "graphql@16.13.2"
+      ]
+    },
+    "@graphql-yoga/logger@2.0.1": {
+      "integrity": "sha512-Nv0BoDGLMg9QBKy9cIswQ3/6aKaKjlTh87x3GiBg2Z4RrjyrM48DvOOK0pJh1C1At+b0mUIM67cwZcFTDLN4sA==",
+      "dependencies": [
+        "tslib@2.8.1"
+      ]
+    },
+    "@graphql-yoga/subscription@5.0.5": {
+      "integrity": "sha512-oCMWOqFs6QV96/NZRt/ZhTQvzjkGB4YohBOpKM4jH/lDT4qb7Lex/aGCxpi/JD9njw3zBBtMqxbaC22+tFHVvw==",
+      "dependencies": [
+        "@graphql-yoga/typed-event-target",
+        "@repeaterjs/repeater",
+        "@whatwg-node/events",
+        "tslib@2.8.1"
+      ]
+    },
+    "@graphql-yoga/typed-event-target@3.0.2": {
+      "integrity": "sha512-ZpJxMqB+Qfe3rp6uszCQoag4nSw42icURnBRfFYSOmTgEeOe4rD0vYlbA8spvCu2TlCesNTlEN9BLWtQqLxabA==",
+      "dependencies": [
+        "@repeaterjs/repeater",
+        "tslib@2.8.1"
       ]
     },
     "@headlessui/react@1.7.19_react@19.2.4_react-dom@19.2.4__react@19.2.4": {
@@ -1627,6 +1908,9 @@
         "react"
       ]
     },
+    "@repeaterjs/repeater@3.0.6": {
+      "integrity": "sha512-Javneu5lsuhwNCryN+pXH93VPQ8g0dBX7wItHFgYiwQmzE1sVdg5tWHiOgHywzL2W21XQopa7IwIEnNbmeUJYA=="
+    },
     "@rollup/pluginutils@5.3.0": {
       "integrity": "sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==",
       "dependencies": [
@@ -1809,16 +2093,16 @@
         "@headlessui/react@2.1.8_react@19.2.4_react-dom@19.2.4__react@19.2.4",
         "@heroicons/react",
         "@monaco-editor/react",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/mdx",
         "final-form",
         "graphiql",
-        "graphql",
+        "graphql@15.8.0",
         "monaco-editor",
         "react",
         "react-dom",
         "react-router-dom",
         "tinacms@3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4_typescript@5.9.3",
-        "typescript@5.9.3",
+        "typescript",
         "zod"
       ]
     },
@@ -1858,7 +2142,7 @@
         "dotenv",
         "esbuild@0.24.2",
         "fs-extra",
-        "graphql",
+        "graphql@15.8.0",
         "js-yaml@4.1.1",
         "many-level",
         "memory-level",
@@ -1873,7 +2157,7 @@
         "tailwindcss",
         "tinacms@3.5.0_react@19.2.4_react-dom@19.2.4__react@19.2.4_@dnd-kit+core@6.3.1__react@19.2.4__react-dom@19.2.4___react@19.2.4_graphql@15.8.0_monaco-editor@0.31.0_yup@1.7.1_class-variance-authority@0.7.1_tailwind-merge@2.6.1_@udecode+plate@48.0.5__react@19.2.4__react-dom@19.2.4___react@19.2.4_final-form@4.20.10_moment@2.29.4_typescript@5.9.3",
         "typanion",
-        "typescript@5.9.3",
+        "typescript",
         "vite",
         "yup",
         "zod"
@@ -1884,7 +2168,7 @@
       "integrity": "sha512-SWaVCbKx3WmHrgv4sNAdp9M3Y31g0HPCrH34fElvNNQ9JVsW5FVY4YYcSDQsMVNZuQotprnAzAM+DnKPeE26GA==",
       "dependencies": [
         "@iarna/toml",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/mdx",
         "@tinacms/schema-tools",
         "abstract-level",
         "date-fns@2.30.0",
@@ -1892,7 +2176,7 @@
         "fast-glob",
         "fs-extra",
         "glob-parent@6.0.2",
-        "graphql",
+        "graphql@15.8.0",
         "gray-matter",
         "isomorphic-git",
         "js-sha1",
@@ -1909,7 +2193,7 @@
       "integrity": "sha512-5r9JJxRJJBGGxzKxQLGtPbyBB4UG0nWMBcSfkn3eswvTOGHzd4JKdJljz53uuOoC+2TgbPV2XWtKoJ5jve+3aw==",
       "dependencies": [
         "@iarna/toml",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1",
+        "@tinacms/mdx",
         "@tinacms/schema-tools",
         "abstract-level",
         "date-fns@2.30.0",
@@ -1917,7 +2201,7 @@
         "fast-glob",
         "fs-extra",
         "glob-parent@6.0.2",
-        "graphql",
+        "graphql@15.8.0",
         "gray-matter",
         "isomorphic-git",
         "js-sha1",
@@ -1930,40 +2214,6 @@
         "yup"
       ]
     },
-    "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1": {
-      "integrity": "sha512-ca1hfAX6ZkNxr2JWo7OCX9/6GofvGCBOyzqlX+UHrj9H+I7M75rLnTXAFpSV6h4HOrsIqTcVk6Vx80RtDg4bZw==",
-      "dependencies": [
-        "@tinacms/schema-tools",
-        "acorn",
-        "ccount",
-        "estree-util-is-identifier-name",
-        "mdast-util-compact",
-        "mdast-util-directive",
-        "mdast-util-from-markdown",
-        "mdast-util-gfm@2.0.2",
-        "mdast-util-mdx-jsx",
-        "mdast-util-to-markdown",
-        "micromark-extension-gfm@2.0.3",
-        "micromark-factory-mdx-expression",
-        "micromark-factory-space@1.0.0",
-        "micromark-factory-whitespace@1.0.0",
-        "micromark-util-character@1.1.0",
-        "micromark-util-symbol@1.0.1",
-        "micromark-util-types@1.0.2",
-        "parse-entities",
-        "prettier",
-        "remark",
-        "remark-gfm",
-        "remark-mdx",
-        "stringify-entities",
-        "typedoc@0.26.11_typescript@5.6.3",
-        "unist-util-source",
-        "unist-util-stringify-position@3.0.3",
-        "unist-util-visit@4.1.2",
-        "uvu",
-        "vfile-message@3.1.4"
-      ]
-    },
     "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3": {
       "integrity": "sha512-ca1hfAX6ZkNxr2JWo7OCX9/6GofvGCBOyzqlX+UHrj9H+I7M75rLnTXAFpSV6h4HOrsIqTcVk6Vx80RtDg4bZw==",
       "dependencies": [
@@ -1973,10 +2223,10 @@
         "estree-util-is-identifier-name",
         "mdast-util-compact",
         "mdast-util-directive",
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-gfm@2.0.2",
         "mdast-util-mdx-jsx",
-        "mdast-util-to-markdown",
+        "mdast-util-to-markdown@1.5.0",
         "micromark-extension-gfm@2.0.3",
         "micromark-factory-mdx-expression",
         "micromark-factory-space@1.0.0",
@@ -1990,7 +2240,7 @@
         "remark-gfm",
         "remark-mdx",
         "stringify-entities",
-        "typedoc@0.26.11_typescript@5.9.3",
+        "typedoc",
         "unist-util-source",
         "unist-util-stringify-position@3.0.3",
         "unist-util-visit@4.1.2",
@@ -2447,9 +2697,48 @@
         "varint"
       ]
     },
+    "@whatwg-node/disposablestack@0.0.6": {
+      "integrity": "sha512-LOtTn+JgJvX8WfBVJtF08TGrdjuFzGJc4mkP8EdDI8ADbvO7kiexYep1o8dwnt0okb0jYclCDXF13xU7Ge4zSw==",
+      "dependencies": [
+        "@whatwg-node/promise-helpers",
+        "tslib@2.8.1"
+      ]
+    },
+    "@whatwg-node/events@0.1.2": {
+      "integrity": "sha512-ApcWxkrs1WmEMS2CaLLFUEem/49erT3sxIVjpzU5f6zmVcnijtDSrhoK2zVobOIikZJdH63jdAXOrvjf6eOUNQ==",
+      "dependencies": [
+        "tslib@2.8.1"
+      ]
+    },
+    "@whatwg-node/fetch@0.10.13": {
+      "integrity": "sha512-b4PhJ+zYj4357zwk4TTuF2nEe0vVtOrwdsrNo5hL+u1ojXNhh1FgJ6pg1jzDlwlT4oBdzfSwaBwMCtFCsIWg8Q==",
+      "dependencies": [
+        "@whatwg-node/node-fetch",
+        "urlpattern-polyfill"
+      ]
+    },
+    "@whatwg-node/node-fetch@0.8.5": {
+      "integrity": "sha512-4xzCl/zphPqlp9tASLVeUhB5+WJHbuWGYpfoC2q1qh5dw0AqZBW7L27V5roxYWijPxj4sspRAAoOH3d2ztaHUQ==",
+      "dependencies": [
+        "@fastify/busboy",
+        "@whatwg-node/disposablestack",
+        "@whatwg-node/promise-helpers",
+        "tslib@2.8.1"
+      ]
+    },
     "@whatwg-node/promise-helpers@1.3.2": {
       "integrity": "sha512-Nst5JdK47VIl9UcGwtv2Rcgyn5lWtZ0/mhRQ4G8NN2isxpq2TO30iqHzmwoJycjWuyUfg3GFXqP/gFHXeV57IA==",
       "dependencies": [
+        "tslib@2.8.1"
+      ]
+    },
+    "@whatwg-node/server@0.10.18": {
+      "integrity": "sha512-kMwLlxUbduttIgaPdSkmEarFpP+mSY8FEm+QWMBRJwxOHWkri+cxd8KZHO9EMrB9vgUuz+5WEaCawaL5wGVoXg==",
+      "dependencies": [
+        "@envelop/instrumentation",
+        "@whatwg-node/disposablestack",
+        "@whatwg-node/fetch",
+        "@whatwg-node/promise-helpers",
         "tslib@2.8.1"
       ]
     },
@@ -2871,13 +3160,13 @@
         "react-dom"
       ]
     },
-    "codemirror-graphql@2.2.4_@codemirror+language@6.0.0_codemirror@5.65.21_graphql@15.8.0": {
+    "codemirror-graphql@2.2.4_codemirror@5.65.21_graphql@15.8.0": {
       "integrity": "sha512-VW4rpbAqgAIEWKXwE3nDFz2QEaY5Cme0CnKET43ZE3RSKAAeOaUcecR6wBf3LYfxWwOyyzeCzqxRoUj+HNAEQA==",
       "dependencies": [
         "@codemirror/language",
         "@types/codemirror@0.0.90",
         "codemirror",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-language-service"
       ]
     },
@@ -2971,10 +3260,10 @@
         "js-yaml@4.1.1",
         "parse-json",
         "path-type",
-        "typescript@5.9.3"
+        "typescript"
       ],
       "optionalPeers": [
-        "typescript@5.9.3"
+        "typescript"
       ]
     },
     "crc-32@1.2.2": {
@@ -3815,7 +4104,7 @@
       "dependencies": [
         "@graphiql/react",
         "@graphiql/toolkit",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-language-service",
         "markdown-it@12.3.2",
         "react",
@@ -3826,21 +4115,55 @@
       "integrity": "sha512-9EvWrLLkF6Y5e29/2cmFoAO6hBPPAZlCyjznmpR11iFtRydfkss+9m6x+htA8h7YznGam+TtJwS6JuwoWWgb2Q==",
       "dependencies": [
         "debounce-promise",
-        "graphql",
+        "graphql@15.8.0",
         "nullthrows",
         "vscode-languageserver-types"
       ],
       "bin": true
     },
+    "graphql-relay@0.10.2_graphql@16.13.2": {
+      "integrity": "sha512-abybva1hmlNt7Y9pMpAzHuFnM2Mme/a2Usd8S4X27fNteLGRAECMYfhmsrpZFvGn3BhmBZugMXYW/Mesv3P1Kw==",
+      "dependencies": [
+        "graphql@16.13.2"
+      ]
+    },
+    "graphql-scalars@1.25.0_graphql@16.13.2": {
+      "integrity": "sha512-b0xyXZeRFkne4Eq7NAnL400gStGqG/Sx9VqX0A05nHyEbv57UJnWKsjNnrpVqv5e/8N1MUxkt0wwcRXbiyKcFg==",
+      "dependencies": [
+        "graphql@16.13.2",
+        "tslib@2.8.1"
+      ]
+    },
     "graphql-tag@2.12.6_graphql@15.8.0": {
       "integrity": "sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==",
       "dependencies": [
-        "graphql",
+        "graphql@15.8.0",
+        "tslib@2.8.1"
+      ]
+    },
+    "graphql-yoga@5.21.0_graphql@16.13.2": {
+      "integrity": "sha512-PS37UoDihx8209RRl1ogttzWevNYDnGvP7beHkwHzUpUdfZTHsVRTVe1ysGXre1EjwUAePbpez302YSrq70Ngw==",
+      "dependencies": [
+        "@envelop/core",
+        "@envelop/instrumentation",
+        "@graphql-tools/executor",
+        "@graphql-tools/schema@10.0.32_graphql@16.13.2",
+        "@graphql-tools/utils@10.11.0_graphql@16.13.2",
+        "@graphql-yoga/logger",
+        "@graphql-yoga/subscription",
+        "@whatwg-node/fetch",
+        "@whatwg-node/promise-helpers",
+        "@whatwg-node/server",
+        "graphql@16.13.2",
+        "lru-cache@10.0.0",
         "tslib@2.8.1"
       ]
     },
     "graphql@15.8.0": {
       "integrity": "sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw=="
+    },
+    "graphql@16.13.2": {
+      "integrity": "sha512-5bJ+nf/UCpAjHM8i06fl7eLyVC9iuNAjm9qzkiu2ZGhM0VscSvS6WDPfAwkdkBuoXGM9FJSbKl6wylMwP9Ktig=="
     },
     "gray-matter@4.0.3": {
       "integrity": "sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==",
@@ -4442,8 +4765,8 @@
       "dependencies": [
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown",
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0",
         "parse-entities",
         "stringify-entities",
         "unist-util-visit-parents@5.1.3"
@@ -4464,15 +4787,32 @@
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
         "decode-named-character-reference",
-        "mdast-util-to-string",
+        "mdast-util-to-string@3.2.0",
         "micromark@3.2.0",
         "micromark-util-decode-numeric-character-reference@1.1.0",
-        "micromark-util-decode-string",
+        "micromark-util-decode-string@1.1.0",
         "micromark-util-normalize-identifier@1.1.0",
         "micromark-util-symbol@1.0.1",
         "micromark-util-types@1.0.2",
         "unist-util-stringify-position@3.0.3",
         "uvu"
+      ]
+    },
+    "mdast-util-from-markdown@2.0.3": {
+      "integrity": "sha512-W4mAWTvSlKvf8L6J+VN9yLSqQ9AOAAvHuoDAmPkz4dHf553m5gVj2ejadHJhoJmcmxEnOv6Pa8XJhpxE93kb8Q==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "@types/unist@3.0.3",
+        "decode-named-character-reference",
+        "devlop",
+        "mdast-util-to-string@4.0.0",
+        "micromark@4.0.2",
+        "micromark-util-decode-numeric-character-reference@2.0.2",
+        "micromark-util-decode-string@2.0.1",
+        "micromark-util-normalize-identifier@2.0.1",
+        "micromark-util-symbol@2.0.1",
+        "micromark-util-types@2.0.2",
+        "unist-util-stringify-position@4.0.0"
       ]
     },
     "mdast-util-gfm-autolink-literal@1.0.3": {
@@ -4488,7 +4828,7 @@
       "integrity": "sha512-56D19KOGbE00uKVj3sgIykpwKL179QsVFwx/DCW0u/0+URsryacI4MAdNJl0dh+u2PSsD9FtxPFbHCzJ78qJFQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown",
+        "mdast-util-to-markdown@1.5.0",
         "micromark-util-normalize-identifier@1.1.0"
       ]
     },
@@ -4496,7 +4836,7 @@
       "integrity": "sha512-DAPhYzTYrRcXdMjUtUjKvW9z/FNAMTdU0ORyMcbmkwYNbKocDpdk+PX1L1dQgOID/+vVs1uBQ7ElrBQfZ0cuiQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-gfm-table@1.0.7": {
@@ -4504,15 +4844,15 @@
       "dependencies": [
         "@types/mdast@3.0.15",
         "markdown-table",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown"
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-gfm-task-list-item@1.0.2": {
       "integrity": "sha512-PFTA1gzfp1B1UaiJVyhJZA1rm0+Tzn690frc/L8vNX1Jop4STZgOE6bxUhnzdVSB+vm2GU1tIsuQcA9bxTQpMQ==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-gfm@1.0.0": {
@@ -4527,13 +4867,13 @@
     "mdast-util-gfm@2.0.2": {
       "integrity": "sha512-qvZ608nBppZ4icQlhQQIAdc6S3Ffj9RGmzwUKUWuEICFnd1LVkN3EktF7ZHAgfcEdvZB5owU9tQgt99e2TlLjg==",
       "dependencies": [
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-gfm-autolink-literal",
         "mdast-util-gfm-footnote",
         "mdast-util-gfm-strikethrough",
         "mdast-util-gfm-table",
         "mdast-util-gfm-task-list-item",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-mdx-expression@1.3.2": {
@@ -4542,8 +4882,8 @@
         "@types/estree-jsx",
         "@types/hast@2.3.10",
         "@types/mdast@3.0.15",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown"
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-mdx-jsx@2.1.2": {
@@ -4554,8 +4894,8 @@
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
         "ccount",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown",
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0",
         "parse-entities",
         "stringify-entities",
         "unist-util-remove-position",
@@ -4566,11 +4906,11 @@
     "mdast-util-mdx@2.0.1": {
       "integrity": "sha512-38w5y+r8nyKlGvNjSEqWrhG0w5PmnRA+wnBvm+ulYCct7nsGYhFVb0lljS9bQav4psDAS1eGkP2LMVcZBi/aqw==",
       "dependencies": [
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "mdast-util-mdx-expression",
         "mdast-util-mdx-jsx",
         "mdast-util-mdxjs-esm",
-        "mdast-util-to-markdown"
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-mdxjs-esm@1.3.1": {
@@ -4579,8 +4919,8 @@
         "@types/estree-jsx",
         "@types/hast@2.3.10",
         "@types/mdast@3.0.15",
-        "mdast-util-from-markdown",
-        "mdast-util-to-markdown"
+        "mdast-util-from-markdown@1.3.0",
+        "mdast-util-to-markdown@1.5.0"
       ]
     },
     "mdast-util-phrasing@3.0.1": {
@@ -4588,6 +4928,13 @@
       "dependencies": [
         "@types/mdast@3.0.15",
         "unist-util-is@5.2.1"
+      ]
+    },
+    "mdast-util-phrasing@4.1.0": {
+      "integrity": "sha512-TqICwyvJJpBwvGAMZjj4J2n0X8QWp21b9l0o7eXyVJ25YNWYbJDVIyD1bZXE6WtV6RmKJVYmQAKWa0zWOABz2w==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "unist-util-is@6.0.1"
       ]
     },
     "mdast-util-to-hast@13.2.1": {
@@ -4610,10 +4957,24 @@
         "@types/mdast@3.0.15",
         "@types/unist@2.0.11",
         "longest-streak",
-        "mdast-util-phrasing",
-        "mdast-util-to-string",
-        "micromark-util-decode-string",
+        "mdast-util-phrasing@3.0.1",
+        "mdast-util-to-string@3.2.0",
+        "micromark-util-decode-string@1.1.0",
         "unist-util-visit@4.1.2",
+        "zwitch"
+      ]
+    },
+    "mdast-util-to-markdown@2.1.2": {
+      "integrity": "sha512-xj68wMTvGXVOKonmog6LwyJKrYXZPvlwabaryTjLh9LuvovB/KAH+kvi8Gjj+7rJjsFi23nkUxRQv1KqSroMqA==",
+      "dependencies": [
+        "@types/mdast@4.0.4",
+        "@types/unist@3.0.3",
+        "longest-streak",
+        "mdast-util-phrasing@4.1.0",
+        "mdast-util-to-string@4.0.0",
+        "micromark-util-classify-character@2.0.1",
+        "micromark-util-decode-string@2.0.1",
+        "unist-util-visit@5.1.0",
         "zwitch"
       ]
     },
@@ -4622,6 +4983,16 @@
       "dependencies": [
         "@types/mdast@3.0.15"
       ]
+    },
+    "mdast-util-to-string@4.0.0": {
+      "integrity": "sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==",
+      "dependencies": [
+        "@types/mdast@4.0.4"
+      ]
+    },
+    "mdast@3.0.0": {
+      "integrity": "sha512-xySmf8g4fPKMeC07jXGz971EkLbWAJ83s4US2Tj9lEdnZ142UP5grN73H1Xd3HzrdbU5o9GYYP/y8F9ZSwLE9g==",
+      "deprecated": true
     },
     "mdn-data@2.0.14": {
       "integrity": "sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow=="
@@ -5085,6 +5456,15 @@
         "micromark-util-character@1.1.0",
         "micromark-util-decode-numeric-character-reference@1.1.0",
         "micromark-util-symbol@1.0.1"
+      ]
+    },
+    "micromark-util-decode-string@2.0.1": {
+      "integrity": "sha512-nDV/77Fj6eH1ynwscYTOsbK7rR//Uj0bZXBwJZRfaLEJ1iGBR6kIfNmlNqaqJf649EP0F3NWNdeJi03elllNUQ==",
+      "dependencies": [
+        "decode-named-character-reference",
+        "micromark-util-character@2.1.1",
+        "micromark-util-decode-numeric-character-reference@2.0.2",
+        "micromark-util-symbol@2.0.1"
       ]
     },
     "micromark-util-encode@1.1.0": {
@@ -6046,7 +6426,7 @@
       "integrity": "sha512-3ydxgHa/ZQzG8LvC7jTXccARYDcRld3VfcgIIFs7bI6vbRSxJJmzgLEIIoYKyrfhaY+ujuWaf/PJiMZXoiCXgw==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-from-markdown",
+        "mdast-util-from-markdown@1.3.0",
         "unified"
       ]
     },
@@ -6054,7 +6434,7 @@
       "integrity": "sha512-koyOzCMYoUHudypbj4XpnAKFbkddRMYZHwghnxd7ue5210WzGw6kOBwauJTRUMq16jsovXx8dYNvSSWP89kZ3A==",
       "dependencies": [
         "@types/mdast@3.0.15",
-        "mdast-util-to-markdown",
+        "mdast-util-to-markdown@1.5.0",
         "unified"
       ]
     },
@@ -6640,7 +7020,7 @@
         "@radix-ui/react-tooltip",
         "@react-hook/window-size",
         "@tanstack/react-table",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1_typescript@5.9.3",
+        "@tinacms/mdx",
         "@tinacms/schema-tools",
         "@tinacms/search@1.2.3_react@19.2.4_yup@1.7.1_typescript@5.9.3",
         "@udecode/cmdk",
@@ -6678,7 +7058,7 @@
         "final-form",
         "final-form-arrays",
         "final-form-set-field-data",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-tag",
         "is-hotkey",
         "lucide-react",
@@ -6729,7 +7109,7 @@
         "@radix-ui/react-tooltip",
         "@react-hook/window-size",
         "@tanstack/react-table",
-        "@tinacms/mdx@2.0.6_react@19.2.4_yup@1.7.1",
+        "@tinacms/mdx",
         "@tinacms/schema-tools",
         "@tinacms/search@1.2.4_react@19.2.4_yup@1.7.1",
         "@udecode/cmdk",
@@ -6767,7 +7147,7 @@
         "final-form",
         "final-form-arrays",
         "final-form-set-field-data",
-        "graphql",
+        "graphql@15.8.0",
         "graphql-tag",
         "is-hotkey",
         "lucide-react",
@@ -6899,18 +7279,6 @@
         "is-typed-array"
       ]
     },
-    "typedoc@0.26.11_typescript@5.6.3": {
-      "integrity": "sha512-sFEgRRtrcDl2FxVP58Ze++ZK2UQAEvtvvH8rRlig1Ja3o7dDaMHmaBfvJmdGnNEFaLTpQsN8dpvZaTqJSu/Ugw==",
-      "dependencies": [
-        "lunr",
-        "markdown-it@14.1.1",
-        "minimatch@9.0.5",
-        "shiki",
-        "typescript@5.6.3",
-        "yaml"
-      ],
-      "bin": true
-    },
     "typedoc@0.26.11_typescript@5.9.3": {
       "integrity": "sha512-sFEgRRtrcDl2FxVP58Ze++ZK2UQAEvtvvH8rRlig1Ja3o7dDaMHmaBfvJmdGnNEFaLTpQsN8dpvZaTqJSu/Ugw==",
       "dependencies": [
@@ -6918,13 +7286,9 @@
         "markdown-it@14.1.1",
         "minimatch@9.0.5",
         "shiki",
-        "typescript@5.9.3",
+        "typescript",
         "yaml"
       ],
-      "bin": true
-    },
-    "typescript@5.6.3": {
-      "integrity": "sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==",
       "bin": true
     },
     "typescript@5.9.3": {
@@ -7075,6 +7439,9 @@
     },
     "url-pattern@1.0.3": {
       "integrity": "sha512-uQcEj/2puA4aq1R3A2+VNVBgaWYR24FdWjl7VNW83rnWftlhyzOZ/tBjezRiC2UkIzuxC8Top3IekN3vUf1WxA=="
+    },
+    "urlpattern-polyfill@10.1.0": {
+      "integrity": "sha512-IGjKp/o0NL3Bso1PymYURCJxMPNAf/ILOpendP9f5B6e1rTJgdgiOvgfoT8VxCAdY+Wisb9uhGaJJf3yZ2V9nw=="
     },
     "use-callback-ref@1.3.3_react@19.2.4": {
       "integrity": "sha512-jQL3lRnocaFtu3V00JToYz/4QkNWswxijDaCVNZRiRTO3HQDLsdu1ZtmIUvV4yPp+rvWm5j0y0TG/S61cuijTg==",
@@ -7295,6 +7662,29 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/path@^1.1.4",
+      "npm:@TomokiMiyauci/cosmos@0.1.6",
+      "npm:@TomokiMiyauci/delivery@0.1.6",
+      "npm:@TomokiMiyauci/field-asset@0.1.6",
+      "npm:@TomokiMiyauci/field-boolean@0.1.6",
+      "npm:@TomokiMiyauci/field-datetime@~0.1.6",
+      "npm:@TomokiMiyauci/field-instance@0.1.6",
+      "npm:@TomokiMiyauci/field-list@0.1.6",
+      "npm:@TomokiMiyauci/field-map@0.1.6",
+      "npm:@TomokiMiyauci/field-markdown@0.1.6",
+      "npm:@TomokiMiyauci/field-number@0.1.6",
+      "npm:@TomokiMiyauci/field-path-reference@~0.1.6",
+      "npm:@TomokiMiyauci/field-string@0.1.6",
+      "npm:@TomokiMiyauci/field-union@~0.1.6",
+      "npm:@TomokiMiyauci/formatter-frontmatter@0.1.6",
+      "npm:@TomokiMiyauci/formatter-json@0.1.6",
+      "npm:@TomokiMiyauci/formatter-text@0.1.6",
+      "npm:@TomokiMiyauci/formatter-yaml@0.1.6",
+      "npm:@TomokiMiyauci/index-fs@0.1.6",
+      "npm:@TomokiMiyauci/indexer@0.1.6",
+      "npm:@TomokiMiyauci/protocol-graphql@0.1.6",
+      "npm:@TomokiMiyauci/storage-fs@0.1.6",
+      "npm:@TomokiMiyauci/store-sqlite@0.1.6",
       "npm:@tinacms/cli@^2.1.6",
       "npm:i18next@^25.8.13",
       "npm:markdownlint-cli@0.47",
