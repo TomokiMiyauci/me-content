@@ -20,10 +20,8 @@
   },
   "imports": {
     "@cosmos/field-union": "npm:@TomokiMiyauci/field-union@^0.1.6",
-    "@tinacms/cli": "npm:@tinacms/cli@^2.1.6",
     "i18next": "npm:i18next@^25.8.13",
     "markdownlint-cli": "npm:markdownlint-cli@^0.47.0",
-    "tinacms": "npm:tinacms@^3.5.0",
     "@cosmos/core": "npm:@TomokiMiyauci/cosmos@0.1.6",
     "@cosmos/delivery": "npm:@TomokiMiyauci/delivery@0.1.6",
     "@cosmos/field-asset": "npm:@TomokiMiyauci/field-asset@0.1.6",
