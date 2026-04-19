@@ -28,6 +28,7 @@ import post from "./models/post.ts";
 import author from "./models/author.ts";
 import category from "./models/category.ts";
 import { fromFileUrl } from "@std/path";
+import { PathResolver } from "@cosmos/resolver-path";
 
 const io = new DenoIO();
 const storage = new FsStorage(io);
@@ -124,14 +125,7 @@ export default {
   indexes: [
     new FsIndexer(rootDir),
   ],
-  resolver: {
-    resolve(specifier) {
-      return new URL("about:");
-    },
-    unresolve() {
-      return "";
-    },
-  },
+  resolver: new PathResolver(rootDir),
   resources: [
     {
       format: {

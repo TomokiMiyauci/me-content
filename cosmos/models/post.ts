@@ -22,7 +22,7 @@ export default {
       type: "datetime",
     },
     body: {
-      type: "string",
+      type: "markdown",
     },
     authors: {
       type: "list",
