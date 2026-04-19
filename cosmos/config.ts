@@ -27,6 +27,9 @@ import { UnionField } from "@cosmos/field-union";
 import post from "./models/post.ts";
 import author from "./models/author.ts";
 import category from "./models/category.ts";
+import blog from "./models/blog.ts";
+import home from "./models/home.ts";
+import legalDocument from "./models/legal_document.ts";
 import { fromFileUrl } from "@std/path";
 import { PathResolver } from "@cosmos/resolver-path";
 
@@ -102,7 +105,11 @@ export default {
     post,
     author,
     category,
+    blog,
+    home,
+    legalDocument,
   },
+
   formatters: [
     new FrontmatterFormatterDefinition(),
     new JsonFormatterDefinition(),
@@ -158,11 +165,57 @@ export default {
         },
       },
     },
+    {
+      model: "blog",
+      format: {
+        type: "json",
+      },
+      indexer: {
+        type: "fs",
+        options: {
+          pattern: "/content/blog/*.json",
+        },
+      },
+    },
+    {
+      model: "home",
+      format: {
+        type: "json",
+      },
+      indexer: {
+        type: "fs",
+        options: {
+          pattern: "/content/home/*.json",
+        },
+      },
+    },
+    {
+      model: "legalDocument",
+      format: {
+        type: "frontmatter",
+        header: {
+          type: "yaml",
+        },
+        body: {
+          type: "text",
+          field: "body",
+        },
+      },
+      indexer: {
+        type: "fs",
+        options: {
+          pattern: "/legal_documents/**/*.md",
+        },
+      },
+    },
   ],
   storage,
   assets: [
     {
       indexer: { type: "fs", options: { pattern: "/content/posts/**/*.png" } },
+    },
+    {
+      indexer: { type: "fs", options: { pattern: "/content/**/*.jpg" } },
     },
   ],
 } satisfies Config;
