@@ -1,6 +1,6 @@
 {
   "title": "Home",
   "description": "This is Tomoki Miyauchi's personal site. You can check the activity record of me such as technical blog and list of projects.",
-  "cover_image": "/home.jpg",
+  "cover_image": "home.jpg",
   "language": "en"
 }
