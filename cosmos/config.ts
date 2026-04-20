@@ -204,7 +204,7 @@ export default {
       indexer: {
         type: "fs",
         options: {
-          pattern: "/legal_documents/**/*.md",
+          pattern: "/content/legal_documents/**/*.md",
         },
       },
     },
