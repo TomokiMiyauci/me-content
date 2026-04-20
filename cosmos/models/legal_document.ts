@@ -16,5 +16,5 @@ export default {
       type: "string",
     },
   },
-  required: ["title", "language"],
+  required: ["type", "language"],
 } satisfies Model;
