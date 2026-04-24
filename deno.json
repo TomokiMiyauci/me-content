@@ -33,7 +33,8 @@
     "@cosmos/protocol-graphql": "npm:@TomokiMiyauci/protocol-graphql@0.1.14",
     "@cosmos/storage-fs": "npm:@TomokiMiyauci/storage-fs@0.1.14",
     "@cosmos/store-sqlite": "npm:@TomokiMiyauci/store-sqlite@0.1.14",
-    "@std/path": "jsr:@std/path@^1.1.4"
+    "@std/path": "jsr:@std/path@^1.1.4",
+    "markdownlint-rule-relative-links": "npm:markdownlint-rule-relative-links@^5.1.0"
   },
   "lint": {
     "rules": {
