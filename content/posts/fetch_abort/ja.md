@@ -222,7 +222,7 @@ try {
 </script>
 ```
 
-この例では、`AbortController` インスタンスは `onClick`
+この例では、`AbortController` インスタンスは `onClick`
 の度に再生成されるわけではないで、中断後 2 回目の HTTP リクエストを行えません。
 
 インスタンスを `fetch` の度に再設定する必要があるので、次のようにします。

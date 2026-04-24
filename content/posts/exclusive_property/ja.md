@@ -198,7 +198,7 @@ const options: Options = {
 
 ```ts
 const options: Options = {
-  type: "other than primary",
+  type: "other than primary",
   fn: (val) => "", // (val: number) => string
 };
 ```

@@ -45,7 +45,7 @@ vitepress v0.12.0
 yarn add -D vitepress
 ```
 
-ドキュメントのルートディレクトリを決めます。 今回は`docs`
+ドキュメントのルートディレクトリを決めます。 今回は`docs`
 とします。さらに、ドキュメントルートに`index.md`を追加します。
 
 ```bash
@@ -115,11 +115,11 @@ VitePress
 
 ホームレイアウトは次のようなレイアウトです。
 
-![plain home](./plain_home.png) これは `.md`で設定できます。
+![plain home](./plain_home.png) これは`.md`で設定できます。
 
 index.md
 
-```md
+```md
 ---
 home: true
 ---
@@ -154,7 +154,7 @@ footer: MIT Licensed | Copyright © 2019-present Evan You
 ちなみに`heroImage`のようにスラッシュから始めるパスを指定すると、public
 ディレクトリにあるファイルを参照します。
 
-`actionText`と`actionLink`でリンクボタンを追加できます。
+`actionText`と`actionLink`でリンクボタンを追加できます。
 また、`features`に`title`と`details`の配列を追加すると、プロジェクトの特徴をいい感じに出力できます。
 
 `footer`には footer タグを追加できます。
@@ -276,7 +276,7 @@ module.exports = {
 
 `lang`プロパティでは`html`タグの`lang`属性を変更できます。
 `$siteByRoute`や`$site`といった VitePress 用の組み込み属性に追加されるので、
-`.vue`コンポーネントを作って組み込む際にも使えます。
+`.vue`コンポーネントを作って組み込む際にも使えます。
 
 ### title
 

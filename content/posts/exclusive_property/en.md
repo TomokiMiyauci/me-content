@@ -205,7 +205,7 @@ However, interestingly, it is correctly inferred for all but the string
 
 ```ts
 const options: Options = {
-  type: "other than primary",
+  type: "other than primary",
   fn: (val) => "", // (val: number) => string
 };
 ```
