@@ -144,7 +144,7 @@ export default {
   storage,
   assets: [
     {
-      indexer: { type: "fs", options: { pattern: "/content/posts/**/*.png" } },
+      indexer: { type: "fs", options: { pattern: "/content/**/*.png" } },
     },
     {
       indexer: { type: "fs", options: { pattern: "/content/**/*.jpg" } },
