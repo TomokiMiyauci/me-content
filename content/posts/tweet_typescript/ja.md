@@ -154,7 +154,7 @@ result; // TweetV1
 まずは、Twitter の Developer Portal から、プロジェクトを作成し API Key
 を生成します。
 
-![developer portal](/posts/tweet_typescript/developer_portal.png)
+![developer portal](./developer_portal.png)
 
 Customer Keys から
 

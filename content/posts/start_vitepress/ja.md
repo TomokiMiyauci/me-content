@@ -115,8 +115,7 @@ VitePress
 
 ホームレイアウトは次のようなレイアウトです。
 
-![plain home](/posts/start_vitepress/plain_home.png) これは
-`.md`で設定できます。
+![plain home](./plain_home.png) これは `.md`で設定できます。
 
 index.md
 
@@ -162,12 +161,12 @@ footer: MIT Licensed | Copyright © 2019-present Evan You
 
 これらを設定することで、次のようなレイアウトを作れます。
 
-![home](/posts/start_vitepress/home_description.png)
+![home](./home_description.png)
 
 ### ドキュメントレイアウト
 
 続いてドキュメントレイアウトですが、こちらは基本的にはマークダウンを書いていくだけで、次のようなレイアウトになります。
-![plain document](/posts/start_vitepress/plain_document.png)
+![plain document](./plain_document.png)
 
 ここで`title`タグについて見てみます。デフォルトでは、`title`
 タグは次のようになっています。
@@ -358,7 +357,7 @@ module.exports = {
 };
 ```
 
-![edit on GitHub](/posts/start_vitepress/edit_on_github.png)
+![edit on GitHub](./edit_on_github.png)
 
 `docsDir`は GiHub
 上のドキュメントルートを指定します。基本的には、最初に設定したドキュメントルートと同じで問題ありません。
@@ -377,13 +376,13 @@ module.exports = {
 };
 ```
 
-![last updated](/posts/start_vitepress/lastupdate.png)
+![last updated](./lastupdate.png)
 
 #### logo
 
 `logo`プロパティで上部にロゴを設定できます。
 
-![logo](/posts/start_vitepress/logo.png)
+![logo](./logo.png)
 このロゴは画像サイズによって位置がずれたりしますが、後述のカスタム CSS
 によって修正します。
 
@@ -413,7 +412,7 @@ module.exports = {
 };
 ```
 
-![navigation](/posts/start_vitepress/navigation.png)
+![navigation](./navigation.png)
 
 ここまでで、いい感じにドキュメントが作成されるようになっています。
 このままでももちろんいいですが、Vitepress
@@ -450,7 +449,7 @@ module.exports = {
 };
 ```
 
-![locale](/posts/start_vitepress/locale.png)
+![locale](./locale.png)
 これによって言語の切換えができます。便利ですね:sparkles:。
 
 また、`locales`プロパティで、上で説明した`themeConfig`のプロパティを設定できます。例えば、`editLinkText`を言語によって変える場合は以下のようにします。
@@ -711,8 +710,7 @@ import "./custom.css";
 export default {};
 ```
 
-このように色やロゴの大きさを変更できました。
-![theme color](/posts/start_vitepress/theme_color.png)
+このように色やロゴの大きさを変更できました。 ![theme color](./theme_color.png)
 
 ## まとめ
 

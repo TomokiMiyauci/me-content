@@ -158,7 +158,7 @@ the [Twitter developer platform](https://developer.twitter.com/en).
 First, create a project and generate an API key from the Twitter Developer
 Portal.
 
-![developer portal](/posts/tweet_typescript/developer_portal.png)
+![developer portal](./developer_portal.png)
 
 From Customer Keys
 
