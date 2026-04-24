@@ -4,7 +4,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "denoland.vscode-deno"
+        "denoland.vscode-deno",
+        "davidanson.vscode-markdownlint"
       ]
     }
   },
