@@ -4,6 +4,9 @@
     "lint:textlint": {
       "command": "deno x textlint content",
       "description": "Lint by textlint"
+    },
+    "lint:markdown": {
+      "command": "deno x markdownlint-cli2"
     }
   },
   "imports": {
@@ -11,7 +14,6 @@
     "@cosmos/resolver-path": "npm:@TomokiMiyauci/resolver-path@^0.1.15",
     "@cosmos/field-union": "npm:@TomokiMiyauci/codec-union@^0.1.15",
     "i18next": "npm:i18next@^26.0.7",
-    "markdownlint-cli": "npm:markdownlint-cli@^0.48.0",
     "@cosmos/core": "npm:@TomokiMiyauci/cosmos@0.1.15",
     "@cosmos/delivery": "npm:@TomokiMiyauci/delivery@0.1.15",
     "@cosmos/codec-asset": "npm:@TomokiMiyauci/codec-asset@0.1.15",
@@ -34,6 +36,7 @@
     "@cosmos/storage-fs": "npm:@TomokiMiyauci/storage-fs@0.1.15",
     "@cosmos/store-sqlite": "npm:@TomokiMiyauci/store-sqlite@0.1.15",
     "@std/path": "jsr:@std/path@^1.1.4",
+    "markdownlint-cli2": "npm:markdownlint-cli2@^0.22.1",
     "markdownlint-rule-relative-links": "npm:markdownlint-rule-relative-links@^5.1.0"
   },
   "lint": {
