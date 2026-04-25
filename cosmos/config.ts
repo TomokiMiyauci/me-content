@@ -74,8 +74,8 @@ export default {
         },
         body: {
           type: "text",
-          field: "body",
         },
+        bodyKey: "body",
       },
       model: "post",
       indexer: {
@@ -130,8 +130,8 @@ export default {
         },
         body: {
           type: "text",
-          field: "body",
         },
+        bodyKey: "body",
       },
       indexer: {
         type: "fs",
