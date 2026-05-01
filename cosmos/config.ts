@@ -24,8 +24,6 @@ import blog from "./models/blog.ts";
 import home from "./models/home.ts";
 import legalDocument from "./models/legal_document.ts";
 import { fromFileUrl } from "@std/path";
-import { PathResolver } from "@cosmos/resolver-path";
-import { FieldCodec } from "@cosmos/field-codec";
 
 const io = new DenoIO();
 const storage = new FsStorage(io);
@@ -48,7 +46,7 @@ export default {
     new YamlFormatterDefinition(),
     new TextFormatterDefinition(),
   ],
-  field: new FieldCodec({
+  field: {
     string: new StringCodec(),
     asset: new AssetCodec(rootDir),
     map: new MapField(),
@@ -60,13 +58,12 @@ export default {
     reference: new PathReferenceCodec(rootDir),
     datetime: new DatetimeCodec(),
     union: new UnionField(),
-  }),
-  indexes: [
-    new FsIndexer(rootDir),
-  ],
-  resolver: new PathResolver(rootDir),
-  resources: [
-    {
+  },
+  resources: {
+    posts: {
+      type: "document",
+      model: "post",
+      entity: "collection",
       format: {
         type: "frontmatter",
         header: {
@@ -77,51 +74,34 @@ export default {
         },
         bodyKey: "body",
       },
-      model: "post",
-      indexer: {
-        type: "fs",
-        options: {
-          pattern: "/content/posts/**/*.md",
-        },
-      },
     },
-    {
+    authors: {
+      type: "document",
+      entity: "collection",
       format: {
         type: "json",
       },
       model: "author",
-      indexer: {
-        type: "fs",
-        options: {
-          pattern: "/content/authors/**/*.json",
-        },
-      },
     },
-    {
-      model: "blog",
+    blogs: {
+      type: "document",
+      entity: "collection",
       format: {
         type: "json",
       },
-      indexer: {
-        type: "fs",
-        options: {
-          pattern: "/content/blog/*.json",
-        },
-      },
+      model: "blog",
     },
-    {
+    homes: {
+      type: "document",
+      entity: "collection",
       model: "home",
       format: {
         type: "json",
       },
-      indexer: {
-        type: "fs",
-        options: {
-          pattern: "/content/home/*.json",
-        },
-      },
     },
-    {
+    legalDocuments: {
+      type: "document",
+      entity: "collection",
       model: "legalDocument",
       format: {
         type: "frontmatter",
@@ -133,21 +113,30 @@ export default {
         },
         bodyKey: "body",
       },
-      indexer: {
-        type: "fs",
-        options: {
-          pattern: "/content/legal_documents/**/*.md",
-        },
-      },
     },
-  ],
+    assets: {
+      type: "asset",
+    },
+  },
+  sources: {
+    posts: new FsIndexer(rootDir, {
+      patterns: "/content/posts/**/*.md",
+    }),
+    authors: new FsIndexer(rootDir, {
+      patterns: "/content/authors/**/*.json",
+    }),
+    blogs: new FsIndexer(rootDir, {
+      patterns: "/content/blog/*.json",
+    }),
+    homes: new FsIndexer(rootDir, {
+      patterns: "/content/home/*.json",
+    }),
+    legalDocuments: new FsIndexer(rootDir, {
+      patterns: "/content/legal_documents/**/*.md",
+    }),
+    assets: new FsIndexer(rootDir, {
+      patterns: ["/content/**/*.png", "/content/**/*.jpg"],
+    }),
+  },
   storage,
-  assets: [
-    {
-      indexer: { type: "fs", options: { pattern: "/content/**/*.png" } },
-    },
-    {
-      indexer: { type: "fs", options: { pattern: "/content/**/*.jpg" } },
-    },
-  ],
 } satisfies Config;
