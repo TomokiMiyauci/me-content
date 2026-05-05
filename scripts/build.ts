@@ -10,7 +10,10 @@ const dbPath = join(rootDir, "content.sqlite");
 
 const db = new DatabaseSync(dbPath);
 const store = new SqliteStore(db);
-const indexer = new Indexer(config);
+const indexer = new Indexer(
+  config,
+  new URL(import.meta.resolve("../cosmos/config.ts")),
+);
 
 const result = await indexer.index(store);
 const manifest = JSON.stringify(result.manifest, null, 2);

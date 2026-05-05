@@ -24,11 +24,9 @@ import blog from "./models/blog.ts";
 import home from "./models/home.ts";
 import legalDocument from "./models/legal_document.ts";
 import { PathConverter } from "@cosmos/converter-path";
-import { fromFileUrl } from "@std/path";
+import { DenoAdaptor } from "@cosmos/locator-fs/deno";
 
 const io = new DenoIO();
-const file = import.meta.resolve("../");
-const rootDir = fromFileUrl(file);
 
 export default {
   models: {
@@ -89,7 +87,7 @@ export default {
       locator: {
         type: "fs",
         option: {
-          patterns: ["/content/posts/**/*.md"],
+          patterns: ["../content/posts/**/*.md"],
         },
       },
       format: {
@@ -108,7 +106,7 @@ export default {
       locator: {
         type: "fs",
         option: {
-          patterns: ["/content/authors/**/*.json"],
+          patterns: ["../content/authors/**/*.json"],
         },
       },
       format: {
@@ -120,7 +118,7 @@ export default {
       locator: {
         type: "fs",
         option: {
-          patterns: ["/content/blog/*.json"],
+          patterns: ["../content/blog/*.json"],
         },
       },
       format: {
@@ -132,7 +130,7 @@ export default {
       locator: {
         type: "fs",
         option: {
-          patterns: ["/content/home/*.json"],
+          patterns: ["../content/home/*.json"],
         },
       },
       format: {
@@ -144,7 +142,7 @@ export default {
       locator: {
         type: "fs",
         option: {
-          patterns: ["/content/legal_documents/**/*.md"],
+          patterns: ["../content/legal_documents/**/*.md"],
         },
       },
       format: {
@@ -163,20 +161,20 @@ export default {
     file: new FsStorage(io),
   },
   locators: {
-    fs: new FsLocator(rootDir),
+    fs: new FsLocator(new DenoAdaptor()),
   },
   assets: {
     assets: {
       locator: {
         type: "fs",
         option: {
-          patterns: ["/content/**/*.png", "/content/**/*.jpg"],
+          patterns: ["../content/**/*.png", "../content/**/*.jpg"],
         },
       },
     },
   },
   converters: {
-    asset: new PathConverter(rootDir),
-    reference: new PathConverter(rootDir),
+    asset: new PathConverter(),
+    reference: new PathConverter(),
   },
 } satisfies Config;

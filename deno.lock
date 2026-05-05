@@ -1,42 +1,40 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "jsr:@std/internal@^1.0.12": "1.0.13",
     "jsr:@std/path@^1.1.4": "1.1.4",
-    "npm:@TomokiMiyauci/codec-asset@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-boolean@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-datetime@~0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-instance@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-list@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-map@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-markdown@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-number@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-path-reference@~0.1.28": "0.1.28",
-    "npm:@TomokiMiyauci/codec-reference@~0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-string@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/codec-union@~0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/converter-path@~0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/cosmos@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/delivery@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/formatter-frontmatter@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/formatter-json@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/formatter-text@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/formatter-yaml@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/graphql-schema-transformer@~0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/index-fs@0.1.29": "0.1.29",
-    "npm:@TomokiMiyauci/indexer@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/locator-fs@~0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/protocol-graphql@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/storage-fs@0.1.30": "0.1.30",
-    "npm:@TomokiMiyauci/store-sqlite@0.1.30": "0.1.30",
+    "npm:@TomokiMiyauci/codec-asset@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-boolean@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-datetime@~0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-instance@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-list@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-map@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-markdown@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-number@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-reference@~0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-string@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/codec-union@~0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/converter-path@~0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/cosmos@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/delivery@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/formatter-frontmatter@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/formatter-json@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/formatter-text@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/formatter-yaml@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/graphql-schema-transformer@~0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/indexer@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/locator-fs@~0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/protocol-graphql@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/storage-fs@0.1.33": "0.1.33",
+    "npm:@TomokiMiyauci/store-sqlite@0.1.33": "0.1.33",
     "npm:i18next@^26.0.8": "26.0.8",
     "npm:markdownlint-cli2@*": "0.22.1",
     "npm:markdownlint-cli2@~0.22.1": "0.22.1",
     "npm:markdownlint-rule-relative-links@^5.1.0": "5.1.0"
   },
   "jsr": {
-    "@std/internal@1.0.12": {
-      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    "@std/internal@1.0.13": {
+      "integrity": "2f9546691d4ac2d32859c82dff284aaeac980ddeca38430d07941e7e288725c0"
     },
     "@std/path@1.1.4": {
       "integrity": "1d2d43f39efb1b42f0b1882a25486647cb851481862dc7313390b2bb044314b5",
@@ -46,197 +44,180 @@
     }
   },
   "npm": {
-    "@TomokiMiyauci/codec-asset@0.1.30": {
-      "integrity": "sha512-v65wxMpdSc9S27cKLxe5zvktzzstU/7/iPSM5kwgJZU1k3Suhw9OzS4Cb7wqRzzUVX2bjPE1Y+N180zTSAR4uw==",
+    "@TomokiMiyauci/codec-asset@0.1.33": {
+      "integrity": "sha512-cw/OdEdTcahPf4TmtGC72BaZD416Ye9O271G65gqHER0DIwMtTOvBizdTdZm5unTzqv42m2bXGXlyFD81aH/UA==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-asset/0.1.30/0c6b4e798cd806244b50cd0d3725438c23a5abfb"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-asset/0.1.33/12362f8a3ce99fa0f0f24fad60cf74b9ca579526"
     },
-    "@TomokiMiyauci/codec-boolean@0.1.30": {
-      "integrity": "sha512-EW3wX2j7CDksKFbcb+8Iifz9ppKKsGIIB0xt6OHK0/RPkwo6XzISnljhl2GxIXtCwH3WfNWgjEIhzHc4VYELrA==",
+    "@TomokiMiyauci/codec-boolean@0.1.33": {
+      "integrity": "sha512-bBoJ37UENrZOOp2KngfhpWnAmc5EjmDxJFkMwjFhxyyXjiUQv2ddIGpPBa9xAl8JJBi9DrWee3qOLXbte5wwlQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-boolean/0.1.30/9fd91de3d0f778881989dd2d5632e7035f3cfde6"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-boolean/0.1.33/4889d125f764cac7cc7d43473683d01d36032758"
     },
-    "@TomokiMiyauci/codec-datetime@0.1.30": {
-      "integrity": "sha512-YjZJAmVcwyKqB5MnCngc2+PfeYpM3+GDjrYq3PGTkLvtTX/+3KCF0kXe5N5L4/VNyCz5Zk59E757JpyDIZEkUQ==",
+    "@TomokiMiyauci/codec-datetime@0.1.33": {
+      "integrity": "sha512-J670JC2fXhGgO0FcALBb90eoaPL85vUd8M7h3IBOBvYVVfexr+Oeo4eAGDwxV450ThlK7mPS78er/4AR6xDn9Q==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-datetime/0.1.30/bae65335b135d76cd9507afebb7d7ff6ed47988f"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-datetime/0.1.33/54911cb2cc0b9faf10c55968ca02e55f39a1addf"
     },
-    "@TomokiMiyauci/codec-instance@0.1.30": {
-      "integrity": "sha512-UCmNmzHNRzj3+qZO3mS7t1ugi1mFmZL4PQ7/4ZMvA0cuPqpKv1YhIAEARnIqfFoASRU04s0/gl1e7DloOvG4ww==",
+    "@TomokiMiyauci/codec-instance@0.1.33": {
+      "integrity": "sha512-JSDSFhuMAlu/ZP/zzwhbHItollpWekVJusskEquPltKjQnqheEpwb0tQQXG194mH9zMdgLPimKNCERoVheXhYw==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-instance/0.1.30/b4d78ea66fdae1556de7dd053b4341f46a6e6a59"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-instance/0.1.33/7456ff78b9f38e75f3d39b3772ab325f726e90e2"
     },
-    "@TomokiMiyauci/codec-list@0.1.30": {
-      "integrity": "sha512-D+8y/SJ6AyCSF1Ac+pUKg/ue75gDwz1cQtNg9T9LeypTBwi5aPcGuF9F3wGvHAxque0p9IT0gsWV4vdgvNZnMQ==",
+    "@TomokiMiyauci/codec-list@0.1.33": {
+      "integrity": "sha512-+fwc/lhZqQYckR0rmnhkGMzjGaTtY+6UMVPZ7A7TvBGUX40phZvaqwUQek4CSqnq1ic8uvf9M65flmc3e4g7GA==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-list/0.1.30/dd1e915436536c51594ec20cbb62ab8332894c55"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-list/0.1.33/521bc7573bf8b17d2ddc7a39b37482d71bd2c0ff"
     },
-    "@TomokiMiyauci/codec-map@0.1.30": {
-      "integrity": "sha512-MJkza+42ZYQ5yt5gy5ou0faTuuxwmZ4f5sPOcr19MRwxV74o5PwhNTc54bO80GuphGFAlhBfjV7OBPHl4+FI9A==",
+    "@TomokiMiyauci/codec-map@0.1.33": {
+      "integrity": "sha512-jVqj0Zvelshkr3AlXY3P2JvvKBa7A6mJUGVnLc2ZFpR37EsTYWr+by58CjvV0tDJObmXz+C2HPM9D2yOrsBzyw==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-map/0.1.30/c0a888c1af52195aa6f01c454c535590492fae25"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-map/0.1.33/0e42934ad51c189cea7475f09b3a3dbe2ec2d8fb"
     },
-    "@TomokiMiyauci/codec-markdown@0.1.30": {
-      "integrity": "sha512-5W0QxnHGZvexvd/yY4vhjC9tdnCjaCsdyaTQpLjE4mem5n0LMzZtqqQrxue+cgKAZLdhO6rm3CYOYb4v3Zycxg==",
+    "@TomokiMiyauci/codec-markdown@0.1.33": {
+      "integrity": "sha512-/2DpR0QwJblbqdhC9WmmPbwWhxBqirX23lrBQ+3DvfdABfYtaJYtZRxTY0k+mFaglxR+3vtZxHowHopZ3twgqQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30",
+        "@TomokiMiyauci/cosmos",
         "mdast",
         "mdast-util-from-markdown",
         "mdast-util-to-markdown"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-markdown/0.1.30/da9b594fef4b748bd39ccdb9e1ef0a71b1c3f99e"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-markdown/0.1.33/f6cdfa47a70af540cf34d1d5f7323df54a8a874e"
     },
-    "@TomokiMiyauci/codec-number@0.1.30": {
-      "integrity": "sha512-5idJbLvmUTnZZfesxYrgv1/oCBK77fFgdfWJowRJCODaTdxQs4m51I23OSqGzBQ8vCwWAsrRH6uao7gnbvKSOQ==",
+    "@TomokiMiyauci/codec-number@0.1.33": {
+      "integrity": "sha512-STpsjgs/Ei2g4ihXZ+D0i9rM2VIRBHm775sF2MqWNiC9Vh6brv38hBwgcFB40cemMTk90nrchGq0cmAMOBuK2A==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-number/0.1.30/c7b28742aea6bfe7410b00f4ec2a9aaa8afbd11a"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-number/0.1.33/2bcebddc63f8b29d1180991ad91c7ba73e4a1a35"
     },
-    "@TomokiMiyauci/codec-path-reference@0.1.28": {
-      "integrity": "sha512-Koav5K29tHIQmiS8uq7GUm6QQ3Mu4MSjwB+ekA23Ax56kueDGjiv0072OpI4M5UzKmjehTRPB1MjV25f4j5ohw==",
+    "@TomokiMiyauci/codec-reference@0.1.33": {
+      "integrity": "sha512-IvHmHeF+1UiAaFlKHFvANyW6SU+/Duj/hPurZFlc3CplYb2rgVO6fIDLcKnwKYNVzDkjn4u3vtjIvT8X+b3JyA==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.28"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-path-reference/0.1.28/10a01d1150a14be4c82f1963255ebf8901ce0ba5"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-reference/0.1.33/8da49195db817bfa8e387257c83465c196f9557d"
     },
-    "@TomokiMiyauci/codec-reference@0.1.30": {
-      "integrity": "sha512-xEkGNATYtmKTFXEX2lUSyEwxSSRchvm3TWIcGw/tkzu5PbOfrYUKY9l/2/VRnqJfXH8YvjeitAq/VA9dVGY/fQ==",
+    "@TomokiMiyauci/codec-string@0.1.33": {
+      "integrity": "sha512-FCGCpHdYDra4HQCPSacktRDuZrYPOP6bpfBtu3mPZJYfTIfMthFbtwkoVSTxEqEcUQboOsciaGGnK8dSIe+pGg==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
-      ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-reference/0.1.30/9525c31161a59afea4d7f444aa6857a40122815d"
-    },
-    "@TomokiMiyauci/codec-string@0.1.30": {
-      "integrity": "sha512-fc/YeEazqo78LPKcezWjqIYyeju8VG9I41i3YFQCPZaY9Ehi33zdwaeTFIXDRwunrS0V924u8TeBhmUnqcciLw==",
-      "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30",
+        "@TomokiMiyauci/cosmos",
         "@TomokiMiyauci/node-builder"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-string/0.1.30/7f4d64c5c2d8013cd537adafd00b19128e63d083"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-string/0.1.33/917da5a10c6553a958647513ee8784856d642a1e"
     },
-    "@TomokiMiyauci/codec-union@0.1.30": {
-      "integrity": "sha512-YheOCb+wQp7CFCFB4BZI6YeVBdGLO6h/peddw3TCrChZUqcUGdk1jqr64M89s7ytFSeI9CvCAcEqU252jTjEBA==",
+    "@TomokiMiyauci/codec-union@0.1.33": {
+      "integrity": "sha512-JxaG3TsGT1xRHDE7GRfCYm93w49liLDcMXCo+/4kWG4wACoB3aQr2pxwHHoA9Pe3U7OBMDNR2YFXVI7XfCKLsw==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-union/0.1.30/c0880c4419422dd2a393264508c7a01c0858c437"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/codec-union/0.1.33/468dfc80937e69bf9b290c54c4f7005f0e32a8ae"
     },
-    "@TomokiMiyauci/converter-path@0.1.30": {
-      "integrity": "sha512-SRK+alSF/v/F6BRYacgzjKBbz2uoiIWc9riJNpWU/DDG94lUNI5K31s4lSstc05CxyWwnRnbZvdapoxr7udR8Q==",
+    "@TomokiMiyauci/converter-path@0.1.33": {
+      "integrity": "sha512-DF8Aj+gGVhC6Xd5zOzbhkRnXMTWwaqGtBtLMs16VRS9G+DwiqxaGaSsIm7KRlTjvzcoE6IwmvZ/46nSpKu6leg==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/converter-path/0.1.30/90116b30c676771542af174d82d22eef2ab9c02e"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/converter-path/0.1.33/af6c9d4922efe5ecf5d75cb44d3ba97eeb77f2d0"
     },
-    "@TomokiMiyauci/cosmos@0.1.28": {
-      "integrity": "sha512-xW8WLvFpfvvPD4Nk84yb8epIyfH6vAbmtr3pA3pBvoKu9TEO9WxTsfXgIPgA070Lelp1zTUVu0z8KYOKvnGlJg==",
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/cosmos/0.1.28/6a571f366466d88f4de56005e16c688d0e7c2362"
+    "@TomokiMiyauci/cosmos@0.1.33": {
+      "integrity": "sha512-StFstHXDIGtsxbo+s6jMFJABA6G+nmm/uDnKzhiTYSRIUPZ7zLHwpR/eNSSTQA9mmBRNV/Raba6jT+Z+PupB3w==",
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/cosmos/0.1.33/5b92bf6ca7b50648150111ddacc8021f072e7fee"
     },
-    "@TomokiMiyauci/cosmos@0.1.29": {
-      "integrity": "sha512-wl0YJyBjsGcCYw0BRhld9UZWyNEEzKmLXLLgph9y3IRC/fzsIeJ6BW/7lyvvhpUzCx5TMwPKZzKzkUdS4kzh5g==",
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/cosmos/0.1.29/ebb57f1f7124bdde824ec000574290252e08022a"
-    },
-    "@TomokiMiyauci/cosmos@0.1.30": {
-      "integrity": "sha512-WrD59LftTTvXn5oaNp2n2DQzBzuTu61/FMicF5it4fnr1q7MZppTpDVWhYYO2NnUoGcdIZjfMRqHdHYR46JdJQ==",
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/cosmos/0.1.30/cee0091743a89f0fff7e254071bd507040acae9a"
-    },
-    "@TomokiMiyauci/delivery@0.1.30": {
-      "integrity": "sha512-xCSVpKJoWXpxaO4XcRgXuIIw7xMC8z9bKum68GMmPeFvhLUVEB8eRKzASYgKFpIIrUKpPNfergEs21WAMD03nQ==",
+    "@TomokiMiyauci/delivery@0.1.33": {
+      "integrity": "sha512-UyAY+nqLoCOUwUjaGjsOTV7y4kvPMfdbMh38xLsHt/vaft+XS7SQ9abTesAkIDgL+5VhIj3eBgKqH6GX7qb2DA==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30",
+        "@TomokiMiyauci/cosmos",
         "@TomokiMiyauci/node-walker"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/delivery/0.1.30/1a2ef9e4bb567d35830bc5f1240fe1bd5a47043c"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/delivery/0.1.33/42d1633ceca77073395104faa0342f0b6d3cd40e"
     },
-    "@TomokiMiyauci/formatter-frontmatter@0.1.30": {
-      "integrity": "sha512-wWnCliRn6ySSatqbM7MmrbBBuKgupIG/sRAKevXYlgV6SDM9xJcPyIfsuFRqZmoINJ26u1SR9AZbuZ8lyN9org==",
+    "@TomokiMiyauci/formatter-frontmatter@0.1.33": {
+      "integrity": "sha512-zd2juVs5qATqMUDWvcUcPvf8dWbPKL9AaL8KB2OncIpnVB+TZYO94hpWF9RnbTXzvO9MUsgUdz34siTh/dZlLQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30",
+        "@TomokiMiyauci/cosmos",
         "gray-matter"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-frontmatter/0.1.30/9af9bfb43e3fdf4c84ee8bdc9a27fdc8f42e2e7a"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-frontmatter/0.1.33/20ad37690eb13999e408dbc0e171d6acbff1fcb3"
     },
-    "@TomokiMiyauci/formatter-json@0.1.30": {
-      "integrity": "sha512-3eL5NDz3u/f1X4tIh4eWo+Wo1xa9tA2mopkIr3ta5gyAaP2lnqekuzYWTkPAGeF99kSJ3LIyawA2CgFdEyxr9A==",
+    "@TomokiMiyauci/formatter-json@0.1.33": {
+      "integrity": "sha512-6/LHckHUCOhgf0SDQUIOP6mh6D/3IxDVAOIH7wC5I5lllh7NiZOIPQXyq+qPoLVA5HLiLOMJS7Q4IiM5H+P5Xw==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-json/0.1.30/2a1f8073cfc5ba573ece485ff3297e8037661125"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-json/0.1.33/4a6b664ae7c0f2c9baf43ebc0bc236dca3eb340a"
     },
-    "@TomokiMiyauci/formatter-text@0.1.30": {
-      "integrity": "sha512-oo4a4wRWLlSqslMONJNK41qWrB6nXWND5riRoUa7Vx2zUSFj0zFIrQR+V/LBz5puZOiWAXKrtnzG3JntM3Ptdg==",
+    "@TomokiMiyauci/formatter-text@0.1.33": {
+      "integrity": "sha512-mnSu8DO58gnhTOW+xWar5QE30iybYSyRGQQ1Lmach0SA+mNrWs/uxiJ8FEauaVaze5P12T7/OxXreowjgZgpwg==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-text/0.1.30/076e35b2d3f40e56889969217381e246c19ef853"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-text/0.1.33/c38d294ed824eb9969dd2640558d95f7bea454ff"
     },
-    "@TomokiMiyauci/formatter-yaml@0.1.30": {
-      "integrity": "sha512-adExWm6/QirQzQUkm9eLPYXxIkp3QdztujHqHNdT6aON7nQIDxKfrP51gY9EwQYbFjli/3GV3PpOfxWwmuhhtg==",
+    "@TomokiMiyauci/formatter-yaml@0.1.33": {
+      "integrity": "sha512-p1EXuDIl/T7ZRkXaCnQbn0hGAlzOmj3s3fFQGF5JCorK0AMJQMSfqntoWHO5fpqOixcOSjnt/dnzCnNprvfGgQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-yaml/0.1.30/e15505eaa7e6427e0b9fd93a9a26119b066d68cb"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/formatter-yaml/0.1.33/1284c8149c68e4e87a29c0fa1658114538a78a5c"
     },
-    "@TomokiMiyauci/graphql-schema-transformer@0.1.30": {
-      "integrity": "sha512-ofbpnkVg3mlOlUkXVaQk4xOx1uMvSDNBZxX8hrpbZ4rap8AqJJuGFQi4gqv71O0FwYFaEbsY21PwgXWBktBQjA==",
+    "@TomokiMiyauci/glob@0.1.33": {
+      "integrity": "sha512-x08O06f5Qv7tYcka6NXAldcnxwpCdActvPaR9dkZiyYZFDueXDxYvDIL8BBRQDFHkStbC9HxJCbRRxdbS9Ez9Q==",
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/glob/0.1.33/d07065b784a92c4b026de11cc01e5dbe6f7bbab0"
+    },
+    "@TomokiMiyauci/graphql-schema-transformer@0.1.33": {
+      "integrity": "sha512-8HoLBzqAHNUdQrhAPuRLT3x6ij9FR0ikV2USGD3bF8NjnrufsaBveTqPd+RaCo79dSXuI6BDRwe4VVM+gvUuSQ==",
       "dependencies": [
         "@graphql-tools/utils@11.1.0_graphql@16.13.2",
         "graphql"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/graphql-schema-transformer/0.1.30/bde0b2ce6bd0fb82e2c2cfba4b5bf3ae17fc7892"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/graphql-schema-transformer/0.1.33/ebd65acbf39a1768fabfed1055212c5c501d51d6"
     },
-    "@TomokiMiyauci/index-fs@0.1.29": {
-      "integrity": "sha512-hTMOtRMuBoh0WuzmTXTyADxM3wj9bRVRDISZVD7y+b5zEaSk4vSzZnlSGEs1sFU0TeJw/2WSCDPo8RDc3+CdMw==",
+    "@TomokiMiyauci/indexer@0.1.33": {
+      "integrity": "sha512-t7Y6wz5Z+8/mm0X4sYoeVeVkCpmXn50CzXlEo+RLiKxLoAG/jvc5AHsSD/W9Lggw0e5nv0a9jL8xc9OX1E9tpg==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.29"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/index-fs/0.1.29/d44534be22933e62cdad66512061f1810da618f7"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/indexer/0.1.33/50e7b165c464ada391c02c2f224db6b4f5fc2950"
     },
-    "@TomokiMiyauci/indexer@0.1.30": {
-      "integrity": "sha512-GfBlKI41bUBDSk3yqkkb++Kby1lz7pvHhjkwkaaAPskVysSMbvkzZBpFc6rrCKEzhqHpNmpY5KR4KW/hvdzFVQ==",
+    "@TomokiMiyauci/locator-fs@0.1.33": {
+      "integrity": "sha512-6kXceVzWAmzNAnSaGFf2T6jAfJlnjcXlDdqYcTP8JhfD8sU+1Hbtuhuwqix0rURZb55C7msLauB5CL30AWwkUQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos",
+        "@TomokiMiyauci/glob"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/indexer/0.1.30/a283b452842ff192a8561dd477d9fa0347917f28"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/locator-fs/0.1.33/e41cdf3b0e37f5fffa6f396abc4c72cc6fc01f69"
     },
-    "@TomokiMiyauci/locator-fs@0.1.30": {
-      "integrity": "sha512-iUa0MsuVCEnN1UZPElQyRmbHFGRrHCG55Ez71u3w+sqH1pYv9/YAH1T6xGWJaOe7DEwHpf3NjdoCDdifQD1C+g==",
+    "@TomokiMiyauci/node-builder@0.1.33": {
+      "integrity": "sha512-QKEEbScKAT74y5Ewk6K4KULEQAZ/UERhWjrihAj9FSH0JR4/4eB1ChSBFk5I4Ogv1pS9QuKm6ZpL3mnrhXtAtQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/locator-fs/0.1.30/ae9c3380ede913069ce47d8d963babae139662a0"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/node-builder/0.1.33/1d49736526fe89ba8c4ced8d8feac0d2a86bb2d7"
     },
-    "@TomokiMiyauci/node-builder@0.1.30": {
-      "integrity": "sha512-POLQkntPag3TQalAdtcl+4Swrt3lijp/J9OAHzuNqcSjVW6QBCrBezs1aHRs32tnS8301UHkdN8SXizbZa4wyw==",
+    "@TomokiMiyauci/node-walker@0.1.33": {
+      "integrity": "sha512-Wa5ZyccoElHi8tIQanzPZ9seUOtIUUbbzZP+7sFHh9Q7I6Na9N2SUbioj9Zo1qa7SLAbWATIsYrPX+Qw1xPNKQ==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/node-builder/0.1.30/994fc60226aa437b5f4f07d99170bdf5f4c6e91d"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/node-walker/0.1.33/fbb9d272dffadcafe8574d7e32b9c37233457f8d"
     },
-    "@TomokiMiyauci/node-walker@0.1.30": {
-      "integrity": "sha512-k7n2zxD5SizUW4i6vnTb/5lwQitY3zUQ0PjNf+92nSV7q2G8oeJAhgUNQ6lW/mM0rP4h9+XxEBGDOSUFZCHk0g==",
+    "@TomokiMiyauci/protocol-graphql@0.1.33": {
+      "integrity": "sha512-II1CraZStmpJKJhziZTqucHSY6h1u2AtHXugkBVqMwgztULK035zj9c2LW2K2jhDGHlUo6nvZqz5Y89z0Do/Pg==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
-      ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/node-walker/0.1.30/92721fd76ee42000119cc26938164fc620e78d2b"
-    },
-    "@TomokiMiyauci/protocol-graphql@0.1.30": {
-      "integrity": "sha512-D1b18zBWlG/AGbFPFE73SMrOZMgUOtuKNVEaULQIl2sy/ahgq7qCl/wDuJP5uBOkIUnFdBN8NEIjUiibauhg0g==",
-      "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30",
+        "@TomokiMiyauci/cosmos",
         "@graphql-tools/utils@11.1.0_graphql@16.13.2",
         "graphql",
         "graphql-relay",
@@ -246,21 +227,21 @@
         "mdast-util-from-markdown",
         "mdast-util-to-markdown"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/protocol-graphql/0.1.30/a434a61f3823782e8b5f4543b6f1e976edc8fb7b"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/protocol-graphql/0.1.33/0fa41719f2edf63f22fffde745f3103f8caa3628"
     },
-    "@TomokiMiyauci/storage-fs@0.1.30": {
-      "integrity": "sha512-3cj8GJDzHhcXolS3NP0CvpRyj3aID11SvGW/d2wA0S6yj3WO6l02q9JO76WbIpgh7vufGitHx3vcbkENQ0u7eQ==",
+    "@TomokiMiyauci/storage-fs@0.1.33": {
+      "integrity": "sha512-PbNsFzyCHbLxvZpfNSWmY0KRsXTcqjlx0c2INi5gm3UBkOzSu32eunBheuoF08x3dOoY2avFHyJqb0ptszirTw==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/storage-fs/0.1.30/102ebfe6cf06893a089eaa71ad5329c0dff7ab2a"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/storage-fs/0.1.33/49a57f567e95b61a87e60de803850d26fe7a5ca1"
     },
-    "@TomokiMiyauci/store-sqlite@0.1.30": {
-      "integrity": "sha512-XceuQxgXoyznENuuDVCs6s4AzzbbHFLHvnz2g2FINxLf7xkmjF+wlgjyNWdFrNjlrikPt/8EJurgOVAEl1QH4g==",
+    "@TomokiMiyauci/store-sqlite@0.1.33": {
+      "integrity": "sha512-8UO3nBdpOYXGnQc1ZgWeHp7EUm516vdefhGO7GJoUx49LMux6qht2hONgbSF4HAmdQmhZ6uqGvdtCLOz4nMmiw==",
       "dependencies": [
-        "@TomokiMiyauci/cosmos@0.1.30"
+        "@TomokiMiyauci/cosmos"
       ],
-      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/store-sqlite/0.1.30/11909c72288490e89dae8ff9f7d1003e090f8d54"
+      "tarball": "https://npm.pkg.github.com/download/@TomokiMiyauci/store-sqlite/0.1.33/ac5993c0f4a2c436b274fb365a0477e23f6c274b"
     },
     "@envelop/core@5.5.1": {
       "integrity": "sha512-3DQg8sFskDo386TkL5j12jyRAdip/8yzK3x7YGbZBgobZ4aKXrvDU0GppU0SnmrpQnNaiTUsxBs9LKkwQ/eyvw==",
@@ -1156,32 +1137,30 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/path@^1.1.4",
-      "npm:@TomokiMiyauci/codec-asset@0.1.30",
-      "npm:@TomokiMiyauci/codec-boolean@0.1.30",
-      "npm:@TomokiMiyauci/codec-datetime@~0.1.30",
-      "npm:@TomokiMiyauci/codec-instance@0.1.30",
-      "npm:@TomokiMiyauci/codec-list@0.1.30",
-      "npm:@TomokiMiyauci/codec-map@0.1.30",
-      "npm:@TomokiMiyauci/codec-markdown@0.1.30",
-      "npm:@TomokiMiyauci/codec-number@0.1.30",
-      "npm:@TomokiMiyauci/codec-path-reference@~0.1.28",
-      "npm:@TomokiMiyauci/codec-reference@~0.1.30",
-      "npm:@TomokiMiyauci/codec-string@0.1.30",
-      "npm:@TomokiMiyauci/codec-union@~0.1.30",
-      "npm:@TomokiMiyauci/converter-path@~0.1.30",
-      "npm:@TomokiMiyauci/cosmos@0.1.30",
-      "npm:@TomokiMiyauci/delivery@0.1.30",
-      "npm:@TomokiMiyauci/formatter-frontmatter@0.1.30",
-      "npm:@TomokiMiyauci/formatter-json@0.1.30",
-      "npm:@TomokiMiyauci/formatter-text@0.1.30",
-      "npm:@TomokiMiyauci/formatter-yaml@0.1.30",
-      "npm:@TomokiMiyauci/graphql-schema-transformer@~0.1.30",
-      "npm:@TomokiMiyauci/index-fs@0.1.29",
-      "npm:@TomokiMiyauci/indexer@0.1.30",
-      "npm:@TomokiMiyauci/locator-fs@~0.1.30",
-      "npm:@TomokiMiyauci/protocol-graphql@0.1.30",
-      "npm:@TomokiMiyauci/storage-fs@0.1.30",
-      "npm:@TomokiMiyauci/store-sqlite@0.1.30",
+      "npm:@TomokiMiyauci/codec-asset@0.1.33",
+      "npm:@TomokiMiyauci/codec-boolean@0.1.33",
+      "npm:@TomokiMiyauci/codec-datetime@~0.1.33",
+      "npm:@TomokiMiyauci/codec-instance@0.1.33",
+      "npm:@TomokiMiyauci/codec-list@0.1.33",
+      "npm:@TomokiMiyauci/codec-map@0.1.33",
+      "npm:@TomokiMiyauci/codec-markdown@0.1.33",
+      "npm:@TomokiMiyauci/codec-number@0.1.33",
+      "npm:@TomokiMiyauci/codec-reference@~0.1.33",
+      "npm:@TomokiMiyauci/codec-string@0.1.33",
+      "npm:@TomokiMiyauci/codec-union@~0.1.33",
+      "npm:@TomokiMiyauci/converter-path@~0.1.33",
+      "npm:@TomokiMiyauci/cosmos@0.1.33",
+      "npm:@TomokiMiyauci/delivery@0.1.33",
+      "npm:@TomokiMiyauci/formatter-frontmatter@0.1.33",
+      "npm:@TomokiMiyauci/formatter-json@0.1.33",
+      "npm:@TomokiMiyauci/formatter-text@0.1.33",
+      "npm:@TomokiMiyauci/formatter-yaml@0.1.33",
+      "npm:@TomokiMiyauci/graphql-schema-transformer@~0.1.33",
+      "npm:@TomokiMiyauci/indexer@0.1.33",
+      "npm:@TomokiMiyauci/locator-fs@~0.1.33",
+      "npm:@TomokiMiyauci/protocol-graphql@0.1.33",
+      "npm:@TomokiMiyauci/storage-fs@0.1.33",
+      "npm:@TomokiMiyauci/store-sqlite@0.1.33",
       "npm:i18next@^26.0.8",
       "npm:markdownlint-cli2@~0.22.1",
       "npm:markdownlint-rule-relative-links@^5.1.0"
