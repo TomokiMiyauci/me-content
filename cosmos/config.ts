@@ -24,7 +24,7 @@ import blog from "./models/blog.ts";
 import home from "./models/home.ts";
 import legalDocument from "./models/legal_document.ts";
 import { PathConverter } from "@cosmos/converter-path";
-import { DenoAdaptor } from "@cosmos/locator-fs/deno";
+import { DenoFileSystem } from "@cosmos/locator-fs/deno";
 
 const io = new DenoIO();
 
@@ -92,13 +92,15 @@ export default {
       },
       format: {
         type: "frontmatter",
-        header: {
-          type: "yaml",
+        option: {
+          header: {
+            type: "yaml",
+          },
+          body: {
+            type: "text",
+          },
+          bodyKey: "body",
         },
-        body: {
-          type: "text",
-        },
-        bodyKey: "body",
       },
     },
     {
@@ -147,13 +149,15 @@ export default {
       },
       format: {
         type: "frontmatter",
-        header: {
-          type: "yaml",
+        option: {
+          header: {
+            type: "yaml",
+          },
+          body: {
+            type: "text",
+          },
+          bodyKey: "body",
         },
-        body: {
-          type: "text",
-        },
-        bodyKey: "body",
       },
     },
   ],
@@ -161,7 +165,7 @@ export default {
     file: new FsStorage(io),
   },
   locators: {
-    fs: new FsLocator(new DenoAdaptor()),
+    fs: new FsLocator(new DenoFileSystem()),
   },
   assets: {
     assets: {
