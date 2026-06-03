@@ -4,7 +4,7 @@ description: プログラムからツイッターのAPIを使ってツイート�
 published_at: 2021-07-26
 slug: tweet-typescript
 language: ja
-cover_image: /posts/tweet_typescript/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -154,7 +154,7 @@ result; // TweetV1
 まずは、Twitter の Developer Portal から、プロジェクトを作成し API Key
 を生成します。
 
-![developer portal](./developer-portal.png)
+![developer portal](./developer_portal.png)
 
 Customer Keys から
 

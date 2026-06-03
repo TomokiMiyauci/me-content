@@ -4,7 +4,7 @@ description: dnt は Deno ベースのコードから Node.js 用のコードを
 published_at: 2021-12-02
 slug: dts-deno-module
 language: ja
-cover_image: /posts/dts_deno_module/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -434,7 +434,7 @@ async function fetchHello() {
 以上で dnt
 の紹介は終わりですが、ここからは実運用上問題になる点について触れたいと思います。
 
-最初に悩むのは恐らくリリースフローです。 2
+最初に悩むのは恐らくリリースフローです。2
 つのレジストリにリリースしなければならないため、手動でのリリースは避けたいです。
 
 Deno は元々サードパーティモジュールのリリースを GitHub の webhook

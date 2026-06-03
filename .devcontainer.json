@@ -1,0 +1,17 @@
+{
+  "name": "Deno",
+  "image": "denoland/deno",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "denoland.vscode-deno",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  }
+}

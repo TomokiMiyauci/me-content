@@ -3,7 +3,7 @@ title: Online testing with Cloud Functions for Firebase
 description: Introduce how to test online mode with Cloud Functions for Firebase. As an example, I will test storing the user information in the database when they sign up, and I will test it across Firebase resources.
 published_at: 2021-08-21
 slug: cloud-functions-online-test
-cover_image: /posts/cloud_functions_online_test/hero.png
+cover_image: hero.png
 language: en
 ---
 
@@ -273,7 +273,7 @@ to test Cloud Functions. Also, you can use any assertions, but we'll use `jest`.
 
 Since we want to use TypeScript with `jest`, we'll use `@swc/jest` as the
 transformer. It runs faster than `ts-jest`. See
-[Speeding up TypeScript with Jest](/posts/speeding-up-jest/) for details.
+[Speeding up TypeScript with Jest](../speeding_up_jest/en.md) for details.
 
 Note that the latest version of `@swc/jest` does not work well, so specify the
 version and install it.

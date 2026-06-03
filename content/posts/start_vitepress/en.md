@@ -4,7 +4,7 @@ description: Introduce the basic usage of VitePress,multilingual support, homepa
 published_at: 2021-02-14
 slug: start-vitepress
 language: en
-cover_image: /posts/start_vitepress/hero.png
+cover_image: hero.png
 ---
 
 ## Introduction
@@ -113,7 +113,7 @@ matter.
 
 The home layout is as follows.
 
-![plain home](plain-home.png) This can be set with `.md`.
+![plain home](./plain_home.png) This can be set with `.md`.
 
 index.md
 
@@ -160,12 +160,12 @@ You can add a footer tag to `footer`.
 
 By setting these, can create the following layout.
 
-![home](home-description.png)
+![home](./home_description.png)
 
 ### Document layout
 
 Next is the document layout. Basically, just write the markdown and the layout
-will be as follows. ![Document](plain-document.png)
+will be as follows. ![Document](./plain_document.png)
 
 Now let's take a look at the `title` tag. By default, the `title` tag looks like
 this:
@@ -362,7 +362,7 @@ module.exports = {
 };
 ```
 
-![edit on GitHub](edit-on-github.png)
+![edit on GitHub](./edit_on_github.png)
 
 `docsDir` specifies the document root on GiHub. Basically, it is the same as the
 document root set at the beginning and there is no problem.
@@ -382,13 +382,13 @@ module.exports = {
 };
 ```
 
-![last updated](lastupdate.png)
+![last updated](./lastupdate.png)
 
 #### logo
 
 You can set the logo at the top with the `logo` property.
 
-![logo](logo.png) This logo may be misaligned depending on the image size, but
+![logo](./logo.png) This logo may be misaligned depending on the image size, but
 it will be fixed by the custom CSS described below.
 
 #### nav
@@ -417,7 +417,7 @@ module.exports = {
 };
 ```
 
-![navigation](navigation.png)
+![navigation](./navigation.png)
 
 At this point, the document should be created nicely. Of course, you can leave
 it as it is, but there are still more customizable elements in VitePress.
@@ -454,7 +454,7 @@ module.exports = {
 };
 ```
 
-![locale](locale.png) This allows you to switch languages. It's
+![locale](./locale.png) This allows you to switch languages. It's
 convenient:sparkles:.
 
 You can also set the `themeConfig` property described above with the `locales`
@@ -665,10 +665,24 @@ take a look at CSS Variables.
   --c-brand: #3eaf7c;
   --c-brand-light: #4abf8a;
   --font-family-base:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   --font-family-mono:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
+    monospace;
   --z-index-navbar: 10;
   --z-index-sidebar: 6;
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -707,7 +721,7 @@ export default {};
 ```
 
 In this way, I was able to change the color and size of the logo.
-![theme color](theme-color.png)
+![theme color](./theme_color.png)
 
 ## Summary
 

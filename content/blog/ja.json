@@ -1,6 +1,6 @@
 {
   "title": "ブログ",
   "description": "プログラミング、Web開発、クラウドなどの最新IT情報や技術記事など現役エンジニアが実務で役立つ知識を提供します。",
-  "cover_image": "/blog.jpg",
+  "cover_image": "blog.jpg",
   "language": "ja"
 }

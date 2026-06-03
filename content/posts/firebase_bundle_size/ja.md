@@ -4,7 +4,7 @@ description: 新しい Firebase モジュールによって、どのくらいバ
 published_at: 2021-08-02
 slug: firebase-bundle-size
 language: ja
-cover_image: /posts/firebase_bundle_size/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -28,7 +28,7 @@ V9 モジュラー SDK を使用すると、V8 SDK を使用して構築され�
 80％少なくなる可能性があるようです。
 
 V8 SDK では、クラスからメソッドチェーンスタイルで実行するのが印象的です。
-クラスは、バンドラーのツリーシェイキングの恩恵を受けれないため、未使用のメソッドでも全てバンドルされます。
+クラスは、バンドラーのツリーシェイキングの恩恵を受けられないため、未使用のメソッドでも全てバンドルされます。
 これにより、例えばただ `Cloud Firestore`
 からデータを読み込むだけでも、爆発的にバンドルサイズが増加します。
 
@@ -151,7 +151,7 @@ initializeApp(firebaseOptions);
 - Cloud Firestore
 - Authentication
 
-Firebase App の初期化についてサイズ削減が見れたので、
+Firebase App の初期化についてサイズ削減が見られたので、
 この２つについて詳しく見てみましょう。
 
 ## Cloud Firestore
@@ -173,7 +173,7 @@ V9 モジュラー SDK では Cloud Firestore に `lite`
 ### Cloud Firestore のフルバンドルサイズ
 
 まずは、ツリーシェイキングを効かせずにすべてをバンドルした場合のサイズについて見てみましょう。
-サブモジュールを利用した場合も含めて、Cloud Firestore モジュールは 4
+サブモジュールを利用した場合も含めて、Cloud Firestore モジュールは4
 つのパターンがあります。
 
 main.ts

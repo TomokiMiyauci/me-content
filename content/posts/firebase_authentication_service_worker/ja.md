@@ -4,7 +4,7 @@ description: Firebase Authentication を Service Worker で使う方法を紹介
 published_at: 2021-08-29
 slug: firebase-authentication-service-worker
 language: ja
-cover_image: /posts/firebase_authentication_service_worker/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -20,7 +20,7 @@ cover_image: /posts/firebase_authentication_service_worker/hero.png
 
 Firebase Authentication に関しては、最大でバンドルサイズを
 70%程度削減することができるようです。
-どの程度バンドルサイズが削減されたかについては、[Firebase のモジュラー SDK でバンドルサイズ比較](/posts/firebase-bundle-size/)
+どの程度バンドルサイズが削減されたかについては、[Firebase のモジュラー SDK でバンドルサイズ比較](../firebase_bundle_size/ja.md)
 を確認ください。
 
 ただ、残念ながら依然としてサイズ問題は存在します。

@@ -4,7 +4,7 @@ description: Introduces how to tweet from a program using the Twitter API. Descr
 published_at: 2021-07-26
 slug: tweet-typescript
 language: en
-cover_image: /posts/tweet_typescript/hero.png
+cover_image: hero.png
 ---
 
 ## Introduction
@@ -158,7 +158,7 @@ the [Twitter developer platform](https://developer.twitter.com/en).
 First, create a project and generate an API key from the Twitter Developer
 Portal.
 
-![developer portal](./developer-portal.png)
+![developer portal](./developer_portal.png)
 
 From Customer Keys
 

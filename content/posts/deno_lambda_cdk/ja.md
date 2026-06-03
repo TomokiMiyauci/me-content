@@ -4,7 +4,7 @@ description: AWS Lambda を Deno ランタイムで動かす方法を紹介し�
 published_at: 2022-01-11
 slug: deno-lambda-cdk
 language: ja
-cover_image: /posts/deno_lambda_cdk/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに

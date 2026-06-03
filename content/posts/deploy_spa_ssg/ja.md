@@ -4,7 +4,7 @@ description: SPAやSSGの仕組みをデプロイという観点から説明し�
 slug: deploy-spa-ssg
 published_at: 2021-02-28
 language: ja
-cover_image: /posts/deploy_spa_ssg/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -285,7 +285,7 @@ firebase.json
 ```
 
 この状態でデプロイすると、`/`へのアクセスはうまくいきます。しかし、その他のパスへのアクセスは
-、次のようなレスポンスを返してきます。
+、次のようなレスポンスを返してきます。
 
 | パス                     | レスポンス    |
 | ------------------------ | ------------- |

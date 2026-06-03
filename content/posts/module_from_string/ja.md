@@ -4,7 +4,7 @@ description: 文字列からランタイムで利用できる Module を取り�
 published_at: 2022-03-31
 slug: module-from-string
 language: ja
-cover_image: /posts/module_from_string/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -17,7 +17,7 @@ JavaScript Object として利用できます。
 
 また、Import Assertions により例えば json フォーマットは JSON Modules
 として扱うことができます。詳しくは
-[import assertions と JSON modules まとめ](/posts/import-assertions-json-modules)
+[import assertions と JSON modules まとめ](../import_assertions_json_modules/ja.md)
 を参照してください。 これは、多くのモダンブラウザではすでに利用可能です。
 
 一方で、次の**文字列**を JavaScript Object

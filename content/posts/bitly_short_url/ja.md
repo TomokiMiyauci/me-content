@@ -2,7 +2,7 @@
 title: Bitlyで動的に短縮 URLを作成してツイートする
 slug: bitly-short-url
 description: Bitlyで短縮URLを動的に生成する方法を紹介します。また、ツイートは短縮URLの有効な利用先なため、動的なツイートの方法も合わせて解説します。
-cover_image: /posts/bitly_short_url/hero.png
+cover_image: hero.png
 published_at: 2021-08-07T00:00:00.000Z
 language: ja
 ---
@@ -37,7 +37,8 @@ Bitly はクレジットカードの登録が不要なフリープランがあ�
 
 例えばこのサイトの URL を短縮すると、
 
-[https://miyauchi.dev/](https://miyauchi.dev/) -> [https://bit.ly/3jzAv7l](https://bit.ly/3jzAv7l)
+[https://miyauchi.dev/](https://miyauchi.dev/) ->
+[https://bit.ly/3jzAv7l](https://bit.ly/3jzAv7l)
 
 という URL が生成されました。
 
@@ -112,8 +113,7 @@ Bitly クライアントライブラリを使うことで、 TypeScript で型�
 npm i bitly
 ```
 
-> \[!WARNING]
-> Top level await 構文を使っています
+> \[!WARNING] Top level await 構文を使っています
 
 ```ts
 import { BitlyClient, isBitlyErrResponse } from "bitly";
@@ -176,7 +176,7 @@ await bitly.info("https://bit.ly/3jzAv7l"); // BitlyLink
 せっかく動的に短縮 URL を生成したので、動的にツイートをしましょう。
 
 ツイートについては以前書いた
-[TypeScript で型安全にツイートする](/posts/tweet-typescript/)
+[TypeScript で型安全にツイートする](../tweet_typescript/ja.md)
 を参照してください。
 
 ```bash

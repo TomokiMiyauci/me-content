@@ -4,7 +4,7 @@ description: 技術ブログのコメントシステムにおすすめなutteran
 published_at: 2021-07-09
 slug: comment-system
 language: ja
-cover_image: /posts/comment_system/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -84,7 +84,7 @@ issues にコメントしたのと同様なので、ブログの運営者は Git
 ### コメントへのリアクション
 
 GitHub issues
-と同様なので、コメントへのリアクションもできます。:rocket:とか　:heart:とかコメントに付けれます。
+と同様なので、コメントへのリアクションもできます。:rocket:とか　:heart:とかコメントに付けられます。
 また、リアクティブに動作するのも本家と同様です。
 
 同様のプロジェクトとして[`Gitment`](https://github.com/imsun/gitment)や[`Gitalk`](https://github.com/gitalk/gitalk)がありますが、GitHub

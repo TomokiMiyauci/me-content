@@ -4,7 +4,7 @@ description: TypeScriptで排他的なプロパティを定義する方法を紹
 published_at: 2021-07-12
 slug: exclusive-property
 language: ja
-cover_image: /posts/exclusive_property/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -198,7 +198,7 @@ const options: Options = {
 
 ```ts
 const options: Options = {
-  type: "other than primary",
+  type: "other than primary",
   fn: (val) => "", // (val: number) => string
 };
 ```

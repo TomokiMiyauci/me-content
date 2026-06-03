@@ -4,7 +4,7 @@ description: Firebase Cloud Messaging(FCM) でウェブプッシュ通知の送�
 published_at: 2021-09-07
 slug: fcm-push-message
 language: ja
-cover_image: /posts/fcm_push_message/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -113,7 +113,7 @@ Firebase V9 では、CDN はまだ
 
 以前書いた記事に `esbuild` を使って 別プロセスで Web worker
 をビルドする例があるので、そちらを
-[Service worker をビルドする](/posts/firebase-authentication-service-worker/#service-worker-をビルドする)
+[Service worker をビルドする](../firebase_authentication_service_worker/ja.md#service-worker-をビルドする)
 を参考にしてください。
 
 sw.ts
@@ -216,7 +216,7 @@ const app = self.firebase.initializeApp(); /* config */
 スコープで、パッケージのバージョンをあわせたほうが無難です。
 
 メインを TypeScript
-で記述する場合、トランスパイルは避けれないので、バンドルはついでにできてしまいます。
+で記述する場合、トランスパイルは避けられないので、バンドルはついでにできてしまいます。
 個人的には、バージョン管理が煩雑なのを避けるかつ、パフォーマンスの最適化のため、モジュールバンドリング方式をおすすめします。
 
 ### 通知のテスト

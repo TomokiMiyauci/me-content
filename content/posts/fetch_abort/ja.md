@@ -4,7 +4,7 @@ description: fetchを使ったHTTPリクエストを中断する方法を紹介�
 published_at: 2021-06-10
 slug: fetch-abort
 language: ja
-cover_image: /posts/fetch_abort/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -222,7 +222,7 @@ try {
 </script>
 ```
 
-この例では、`AbortController` インスタンスは `onClick`
+この例では、`AbortController` インスタンスは `onClick`
 の度に再生成されるわけではないで、中断後 2 回目の HTTP リクエストを行えません。
 
 インスタンスを `fetch` の度に再設定する必要があるので、次のようにします。

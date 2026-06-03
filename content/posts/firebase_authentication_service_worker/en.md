@@ -4,7 +4,7 @@ description: Introduce how to use Firebase Authentication in Service Worker. It 
 published_at: 2021-08-29
 slug: firebase-authentication-service-worker
 language: en
-cover_image: /posts/firebase_authentication_service_worker/hero.png
+cover_image: hero.png
 ---
 
 ## Introduction
@@ -19,7 +19,7 @@ take full advantage of the tree-shaking in Bandler.
 
 As for Firebase Authentication, it seems to be able to reduce the bundle size by
 up to 70%. Please check
-[Bundle size comparison in Firebase modular SDK](/posts/firebase-bundle-size/)
+[Bundle size comparison in Firebase modular SDK](../firebase_bundle_size/en.md)
 to see how much the bundle size has been reduced.
 
 Unfortunately, the size problem still exists.

@@ -1,0 +1,16 @@
+{
+  "config": {
+    "MD013": false,
+    "MD041": false,
+    "relative-links": {
+      "root_path": "."
+    }
+  },
+  "gitignore": true,
+  "globs": [
+    "content/**/*.md"
+  ],
+  "customRules": [
+    "markdownlint-rule-relative-links"
+  ]
+}

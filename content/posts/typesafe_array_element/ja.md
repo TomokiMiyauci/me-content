@@ -4,7 +4,7 @@ description: TypeScriptで型安全にリスト構造の先頭要素を取得す
 published_at: 2021-07-03
 slug: typesafe-array-element
 language: ja
-cover_image: /posts/typesafe_array_element/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに

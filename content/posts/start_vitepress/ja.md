@@ -4,7 +4,7 @@ description: VitePress の基本的な使い方から、ドキュメントには
 published_at: 2021-02-14
 slug: start-vitepress
 language: ja
-cover_image: /posts/start_vitepress/hero.png
+cover_image: hero.png
 ---
 
 ## はじめに
@@ -45,7 +45,7 @@ vitepress v0.12.0
 yarn add -D vitepress
 ```
 
-ドキュメントのルートディレクトリを決めます。 今回は`docs`
+ドキュメントのルートディレクトリを決めます。 今回は`docs`
 とします。さらに、ドキュメントルートに`index.md`を追加します。
 
 ```bash
@@ -115,11 +115,11 @@ VitePress
 
 ホームレイアウトは次のようなレイアウトです。
 
-![plain home](plain-home.png) これは `.md`で設定できます。
+![plain home](./plain_home.png) これは`.md`で設定できます。
 
 index.md
 
-```md
+```md
 ---
 home: true
 ---
@@ -154,19 +154,19 @@ footer: MIT Licensed | Copyright © 2019-present Evan You
 ちなみに`heroImage`のようにスラッシュから始めるパスを指定すると、public
 ディレクトリにあるファイルを参照します。
 
-`actionText`と`actionLink`でリンクボタンを追加できます。
+`actionText`と`actionLink`でリンクボタンを追加できます。
 また、`features`に`title`と`details`の配列を追加すると、プロジェクトの特徴をいい感じに出力できます。
 
 `footer`には footer タグを追加できます。
 
 これらを設定することで、次のようなレイアウトを作れます。
 
-![home](home-description.png)
+![home](./home_description.png)
 
 ### ドキュメントレイアウト
 
 続いてドキュメントレイアウトですが、こちらは基本的にはマークダウンを書いていくだけで、次のようなレイアウトになります。
-![plain document](plain-document.png)
+![plain document](./plain_document.png)
 
 ここで`title`タグについて見てみます。デフォルトでは、`title`
 タグは次のようになっています。
@@ -276,7 +276,7 @@ module.exports = {
 
 `lang`プロパティでは`html`タグの`lang`属性を変更できます。
 `$siteByRoute`や`$site`といった VitePress 用の組み込み属性に追加されるので、
-`.vue`コンポーネントを作って組み込む際にも使えます。
+`.vue`コンポーネントを作って組み込む際にも使えます。
 
 ### title
 
@@ -357,7 +357,7 @@ module.exports = {
 };
 ```
 
-![edit on GitHub](edit-on-github.png)
+![edit on GitHub](./edit_on_github.png)
 
 `docsDir`は GiHub
 上のドキュメントルートを指定します。基本的には、最初に設定したドキュメントルートと同じで問題ありません。
@@ -376,13 +376,13 @@ module.exports = {
 };
 ```
 
-![last updated](lastupdate.png)
+![last updated](./lastupdate.png)
 
 #### logo
 
 `logo`プロパティで上部にロゴを設定できます。
 
-![logo](logo.png)
+![logo](./logo.png)
 このロゴは画像サイズによって位置がずれたりしますが、後述のカスタム CSS
 によって修正します。
 
@@ -412,7 +412,7 @@ module.exports = {
 };
 ```
 
-![navigation](navigation.png)
+![navigation](./navigation.png)
 
 ここまでで、いい感じにドキュメントが作成されるようになっています。
 このままでももちろんいいですが、Vitepress
@@ -449,7 +449,8 @@ module.exports = {
 };
 ```
 
-![locale](locale.png) これによって言語の切換えができます。便利ですね:sparkles:。
+![locale](./locale.png)
+これによって言語の切換えができます。便利ですね:sparkles:。
 
 また、`locales`プロパティで、上で説明した`themeConfig`のプロパティを設定できます。例えば、`editLinkText`を言語によって変える場合は以下のようにします。
 `locales`に指定した key が URL パスにマッピングされます。
@@ -654,10 +655,24 @@ Variables を見てみます。
   --c-brand: #3eaf7c;
   --c-brand-light: #4abf8a;
   --font-family-base:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   --font-family-mono:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
+    monospace;
   --z-index-navbar: 10;
   --z-index-sidebar: 6;
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -695,7 +710,7 @@ import "./custom.css";
 export default {};
 ```
 
-このように色やロゴの大きさを変更できました。 ![theme color](theme-color.png)
+このように色やロゴの大きさを変更できました。 ![theme color](./theme_color.png)
 
 ## まとめ
 

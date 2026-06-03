@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "preset-japanese": {
+      "sentence-length": false,
+      "no-doubled-joshi": false,
+      "max-ten": false,
+      "no-invalid-control-character": false,
+      "no-doubled-conjunction": false,
+      "no-doubled-conjunctive-particle-ga": false
+    }
+  }
+}

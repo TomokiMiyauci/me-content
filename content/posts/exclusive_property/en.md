@@ -4,7 +4,7 @@ description: Shows how to define exclusive properties in TypeScript. It explains
 published_at: 2021-07-12
 slug: exclusive-property
 language: en
-cover_image: /posts/exclusive_property/hero.png
+cover_image: hero.png
 ---
 
 ## Introduction
@@ -134,7 +134,7 @@ const options: Options = {
 ### Discriminated Union
 
 So how should we determine the object literal type of Union types? The pattern
-[Discriminated Union]((https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions))
+[Discriminated Union](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions)
 allows you to narrow down the union types to a single member.
 
 A Discriminated Union must have a common property. The property must be a
@@ -205,7 +205,7 @@ However, interestingly, it is correctly inferred for all but the string
 
 ```ts
 const options: Options = {
-  type: "other than primary",
+  type: "other than primary",
   fn: (val) => "", // (val: number) => string
 };
 ```
