@@ -6,7 +6,8 @@
     },
     "lint:markdown": {
       "command": "deno x markdownlint-cli2"
-    }
+    },
+    "build": "deno run -A scripts/build.ts"
   },
   "imports": {
     "@cosmos/converter-path": "npm:@TomokiMiyauci/converter-path@^0.1.42",
